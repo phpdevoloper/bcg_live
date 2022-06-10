@@ -1,0 +1,20 @@
+img.js--image-preview {
+  width: 109px;
+  margin-top: 10px;
+  height: 123px;
+}
+
+thead {
+  color: #fff;
+  font-weight: 700;
+  background: #494949;
+}
+label#director_name {
+  font-size: 30px !important;
+}
+a#editBasicInline {
+  color: #fff;
+}
+a#editPro {
+  color: #fff;
+}
