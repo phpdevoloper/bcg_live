@@ -283,4 +283,28 @@ $(document).ready(function () {
         break;
     }
   });
+
+  // add achivement
+  $("#add_achive").on("change", function () {
+    var dir_status = $("#director_status").val();
+    var dir_id = $(this).attr("data-dir_id");
+    console.log(dir_status, dir_id);
+    $.ajax({
+      type: "POST",
+      url: "updateDirectorStatus.php",
+      data: {
+        dir_id: dir_id,
+        dir_status: dir_status,
+      },
+      success: function (data) {
+        if (data == 1) {
+          swal({
+            type: "success",
+            title: "Done!",
+            html: "Successfully Updated",
+          });
+        }
+      },
+    });
+  });
 });

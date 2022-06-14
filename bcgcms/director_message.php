@@ -37,7 +37,7 @@
                            <div class="form-group">
                               <label for="name">Director Message</label>
                               <input type="hidden" class="form-control" id="Director_id" name="director_id" value="<?php echo $list['dir_desk_id'];?>">
-                              <textarea class="form-control" id="director_message" rows="30%"></textarea>
+                              <textarea class="form-control" id="director_message" rows="15%"></textarea>
                            </div>
                         </div>
                      </div>

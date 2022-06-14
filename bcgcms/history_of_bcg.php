@@ -2,39 +2,30 @@
 <div class="main-panel">
   <div class="content">
     <div class="page-inner">
-      <div class="page-header">
-          <ul class="breadcrumbs">
-              <li class="nav-home">
-            <a href="#">
-                <i class="flaticon-home"></i>
-            </a>
-        </li>
-        <li class="separator">
-            <i class="flaticon-right-arrow"></i>
-        </li>
-        <li class="nav-item">
-            <a href="#">About Us</a>
-        </li>
-        <li class="separator">
-            <i class="flaticon-right-arrow"></i>
-        </li>
-        <li class="nav-item">
-            <a href="#">History Of BCG</a>
-        </li>
-    </ul>
-</div>
       <div class="row">
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <div class="card-title">History of BCG</div>
+              <div class="page-header">
+                <ul class="breadcrumbs">
+                  <li class="nav-item">
+                      <a href="#">About Us</a>
+                  </li>
+                  <li class="separator">
+                      <i class="flaticon-right-arrow"></i>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#">History Of BCG</a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-md-12 col-lg-12">
                   <div class="form-group">
                     <input type="hidden" name="content_id" id="content_id" value="HIS">
-                    <textarea class="form-control" id="history_of" rows="5">
+                    <textarea class="form-control" id="history_of" rows="15%">
                     </textarea>
                   </div>
                 </div>
@@ -59,14 +50,16 @@
   var content_desc = <?php echo json_encode($result['content_description'] ??'');?>;
   tinymce.init({
     selector: "textarea#history_of",
-    plugins:
-      "a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker",
-    toolbar:
-      "a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents",
+    plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
+                    "searchreplace visualblocks code",
+                    "insertdatetime media paste codesample table preview"
+    ],
+    toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
     toolbar_mode: "floating",
     tinycomments_mode: "embedded",
-    tinycomments_author: "Author name",
     statusbar: false,
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+    paste_data_images: true,
     setup: function (editor) {
       editor.on('init', function (e) {
         editor.setContent(content_desc);
@@ -94,9 +87,11 @@ $(".updatehis").on("click", function () {
           swal({
             type: "success",
             title: "Successfully Updated!",
+          }).then(function () {
+            location.reload();
           });
         }
-      },
+      }
     });
   });
 </script>

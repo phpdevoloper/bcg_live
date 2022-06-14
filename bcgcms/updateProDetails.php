@@ -1,5 +1,5 @@
 <?php
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
 	// var_dump($_FILES);die;
 		if($_FILES['short_pro']['name'] ==''){
 			$sql = "SELECT * FROM director_desk WHERE dir_desk_id='".$_POST['director_id']."'";

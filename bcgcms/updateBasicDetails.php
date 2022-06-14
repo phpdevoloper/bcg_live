@@ -1,5 +1,5 @@
 <?php
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
 	if($_POST['director_id'] != ''){
 		if ($_FILES['director_photo']['name'] == '') {
 			$sql = "select * from director_desk where dir_desk_id = '".$_POST['director_id']."'";

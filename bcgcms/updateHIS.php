@@ -1,5 +1,5 @@
 <?php
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
 	// include('../Upload.php');
     // var_dump($_POST);die;
     if ($_POST['content_id']) {

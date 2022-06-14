@@ -1,5 +1,5 @@
 <?php
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
     if ($_POST['content_id']) {
        $check_id = "SELECT * FROM about_us where content_id='".$_POST['content_id']."'";
        $res = pg_query($db,$check_id);
@@ -16,18 +16,16 @@
         } 
        }
        else {
-            if(empty($result)){
-                $sql = "UPDATE about_us SET content_description ='".$_POST['content_desc']."',
-                content_updated_by='".$_POST['updated_by']."' WHERE 
-                content_id ='".$_POST['content_id']."'";
-                $ret = pg_query($db, $sql);
-                if(!$ret) {
-                    echo pg_last_error($db);
-                    exit;
-                }else{
-                    echo 1;
-                } 
-            }
+            $sql = "UPDATE about_us SET content_description ='".$_POST['content_desc']."',
+            content_updated_by='".$_POST['updated_by']."' WHERE 
+            content_id ='".$_POST['content_id']."'";
+            $ret = pg_query($db, $sql);
+            if(!$ret) {
+                echo pg_last_error($db);
+                exit;
+            }else{
+                echo 1;
+            } 
         }
         pg_close($db);
     }

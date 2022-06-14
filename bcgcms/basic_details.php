@@ -82,7 +82,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="qualifi">Director's Qualification</label>
-                                            <textarea class="form-control" id="director_qualification" name="director_qualification">
+                                            <textarea class="form-control" id="director_qualification" name="director_qualification" rows="5">
                                             <?php echo $result['director_qualification'] ?? '';?>
                                             </textarea>
                                         </div>
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <label for="comment">Position Held</label>
                                             <textarea class="form-control" id="position_held"
-                                                name="position_held" rows="30%">
+                                                name="position_held" rows="15%">
                                                                         </textarea>
                                         </div>
                                     </div>

@@ -1,5 +1,5 @@
 <?php
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
 	// var_dump($_POST);die;	
 	$sql = "UPDATE director_desk SET
 		director_message ='".$_POST['director_message']."'
