@@ -1,0 +1,52 @@
+img.js--image-preview {
+  width: 109px;
+  margin-top: 10px;
+  height: 123px;
+}
+
+thead {
+  color: #fff;
+  font-weight: 700;
+  background: #494949;
+}
+label#director_name {
+  font-size: 30px !important;
+}
+a#editBasicInline {
+  color: #fff;
+}
+a#editPro {
+  color: #fff;
+}
+
+img.profile {
+  width: 150px;
+  height: 150px;
+  border: 6px solid;
+}
+
+.profile tr > td {
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+/* .profile tr > th {
+  color: black;
+  font-size: 17px;
+} */
+
+/* .held {
+  padding-left: 28px;
+} */
+.held h5 {
+  color: black;
+  font-weight: 700;
+}
+.held div {
+  padding-left: 10px;
+}
+.held img {
+  width: 100px;
+  height: 110px;
+  border: 6px solid;
+}
