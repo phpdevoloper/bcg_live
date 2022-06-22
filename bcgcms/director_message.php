@@ -33,13 +33,15 @@
                   ?>
                   <form id="edit_messa">
                      <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-lg-2">
                            <div class="form-group">
                               <div class="held">
                                  <h5><?php echo $list['director_position'] ?? ''; ?></h5>
                                  <img src="<?php echo $list['director_photo'] ?? ''; ?>" alt="">
                               </div>
                            </div>
+                        </div>
+                        <div class="col-lg-10">
                            <div class="form-group">
                               <label for="name">Director Message</label>
                               <input type="hidden" class="form-control" id="Director_id" name="director_id" value="<?php echo $list['dir_desk_id'];?>">

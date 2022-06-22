@@ -11,11 +11,13 @@ include('inc/dbconnection.php');
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">About us</a></li>
-            <li class=""><a href="director_desk.php">Objectives of BCG</a></li>
-            <li class="text-center">Objectives of BCG</li>
+            <li class=""><a href="history_of_bcg.php">History of BCG</a></li>
         </ul>
     </section>
     <div class="container">
+    <div class="section">
+        <h3 class="text-center txt" style="color: #299adc;">History of BCGVL</h3>
+    </div>
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-12">

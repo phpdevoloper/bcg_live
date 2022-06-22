@@ -1,8 +1,8 @@
 <?php 
 	include('inc/dbconnection.php');
 	include('inc/header.php');
-	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
-?>
+    $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
+    ?>
 <div class="main-panel">
     <div class="content">
         <div class="page-inner">
@@ -10,6 +10,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="edit_btn">
+                                <a href="future_plans.php" class="btn btn-primary">Edit</a>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->
                                 <div class="page-header">
@@ -21,7 +24,7 @@
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="viewHIS.php">Future Plans</a>
+                                            <a href="viewFUT.php">Future Plans</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -36,9 +39,6 @@
                                 <p> <?php echo $result['content_description'];?></p>
                             </div>
                         <div>
-                        <div style="padding-top: 35px;">
-                            <a href="future_plans.php" class="btn btn-primary">Edit</a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="edit_btn">
+                                <a href="history_of_bcg.php" class="btn btn-primary">Edit</a>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->
                                 <div class="page-header">
@@ -36,9 +39,6 @@
                                 <p> <?php echo $result['content_description'];?></p>
                             </div>
                         <div>
-                        <div style="padding-top: 35px;">
-                            <a href="history_of_bcg.php" class="btn btn-primary">Edit</a>
-                        </div>
                     </div>
                 </div>
             </div>

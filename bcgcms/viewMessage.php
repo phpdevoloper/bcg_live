@@ -10,6 +10,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="edit_btn">
+                                <a href="director_message.php" class="btn btn-primary">Edit</a>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->
                                 <div class="page-header">
@@ -21,7 +24,7 @@
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#">Director Message</a>
+                                            <a href="ViewMessage.php">Director Message</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -41,9 +44,6 @@
                                 <p> <?php echo $result['director_message'];?></p>
                             </div>
                         <div>
-                        <div style="padding-top: 35px;">
-                            <a href="director_message.php" class="btn btn-primary">Edit</a>
-                        </div>
                     </div>
                 </div>
             </div>

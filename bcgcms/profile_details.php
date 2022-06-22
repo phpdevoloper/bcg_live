@@ -20,7 +20,7 @@
                               <i class="flaticon-right-arrow"></i>
                            </li> 
                            <li class="nav-item">
-                              <a href="#">Profile Details</a>
+                              <a href="profile_details.php">Profile Details</a>
                            </li>
                         </ul>
                      </div>
@@ -49,15 +49,13 @@
                               <input type="file" class="form-control" id="short_pro" name="short_pro">
                               <label id="short"><?php echo $list['short_profile'] ?? ''; ?></label>
                            </div>
-                           <embed width="191" height="207" name="plugin" src="<?php echo $list['short_profile'] ?? ''; ?>" type="application/pdf">
-                        </div>
+                        </div>   
                         <div class="col-md-6">
                            <div class="form-group">
                               <label for="email2">Detailed profile</label>
                               <input type="file" class="form-control" id="detail_pro" name="detail_pro" onchange=''>
                               <label id="detail"><?php echo $list['detail_profile'] ?? ''; ?></label>
                            </div>
-                           <embed width="191" height="207" name="plugin" src="<?php echo $list['detail_profile'] ?? ''; ?>" type="application/pdf">
                         </div>
                      </div>
                      <div class="modal-footer no-bd">

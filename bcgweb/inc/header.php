@@ -180,6 +180,9 @@
                           </li>
                         </ul>
                       </li>
+                      <li>
+                        <a href="index.php" class="nav-link">What's New</a>
+                      </li>
                       <li class="dropdown">
                         <a href="" class="nav-link">Who's who</a>
                         <ul class="dropdown-nav">
@@ -190,10 +193,10 @@
                             <a href="director_message.php" class="list_a">Director's Message</a>
                           </li>
                           <li>
-                            <a href="" class="list_a">Organisation Chart</a>
+                            <a href="organisation_chart.php" class="list_a">Organisation Chart</a>
                           </li>
                           <li>
-                            <a href="" class="list_a">Staff Details</a>
+                            <a href="staff_list.php" class="list_a">Staff Details</a>
                           </li>
                           <li>
                             <a href="former_directors.php" class="list_a"
@@ -226,7 +229,7 @@
                             <a href="" class="list_a">Products</a>
                           </li>
                           <li>
-                            <a href="" class="list_a">Production Process</a>
+                            <a href="production_chart.php" class="list_a">Production Process</a>
                           </li>
                           <li>
                             <a href="" class="list_a">Supply of BCG Vaccine</a>

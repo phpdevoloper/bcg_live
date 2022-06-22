@@ -33,12 +33,12 @@ include('inc/dbconnection.php');
                             <div class="col-lg-4" style="background: #f7f9fa;">                     
                                 <div class="practice-area-wrap">
                                     <div class="outer">
-                                        <img src="../bcgcms/<?php echo $value['director_photo'];?>" class="img-flu" alt="" />
+                                        <img src="<?php echo $value['director_photo'];?>" class="img-flu" alt="" />
                                     </div>
                                     <div class="text-center" style="padding-bottom: 13px;">
                                         <h3 style="color: #012970;font-size: 30px;"><?php echo $value['director_name'];?></h3>
                                         <h5 style="color: #012970;font-size: 11px;"><?php echo $value['director_qualification'];?></h5>
-                                    </div>
+                                    </div> 
                                     <div class="text-center">
                                         <a href="<?php echo $value['short_profile'];?>"  target="_blank" class="btn_theme"><i class="fas fa-file-pdf"></i>Short profile</a>
                                         <a href="<?php echo $value['detail_profile'];?>" target="_blank" class="btn_theme"><i class="fas fa-file-pdf"></i>Detailed profile</a>

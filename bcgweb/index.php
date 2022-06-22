@@ -1,4 +1,5 @@
-<?php include('inc/header.php'); ?>
+<?php include('inc/header.php');
+ include('inc/dbconnection.php'); ?>
 <!-- Home -->
 
 <div class="home">
@@ -125,41 +126,27 @@
     </div>
     <div class="col-lg-4 col-md-6 service_col">
         <div id="servhov" class="service whats">
-        <h5 class="title_card">WHAT'S NEW</h5>
-        <ul class="cont">
-            <li>
-            <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>Tender for Supply of High Speed Diesel</h4></a
-            >
-            </li>
-            <li>
-            <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>
-                Inviting Applications for Filling Up Posts on Deputation
-                Basis
-                </h4></a
-            >
-            </li>
-            <li>
-            <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>Tender for Supply of High Speed Diesel</h4></a
-            >
-            </li>
-            <li>
-            <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>
-                Inviting Applications for Filling Up Posts on Deputation
-                Basis
-                </h4></a
-            >
-            </li>
-        </ul>
+            <h5 class="title_card">WHAT'S NEW</h5>
+            <div class="container">
+                <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                <ul class="cont">
+                    <?php $sql= "SELECT * FROM what_new";
+                    $res = pg_query($db,$sql);
+                    $result = pg_fetch_all($res);
+                    foreach($result as $value){
+                    // var_dump($value);
+                    ?>
+                        <li>
+                        <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
+                            ><i class="fa fa-check-circle"></i>
+                            <?php echo $value['whats_title']; ?></a
+                        >
+                        </li>
+                        <?php }?>
+                    </ul>
+                </marquee>
+            </div>
         </div>
-    </div>
     </div>
 </div>
 </div>

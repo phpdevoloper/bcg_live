@@ -1523,9 +1523,9 @@ img.d-block.w-100.slideimg {
 .green li a {
   color: #299adc;
 }
-.service.whats {
+/* .service.whats {
   border-left: 4px solid #299adc;
-}
+} */
 .cont:hover li {
   color: white;
 }
@@ -1963,15 +1963,14 @@ button.btn-play .glyphicon {
   height: auto;
 } */
 
-.cont li h4 {
-  display: inline-block;
-  margin-bottom: 18px;
+.cont li a {
+  font-size: 14px;
 }
 
-.cont li a i {
+/* .cont li a i {
   position: absolute;
   margin-left: -19px;
-}
+} */
 div#home {
   background: #dbd8d4;
 }
@@ -2364,4 +2363,18 @@ li.text-center {
   background: #3bc053;
   bottom: 0;
   left: calc(50% - 20px);
+}
+
+#group_cate {
+  color: #db5246;
+}
+
+.org_img {
+  padding-left: 50px;
+}
+.org_img img {
+  width: 100%;
+}
+.what_new {
+  height: 300px;
 }

@@ -10,6 +10,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="edit_btn">
+                                <a href="basic_details.php" id="editBasicInline"
+                                        class="btn btn-primary">Edit</a>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->
                                 <div class="page-header">
@@ -21,7 +25,7 @@
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#">Basic Details</a>
+                                            <a href="basic_details1.php">Basic Details</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -34,37 +38,33 @@
                                   $result = pg_fetch_assoc($res);
                                 //   var_dump($result);
                                     ?>
-                                <div class="col-md-4">
+                                <div class="col-lg-3 text-center">
                                     <div>
                                       <img class="profile" src="<?php echo $result['director_photo'];?>" alt="">                  
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                <table class="table">
-                                     <tbody class="profile">
-                                        <tr>
-                                            <td>Name</td>
-                                            <td><?php echo $result['director_name'];?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Designation</td>
-                                            <td><?php echo $result['director_position'];?></td>
-                                        <tr>
-                                            <td>Qualification</td>
-                                            <td><?php echo $result['director_qualification'];?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="col-lg-9">
+                                    <table class="table">
+                                        <tbody class="profile">
+                                            <tr>
+                                                <td>Name</td>
+                                                <td><?php echo $result['director_name'];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Designation</td>
+                                                <td><?php echo $result['director_position'];?></td>
+                                            <tr>
+                                                <td>Qualification</td>
+                                                <td><?php echo $result['director_qualification'];?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <div class="held">
                                     <h5>Position held</h5>
                                     <p><?php echo $result['position_held'];?></p>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <a href="basic_details.php" id="editBasicInline"
-                                    class="btn btn-primary">Edit</a>
-                        </div>
                         </div>
                     </div>
                 </div>

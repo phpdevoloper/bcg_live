@@ -21,7 +21,7 @@
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#">Basic Details</a>
+                                            <a href="basic_details.php">Basic Details</a>
                                         </li>
                                     </ul>
                                 </div>

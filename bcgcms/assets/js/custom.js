@@ -66,7 +66,6 @@ $(document).ready(function () {
     var dir_name = $(this).attr("data-dir_name");
     var short_pro = $(this).attr("data-short_pro");
     var detail_pro = $(this).attr("data-detail_pro");
-    // console.log(baseUrl);
 
     $("#Director_id").val(dir_id);
     $("#director_name").text(dir_name);
@@ -180,6 +179,18 @@ $(document).ready(function () {
     });
   });
 
+  // edit the profile details
+  $(document).on("click", ".get_what", function (e) {
+    e.preventDefault();
+    var whats_id = $(this).attr("data-whats_id");
+    var whats_title = $(this).attr("data-whats_title");
+    var whats_desc = $(this).attr("data-whats_desc");
+    var what_file = $(this).attr("data-what_file");
+    $("#Whats_id").val(whats_id);
+    $("#What_new_title").val(whats_title);
+    $("#Whats_desc").val(whats_desc);
+    $("#file_lable").text(what_file);
+  });
   //Add what's new Ajax
   $("#add_whats").submit(function (e) {
     e.preventDefault();
@@ -197,12 +208,167 @@ $(document).ready(function () {
           url: "addWhats_new.php",
           data: data,
           contentType: false,
-          dataType: "json",
           processData: false,
           success: function (data) {
             swal({
               title: "Updated!",
               text: "New Record added and uploaded successfully!",
+              icon: "success",
+            }).then(function () {
+              location.reload();
+            });
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+  //Edit what's new Ajax
+  $("#edit_whats_new").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addWhats_new.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            swal({
+              title: "Updated!",
+              text: "New Record Updated successfully!",
+              icon: "success",
+            }).then(function () {
+              location.reload();
+            });
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  //Edit organisation Chart Ajax
+  $("#add_orgchart").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "UpdateorgchartAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            swal({
+              title: "Updated!",
+              text: "Record Updated successfully!",
+              icon: "success",
+            }).then(function () {
+              location.reload();
+            });
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  // edit the staff details
+  $(document).on("click", ".get_staff", function (e) {
+    e.preventDefault();
+    var staff_id = $(this).attr("data-staff_id");
+    var staff_name = $(this).attr("data-staff_name");
+    var deg_name = $(this).attr("data-deg_name");
+    var cate_name = $(this).attr("data-cate_name");
+    var status = $(this).attr("data-status");
+    console.log(deg_name);
+    console.log(staff_name);
+    $("#Staff_id").val(staff_id);
+    $("#Staff_name").val(staff_name);
+    $("#Deg_code").val(deg_name);
+    $("#Group_cate").val(cate_name);
+    $("#Staff_status").val(status);
+  });
+
+  //Edit pro Chart Ajax
+  $("#add_prochart").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        console.log(data);
+
+        $.ajax({
+          method: "POST",
+          url: "UpdateprochartAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            swal({
+              title: "Updated!",
+              text: "Record Updated successfully!",
+              icon: "success",
+            }).then(function () {
+              location.reload();
+            });
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  //Edit pro Chart Ajax
+  $("#add_new_event").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to add New Event!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        console.log(data);
+
+        $.ajax({
+          method: "POST",
+          url: "addEventAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            swal({
+              title: "Updated!",
+              text: "Event Added successfully!",
               icon: "success",
             }).then(function () {
               location.reload();

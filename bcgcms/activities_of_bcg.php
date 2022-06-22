@@ -15,7 +15,7 @@
                       <i class="flaticon-right-arrow"></i>
                   </li>
                   <li class="nav-item">
-                      <a href="#">Activities of BCG</a>
+                      <a href="activities_of_bcg.php">Activities of BCG</a>
                   </li>
                 </ul>
               </div>

@@ -12,10 +12,12 @@ include('inc/dbconnection.php');
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">About us</a></li>
             <li class=""><a href="director_desk.php">Future plans</a></li>
-            <li class="text-center">Future plans</li>
         </ul>
     </section>
     <div class="container">
+        <div class="section">
+            <h3 class="text-center txt" style="color: #299adc;">Future plans</h3>
+        </div>
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-12">

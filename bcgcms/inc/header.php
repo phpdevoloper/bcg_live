@@ -492,31 +492,38 @@ include('inc/dbconnection.php');?>
                   <p>WHAT'S NEW</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME'])  == 'organisation_chart.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'organisation_chart.php'? 'active':'');
+								} elseif (basename($_SERVER['SCRIPT_FILENAME'])  == 'staff_details.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'staff_details.php'? 'active':'');
+								}?>">
                 <a data-toggle="collapse" href="#basewho">
                   <i class="fas fa-layer-group"></i>
                   <p>WHO'S WHO</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="basewho">
+                <div class="collapse <?php 
+                if(basename($_SERVER['SCRIPT_FILENAME']) == 'organisation_chart.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'organisation_chart.php'? 'show':'');
+								}elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'staff_details.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'staff_details.php'? 'show':'');
+								} 
+                ?>" id="basewho">
                   <ul class="nav nav-collapse">
-                    <!-- <li>
-                      <a href="#">
-                        <span class="sub-item">Director of BCGVL</span>
-                      </a>
-                    </li> -->
-                    <!-- <li>
-                      <a href="#">
-                        <span class="sub-item">Director's Message</span>
-                      </a>
-                    </li> -->
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                    if(basename($_SERVER['SCRIPT_FILENAME']) == 'organisation_chart.php'){
+                     echo (basename($_SERVER['SCRIPT_FILENAME']) == 'organisation_chart.php'?'active':''); 
+                    }?>">
+                      <a href="organisation_chart.php">
                         <span class="sub-item">Organisation Chart</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php if(basename($_SERVER['SCRIPT_FILENAME']) == 'staff_details.php'){
+                     echo (basename($_SERVER['SCRIPT_FILENAME']) == 'staff_details.php'? 
+                     'active':'');}
+                     ?>">
+                      <a href="staff_details.php">
                         <span class="sub-item">Staff Details</span>
                       </a>
                     </li>
@@ -525,16 +532,6 @@ include('inc/dbconnection.php');?>
                         <span class="sub-item">Former Directors of BCGVL</span>
                       </a>
                     </li>
-                    <!-- <li>
-                      <a href="components/flaticons.html">
-                        <span class="sub-item">Flaticons</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="components/typography.html">
-                        <span class="sub-item">Typography</span>
-                      </a>
-                    </li> -->
                   </ul>
                 </div>
               </li>
@@ -566,28 +563,39 @@ include('inc/dbconnection.php');?>
                         <span class="sub-item">Quality Control</span>
                       </a>
                     </li>
-                    <!-- <li>
-                      <a href="icon-menu.html">
-                        <span class="sub-item">Icon Menu</span>
-                      </a>
-                    </li> -->
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item  <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php'? 'active':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'active':'');
+								}
+                ?>">
                 <a data-toggle="collapse" href="#submenu">
                 <i class="fas fa-cart-plus"></i>
                   <p>PRODUCTS</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="submenu">
+                <div class="collapse <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php'? 'show':'');
+								} elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'show':'');
+								}
+                ?>" id="submenu">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a data-toggle="collapse" href="#subnav1">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'active':'');
+                      }?>">
+                      <a href="product.php">
                         <span class="sub-item">Products</span>
-                        <span class="caret"></span>
+                        <!-- <span class="caret"></span> -->
                       </a>
-                      <div class="collapse" id="subnav1">
+                      <!-- <div class="collapse" id="subnav1">
                         <ul class="nav nav-collapse subnav">
                           <li>
                             <a href="#">
@@ -604,10 +612,13 @@ include('inc/dbconnection.php');?>
                             </a>
                           </li>
                         </ul>
-                      </div>
+                      </div> -->
                     </li>
-                    <li>
-                      <a data-toggle="collapse" href="#">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php'? 'active':'');
+                      }?>">
+                      <a href="production.php">
                         <span class="sub-item">Production Process</span>
                       </a>
                     </li>

@@ -14,7 +14,7 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="#">What's New</a>
+                                            <a href="whats_new.php">What's New</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -105,21 +105,75 @@
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $value['whats_title'];?></td>
                                                         <td class="sorting_1"><?php echo $value['whats_desc'];?></td>
-                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"><i class="fa fa-file-pdf"></i>&nbsp;view</a></td>
+                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
-                                                                    data-target="#editAchivement" title=""
+                                                                    data-target="#editRowModal" title=""
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
-                                                                    <i class="fa fa-edit get_achive"
-                                                                        data-dir_id="<?php echo $value['whats_id'];?>"
-                                                                        data-dir_name="<?php echo $value['whats_title'];?>"
-                                                                        data-dir_name="<?php echo $value['whats_desc'];?>"
-                                                                        data-dir_name="<?php echo $value['whats_file'];?>"
-                                                                        data-dir_name="<?php echo $value['created_date'];?>"
-                                                                        ></i>&nbsp;Edit
+                                                                    <i class="fa fa-edit get_what"
+                                                                        data-whats_id="<?php echo $value['whats_id'];?>"
+                                                                        data-whats_title="<?php echo $value['whats_title'];?>"
+                                                                        data-whats_desc="<?php echo $value['whats_desc'];?>"
+                                                                        data-what_file="<?php echo $value['whats_file'];?>"
+                                                                    ></i>
                                                                 </button>
+                                                            </div>
+                                                            <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header no-bd">
+                                                                            <h5 class="modal-title">
+                                                                                <span class="fw-mediumbold">
+                                                                                    What's</span>
+                                                                                <span class="fw-light">
+                                                                                    New Edit
+                                                                                </span>
+                                                                            </h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">×</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form id="edit_whats_new">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="qualifi">Title</label>
+                                                                                            <input type="text" class="form-control" name="whats_title" id="What_new_title">
+                                                                                            <input type="hidden" class="form-control" name="whats_id" id="Whats_id">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="qualifi">Description</label>
+                                                                                            <textarea class="form-control" name="description" id="Whats_desc" cols="30" rows="3"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <div class="form-group">
+                                                                                            <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
+                                                                                            <input type="file" class="form-control" name="what_file" id="   " accept="application/pdf,application/vnd.ms-excel">
+                                                                                            <label id="file_lable" style="color:green !important;"></label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-sm-6">
+                                                                                        <div class="form-group">
+                                                                                            <label id="What_file_view"></label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer" style="justify-content: center !important;">
+                                                                                    <button type="submit" id="addRowButton"
+                                                                                        class="btn btn-primary">Submit</button>
+                                                                                    <button type="button" class="btn btn-danger"
+                                                                                        data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -138,20 +192,3 @@
     </div>
 </div>
 <?php include('inc/footer.php');?>
-<script type="text/javascript">
-    window.onload = function () {
-        //Reference the DropDownList.
-        var ddlYears = document.getElementById("achivement_year");
- 
-        //Determine the Current Year.
-        var currentYear = (new Date()).getFullYear();
- 
-        //Loop and add the Year values to DropDownList.
-        for (var i = 1940; i <= currentYear; i++) {
-            var option = document.createElement("OPTION");
-            option.innerHTML = i;
-            option.value = i;
-            ddlYears.appendChild(option);
-        }
-    };
-</script>

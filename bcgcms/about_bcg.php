@@ -9,13 +9,13 @@
               <div class="page-header">
                 <ul class="breadcrumbs">
                   <li class="nav-item">
-                      <a href="#">About Us</a>
+                      <a href="#" class="sub_bread">About Us</a>
                   </li>
                   <li class="separator">
                       <i class="flaticon-right-arrow"></i>
                   </li>
                   <li class="nav-item">
-                      <a href="#">About BCG</a>
+                      <a href="about_bcg.php">About BCG</a>
                   </li>
                 </ul>
               </div>

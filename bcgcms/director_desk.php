@@ -1,5 +1,5 @@
 <?php 
-	include('../inc/dbconnection.php');
+	include('inc/dbconnection.php');
 	include('inc/header.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
 ?>
@@ -24,7 +24,7 @@
                   <i class="flaticon-right-arrow"></i>
                </li>
                <li class="nav-item">
-                  <a href="#">Basic Details</a>
+                  <a href="basic_details.php">Basic Details</a>
                </li>
             </ul>
          </div>

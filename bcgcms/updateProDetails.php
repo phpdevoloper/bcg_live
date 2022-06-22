@@ -7,7 +7,7 @@
 			$result = pg_fetch_assoc($res);
 			$target_file = $result['short_profile'];
 		}else{
-			$target_dir = "assets/uploads/";
+			$target_dir = "uploads/";
 			$target_file = $target_dir . basename($_FILES["short_pro"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -27,7 +27,7 @@
 			$target_file_t = $result['detail_profile'];
 		}
 		else{
-			$target_dir = "assets/uploads/";
+			$target_dir = "uploads/";
 			$target_file_t = $target_dir . basename($_FILES["detail_pro"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file_t,PATHINFO_EXTENSION));

@@ -14,13 +14,13 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="#">Director Desk</a>
+                                            <a href="#" class="sub_bread">Director Desk</a>
                                         </li>
                                         <li class="separator">
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#">Achivement</a>
+                                            <a href="achivement1.php">Achivement</a>
                                         </li>
                                     </ul>
                                 </div>
