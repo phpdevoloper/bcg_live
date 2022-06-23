@@ -148,3 +148,8 @@ img.profile {
 .content {
   padding: 10px 10px 10px 10px;
 }
+
+.pro:after {
+  content: " *";
+  color: red;
+}

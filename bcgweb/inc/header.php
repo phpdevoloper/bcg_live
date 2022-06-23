@@ -181,7 +181,7 @@
                         </ul>
                       </li>
                       <li>
-                        <a href="index.php" class="nav-link">What's New</a>
+                        <a href="whats_new.php" class="nav-link">What's New</a>
                       </li>
                       <li class="dropdown">
                         <a href="" class="nav-link">Who's who</a>
@@ -223,24 +223,24 @@
                         </ul>
                       </li>
                       <li class="dropdown">
-                        <a href="" class="nav-link">Products</a>
+                        <a href="#" class="nav-link">Products</a>
                         <ul class="dropdown-nav">
                           <li>
-                            <a href="" class="list_a">Products</a>
+                            <a href="product.php" class="list_a">Products</a>
                           </li>
                           <li>
                             <a href="production_chart.php" class="list_a">Production Process</a>
                           </li>
                           <li>
-                            <a href="" class="list_a">Supply of BCG Vaccine</a>
+                            <a href="supply_vaccine.php" class="list_a">Supply of BCG Vaccine</a>
                           </li>
                         </ul>
                       </li>
                       <li class="dropdown">
-                        <a href="" class="nav-link">Events</a>
+                        <a href="#" class="nav-link">Events</a>
                         <ul class="dropdown-nav">
                           <li>
-                            <a href="" class="list_a"
+                            <a href="events_details.php" class="list_a"
                               >Milestones / Major Events</a
                             >
                           </li>
@@ -256,13 +256,10 @@
                         </ul>
                       </li>
                       <li class="dropdown">
-                        <a href="" class="nav-link">Publication / Documents</a>
+                        <a href="#" class="nav-link">Publication / Documents</a>
                         <ul class="dropdown-nav">
                           <li>
-                            <a href="" class="list_a">Annual Reports</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Production Process</a>
+                            <a href="annual_report.php" class="list_a">Annual Reports</a>
                           </li>
                           <li>
                             <a href="" class="list_a">Recruitment Rules</a>

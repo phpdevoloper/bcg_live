@@ -14,21 +14,21 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php" class="sub_bread">Events</a>
+                                            <a href="whats_new.php" class="sub_bread">Who's Who</a>
                                         </li>
                                         <li class="separator">
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="whats_new.php">Event Details</a>
+                                            <a href="former_directors.php">Former Directors of BCGVL</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
+                                <!-- <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
                                     data-target="#addStaffModal">
                                     <i class="fa fa-plus"></i>
-                                    Add New
-                                </button>
+                                    Add New 
+                                </button> -->
                             </div>
                         </div>
                         <div class="card-body">
@@ -41,7 +41,7 @@
                                                 <span class="fw-mediumbold">
                                                  Add New</span>
                                                 <span class="fw-light">
-                                                    Event
+                                                    Director
                                                 </span>
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -75,21 +75,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row ">
-                                                    <div class="col-sm-4">
-                                                        <label for="inputPassword" class="col-form-label">Event Attachment</label>
+                                                    <label for="inputPassword" class="col-sm-2 col-form-label">File</label>
+                                                    <input class="form-check-input" type="checkbox" id="file_check" value="">
+                                                    <div class="col-sm-10 upload_event">
+                                                        <input type="file" class="form-control" name="event_file" id="event_file">
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <label for="inputPassword" class="col-sm-4 col-form-label">File</label>
-                                                        <input class="form-check-input" type="checkbox" id="file_check" value="">
-                                                        <label for="inputPassword" class="col-sm-4 col-form-label">URL</label>
-                                                        <input class="form-check-input" type="checkbox" id="url_check" value="">
-                                                    </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-2"></div>
-                                                        <div class="col-sm-10">
-                                                        <input type="file" class="form-control upload_event" name="event_file" id="event_file">
-                                                        <input type="text" class="form-control event_url" name="event_url" id="event_url">
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputPassword" class="col-sm-2 col-form-label">URL</label>
+                                                    <input class="form-check-input" type="checkbox" id="url_check" value="">
+                                                    <div class="col-sm-10 event_url">
+                                                        <input type="text" class="form-control" name="event_url" id="event_url">
                                                     </div>
                                                 </div>
                                                 
@@ -114,38 +110,31 @@
                                                 <thead>
                                                     <tr role="row">
                                                         <th>S.No</th>
-                                                        <th>Event Title</th>
-                                                        <th>Event Description</th>
-                                                        <th>Date From</th>
-                                                        <th>Date To</th>
+                                                        <th>Name</th>
+                                                        <th>From</th>
+                                                        <th>To</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM events"; 
+                                                    <?php $sql = "SELECT * FROM former_directors"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {
                                                     ?>
 
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1"><?php echo $value['event_id'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['event_title'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['event_desc'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['date_from'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['date_to'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['director_id'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['director_name'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['year_from'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['year_to'];?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
-                                                                    data-target="#editStaffModal" title=""
+                                                                    data-target="#editSdfdtaffModal" title=""
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_staff"
-                                                                        data-staff_id="<?php echo $value['event_id'];?>"
-                                                                        data-staff_name="<?php echo $value['event_title'];?>"
-                                                                        data-deg_name="<?php echo $value['event_desc'];?>"
-                                                                        data-cate_name="<?php echo $value['date_from'];?>"
-                                                                        data-status="<?php echo $value['date_to'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>

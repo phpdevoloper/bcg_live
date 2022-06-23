@@ -1,12 +1,9 @@
 $(document).ready(function () {
-  var getUrl = window.location;
-  var baseUrl =
-    getUrl.protocol +
-    "//" +
-    getUrl.host +
-    "/" +
-    getUrl.pathname.split("/")[1] +
-    "/";
+  $(".upload_event").attr("style", "display:none");
+  $(".event_url").attr("style", "display:none");
+  // $(".upload_event").remove(); // option 4
+  // $(".event_url").remove(); // option 4
+
   // Login ajax
   $("#admin_login").submit(function (e) {
     e.preventDefault();
@@ -361,7 +358,7 @@ $(document).ready(function () {
 
         $.ajax({
           method: "POST",
-          url: "addEventAjax.php",
+          url: "eventsAjax.php",
           data: data,
           contentType: false,
           processData: false,
@@ -369,6 +366,59 @@ $(document).ready(function () {
             swal({
               title: "Updated!",
               text: "Event Added successfully!",
+              icon: "success",
+            }).then(function () {
+              // location.reload();
+            });
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $("#file_check").change(function () {
+    if ($(this).prop("checked") === true) {
+      $(".event_url").attr("style", "display:none");
+      $(".upload_event").attr("style", "display:block");
+    } else {
+      $(".upload_event").attr("style", "display:none");
+    }
+  });
+  $("#url_check").change(function () {
+    if ($(this).prop("checked") === true) {
+      $(".upload_event").attr("style", "display:none");
+      $(".event_url").attr("style", "display:block");
+    } else {
+      $(".event_url").attr("style", "display:none");
+    }
+  });
+
+  //Add New Product
+  $("#addProduct").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to add New Product!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        console.log(data);
+
+        $.ajax({
+          method: "POST",
+          url: "addProductAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            swal({
+              title: "Updated!",
+              text: "Product Added successfully!",
               icon: "success",
             }).then(function () {
               location.reload();
@@ -379,5 +429,22 @@ $(document).ready(function () {
         swal("Cancelled", "Done :)", "error");
       }
     });
+  });
+
+  $("#pro_name").change(function () {
+    var id = $("#pro_name").val();
+    $.ajax({
+      method: "POST",
+      dataType: "json",
+      url: "getProductAjax.php",
+      data: { pro_id: id },
+      success: function (response) {
+        $(".content_pro").html(response.product_desc);
+      },
+    });
+    var addNew = $("#pro_name option:selected").text();
+    if (addNew == "Add New Product") {
+      $("#addProductModal").modal("show");
+    }
   });
 });
