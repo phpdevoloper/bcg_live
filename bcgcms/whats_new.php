@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <!-- Modal -->
                             <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header no-bd">
                                             <h5 class="modal-title">
@@ -45,27 +45,32 @@
                                         <div class="modal-body">
                                             <form id="add_whats">
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Title</label>
-                                                            <input type="text" class="form-control" name="whats_title" id="Whats_title">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Title</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Description</label>
-                                                            <textarea class="form-control" name="description" id="Description" cols="30" rows="3"></textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Description</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <textarea class="form-control input-full" name="description" id="Description" cols="30" rows="3"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
-                                                            <input type="file" class="form-control" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label id="What_file_view"></label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Upload Document</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

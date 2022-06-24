@@ -63,13 +63,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Date From</label>
+                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Start Date</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" class="form-control" name="date_from" id="date_from">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Date To</label>
+                                                    <label for="inputPassword" class="col-sm-2 col-form-label">End Date</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" class="form-control" name="date_to" id="date_to">
                                                     </div>

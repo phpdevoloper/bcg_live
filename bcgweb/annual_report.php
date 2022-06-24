@@ -52,7 +52,8 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <td><?php echo $value['doc_id'];?></td>
                                         <td><?php echo $value['doc_title'];?></td>
-                                        <td><a href="uploads/document/<?php echo $value['doc_attachment'];?>" target="_blank">View</a></td>
+                                        <td><a href="uploads/document/<?php echo $value['doc_attachment'];?>" target="_blank">
+                                        <img src="images/pdf.png" class="ficon" alt=""> View</a></td>
                                 <?php }?>
                                     </tr>
                                 </tbody>

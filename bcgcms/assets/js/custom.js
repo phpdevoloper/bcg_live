@@ -379,7 +379,9 @@ $(document).ready(function () {
   });
 
   $("#file_check").change(function () {
-    if ($(this).prop("checked") === true) {
+    if ($(this).is(":checked")) {
+      // $("#url_check").attr("checked", false);
+      $("#url_check").prop("checked", false);
       $(".event_url").attr("style", "display:none");
       $(".upload_event").attr("style", "display:block");
     } else {
@@ -387,7 +389,8 @@ $(document).ready(function () {
     }
   });
   $("#url_check").change(function () {
-    if ($(this).prop("checked") === true) {
+    if ($(this).is(":checked")) {
+      $("#file_check").prop("checked", false);
       $(".upload_event").attr("style", "display:none");
       $(".event_url").attr("style", "display:block");
     } else {

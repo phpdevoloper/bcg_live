@@ -1,6 +1,6 @@
 <?php 
 	 include('inc/dbconnection.php');
-	include('inc/header.php');
+	 include('inc/header.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
 ?>
 <div class="main-panel">
@@ -10,6 +10,9 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
+                            <div class="edit_btn">
+                                <a href="editProduct.php" id="editBasicInline" class="btn btn-primary">Edit</a>
+                            </div>
                             <div class="d-flex align-items-center">
                                 <div class="page-header">
                                     <ul class="breadcrumbs">

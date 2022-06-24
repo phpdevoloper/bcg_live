@@ -2311,6 +2311,7 @@ li.text-center {
 }
 .fa-file-pdf {
   padding-right: 5px;
+  color: red;
 }
 
 .theme-tab .nav-tabs > li > a {
@@ -2390,4 +2391,8 @@ li.text-center {
   vertical-align: middle;
   font-size: 12px;
   margin-right: 5px;
+}
+.ficon {
+  width: 22px;
+  height: 20px;
 }

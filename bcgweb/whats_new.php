@@ -51,7 +51,7 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <td><?php echo $value['whats_title'];?></td>
                                         <td><?php echo $value['whats_desc'];?></td>
-                                        <td><a href="<?php echo $value['whats_file'];?>">View</a></td>
+                                        <td><a href="<?php echo $value['whats_file'];?>"><img src="images/pdf.png" class="ficon" alt="">View</a></td>
                                 <?php }?>
                                     </tr>
                                 </tbody>
