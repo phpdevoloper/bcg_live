@@ -6548,7 +6548,8 @@ label.error {
 }
 .table > tbody > tr > td,
 .table > tbody > tr > th {
-  padding: 8px;
+  padding: 0px;
+  text-align: center;
 }
 .table > tfoot > tr > td,
 .table > tfoot > tr > th {
@@ -6564,8 +6565,7 @@ label.error {
   border-top-width: 0;
   border-bottom: 1px solid;
   border-color: #ebedf2 !important;
-  padding: 0 25px !important;
-  height: 60px;
+  /* height: 60px; */
   vertical-align: middle !important;
 }
 .table-full-width {

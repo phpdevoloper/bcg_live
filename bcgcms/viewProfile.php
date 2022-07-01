@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                         <div class="edit_btn">
-                            <a href="profile_details.php" class="btn btn-primary">Edit</a>
+                            <a href="editProfile.php" class="btn btn-primary">Edit</a>
                         </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->

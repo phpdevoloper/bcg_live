@@ -17,77 +17,73 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="objectives_of_bcgvl.php">Products</a>
-                                        </li>
-                                        <li class="separator">
-                                            <i class="flaticon-right-arrow"></i>
+                                            <a href="products.php">Products</a>
                                         </li>
                                     </ul>
-                                    <div>
-                                        <select class="form-control" id="pro_name">
-                                            <option value="">Choose Product</option>
-                                            <?php $sql = "SELECT * FROM product";
-                                                $exe = pg_query($db,$sql);
-                                                $result = pg_fetch_all($exe);
-                                                foreach ($result as $value) { ?>
-                                                <option value="<?php echo $value['product_id']?>"><?php echo $value['product_name']?></option>
-                                            <?php  } ?>
-                                            <option value="">Add New Product</option>
-                                        </select>
-
-                                        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header no-bd">
-                                                        <h5 class="modal-title">
-                                                            <span class="fw-mediumbold">
-                                                            Add New</span>
-                                                            <span class="fw-light">
-                                                                Product
-                                                            </span>
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">×</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form id="addProduct">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="qualifi" class="pro">Product Title</label>
-                                                                        <input type="text" class="form-control" name="product_title" id="product_title">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label for="qualifi" class="pro">Product Image</label>
-                                                                        <input type="file" class="form-control" name="product_img" id="product_img">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="qualifi" class="pro">Description</label>
-                                                                        <textarea class="form-control" name="pro_desc" id="pro_desc" cols="20" rows="10"></textarea>
-                                                                    </div>
-                                                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <select class="form-control" id="pro_name">
+                                    <option value="">Choose Product</option>
+                                    <?php $sql = "SELECT * FROM product";
+                                        $exe = pg_query($db,$sql);
+                                        $result = pg_fetch_all($exe);
+                                        foreach ($result as $value) { ?>
+                                        <option value="<?php echo $value['product_id']?>"><?php echo $value['product_name']?></option>
+                                    <?php  } ?>
+                                    <option value="">Add New Product</option>
+                                </select>
+                                <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header no-bd">
+                                                <h5 class="modal-title">
+                                                    <span class="fw-mediumbold">
+                                                    Add New</span>
+                                                    <span class="fw-light">
+                                                        Product
+                                                    </span>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="addProduct">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi" class="pro">Product Title</label>
+                                                                <input type="text" class="form-control" name="product_title" id="product_title">
                                                             </div>
-                                                            <div class="modal-footer" style="justify-content: center !important;">
-                                                                <button type="submit" id="addRowButton"
-                                                                    class="btn btn-primary">Submit</button>
-                                                                <button type="button" class="btn btn-danger"
-                                                                    data-dismiss="modal">Close</button>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi" class="pro">Product Image</label>
+                                                                <input type="file" class="form-control" name="product_img" id="product_img">
                                                             </div>
-                                                        </form>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="qualifi" class="pro">Description</label>
+                                                                <textarea class="form-control" name="pro_desc" id="pro_desc" cols="20" rows="10"></textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="modal-footer" style="justify-content: center !important;">
+                                                        <button type="submit" id="addRowButton"
+                                                            class="btn btn-primary">Submit</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
                             <div class="product_section">
                                     <div class="content_pro"></div>
                             </div>

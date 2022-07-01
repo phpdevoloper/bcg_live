@@ -48,7 +48,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="qualifi">Staff Name</label>
-                                                            <input type="text" class="form-control" name="whats_title" id="Whats_title">
+                                                            <input type="text" class="form-control" name="staff_name" id="staff_name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -121,7 +121,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php $sql = "SELECT bs.*,bsd.deg_name,bsd.deg_code,bsg.cate_name,bsg.cate_code FROM  bcgvl_staff_details bs LEFT JOIN bcgvl_staff_designation bsd 
-                                                        ON bs.deg_code = bsd.deg_code JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code"; 
+                                                        ON bs.deg_code = bsd.deg_code JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY bs.staff_id ASC"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {
@@ -163,7 +163,7 @@
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form id="edit_whats_new">
+                                                                            <form id="editStaffDet">
                                                                                 <div class="row">
                                                                                     <div class="col-md-6">
                                                                                         <div class="form-group">
@@ -196,9 +196,8 @@
                                                                                                 <?php $sql = "SELECT * FROM bcgvl_staff_groups ORDER BY cate_id";
                                                                                                 $res = pg_query($db, $sql);
                                                                                                 $result = pg_fetch_all($res);
-                                                                                                foreach ($result as $value) { 
-                                                                                                    ?>
-                                                                                                    <option value="<?php echo $value['cate_code'];?>"><?php echo $value['cate_name'];?></option>
+                                                                                                foreach ($result as $value) { ?>
+                                                                                                <option value="<?php echo $value['cate_code'];?>"><?php echo $value['cate_name'];?></option>
                                                                                                 <?php }?>
                                                                                             </select>
                                                                                         </div>

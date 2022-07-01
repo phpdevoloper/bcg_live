@@ -208,11 +208,11 @@
 																						<div class="form-button-action">
 																							<button type="button" data-toggle="modal" data-target="#editRowModal" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
 																							<i class="fa fa-edit get_basic"
-																								data-dir_id 						="<?php echo $value['dir_desk_id'];?>"
+																								data-dir_id 					="<?php echo $value['dir_desk_id'];?>"
 																								data-dir_name 					="<?php echo $value['director_name'];?>"
-																								data-dir_position 			="<?php echo $value['director_position'];?>"
+																								data-dir_position 				="<?php echo $value['director_position'];?>"
 																								data-dir_qualifi 				="<?php echo $value['director_qualification'];?>"
-																								data-position_held 			="<?php echo $value['position_held'];?>"
+																								data-position_held 				="<?php echo $value['position_held'];?>"
 																								data-dir_photo 					="<?php echo $value['director_photo'];?>"
 																							></i>
 																							</button>

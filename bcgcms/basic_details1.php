@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="edit_btn">
-                                <a href="basic_details.php" id="editBasicInline"
+                                <a href="edit_basic_details.php" id="editBasicInline"
                                         class="btn btn-primary">Edit</a>
                             </div>
                             <div class="d-flex align-items-center">

@@ -126,7 +126,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header no-bd">
                                                                             <h5 class="modal-title">
@@ -143,27 +143,33 @@
                                                                         <div class="modal-body">
                                                                             <form id="edit_whats_new">
                                                                                 <div class="row">
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="qualifi">Title</label>
                                                                                             <input type="text" class="form-control" name="whats_title" id="What_new_title">
                                                                                             <input type="hidden" class="form-control" name="whats_id" id="Whats_id">
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-md-6">
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="qualifi">Description</label>
                                                                                             <textarea class="form-control" name="description" id="Whats_desc" cols="30" rows="3"></textarea>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-md-6">
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
                                                                                         <div class="form-group">
                                                                                             <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
                                                                                             <input type="file" class="form-control" name="what_file" id="   " accept="application/pdf,application/vnd.ms-excel">
                                                                                             <label id="file_lable" style="color:green !important;"></label>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-sm-6">
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-12">
                                                                                         <div class="form-group">
                                                                                             <label id="What_file_view"></label>
                                                                                         </div>

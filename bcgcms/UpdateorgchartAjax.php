@@ -6,7 +6,6 @@
 			$sql = "select * from organisation_chart where org_id = '".$_POST['org_id']."'";
 			$ret = pg_query($db, $sql); 
 			$data = pg_fetch_assoc($ret);
-			// var_dump($data);die;
 	
 			$query = "UPDATE organisation_chart SET org_pic = '".$data['org_pic']."' WHERE org_id='".$_POST['org_id']."'";
 			$exc = pg_query($db,$query);

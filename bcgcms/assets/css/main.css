@@ -153,3 +153,13 @@ img.profile {
   content: " *";
   color: red;
 }
+
+.custom_lable {
+  color: green !important;
+  font-weight: 700;
+}
+
+.product_section {
+  padding-top: 32px;
+}
+  

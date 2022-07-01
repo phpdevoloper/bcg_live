@@ -2311,7 +2311,7 @@ li.text-center {
 }
 .fa-file-pdf {
   padding-right: 5px;
-  color: red;
+  /* color: red; */
 }
 
 .theme-tab .nav-tabs > li > a {

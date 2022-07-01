@@ -27,6 +27,7 @@
                                 <?php  $sql    ="SELECT * from organisation_chart";
                                        $res    = pg_query($db, $sql);
                                        $result = pg_fetch_assoc($res);
+                                    //    var_dump($result);
                                 ?>                            
                                 <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
                                     data-target="#addChartModal">
@@ -36,7 +37,7 @@
                                 </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="addChartModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header no-bd">
                                                 <h5 class="modal-title">
@@ -53,16 +54,16 @@
                                             <div class="modal-body">
                                                 <form id="add_orgchart">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label for="qualifi">Upload Chart</label>&nbsp;<label for="" style="color:green !important;">(JPG,PNG,GIF only allowed*)</label>
-                                                                <input type="hidden" class="form-control" name="org_id" id="org_id" accept="image/png, image/gif, image/jpeg"/>
+                                                                <input type="hidden" class="form-control" name="org_id" id="org_id" value="<?php echo $result['org_id'] ?? '';?>"/>
                                                                 <input type="file" class="form-control" name="org_file" id="org_file" accept="image/png, image/gif, image/jpeg"/>
-                                                                <label id="What_file_view"></label>
+                                                                <label id="What_file_view" class="custom_lable"><?php echo $result['org_pic'] ?? '';?></label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer">
+                                                    <div class="modal-footer text-center">
                                                         <button type="submit" class="btn btn-primary">Update</button>
                                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                     </div>
@@ -75,7 +76,7 @@
                         </div>
                         <div class="card-body">
                             <div class="or_chart">
-                             <img class="org_img" src="<?php echo $result['org_pic'];?>" alt="">
+                             <img class="org_img" src="<?php echo $result['org_pic'] ?? '';?>" alt="">
                              <!-- <img src="uploads/oganisation/chart1.png" alt=""> -->
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 	include('inc/dbconnection.php');
 	include('inc/header.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
+    //  var_dump($_GET);die;
 ?>
 <div class="main-panel">
     <div class="content">
@@ -9,58 +10,47 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
-                            <div class="d-flex align-items-center">
-                                <!-- <h4 class="card-title">Basic Details</h4> -->
-                                <div class="page-header">
-                                    <ul class="breadcrumbs">
-                                        <li class="nav-item">
-                                            <a href="product.php">Products</a>
-                                        </li>
-                                    </ul>
+                        <form id="editProduct">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center">
+                                    <!-- <h4 class="card-title">Basic Details</h4> -->
+                                    <div class="page-header">
+                                        <ul class="breadcrumbs">
+                                            <li class="nav-item">
+                                                <a href="product.php">Products</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <?php $sql = "select * from product"; 
-                                  $res = pg_query($db,$sql);
-                                  $result = pg_fetch_assoc($res);
-                                  var_dump($result);
-                                    ?>
-                                <div class="col-lg-12">
-                                    <table class="table">
-                                        <tbody class="profile">
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>
-                                                    <input type="text" name="" id="" class="custom_text" value="<?php echo $result['product_name'];?>">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Designation</td>
-                                                <td>
-                                                    <input type="text" name="" id="" class="custom_text" value="<?php echo $result['director_position'];?>">
-                                                </td>
-                                            <tr>
-                                                <td>Qualification</td>
-                                                <td>
-                                                    <textarea name="" id="" class="custom_text" cols="60" rows="5"><?php echo $result['director_qualification'];?></textarea>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="card-body">
+                                <?php $sql = "select * from product where product_id = '".$_GET['product_id']."'"; 
+                                $res = pg_query($db,$sql);
+                                $result = pg_fetch_assoc($res);
+                                ?>
+                                <table class="table">
+                                    <tbody class="profile">
+                                        <tr>
+                                            <td class="held"><h5>Product Name</h5></td>
+                                            <td>
+                                                <input type="hidden" name="product_id" id="product_id" class="custom_text" value="<?php echo $result['product_name'];?>">
+                                                <input type="text" name="product_name" id="product_name" class="custom_text" value="<?php echo $result['product_name'];?>">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="held">
+                                    <h5>Product Description</h5>
+                                    <div>
+                                        <textarea name="product_desc" id="product_desc"></textarea>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="held">
-                                <h5>Position held</h5>
-                                <textarea name="" id="position_held"></textarea>
+                            <div class="card-footer text-center">
+                                <a href="#" class="btn btn-primary">Update</a>
+                                <a href="product.php" id="editBasicInline" class="btn btn-danger">cancel</a>
                             </div>
-                        </div>
-                        <div class="card-footer text-center">
-                        <a href="#" class="btn btn-primary">Update</a>
-                        <a href="basic_details.php" id="editBasicInline" class="btn btn-danger">cancel</a>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -71,7 +61,7 @@
 <script>
   var content_desc = <?php echo json_encode($result['product_desc'] ?? '');?>;
   tinymce.init({
-    selector: "textarea#position_held",
+    selector: "textarea#product_desc",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",
                     "insertdatetime media paste codesample table preview"
@@ -92,7 +82,7 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').css('background-image', 'url('+e.target.result+')');
             $('#imagePreview').hide();
             $('#imagePreview').fadeIn(650);
         }

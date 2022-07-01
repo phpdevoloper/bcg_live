@@ -8,35 +8,36 @@
         <div class="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="d-flex align-items-center">
-                                <!-- <h4 class="card-title">Basic Details</h4> -->
-                                <div class="page-header">
-                                    <ul class="breadcrumbs">
-                                        <li class="nav-item">
-                                            <a href="#" class="sub_bread">Director Desk</a>
-                                        </li>
-                                        <li class="separator">
-                                            <i class="flaticon-right-arrow"></i>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="basic_details.php">Basic Details</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <!-- <h4 class="card-title">Basic Details</h4> -->
+                            <div class="page-header">
+                                <ul class="breadcrumbs">
+                                    <li class="nav-item">
+                                        <a href="#" class="sub_bread">Director Desk</a>
+                                    </li>
+                                    <li class="separator">
+                                        <i class="flaticon-right-arrow"></i>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="basic_details.php">Basic Details</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="card-body">
+                    </div>
+                    <div class="card-body">
+                        <form id="update_Basic">
                             <div class="row">
                                 <?php $sql = "select * from director_desk"; 
-                                  $res = pg_query($db,$sql);
-                                  $result = pg_fetch_assoc($res);
+                                $res = pg_query($db,$sql);
+                                $result = pg_fetch_assoc($res);
                                     ?>
                                 <div class="col-lg-3 text-center">
                                     <div class="avatar-upload">
                                         <div class="avatar-edit">
-                                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                            <input type='file' id="imageUpload" name="director_photo" accept=".png, .jpg, .jpeg" />
                                             <label for="imageUpload"></label>
                                         </div>
                                         <div class="avatar-preview">
@@ -44,10 +45,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="avatar-edit">
-                                      <img class="profile" id="imageUpload" src="" alt="">
-                                      <input type="file" accept=".png, .jpg, .jpeg">                  
-                                    </div> -->
                                 </div>
                                 <div class="col-lg-9">
                                     <table class="table">
@@ -55,18 +52,19 @@
                                             <tr>
                                                 <td>Name</td>
                                                 <td>
-                                                    <input type="text" name="" id="" class="custom_text" value="<?php echo $result['director_name'];?>">
+                                                    <input type="hidden" class="custom_text" id="director_id" name="director_id" value="<?php echo $result['dir_desk_id'] ?? '';?>">
+                                                    <input type="text" id="director_name" name="director_name" class="custom_text" value="<?php echo $result['director_name'];?>">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Designation</td>
                                                 <td>
-                                                    <input type="text" name="" id="" class="custom_text" value="<?php echo $result['director_position'];?>">
+                                                    <input type="text" name="director_position" id="director_position" class="custom_text" value="<?php echo $result['director_position'];?>">
                                                 </td>
                                             <tr>
                                                 <td>Qualification</td>
                                                 <td>
-                                                    <textarea name="" id="" class="custom_text" cols="60" rows="5"><?php echo $result['director_qualification'];?></textarea>
+                                                    <textarea name="director_qualification" id="director_qualification" class="custom_text" cols="60" rows="5"><?php echo $result['director_qualification'];?></textarea>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -75,13 +73,13 @@
                             </div>
                             <div class="held">
                                 <h5>Position held</h5>
-                                <textarea name="" id="position_held"></textarea>
+                                <textarea name="position_held" id="position_held"></textarea>
                             </div>
-                        </div>
-                        <div class="card-footer text-center">
-                        <a href="#" class="btn btn-primary">Update</a>
-                        <a href="basic_details.php" id="editBasicInline" class="btn btn-danger">cancel</a>
-                        </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <a href="basic_details1.php" id="editBasicInline" class="btn btn-danger">cancel</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

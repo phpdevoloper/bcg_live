@@ -36,12 +36,20 @@
                                 $result = pg_fetch_assoc($res);
                                 //   var_dump($result);
                             ?>
-                            <div class="held">
-                                <h5><?php echo $result['director_position'] ?? ''; ?></h5>
-                                <img src="<?php echo $result['director_photo'] ?? ''; ?>" alt="">
-                            </div>
-                            <div style="color: black;">
-                                <p> <?php echo $result['director_message'];?></p>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="held">
+                                        <h5><?php echo $result['director_position'] ?? ''; ?></h5>
+                                        <img src="<?php echo $result['director_photo'] ?? ''; ?>" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <h5 style="color:black;font-weight:700;">Director Message</h5>
+                                    <hr>
+                                    <div style="color: black;">
+                                        <p> <?php echo $result['director_message'];?></p>
+                                    </div>
+                                </div>
                             </div>
                         <div>
                     </div>

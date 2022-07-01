@@ -17,7 +17,7 @@
 				echo 1;
 			}
 		}else{
-			$target_dir = "assets/uploads/";
+			$target_dir = "uploads/";
 			$target_file = $target_dir . basename($_FILES["director_photo"]["name"]);
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 

@@ -27,42 +27,42 @@
                      </div>
                   </div>
                   <div class="card-body">
-                  <form id="edit_pro">
-                     <div class="row">
-                        <div class="col-sm-12">
-                           <?php $sql = "SELECT * FROM director_desk";
-                              $res = pg_query($db,$sql);
-                              $list = pg_fetch_assoc($res);
-                           ?>
-                           <div class="form-group">
-                              <input type="hidden" class="form-control" id="Director_id" name="director_id" 
-                              value="<?php echo $list['dir_desk_id'] ?? ''; ?>">
-                              <div class="held">
-                                <h5><?php echo $list['director_position'] ?? ''; ?></h5>
-                                <img src="<?php echo $list['director_photo'] ?? ''; ?>" alt="">
-                            </div>
+                     <form id="edit_pro">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <?php $sql = "SELECT * FROM director_desk";
+                                 $res = pg_query($db,$sql);
+                                 $list = pg_fetch_assoc($res);
+                              ?>
+                              <div class="form-group">
+                                 <input type="hidden" class="form-control" id="Director_id" name="director_id" 
+                                 value="<?php echo $list['dir_desk_id'] ?? ''; ?>">
+                                 <div class="held">
+                                 <h5><?php echo $list['director_position'] ?? ''; ?></h5>
+                                 <img src="<?php echo $list['director_photo'] ?? ''; ?>" alt="">
+                              </div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="email2">Short profile</label>
+                                 <input type="file" class="form-control" id="short_pro" name="short_pro">
+                                 <label id="short"><?php echo $list['short_profile'] ?? ''; ?></label>
+                              </div>
+                           </div>   
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="email2">Detailed profile</label>
+                                 <input type="file" class="form-control" id="detail_pro" name="detail_pro">
+                                 <label id="detail"><?php echo $list['detail_profile'] ?? ''; ?></label>
+                              </div>
                            </div>
                         </div>
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <label for="email2">Short profile</label>
-                              <input type="file" class="form-control" id="short_pro" name="short_pro">
-                              <label id="short"><?php echo $list['short_profile'] ?? ''; ?></label>
-                           </div>
-                        </div>   
-                        <div class="col-md-6">
-                           <div class="form-group">
-                              <label for="email2">Detailed profile</label>
-                              <input type="file" class="form-control" id="detail_pro" name="detail_pro" onchange=''>
-                              <label id="detail"><?php echo $list['detail_profile'] ?? ''; ?></label>
-                           </div>
+                        <div class="modal-footer no-bd">
+                           <button type="submit" id="addRowButton" class="btn btn-primary">Update</button>
+                           <a href="viewProfile.php" class="btn btn-primary">cancel</a>
                         </div>
-                     </div>
-                     <div class="modal-footer no-bd">
-                        <button type="submit" id="addRowButton" class="btn btn-primary">Update</button>
-                        <a href="viewProfile.php" class="btn btn-primary">cancel</a>
-                     </div>
-                  </form>
+                     </form>
                   </div>
                </div>
             </div>
