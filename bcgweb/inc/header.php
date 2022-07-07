@@ -180,9 +180,9 @@
                           </li>
                         </ul>
                       </li>
-                      <li>
+                      <!-- <li>
                         <a href="whats_new.php" class="nav-link">What's New</a>
-                      </li>
+                      </li> -->
                       <li class="dropdown">
                         <a href="" class="nav-link">Who's who</a>
                         <ul class="dropdown-nav">
@@ -265,6 +265,9 @@
                             <a href="" class="list_a">Recruitment Rules</a>
                           </li>
                         </ul>
+                      </li>
+                      <li>
+                        <a href="contact.html" class="nav-link">Contacts</a>
                       </li>
                     </ul>
                   </nav>

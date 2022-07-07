@@ -39,14 +39,14 @@
 			} else {
 			echo "Sorry, there was an error uploading your file.";
 			}
-		$sql = "INSERT INTO production(production_pic)	VALUES ('$target_file')";
-		$ret = pg_query($db, $sql);
-		if(!$ret) {
-			echo pg_last_error($db);
-			exit;
-		}else{
-			echo 1;
+			$sql = "INSERT INTO production(production_pic)	VALUES ('$target_file')";
+			$ret = pg_query($db, $sql);
+			if(!$ret) {
+				echo pg_last_error($db);
+				exit;
+			}else{
+				echo 1;
+			}
+			pg_close($db);
 		}
-		pg_close($db);
-	}
 ?>

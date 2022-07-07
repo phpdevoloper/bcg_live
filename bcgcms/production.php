@@ -58,7 +58,7 @@
                                                                 <label for="qualifi">Upload Chart</label>&nbsp;<label for="" style="color:green !important;">(JPG,PNG,GIF only allowed*)</label>
                                                                 <input type="hidden" class="form-control" name="pro_id" id="pro_id" accept="image/png, image/gif, image/jpeg"/>
                                                                 <input type="file" class="form-control" name="pro_file" id="pro_file" accept="image/png, image/gif, image/jpeg"/>
-                                                                <label id="What_file_view"></label>
+                                                                <label id="What_file_view" style="color:green !important;"><?php echo $result['production_pic']; ?></label>
                                                             </div>
                                                         </div>
                                                     </div>

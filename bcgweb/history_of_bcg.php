@@ -21,6 +21,7 @@ include('inc/dbconnection.php');
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-12">
+                <img src="images/about/house2.jpg" class="history" alt="">
                 <?php $sql = "select * from about_us where content_id = 'HIS'"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);

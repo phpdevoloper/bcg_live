@@ -81,105 +81,105 @@
     <div class="row services_row">
     <!-- Service -->
     <div class="col-lg-4 col-md-6 service_col">
-        <a href="">
-        <div id="servhov" class="service text-center trans_200">
-            <div class="service_icon">
-            <img
-                class="svg"
-                style="width: 124px; height: 172px; margin-left: -27px"
-                src="images/Dr.Naveen.jpg"
-                alt=""
-            />
+            <?php
+                $sql = "select * from director_desk";
+                $exe = pg_query($db,$sql);
+                $res = pg_fetch_all($exe);
+            ?>
+        <a href="director_desk3.php">
+            <div id="servhov" class="service text-center trans_200">
+                <div class="service_icon">
+                <img
+                    class="svg director"
+                    src="<?php echo $res[0]['director_photo'];?>"
+                    alt=""
+                />
+                </div>
+                <div class="service_title trans_200 direct">
+                <?php echo $res[0]['director_name'];?>
+                </div>
+                <div class="service_text">
+                    <h5>DIRECTOR</h5>
+                    <!-- <p>BCG VACCINE LABORATORY , CHENNAI</p> -->
+
+                </div>
             </div>
-            <div class="service_title trans_200 direct">
-            Dr.Naveen Kumar Gupta, MD
-            </div>
-            <div class="service_text">
-            <h5>
-                MBBS( UCMS,Delhi) MD Medical Microbiology(MAMC,Delhi)
-            </h5>
-            <h5>Ex Fellow Infectious Diseases( PDHNH, Mumbai)</h5>
-            <h5>
-                Expertise: Clinical Microbiology, Infectious Diseases,
-                Zoonoses, Vaccinology
-            </h5>
-            <h5>DIRECTOR , BCG VACCINE LABORATORY , CHENNAI</h5>
-            </div>
-        </div>
         </a>
     </div>
     <!-- Service -->
     <div class="col-lg-4 col-md-6 service_col">
-        <a href="">
-        <div id="servhov" class="service">
-            <h5 class="title_card trans_200">ABOUT BCGVL</h5>
-            <p class="cont">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur ante leo, finibus quis est ut, tempor tincidunt
-            ipsum. Nam consequat semper sollicitudin. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Curabitur ante leo,
-            finibus quis est ut, tempor tincidunt ipsum. Nam consequat
-            semper sollicitudin.
-            </p>
-        </div>
+        <a href="about_bcg.php">
+            <div id="servhov" class="service">
+                <h5 class="title_card trans_200">ABOUT BCGVL</h5>
+                <?php
+                    $sql = "select * from about_us where content_id='ABG'";
+                    $exe = pg_query($db,$sql);
+                    $res = pg_fetch_all($exe);
+                ?>
+                <p class="cont">
+                <?php echo $res[0]['content_description'];?>
+                </p>
+            </div>
         </a>
     </div>
     <div class="col-lg-4 col-md-6 service_col">
-        <div id="servhov" class="service whats">
-            <h5 class="title_card">WHAT'S NEW</h5>
-            <div class="container">
-                <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
-                <ul class="cont">
-                    <?php $sql= "SELECT * FROM what_new";
-                    $res = pg_query($db,$sql);
-                    $result = pg_fetch_all($res);
-                    foreach($result as $value){
-                    ?>
-                        <li>
-                        <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
-                            ><i class="fa fa-check-circle"></i>
-                            <?php echo $value['whats_title']; ?></a
-                        >
-                        </li>
-                        <?php }?>
-                    </ul>
-                </marquee>
+        <a href="whats_new.php">
+            <div id="servhov" class="service whats">
+                <h5 class="title_card">WHAT'S NEW</h5>
+                <div class="container">
+                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                    <ul class="cont">
+                        <?php $sql= "SELECT * FROM what_new";
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){
+                        ?>
+                            <li>
+                            <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
+                                ><i class="fa fa-check-circle"></i>
+                                <?php echo $value['whats_title']; ?></a
+                            >
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </marquee>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 </div>
 <div class="bgone">
 <div id="cards_landscape_wrap-2">
+<h3 class="h_head">OUR PRODUCTS</h3>
     <div class="container">
     <div class="row services_row">
         <div class="col-lg-6 col-md-6 service_col">
-        <a href="product_1.html">
-            <div class="card-flyer">
-            <div class="text-box">
-                <div class="image-box">
-                <img src="images/products/fd.jpg" alt="" />
+            <a href="product.php">
+                <div class="card-flyer">
+                <div class="text-box">
+                    <div class="image-box">
+                    <img src="images/products/fd.jpg" alt="" />
+                    </div>
+                    <div class="text-container">
+                    <h6 class="text-center">
+                        F.D BCG VACCINE ( 10 DOSES) I.P
+                    </h6>
+                    <p>
+                        Freeze dried BCG Vaccine is a preparation of live
+                        bacteria derived from the culture of attenuated strain
+                        of Mycobacterium bovis BCG. It is used for the
+                        prevention of childhood tuberculosis. The vaccine
+                        complies with the requirements of Indian Pharmacopoeia
+                        2010.
+                    </p>
+                    </div>
                 </div>
-                <div class="text-container">
-                <h6 class="text-center">
-                    F.D BCG VACCINE ( 10 DOSES) I.P
-                </h6>
-                <p>
-                    Freeze dried BCG Vaccine is a preparation of live
-                    bacteria derived from the culture of attenuated strain
-                    of Mycobacterium bovis BCG. It is used for the
-                    prevention of childhood tuberculosis. The vaccine
-                    complies with the requirements of Indian Pharmacopoeia
-                    2010.
-                </p>
                 </div>
-            </div>
-            </div>
-        </a>
+            </a>
         </div>
-
         <div class="col-lg-6 col-md-6 service_col">
-        <a href="">
+        <a href="product.php">
             <div class="card-flyer">
             <div class="text-box">
                 <div class="image-box">
@@ -206,220 +206,227 @@
 </div>
 <div class="container">
 <div class="row services_row">
-    <div class="col-lg-4 col-md-6 service_col">
-    <a href="">
-        <div id="servhov" class="service text-center trans_200">
-        <div class="service_title trans_200">PRODUCTS</div>
-        <div class="service_text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur ante leo, finibus quis est ut, tempor tincidunt
-            ipsum. Nam consequat semper sollicitudin.
-            </p>
-        </div>
-        </div>
-    </a>
-    </div>
     <!-- Service -->
     <div class="col-lg-4 col-md-6 service_col">
-    <a href="">
-        <div id="servhov" class="service text-center trans_200">
-        <div class="service_title trans_200">DIVISIONS</div>
-        <div class="service_text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Curabitur ante leo, finibus quis est ut, tempor tincidunt
-            ipsum. Nam consequat semper sollicitudin.Curabitur ante leo,
-            finibus quis est ut, tempor tincidunt ipsum. Nam consequat
-            semper sollicitudin.
-            </p>
-        </div>
-        </div>
-    </a>
-    </div>
-
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-    <a href="">
-        <div id="servhov" class="service">
-        <h5 class="title_card trans_200">EVENTS</h5>
-        <div class="container">
-                <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
-                <ul class="cont">
-                    <?php $sql= "SELECT * FROM events";
-                    $res = pg_query($db,$sql);
-                    $result = pg_fetch_all($res);
-                    foreach($result as $value){
-                    ?>
-                        <li>
-                        <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                            ><i class="fa fa-check-circle"></i>
-                            <?php echo $value['event_title']; ?></a
-                        >
-                        </li>
-                        <?php }?>
-                    </ul>
-                </marquee>
+        <a href="">
+            <div id="servhov" class="service">
+            <h5 class="title_card trans_200">EVENTS</h5>
+            <div class="container">
+                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                    <ul class="cont">
+                        <?php $sql= "SELECT * FROM events";
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){
+                        ?>
+                            <li>
+                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
+                                ><i class="fa fa-check-circle"></i>
+                                <?php echo $value['event_title']; ?></a
+                            >
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </marquee>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 service_col">
+        <a href="">
+            <div id="servhov" class="service">
+            <h5 class="title_card trans_200">RECRUITMENTS</h5>
+            <div class="container">
+                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                    <ul class="cont">
+                        <?php $sql= "SELECT * FROM events";
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){
+                        ?>
+                            <li>
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 service_col">
+        <a href="">
+            <div id="servhov" class="service">
+            <h5 class="title_card trans_200">TENDERS</h5>
+            <div class="container">
+                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                    <ul class="cont">
+                        <?php $sql= "SELECT * FROM events";
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){
+                        ?>
+                            <li>
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 </div>
 <!-- Services section two-->
-<div class="bgimg">
-<div class="container">
-    <div class="row services_row">
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-        <a href="">
-        <div id="servhov" class="service">
-            <h5 class="title_card trans_200">EVENTS</h5>
-            <ul class="text-center cont">
-            <li>
-                <a href="">
-                <i class="fa fa-check-circle"></i>
-                <h4>The Sample Link of Events 1</h4></a
-                >
-            </li>
-            <li>
-                <a href="">
-                <i class="fa fa-check-circle"></i>
+<!-- <div class="bgimg">
+    <div class="container">
+        <div class="row services_row">
+        <div class="col-lg-4 col-md-6 service_col">
+            <a href="">
+            <div id="servhov" class="service">
+                <h5 class="title_card trans_200">EVENTS</h5>
+                <ul class="text-center cont">
+                <li>
+                    <a href="">
+                    <i class="fa fa-check-circle"></i>
+                    <h4>The Sample Link of Events 1</h4></a
+                    >
+                </li>
+                <li>
+                    <a href="">
+                    <i class="fa fa-check-circle"></i>
 
-                <h4>The Sample Link of Events 2</h4></a
-                >
-            </li>
-            <li>
-                <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>The Sample Link of Events 3</h4></a
-                >
-            </li>
-            <li>
-                <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>The Sample Link of Events 4</h4></a
-                >
-            </li>
-            <li>
-                <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>The Sample Link of Events 5</h4></a
-                >
-            </li>
-            <li>
-                <a href=""
-                ><i class="fa fa-check-circle"></i>
-                <h4>The Sample Link of Events 6</h4></a
-                >
-            </li>
-            </ul>
+                    <h4>The Sample Link of Events 2</h4></a
+                    >
+                </li>
+                <li>
+                    <a href=""
+                    ><i class="fa fa-check-circle"></i>
+                    <h4>The Sample Link of Events 3</h4></a
+                    >
+                </li>
+                <li>
+                    <a href=""
+                    ><i class="fa fa-check-circle"></i>
+                    <h4>The Sample Link of Events 4</h4></a
+                    >
+                </li>
+                <li>
+                    <a href=""
+                    ><i class="fa fa-check-circle"></i>
+                    <h4>The Sample Link of Events 5</h4></a
+                    >
+                </li>
+                <li>
+                    <a href=""
+                    ><i class="fa fa-check-circle"></i>
+                    <h4>The Sample Link of Events 6</h4></a
+                    >
+                </li>
+                </ul>
+            </div>
+            </a>
         </div>
-        </a>
-    </div>
 
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
-        <a href="">
-        <div id="servhov" class="service trans_200">
-            <div class="service_title text-center trans_200">
-            RECRUITMENTS
+        <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
+            <a href="">
+            <div id="servhov" class="service trans_200">
+                <div class="service_title text-center trans_200">
+                RECRUITMENTS
+                </div>
+                <div class="service_text">
+                <ul class="text-center cont">
+                    <li>
+                    <a href="">
+                        <i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 1</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href="">
+                        <i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 2</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 3</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 4</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 5</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Recruitments 6</h4></a
+                    >
+                    </li>
+                </ul>
+                </div>
             </div>
-            <div class="service_text">
-            <ul class="text-center cont">
-                <li>
-                <a href="">
-                    <i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 1</h4></a
-                >
-                </li>
-                <li>
-                <a href="">
-                    <i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 2</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 3</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 4</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 5</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Recruitments 6</h4></a
-                >
-                </li>
-            </ul>
-            </div>
+            </a>
         </div>
-        </a>
-    </div>
 
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
-        <a href="">
-        <div id="servhov" class="service trans_200">
-            <div class="service_title text-center trans_200">TENDERS</div>
-            <div class="service_text">
-            <ul class="text-center cont">
-                <li>
-                <a href="">
-                    <i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 1</h4></a
-                >
-                </li>
-                <li>
-                <a href="">
-                    <i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 2</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 3</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 4</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 5</h4></a
-                >
-                </li>
-                <li>
-                <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Tender 6</h4></a
-                >
-                </li>
-            </ul>
+        <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
+            <a href="">
+            <div id="servhov" class="service trans_200">
+                <div class="service_title text-center trans_200">TENDERS</div>
+                <div class="service_text">
+                <ul class="text-center cont">
+                    <li>
+                    <a href="">
+                        <i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 1</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href="">
+                        <i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 2</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 3</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 4</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 5</h4></a
+                    >
+                    </li>
+                    <li>
+                    <a href=""
+                        ><i class="fa fa-check-circle"></i>
+                        <h4>The Sample Link of Tender 6</h4></a
+                    >
+                    </li>
+                </ul>
+                </div>
             </div>
+            </a>
         </div>
-        </a>
+        </div>
     </div>
-    </div>
-</div>
-</div>
+</div> -->
 <!-- Departments -->
 
 <div class="photo_video_gallery">
@@ -435,26 +442,29 @@
         </li>
         </ul>
         <div class="slider-wrapper">
-        <ul class="item-slider">
-            <li data-match="panda">
-            <img src="images/gallery/1DSCN0532.jpg" />
-            </li>
-            <li data-match="panda">
-            <img src="images/gallery/20210121_160050.jpg" />
-            </li>
-            <li data-match="panda">
-            <img src="images/gallery/20210121_160106.jpg" />
-            </li>
-            <li data-match="panda">
-            <img src="images/gallery/2DSCN0540.jpg" />
-            </li>
-            <li data-match="panda">
-            <img src="images/gallery/3DSCN0534.jpg" />
-            </li>
-            <li data-match="cat">
-            <img src="images/gallery/820210119.jpg" />
-            </li>
-        </sul>
+            <ul class="item-slider">
+                <li data-match="panda">
+                    <img src="images/gallery/1DSCN0532.jpg" />
+                </li>
+                <li data-match="panda">
+                    <img src="images/gallery/20210121_160050.jpg" />
+                </li>
+                <li data-match="panda">
+                    <img src="images/gallery/20210121_160106.jpg" />
+                </li>
+                <li data-match="panda">
+                    <img src="images/gallery/2DSCN0540.jpg" />
+                </li>
+                <li data-match="panda">
+                    <img src="images/gallery/3DSCN0534.jpg" />
+                </li>
+                <li data-match="panda">
+                    <img src="images/gallery/3DSCN0534.jpg" />
+                </li>
+                <li data-match="cat">
+                    <img src="images/gallery/820210119.jpg" />
+                </li>
+            </ul>
         </div>
         <div class="slider-controls">
         <span class="prevSlide"

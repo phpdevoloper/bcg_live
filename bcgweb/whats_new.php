@@ -43,6 +43,7 @@ include('inc/dbconnection.php');
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>File</th>
+                                        <th>Created Date</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
@@ -52,6 +53,7 @@ include('inc/dbconnection.php');
                                         <td><?php echo $value['whats_title'];?></td>
                                         <td><?php echo $value['whats_desc'];?></td>
                                         <td><a href="<?php echo $value['whats_file'];?>"><img src="images/pdf.png" class="ficon" alt="">View</a></td>
+                                        <td><?php echo $value['created_date'];?></td>
                                 <?php }?>
                                     </tr>
                                 </tbody>
@@ -66,7 +68,12 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable();
-    $(".dataTables_length").addClass("bs-select");
+    $("#example").DataTable({
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"],
+          ],
+    });
+   
   });
 </script>

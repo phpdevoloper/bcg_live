@@ -41,8 +41,8 @@
             <ul>
               <li><a href="#">Who's Who</a></li>
               <li><a href="#">Divisions</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">Events</a></li>
+              <li><a href="product.php">Products</a></li>
+              <li><a href="events_details.php">Events</a></li>
               <li><a href="#">Recruitments</a></li>
               <li><a href="#">Tenders</a></li>
             </ul>
@@ -91,6 +91,9 @@
       </div>
       <div>
         <img src="images/slick/INCOIS.png" />
+      </div>
+      <div>
+        <img src="images/slick/INCOIS_1.png" />
       </div>
       <div>
         <img src="images/slick/INCOIS_1.png" />
@@ -181,7 +184,7 @@
 <script src="js/custom.js"></script>
 <script>
 $(".item-slider").slick({
-  // autoplay: true,
+  autoplay: true,
   arrows: false,
   cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
   slidesToShow: 4,

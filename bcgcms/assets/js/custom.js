@@ -1,8 +1,6 @@
 $(document).ready(function () {
   $(".upload_event").attr("style", "display:none");
   $(".event_url").attr("style", "display:none");
-  // $(".upload_event").remove(); // option 4
-  // $(".event_url").remove(); // option 4
 
   // Login ajax
   $("#admin_login").submit(function (e) {
