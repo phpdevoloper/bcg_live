@@ -94,9 +94,10 @@
                                                 aria-describedby="add-row_info">
                                                 <thead>
                                                     <tr role="row">
+                                                        <th>S.No</th>
                                                         <th>Title</th>
-                                                        <th>Description</th>
-                                                        <th>File</th>
+                                                        <th style="width:10%">File</th>
+                                                        <th>Created Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -104,13 +105,15 @@
                                                     <?php $sql = "SELECT * FROM what_new"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
+                                                          $i=1;
                                                           foreach ($result as $value) {
                                                     ?>
 
                                                     <tr role="row" class="odd">
+                                                        <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['whats_title'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['whats_desc'];?></td>
                                                         <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
+                                                        <td class="sorting_1"><?php echo $value['created_date'];?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
@@ -188,7 +191,7 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <?php } ?>
+                                                    <?php $i++; } ?>
                                                 </tbody>
                                             </table>
                                         </div>

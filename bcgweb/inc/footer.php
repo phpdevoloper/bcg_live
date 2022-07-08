@@ -82,9 +82,7 @@
     </div>
   </div>
   <div
-    class="client_logo"
-    style="background: url(images/background/images.png)"
-  >
+    class="client_logo">
     <div class="items">
       <div>
         <img src="images/slick/CMLRE.png" />

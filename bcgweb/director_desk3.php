@@ -11,7 +11,7 @@ include('inc/dbconnection.php');
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">Who's who</a></li>
-            <li class=""><a href="director_desk.php">Director of BCG</a></li>
+            <li class=""><a href="director_desk3.php">Director of BCG</a></li>
         </ul>
     </section>
     <div class="container">
@@ -36,7 +36,7 @@ include('inc/dbconnection.php');
                                         <img src="<?php echo $value['director_photo'];?>" class="img-flu" alt="" />
                                     </div>
                                     <div class="text-center" style="padding-bottom: 13px;">
-                                        <h3 style="color: #012970;font-size: 30px;"><?php echo $value['director_name'];?></h3>
+                                        <h3 style="color: #012970;"><?php echo $value['director_name'];?></h3>
                                         <h5 style="color: #012970;font-size: 11px;"><?php echo $value['director_qualification'];?></h5>
                                     </div> 
                                     <div class="text-center">

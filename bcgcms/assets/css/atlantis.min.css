@@ -278,6 +278,7 @@ label {
   font-weight: 400 !important;
 }
 .fw-mediumbold {
+  font-size: 19px;
   font-weight: 400 !important;
 }
 .fw-bold {
@@ -6549,7 +6550,6 @@ label.error {
 .table > tbody > tr > td,
 .table > tbody > tr > th {
   padding: 0px;
-  text-align: center;
 }
 .table > tfoot > tr > td,
 .table > tfoot > tr > th {

@@ -144,150 +144,144 @@
         <!-- Header Content -->
         <div class="header_container bg-dark nav_light bg-green">
           <div class="container">
-            <div class="row">
-              <div class="col">
-                <div
-                  class="header_content d-flex align-items-center justify-content-start"
-                >
-                  <nav class="main_nav ml-auto">
-                    <ul>
-                      <li class="active">
-                        <a href="index.php" class="nav-link">Home</a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="" class="nav-link">About us</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="objectives_of_bcg.php" class="list_a">Objectives of BCGVL</a>
-                          </li>
-                          <li>
-                            <a href="history_of_bcg.php" class="list_a">History of BCGVL</a>
-                          </li>
-                          <li>
-                            <a href="about_bcg.php" class="list_a">About BCG</a>
-                          </li>
-                          <li>
-                            <a href="activity_of_bcg.php" class="list_a">Activites</a>
-                          </li>
-                          <li>
-                            <a href="revenue_of_bcg.php" class="list_a">Revenue</a>
-                          </li>
-                          <li>
-                            <a href="achivement_of_bcg.php" class="list_a">Achivements</a>
-                          </li>
-                          <li>
-                            <a href="future_plans.php" class="list_a">Future Plans</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <!-- <li>
-                        <a href="whats_new.php" class="nav-link">What's New</a>
-                      </li> -->
-                      <li class="dropdown">
-                        <a href="" class="nav-link">Who's who</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="director_desk3.php" class="list_a">Director of BCGVL</a>
-                          </li>
-                          <li>
-                            <a href="director_message.php" class="list_a">Director's Message</a>
-                          </li>
-                          <li>
-                            <a href="organisation_chart.php" class="list_a">Organisation Chart</a>
-                          </li>
-                          <li>
-                            <a href="staff_list.php" class="list_a">Staff Details</a>
-                          </li>
-                          <li>
-                            <a href="former_directors.php" class="list_a"
-                              >Former Directors of BCGVL</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="" class="nav-link">Division</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="" class="list_a">Administration</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Quality Assurance</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Production</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Quality Control</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="nav-link">Products</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="product.php" class="list_a">Products</a>
-                          </li>
-                          <li>
-                            <a href="production_chart.php" class="list_a">Production Process</a>
-                          </li>
-                          <li>
-                            <a href="supply_vaccine.php" class="list_a">Supply of BCG Vaccine</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="nav-link">Events</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="events_details.php" class="list_a"
-                              >Milestones / Major Events</a
-                            >
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Current Events</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Past Events</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Training Programmes</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="nav-link">Publication / Documents</a>
-                        <ul class="dropdown-nav">
-                          <li>
-                            <a href="annual_report.php" class="list_a">Annual Reports</a>
-                          </li>
-                          <li>
-                            <a href="" class="list_a">Recruitment Rules</a>
-                          </li>
-                        </ul>
+            <div class="header_content d-flex align-items-center justify-content-start">
+              <nav class="main_nav ml-auto">
+                <ul>
+                  <li class="">
+                    <a href="index.php" class="nav-link"><i class="fas fa-home"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="" class="nav-link">About us</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="objectives_of_bcg.php" class="list_a">Objectives of BCGVL</a>
                       </li>
                       <li>
-                        <a href="contact.html" class="nav-link">Contacts</a>
+                        <a href="history_of_bcg.php" class="list_a">History of BCGVL</a>
+                      </li>
+                      <li>
+                        <a href="about_bcg.php" class="list_a">About BCG</a>
+                      </li>
+                      <li>
+                        <a href="activity_of_bcg.php" class="list_a">Activites</a>
+                      </li>
+                      <li>
+                        <a href="revenue_of_bcg.php" class="list_a">Revenue</a>
+                      </li>
+                      <li>
+                        <a href="achivement_of_bcg.php" class="list_a">Achivements</a>
+                      </li>
+                      <li>
+                        <a href="future_plans.php" class="list_a">Future Plans</a>
                       </li>
                     </ul>
-                  </nav>
-                  <div class="side-btn">
-                    <button
-                      class="navbar-toggler"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#sidebarMenu"
-                      aria-controls="sidebarMenu"
-                      aria-expanded="false"
-                      aria-label="Toggle navigation"
-                    >
-                      <i class="fa fa-bars"></i>
-                    </button>
-                  </div>
-                  <div class="hamburger ml-auto">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                  </div>
-                </div>
+                  </li>
+                  <!-- <li>
+                    <a href="whats_new.php" class="nav-link">What's New</a>
+                  </li> -->
+                  <li class="dropdown">
+                    <a href="" class="nav-link">Who's who</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="director_desk3.php" class="list_a">Director of BCGVL</a>
+                      </li>
+                      <li>
+                        <a href="director_message.php" class="list_a">Director's Message</a>
+                      </li>
+                      <li>
+                        <a href="organisation_chart.php" class="list_a">Organisation Chart</a>
+                      </li>
+                      <li>
+                        <a href="staff_list.php" class="list_a">Staff Details</a>
+                      </li>
+                      <li>
+                        <a href="former_directors.php" class="list_a"
+                          >Former Directors of BCGVL</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="" class="nav-link">Division</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="" class="list_a">Administration</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Quality Assurance</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Production</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Quality Control</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="nav-link">Products</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="product.php" class="list_a">Products</a>
+                      </li>
+                      <li>
+                        <a href="production_chart.php" class="list_a">Production Process</a>
+                      </li>
+                      <li>
+                        <a href="supply_vaccine.php" class="list_a">Supply of BCG Vaccine</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="nav-link">Events</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="events_details.php" class="list_a"
+                          >Milestones / Major Events</a
+                        >
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Current Events</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Past Events</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Training Programmes</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="nav-link">Publication / Documents</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="annual_report.php" class="list_a">Annual Reports</a>
+                      </li>
+                      <li>
+                        <a href="" class="list_a">Recruitment Rules</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="contact.html" class="nav-link">Contacts</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="side-btn">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#sidebarMenu"
+                  aria-controls="sidebarMenu"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="fa fa-bars"></i>
+                </button>
+              </div>
+              <div class="hamburger ml-auto">
+                <i class="fa fa-bars" aria-hidden="true"></i>
               </div>
             </div>
           </div>
