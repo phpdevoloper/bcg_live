@@ -22,29 +22,30 @@ $(document).ready(function () {
   //footer slick slide
   $(".items").slick({
     arrows: true,
-    accessibility: true,
-    autoplay: true,
+    // accessibility: true,
+    // autoplay: true,
+    variableWidth: false,
     autoplaySpeed: 3000,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    // responsive: [
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1,
-    //       adaptiveHeight: true,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 400,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1,
-    //     },
-    //   },
-    // ],
+    // infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      //   {
+      //     breakpoint: 1024,
+      //     settings: {
+      //       slidesToShow: 1,
+      //       slidesToScroll: 1,
+      //       adaptiveHeight: true,
+      //     },
+      //   },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   });
 
   //photo gallery slider

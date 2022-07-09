@@ -10,7 +10,7 @@ thead {
   background: #425c85;
 }
 .row th {
-  font-size: 17px;
+  font-size: 14px;
   text-align: center;
 }
 .odd td {
@@ -162,4 +162,3 @@ img.profile {
 .product_section {
   padding-top: 32px;
 }
-  

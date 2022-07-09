@@ -136,7 +136,7 @@
                         ?>
                             <li>
                             <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
-                                ><i class="fa fa-bullhorn"></i>
+                                ><i class="far fa-hand-point-right"></i>
                                 <?php echo $value['whats_title']; ?></a
                             >
                             </li>
@@ -229,7 +229,7 @@
                         ?>
                         <li>
                             <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                                ><i class="fa fa-bullhorn"></i>
+                                ><i class="far fa-hand-point-right"></i>
                                 <?php echo $value['event_title']; ?></a
                             >
                         </li>
@@ -247,18 +247,20 @@
             <div id="servhov" class="service">
                 <h5 class="title_card trans_200">RECRUITMENTS</h5>
                 <div class="container">
-                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
                     <ul class="cont">
-                        <?php $sql= "SELECT * FROM events";
+                        <?php $sql= "SELECT * FROM recruitment";
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         foreach($result as $value){
                         ?>
-                            <li>
-                            </li>
-                            <?php }?>
-                        </ul>
-                    </marquee>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
+                        <?php }?>
+                    </ul>
                 </div>
             </div>
             <div class="read_more">
@@ -268,26 +270,24 @@
     </div>
     <div class="col-lg-4 col-md-6 service_col">
         <a href="">
-            <div class=""></div>
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">TENDERS</h5>
-                <div class="container">
-                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
-                    <ul class="cont">
-                        <?php $sql= "SELECT * FROM events";
-                        $res = pg_query($db,$sql);
-                        $result = pg_fetch_all($res);
-                        foreach($result as $value){
-                        ?>
-                            <li>
-                            </li>
-                            <?php }?>
+            <div class="card">
+                <div id="servhov" class="service">
+                    <h5 class="title_card trans_200">TENDERS</h5>
+                    <div class="container">
+                        <ul class="cont">
+                            <?php $sql= "SELECT * FROM events";
+                            $res = pg_query($db,$sql);
+                            $result = pg_fetch_all($res);
+                            foreach($result as $value){
+                            ?>
+                            <li></li>
+                                <?php }?>
                         </ul>
-                    </marquee>
+                    </div>
                 </div>
-            </div>
-            <div class="read_more">
-                <a href="events_details.php" class="more_class">More</a>
+                <div class="read_more">
+                    <a href="events_details.php" class="more_class">More</a>
+                </div>
             </div>
         </a>
     </div>

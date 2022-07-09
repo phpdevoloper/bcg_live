@@ -88,7 +88,7 @@
 }
 
 .slick-next {
-  right: 85px;
+  right: 300px;
 }
 [dir="rtl"] .slick-next {
   right: auto;

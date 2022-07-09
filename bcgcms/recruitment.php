@@ -47,7 +47,7 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
                                                             <div class="col-md-6 p-0">
-                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                <input type="text" class="form-control input-full" name="rect_title" id="rect_title">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -57,7 +57,7 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
                                                             <div class="col-md-6 p-0">
-                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                <input type="text" class="form-control input-full" name="advt_no" id="advt_no">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -67,7 +67,7 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-5 col-form-label">Date of Announcement</label>
                                                             <div class="col-md-6 p-0">
-                                                                <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                <input type="date" class="form-control input-full" name="data_announce" id="data_announce">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -77,7 +77,7 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-5 col-form-label">Last Date to Apply</label>
                                                             <div class="col-md-6 p-0">
-                                                            <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                            <input type="date" class="form-control input-full" name="last_date_to" id="last_date_to">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -87,7 +87,7 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-5 col-form-label">Upload Advt.Notification</label>
                                                             <div class="col-md-6 p-0">
-                                                                <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
+                                                                <input type="file" class="form-control input-full" name="advt_notifi" id="advt_notifi" accept="application/pdf,application/vnd.ms-excel">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -132,9 +132,12 @@
 
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
-                                                        <td class="sorting_1"><?php //echo //$value['whats_title'];?></td>
-                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php //echo $value['whats_file'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
-                                                        <td class="sorting_1"><?php //echo $value['created_date'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['rect_title'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['advt_no'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['date_of_announce'];?></td>
+                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['upload_advt'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
+                                                        <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['last_date_to_apply']));?></td>
+                                                        <td class="sorting_1"><?php echo $value['created_date'];?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
@@ -142,10 +145,10 @@
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
-                                                                        data-whats_id="<?php //echo $value['whats_id'];?>"
-                                                                        data-whats_title="<?php// echo $value['whats_title'];?>"
-                                                                        data-whats_desc="<?php// echo $value['whats_desc'];?>"
-                                                                        data-what_file="<?php //echo $value['whats_file'];?>"
+                                                                        data-whats_id="<?php echo $value['rect_title'];?>"
+                                                                        data-whats_title="<?php echo $value['advt_no'];?>"
+                                                                        data-whats_desc="<?php echo $value['date_of_announce'];?>"
+                                                                        data-what_file="<?php echo $value['upload_advt'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>

@@ -888,7 +888,7 @@ include('inc/dbconnection.php');?>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#">
+                <a href="recruitment.php">
                   <i class="fas fa-bars"></i>
                   <span class="sub-item">RECRUITMENTS</span>
                 </a>
