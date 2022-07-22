@@ -1,12 +1,12 @@
 <?php
 	include('inc/dbconnection.php');
     // var_dump($_POST,$_FILES);die;
-	if($_POST['whats_id'] != ''){
+	if(isset($_POST['whats_id']) && ($_POST['whats_id'] != '')){
+		// var_dump($_FILES);die;	
 		if ($_FILES['what_file']['name'] == '') {
 			$sql = "select * from what_new where whats_id = '".$_POST['whats_id']."'";
 			$ret = pg_query($db, $sql); 
 			$data = pg_fetch_assoc($ret);
-			// var_dump($data);die;
 	
 			$query = "UPDATE what_new SET whats_title='".$_POST['whats_title']."',whats_desc ='".$_POST['description']."',
 			whats_file='".$data['whats_file']."' WHERE whats_id='".$_POST['whats_id']."'";
@@ -16,7 +16,6 @@
 			$target_dir = "uploads/whatsNew/";
 			$name =date('m-d-Y_');
 			$target_file = $name.basename($_FILES["what_file"]["name"]);
-			// var_dump($target_file);die;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			
 			// Check if image file is a actual image or fake image
@@ -24,7 +23,7 @@
 				// echo 1;
 			} else {
 				echo "Sorry, there was an error uploading your file.";
-				var_dump($_FILES);die;
+				
 				}
 				
 			$query = "UPDATE what_new SET whats_title='".$_POST['whats_title']."',whats_desc ='".$_POST['description']."',

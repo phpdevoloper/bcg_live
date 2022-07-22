@@ -2,9 +2,9 @@
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
-<div class="banner">
+<!-- <div class="banner">
     <img src="images/about.jpg" alt="" />
-</div>
+</div> -->
 <!-- product description -->
 <div class="about">
     <section>
@@ -25,7 +25,7 @@ include('inc/dbconnection.php');
                 <div class="section">
                     <h3 class="text-center txt" style="color: #299adc;">ORGANISATION CHART</h3>
                 </div>
-                <section id="about" class="about">
+                <section id="about">
                     <div class="org_img">
                         <img src="<?php echo $result['org_pic'];?>" alt="">
                     </div>

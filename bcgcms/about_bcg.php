@@ -50,10 +50,11 @@
   var content_desc = <?php echo json_encode($result['content_description'] ??'');?>;
   tinymce.init({
     selector: "textarea#about_bcg",
-    plugins:
-      "a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker",
-    toolbar:
-      "a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents",
+    plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
+                    "searchreplace visualblocks code",
+                    "insertdatetime media paste codesample table preview"
+    ],
+    toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
     toolbar_mode: "floating",
     statusbar: false,
      /* enable title field in the Image dialog*/

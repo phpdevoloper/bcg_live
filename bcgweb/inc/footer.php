@@ -39,12 +39,12 @@
           <div class="footer_links footer_column">
             <div class="footer_title">Quick Links</div>
             <ul>
-              <li><a href="#">Who's Who</a></li>
+              <li><a href="director_desk3.php">Who's Who</a></li>
               <li><a href="#">Divisions</a></li>
               <li><a href="product.php">Products</a></li>
               <li><a href="events_details.php">Events</a></li>
-              <li><a href="#">Recruitments</a></li>
-              <li><a href="#">Tenders</a></li>
+              <li><a href="recruitments.php">Recruitments</a></li>
+              <li><a href="tenders.php">Tenders</a></li>
             </ul>
           </div>
         </div>
@@ -111,9 +111,9 @@
               <li class="lines"></li>
               <li><a href="">Help</a></li>
               <li class="lines"></li>
-              <li><a href="contact.html">Contact us</a></li>
+              <li><a href="contact.php">Contact us</a></li>
               <li class="lines"></li>
-              <li><a href="">Feedback</a></li>
+              <li><a href="feedback.php">Feedback</a></li>
             </ul>
           </nav>
         </div>

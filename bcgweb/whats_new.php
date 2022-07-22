@@ -9,10 +9,11 @@ include('inc/dbconnection.php');
 </style>
 
 <!-- Home -->
-<div class="banner">
+<!-- <div class="banner">
     <img src="images/about.jpg" alt="" />
-</div>
+</div> -->
 <!-- product description -->
+
 <div class="about">
     <section>
         <ul class="breadcrumb wizard">
@@ -34,7 +35,7 @@ include('inc/dbconnection.php');
                         $result = pg_fetch_all($res);
                         //    var_dump($value['position_held']);die;
                 ?>
-                <section id="about" class="about">
+                <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">

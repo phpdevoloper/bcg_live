@@ -8,7 +8,8 @@
   <title>Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+    /* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
+    @import url('css/roboto');
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -80,9 +81,65 @@ button {
   transition: background 0.2s ease-out;
 }
 
+
 button:hover {
   background: #55D3AC;
 }
+
+header{
+  width : 100%;
+}
+
+.top_bar {
+  width: 100%;
+  background: #299adc;
+}
+.top_bar ul li{
+  list-style: none;
+}
+.top_bar ul li a{
+  text-decoration:none;
+  color: #ffffff;
+}
+
+.top_bar li.line {
+    border-left: 2px solid #1c1b1b;
+    height: 20px;
+    padding-right: 6px;
+    margin-left: 7px;
+}
+
+.clogo a{
+  text-decoration:none;
+  color: #283290; 
+}
+
+.bcg_t {
+  display: flex;
+}
+.clogo ul li {
+  list-style: none;
+  display: flex;
+}
+
+.logo img {
+  width: 80px;
+  height: 90px;
+}
+.s_logo{
+  float: right;  
+  margin-top: -111px;
+}
+.bcg_title{
+  padding-left: 15px;
+}
+
+.main_title {
+    background: #299adc;
+    text-align: center;
+    color: #f9faff;
+}
+
 
 @media(max-width: 458px) {
   
@@ -101,10 +158,49 @@ button:hover {
   </style>
 </head>
 <body>
-<h1>Login</h1>
+<header>
+  <div class="top_bar">
+    <ul class="d-flex" style="margin-bottom:5px">
+      <li>
+      <a href="index.php">BCGVL</a>
+      </li>
+      <li class="line"></li>
+      <li class="">
+        <a href="#">Government of india</a>
+      </li>
+    </ul>
+  </div>
+  <div class="main_header">
+    <div class="clogo">
+      <a href="index.php">
+        <ul class="bcg_t">
+          <li>
+            <div class="logo">
+              <img src="images/logo/download.png" alt="">
+            </div>
+          </li>
+          <li>
+            <ul class="bcg_title">
+              <li class="one"><h3>BCG Vaccine Laboratory, Chennai</h3></li>
+              <li class="two">Directorate General of Health Services(DGHS),</li>
+              <li class="three">Ministry of Health and Family Welfare, Govt. of India</li>
+            </ul>
+          </li>
+        </ul>
+      </a>
+      <div class="s_logo">
+        <img src="images/logo/logo.png" alt="" style="width:80px; height:80px;margin: 13px;">
+      </div>
+    </div>
+  </div>
+  <div class="main_title">
+    <h2>Content Management System(CMS)</h2>
+  </div>
+</header>
+<h3>Login</h3>
   <form id="admin_login">
     <div class="row">
-      <label for="email">Email</label>
+      <label for="email">User Name</label>
       <input type="text" name="user_name" autocomplete="off" placeholder="email@example.com">
     </div>
     <div class="row">

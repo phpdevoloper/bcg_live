@@ -2,9 +2,9 @@
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
-<div class="banner">
+<!-- <div class="banner">
     <img src="images/about.jpg" alt="" />
-</div>
+</div> -->
 <!-- product description -->
 <div class="about">
     <section>

@@ -22,26 +22,26 @@ $(document).ready(function () {
   //footer slick slide
   $(".items").slick({
     arrows: true,
-    // accessibility: true,
-    // autoplay: true,
+    accessibility: true,
+    autoplay: true,
     variableWidth: false,
     autoplaySpeed: 3000,
-    // infinite: true,
-    slidesToShow: 3,
+    infinite: true,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
-      //   {
-      //     breakpoint: 1024,
-      //     settings: {
-      //       slidesToShow: 1,
-      //       slidesToScroll: 1,
-      //       adaptiveHeight: true,
-      //     },
-      //   },
       {
-        breakpoint: 400,
+        breakpoint: 991,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
@@ -55,7 +55,7 @@ $(document).ready(function () {
     autoplay: true,
     autoplaySpeed: 3000,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 4,
     responsive: [
       {

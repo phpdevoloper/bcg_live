@@ -81,6 +81,25 @@
     <div class="row services_row">
     <!-- Service -->
     <div class="col-lg-4 col-md-6 service_col">
+        <div class="card">
+            <div id="servhov" class="service">
+                <h5 class="title_card trans_200">ABOUT BCGVL</h5>
+                <div class="container">
+                    <?php
+                        $sql = "select * from about_us where content_id='ABG'";
+                        $exe = pg_query($db,$sql);
+                        $res = pg_fetch_all($exe);
+                    ?>
+                    <?php echo $res[0]['content_description'];?>
+                </div>
+            </div>
+            <div class="read_more">
+                <a href="about_bcg.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Service -->
+    <div class="col-lg-4 col-md-6 service_col">
             <?php
                 $sql = "select * from director_desk";
                 $exe = pg_query($db,$sql);
@@ -88,37 +107,17 @@
             ?>
         <div class="card">
             <div id="servhov" class="service text-center trans_200">
-                <div class="service_icon">
-                    <img class="svg director" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
+            <h5 class="title_card trans_200">DIRECTOR</h5>
+                <div class="">
+                    <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
                 </div>
                 <div class="service_title trans_200 direct">
                     <h3><?php echo $res[0]['director_name'];?></h3>
                     <h4><?php echo $res[0]['director_qualification'];?></h3>
                 </div>
-                <div class="service_text">
-                    <h5>DIRECTOR</h5>
-                    <!-- <p>BCG VACCINE LABORATORY , CHENNAI</p> -->
-                </div>
             </div>
             <div class="read_more">
-                <a href="director_desk3.php" class="more_class">More</a>
-            </div>
-        </div>
-    </div>
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-        <div class="card">
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">ABOUT BCGVL</h5>
-                <?php
-                    $sql = "select * from about_us where content_id='ABG'";
-                    $exe = pg_query($db,$sql);
-                    $res = pg_fetch_all($exe);
-                ?>
-                <?php echo $res[0]['content_description'];?>
-            </div>
-            <div class="read_more">
-                <a href="about_bcg.php" class="more_class">More</a>
+                <a href="director_desk3.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
     </div>
@@ -146,7 +145,7 @@
                 </div>
             </div>
             <div class="read_more">
-                <a href="whats_new.php" class="more_class">More</a>
+                <a href="whats_new.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
     </div>
@@ -179,7 +178,7 @@
                         </div>
                     </div>
                     <div class="read_more">
-                        <a href="product.php" class="more_class">More</a>
+                        <a href="product.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -204,7 +203,7 @@
                         </div>
                     </div>
                     <div class="read_more">
-                        <a href="product.php" class="more_class">More</a>
+                        <a href="product.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -233,12 +232,30 @@
                                 <?php echo $value['event_title']; ?></a
                             >
                         </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['event_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['event_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['event_title']; ?></a
+                            >
+                        </li>
                         <?php }?>
                     </ul>
                 </div>
             </div>
             <div class="read_more">
-                <a href="events_details.php" class="more_class">More</a>
+                <a href="events_details.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
     </div>
@@ -259,12 +276,42 @@
                                 <?php echo $value['rect_title']; ?></a
                             >
                         </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
+                        <li>
+                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                ><i class="far fa-hand-point-right"></i>
+                                <?php echo $value['rect_title']; ?></a
+                            >
+                        </li>
                         <?php }?>
                     </ul>
                 </div>
             </div>
             <div class="read_more">
-                <a href="events_details.php" class="more_class">More</a>
+                <a href="recruitments.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
         </div>
     </div>
@@ -275,18 +322,41 @@
                     <h5 class="title_card trans_200">TENDERS</h5>
                     <div class="container">
                         <ul class="cont">
-                            <?php $sql= "SELECT * FROM events";
+                            <?php $sql= "SELECT * FROM tenders";
                             $res = pg_query($db,$sql);
                             $result = pg_fetch_all($res);
                             foreach($result as $value){
                             ?>
-                            <li></li>
+                            <li>
+                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['tender_title']; ?></a
+                                >
+                            </li>
+                            <li>
+                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['tender_title']; ?></a
+                                >
+                            </li>
+                            <li>
+                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['tender_title']; ?></a
+                                >
+                            </li>
+                            <li>
+                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['tender_title']; ?></a
+                                >
+                            </li>
                                 <?php }?>
                         </ul>
                     </div>
                 </div>
                 <div class="read_more">
-                    <a href="events_details.php" class="more_class">More</a>
+                    <a href="tenders.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </a>
@@ -460,26 +530,47 @@
         </ul>
         <div class="slider-wrapper">
             <ul class="item-slider">
-                <li data-match="panda">
+                <li class="magnific-img" data-match="panda">
+                    <a class="image-popup-vertical-fit" href="images/gallery/1DSCN0532.jpg" style="color:none;">
                     <img src="images/gallery/1DSCN0532.jpg" />
+                </a>
                 </li>
-                <li data-match="panda">
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160050.jpg">
                     <img src="images/gallery/20210121_160050.jpg" />
+                    
+                </a>
                 </li>
-                <li data-match="panda">
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160106.jpg">
                     <img src="images/gallery/20210121_160106.jpg" />
+                    
+                </a>
                 </li>
-                <li data-match="panda">
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/2DSCN0540.jpg">
                     <img src="images/gallery/2DSCN0540.jpg" />
+                    
+                </a>
                 </li>
-                <li data-match="panda">
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
                     <img src="images/gallery/3DSCN0534.jpg" />
+                    
+                </a>
                 </li>
-                <li data-match="panda">
-                    <img src="images/gallery/3DSCN0534.jpg" />
+                <li class="magnific-img" data-match="panda">
+                    <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
+                        <img src="images/gallery/3DSCN0534.jpg" />
+                        
+                    </a>
                 </li>
-                <li data-match="cat">
-                    <img src="images/gallery/820210119.jpg" />
+                <li class="magnific-img" data-match="cat">
+                    <a class="image-popup-vertical-fit" href="https://www.youtube.com/embed/brMdT4EiBQM">
+                        <iframe width="100%" height="157" src="https://www.youtube.com/embed/brMdT4EiBQM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                        
+                    </a>
                 </li>
             </ul>
         </div>
@@ -492,3 +583,28 @@
     </div>
 </div>
 <?php include('inc/footer.php'); ?>
+<script>
+    $(document).ready(function(){
+    $('.image-popup-vertical-fit').magnificPopup({
+        type: 'image',
+      mainClass: 'mfp-with-zoom', 
+      gallery:{
+                enabled:true
+            },
+    
+      zoom: {
+        enabled: true, 
+    
+        duration: 300, // duration of the effect, in milliseconds
+        easing: 'ease-in-out', // CSS transition easing function
+    
+        opener: function(openerElement) {
+    
+          return openerElement.is('img') ? openerElement : openerElement.find('img');
+      }
+    }
+    
+    });
+    
+    });
+</script>

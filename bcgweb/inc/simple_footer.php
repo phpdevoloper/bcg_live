@@ -1,53 +1,53 @@
 <!-- Footer -->
 
-<footer class="footer">
-  <div class="copyright">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div
-            class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start"
-          >
-            <div class="cr">
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              Content Owned & Maintained by BCG Vaccine Laboratory,<br />
-              Developed and Hosted by National Informatics Centre(NIC),
-              Ministry Of Electronics & Information Technology, Government
-              Of India
+<footer class="footer py-4">
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div
+              class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start"
+            >
+              <div class="cr">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Content Owned & Maintained by BCG Vaccine Laboratory,<br />
+                Developed and Hosted by National Informatics Centre(NIC),
+                Ministry Of Electronics & Information Technology, Government
+                Of India
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="header_container nav_light" style="height: 35px">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <nav class="foo_nav">
-            <ul>
-              <li>
-                <a href=""
-                  >Last Updated :
-                  <script>
-                    let today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1;
-                    var yyyy = today.getFullYear();
-                    document.write(dd + "/" + mm + "/" + yyyy);
-                  </script></a
-                >
-              </li>
-            </ul>
-          </nav>
+    <div class="header_container nav_light" style="height: 35px">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <nav class="foo_nav">
+              <ul>
+                <li>
+                  <a href=""
+                    >Last Updated :
+                    <script>
+                      let today = new Date();
+                      var dd = today.getDate();
+                      var mm = today.getMonth() + 1;
+                      var yyyy = today.getFullYear();
+                      document.write(dd + "/" + mm + "/" + yyyy);
+                    </script></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </footer>
 </div>
 

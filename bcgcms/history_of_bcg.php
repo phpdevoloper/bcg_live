@@ -49,6 +49,7 @@
 <script>
   var content_desc = <?php echo json_encode($result['content_description'] ??'');?>;
   tinymce.init({
+    height : "480",
     selector: "textarea#history_of",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",

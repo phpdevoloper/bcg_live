@@ -135,7 +135,7 @@
                                                         <td class="sorting_1"><?php echo $value['rect_title'];?></td>
                                                         <td class="sorting_1"><?php echo $value['advt_no'];?></td>
                                                         <td class="sorting_1"><?php echo $value['date_of_announce'];?></td>
-                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['upload_advt'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
+                                                        <td class="sorting_1"><a href="uploads/recruitment/<?php echo $value['upload_advt'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['last_date_to_apply']));?></td>
                                                         <td class="sorting_1"><?php echo $value['created_date'];?></td>
                                                         <td>

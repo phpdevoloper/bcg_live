@@ -2,10 +2,6 @@
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
-<div class="banner">
-    <img src="images/about.jpg" alt="" />
-</div>
-<!-- product description -->
 <div class="about">
     <section>
         <ul class="breadcrumb wizard">

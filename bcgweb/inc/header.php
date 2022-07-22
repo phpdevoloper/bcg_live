@@ -61,7 +61,7 @@
                     <li class="line"></li>
                     <li class="">
                       <a href="#" style="color: #ffffff; padding-right: 10px"
-                        >GOVERNMENT OF INDIA</a
+                        >Government of india</a
                       >
                     </li>
                   </ul>
@@ -70,13 +70,13 @@
                   >
                     <ul class="d-flex flex-row justify-content-start ml-auto">
                       <li class="">
-                        <a href="#" style="color: #ffffff; padding-right: 10px"
+                        <a href="screenreader.php" style="color: #ffffff; padding-right: 10px"
                           >Screen Reader Access</a
                         >
                       </li>
                       <li class="line"></li>
                       <li class="social-media">
-                        <i class="fas fa-share-square"></i>
+                        <a href="#servhov"><i class="fas fa-share-square"></i></a>
                       </li>
                       <li class="line"></li>
                       <li class="social-media">
@@ -136,7 +136,7 @@
                     Ministry of Health and Family Welfare, Govt. of India
                   </p>
                 </a>
-                <img class="dghs" src="images/logo/logo.jpg" alt="" />
+                <img class="dghs" src="images/logo/logo.png" alt="" />
               </div>
             </div>
           </div>
@@ -205,16 +205,16 @@
                     <a href="" class="nav-link">Division</a>
                     <ul class="dropdown-nav">
                       <li>
-                        <a href="" class="list_a">Administration</a>
+                        <a href="administration.php" class="list_a">Administration</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Quality Assurance</a>
+                        <a href="quality.php" class="list_a">Quality Assurance</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Production</a>
+                        <a href="production.php" class="list_a">Production</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Quality Control</a>
+                        <a href="quality_control.php" class="list_a">Quality Control</a>
                       </li>
                     </ul>
                   </li>
@@ -252,7 +252,7 @@
                     </ul>
                   </li>
                   <li class="dropdown">
-                    <a href="#" class="nav-link">Publication / Documents</a>
+                    <a href="#" class="nav-link">Publications / Documents</a>
                     <ul class="dropdown-nav">
                       <li>
                         <a href="annual_report.php" class="list_a">Annual Reports</a>
@@ -263,7 +263,7 @@
                     </ul>
                   </li>
                   <li>
-                    <a href="contact.html" class="nav-link">Contacts</a>
+                    <a href="contact.php" class="nav-link">Contacts Us</a>
                   </li>
                 </ul>
               </nav>
@@ -286,7 +286,7 @@
             </div>
           </div>
         </div>
-        <nav id="sidebarMenu" class="collapse sidebar collapse bg-white">
+        <nav id="sidebarMenu" class="collapse sidebar collapse bg-white trans_200">
           <div class="close_btn" data-toggle="collapse">
             <div class="navbar-toggler"
               data-toggle="collapse"
@@ -303,10 +303,10 @@
               <a
                 href="#"
                 class="list-group-item list-group-item-action py-2 ripple"
-                ><span>Documents</span></a
+                ><span>Gallery</span></a
               >
               <a
-                href="#"
+                href="tenders.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Tenders</span></a
               >
@@ -316,14 +316,17 @@
                 ><span>RTI</span></a
               >
               <a
-                href="contact.html"
-                class="list-group-item list-group-item-action py-2 ripple"
-              >
-                <i class="fas fa-chart-pie fa-fw me-3"></i
-                ><span>Contact Us</span>
-              </a>
-              <a
                 href="#"
+                class="list-group-item list-group-item-action py-2 ripple"
+                ><span>FAQ</span></a
+              >
+              <a
+                href="recruitments.php"
+                class="list-group-item list-group-item-action py-2 ripple"
+                ><span>Recruitments</span></a
+              >
+              <a
+                href="feedback.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Feedback</span></a
               >

@@ -20,17 +20,24 @@
 		</div>
 		<div class="page-inner mt--5">
 			<div class="row mt--2">
-				<div class="col-md-6">
+				<div class="col-md-4">
+					<div class="card full-height">
+						<div class="card-body">
+							<div class="card-title">Whats's New</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
 					<div class="card full-height">
 						<div class="card-body">
 							<div class="card-title">About BCGVL</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="card full-height">
 						<div class="card-body">
-							<div class="card-title">Whats's New</div>
+							<div class="card-title">Recruitments</div>
 						</div>
 					</div>
 				</div>

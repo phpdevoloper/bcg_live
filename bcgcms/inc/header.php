@@ -36,6 +36,10 @@ include('inc/dbconnection.php');?>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/atlantis.min.css" />
 
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+
+
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/demo.css" />
     <!-- <link rel="stylesheet" href="assets/css/richtext.min.css"> -->
@@ -80,7 +84,8 @@ include('inc/dbconnection.php');?>
           <div class="container-fluid">
             <div class="collapse" id="search-nav">
               <div class="navbar-left navbar-form nav-search mr-md-3">
-                <span>BCG Vaccine Laboratory, Chennai</span>
+                <span>BCG Vaccine Laboratory, Chennai</span><br>
+                <span style="font-size:15px">Content Management System(CMS)</span>
               </div>
             </div>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
@@ -206,7 +211,7 @@ include('inc/dbconnection.php');?>
                   class="collapsed"
                 >
                   <i class="fas fa-home"></i>
-                  <p>Dashboard</p>
+                  <p>DASHBOARD</p>
                   <!-- <span class="caret"></span> -->
                 </a>
                 <!-- <div class="collapse" id="dashboard">
@@ -543,31 +548,91 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+              if (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'? 'active':'');
+							}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'active':'');
+							}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'active':'');
+								}
+                ?>">
                 <a data-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
                   <p>DIVISIONS</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="sidebarLayouts">
+                <div class="collapse 
+                <?php 
+              if (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'show':'');
+              }
+              elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'? 'show':'');
+								}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'show':'');
+								}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'show':'');
+								}
+                ?>" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewADM.php'? 'active':'');
+                      }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'administration.php'? 'active':'');
+                      }
+                      ?>">
+                      <a href="viewADM.php">
                         <span class="sub-item">Administration</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQUA.php'? 'active':'');
+                      }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'?'active':'');
+                      }?>">
+                      <a href="viewQUA.php">
                         <span class="sub-item">Quality Assurance</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php'? 'active':'');
+                      }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'active':'');
+                      }?>">
+                      <a href="viewPRO.php">
                         <span class="sub-item">Production</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'active':'');
+                      } 
+                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'active':'');
+                      }?>">
+                      <a href="viewQTC.php">
                         <span class="sub-item">Quality Control</span>
                       </a>
                     </li>
@@ -608,26 +673,7 @@ include('inc/dbconnection.php');?>
                       }?>">
                       <a href="product.php">
                         <span class="sub-item">Products</span>
-                        <!-- <span class="caret"></span> -->
                       </a>
-                      <!-- <div class="collapse" id="subnav1">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >F.D BCG Vaccine (10 DOSES) I.P</span
-                              >
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >BCG Therapeutic (40 MG.)</span
-                              >
-                            </a>
-                          </li>
-                        </ul>
-                      </div> -->
                     </li>
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'production.php') {
@@ -702,16 +748,46 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php'? 'active':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php'? 'active':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'active':'');
+								}
+                ?>">
                 <a data-toggle="collapse" href="#maps">
                 <i class="fas fa-image"></i>
                   <p>GALLERY</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="maps">
+                <div class="collapse <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'show':'');
+								}
+                ?>" id="maps">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php'? 'active':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php'? 'active':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'active':'');
+								}
+                ?>">
+                      <a href="event_gallery.php">
                         <span class="sub-item">Event Gallery</span>
                       </a>
                     </li>
@@ -758,16 +834,25 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php'? 'active':'');
+                      }?>">
                 <a data-toggle="collapse" href="#tenders">
                   <i class="far fa-chart-bar"></i>
                   <p>TENDERS</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="tenders">
+                <div class="collapse <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php'? 'show':'');
+                      }?>" id="tenders">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php'? 'active':'');
+                      }?>">
+                      <a href="tenders.php">
                         <span class="sub-item">Active Tenders</span>
                       </a>
                     </li>
