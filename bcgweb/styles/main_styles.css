@@ -987,7 +987,7 @@ section {
   /* bottom: 0;
   height: 95px; */
   flex: 1 0 auto;
-  margin-top: 125px;
+  /* margin-top: 125px; */
 }
 .footer_container {
   width: 100%;

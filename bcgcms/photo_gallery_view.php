@@ -14,18 +14,17 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php">Event Gallery</a>
+                                            <a href="whats_new.php"><?php echo $_GET['category_title']; ?></a>
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="event_category.php" class="btn btn-primary btn-round ml-auto"><i class="fa fa-plus"></i>&nbsp;&nbsp;
-                                Category</a>
+                                <a href="photo_gallery.php" class="btn btn-primary btn-round ml-auto">Back</a>
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <!-- <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add photos</button> -->
+                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
+                                    data-target="#addRowModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add photos</button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -41,7 +40,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form id="add_event_photo">
+                                                <form id="add_photo_galley">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group form-inline">
@@ -50,7 +49,7 @@
                                                                     <select class="form-control input-full" name="even_cat" id="even_cat">
                                                                         <option value="">Select the Category</option>
                                                                         <?php 
-                                                                            $sql = "SELECT * FROM event_category ORDER BY cate_id";
+                                                                            $sql = "SELECT * FROM photo_category WHERE gall_cate_id = '2' ORDER BY cate_id";
                                                                             $exe = pg_query($db,$sql);
                                                                             $result = pg_fetch_all($exe);
                                                                             foreach($result as $value){ ?>
@@ -72,6 +71,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group form-inline">
+                                                                <label for="inlineinput" class="col-md-3 col-form-label">Caption</label>
+                                                                <div class="col-md-9 p-0">
+                                                                    <input type="text" class="form-control input-full" name="photo_caption" id="photo_caption">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="modal-footer" style="justify-content: center !important;">
                                                         <button type="submit" id="addRowButton"
                                                             class="btn btn-primary">Submit</button>
@@ -88,20 +97,20 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql = "select * from event_category";
-                                    $exe = pg_query($db,$sql);
+                                    $sql    = "select * from photo_gallery where category ='".$_GET['cate_id']."'";
+                                    // echo $sql;exit;
+                                    $exe    = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
                                     foreach($result as $value){ ?>
                                     <div class="col-4">
-                                        <a href="event_gallery_view.php?cate_id=<?php echo $value['cate_id'];?>&category_title=<?php echo $value['category_title'];?>">
+                                        <a href="#">
                                             <div class="box">
                                                 <div class="boxInner">
-                                                    <img src="images/gallery/1DSCN0532.jpg"/>
-                                                    <div class="titleBox"><?php echo $value['category_title'];?></div>
+                                                    <img src="uploads/gallery/photo/<?php echo $value['photo_file'];?>"/>
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <?php echo $value['category_title'];?>
+                                                <?php echo $value['photo_caption'];?>
                                             </div>
                                         </a>
                                     </div>

@@ -806,6 +806,7 @@ $(document).ready(function () {
       }
     });
   });
+
   $("#add_event_photo").submit(function (e) {
     e.preventDefault();
     var data = new FormData(this);
@@ -820,6 +821,217 @@ $(document).ready(function () {
         $.ajax({
           method: "POST",
           url: "addEventPhoto.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  // Add photo category
+  $("#add_photo_category").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "photocategoryAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $("#add_photo_galley").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addPhotogallery.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+  // Add videos category
+  $("#add_video_category").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "videocategoryAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $("#add_photo_galley").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addPhotogallery.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $("#add_video_galley").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addVideogallery.php",
           data: data,
           contentType: false,
           processData: false,

@@ -71,6 +71,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group form-inline">
+                                                                <label for="inlineinput" class="col-md-3 col-form-label">Caption</label>
+                                                                <div class="col-md-9 p-0">
+                                                                    <input type="text" class="form-control input-full" name="event_photo" id="event_photo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="modal-footer" style="justify-content: center !important;">
                                                         <button type="submit" id="addRowButton"
                                                             class="btn btn-primary">Submit</button>

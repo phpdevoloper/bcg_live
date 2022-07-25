@@ -774,6 +774,24 @@ include('inc/dbconnection.php');?>
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'show':'');
 								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_category.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php'? 'show':'');
+								}
+								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'video_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_category.php'? 'show':'');
+								}
                 ?>" id="maps">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
@@ -791,13 +809,39 @@ include('inc/dbconnection.php');?>
                         <span class="sub-item">Event Gallery</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php'? 'active':'');
+								} 
+								else if (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php'? 'active':'');
+								} 
+                elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_category.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_category.php'? 'active':'');
+								}
+                elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery_view.php'? 'active':'');
+								}
+                ?>">
+                      <a href="photo_gallery.php">
                         <span class="sub-item">Photo Gallery</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                    if (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery.php') {
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery.php'? 'active':'');
+                    } 
+                    else if (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php') {
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php'? 'active':'');
+                    } 
+                    elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'video_category.php') {
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_category.php'? 'active':'');
+                    }
+                    elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php') {
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'video_gallery_view.php'? 'active':'');
+                    }
+                    ?>">
+                      <a href="video_gallery.php">
                         <span class="sub-item">Video Gallery</span>
                       </a>
                     </li>
@@ -833,6 +877,15 @@ include('inc/dbconnection.php');?>
                     </li>
                   </ul>
                 </div>
+              </li>
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment.php'? 'active':'');
+                      }?>">
+                <a href="recruitment.php">
+                  <i class="fas fa-bars"></i>
+                  <span class="sub-item">RECRUITMENTS</span>
+                </a>
               </li>
               <li class="nav-item <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
@@ -970,12 +1023,6 @@ include('inc/dbconnection.php');?>
                 <a href="#">
                 <i class="fas fa-question"></i>
                   <span class="sub-item">FAQ</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="recruitment.php">
-                  <i class="fas fa-bars"></i>
-                  <span class="sub-item">RECRUITMENTS</span>
                 </a>
               </li>
               <li class="nav-item">

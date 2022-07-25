@@ -14,19 +14,16 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php">Event Gallery</a>
+                                            <a href="whats_new.php">Photo Gallery</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="event_category.php" class="btn btn-primary btn-round ml-auto"><i class="fa fa-plus"></i>&nbsp;&nbsp;
+                                <a href="photo_category.php" class="btn btn-primary btn-round ml-auto"><i class="fa fa-plus"></i>&nbsp;&nbsp;
                                 Category</a>
                             </div>
                         </div>
                         <div class="card-body">
                             <div>
-                                <!-- <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add photos</button> -->
-                                <!-- Modal -->
                                 <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -88,12 +85,12 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql = "select * from event_category";
+                                    $sql = "select * from photo_category where gall_cate_id= '2'";
                                     $exe = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
                                     foreach($result as $value){ ?>
                                     <div class="col-4">
-                                        <a href="event_gallery_view.php?cate_id=<?php echo $value['cate_id'];?>&category_title=<?php echo $value['category_title'];?>">
+                                        <a href="photo_gallery_view.php?cate_id=<?php echo $value['cate_id'];?>&category_title=<?php echo $value['category_title'];?>">
                                             <div class="box">
                                                 <div class="boxInner">
                                                     <img src="images/gallery/1DSCN0532.jpg"/>
