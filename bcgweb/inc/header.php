@@ -44,7 +44,7 @@
     <!-- <link rel="stylesheet" href="plugins/icofont/icofont.min.css" /> -->
   </head>
   <body>
-    <div class="super_container">
+    <!-- <div class="super_container"> -->
       <!-- Header -->
 
       <header class="header trans_200">
@@ -93,15 +93,15 @@
                           <li>A</li>
                         </ul>
                       </li>
-                      <li class="line"></li>
-                      <li>
+                      <!-- <li class="line"></li> -->
+                      <!-- <li>
                         <a
                           href="bcg-hi/index.html"
                           style="color: #ffffff"
                           aria-hidden="true"
                           >हिन्दी</a
                         >
-                      </li>
+                      </li> -->
                       <li class="line"></li>
                       <li class="social-media">
                         <i class="fab fa-facebook-f"></i>
@@ -252,6 +252,20 @@
                     </ul>
                   </li>
                   <li class="dropdown">
+                    <a href="#" class="nav-link">Gallery</a>
+                      <ul class="dropdown-nav">
+                        <li>
+                          <a href="event_gallery.php" class="list_a">Event Gallery</a>
+                        </li>
+                        <li>
+                          <a href="photo_gallery.php" class="list_a">Photo Gallery</a>
+                        </li>
+                        <li>
+                          <a href="video_gallery.php" class="list_a">Video Gallery</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li class="dropdown">
                     <a href="#" class="nav-link">Publications / Documents</a>
                     <ul class="dropdown-nav">
                       <li>
@@ -287,31 +301,23 @@
           </div>
         </div>
         <nav id="sidebarMenu" class="collapse sidebar collapse bg-white trans_200">
-          <div class="close_btn" data-toggle="collapse">
-            <div class="navbar-toggler"
-              data-toggle="collapse"
-              data-target="#sidebarMenu"
-              aria-controls="sidebarMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              class="menu_clos">
-            </div>
+          <div class="close_btn">
           </div>
           <!-- Menu Close Button -->
           <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
-              <a
+              <!-- <a
                 href="#"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Gallery</span></a
-              >
+              > -->
               <a
                 href="tenders.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Tenders</span></a
               >
               <a
-                href="#"
+                href="rti.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>RTI</span></a
               >

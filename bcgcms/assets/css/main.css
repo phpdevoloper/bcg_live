@@ -214,3 +214,19 @@ a.btn.btn-primary.btn-round.ml-auto {
 #add-row {
   padding-top: 20px;
 }
+
+/* Accordian */
+.mb-0 > a {
+  display: block;
+  position: relative;
+}
+.mb-0 > a:before {
+  content: "\f067"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Solid";
+  position: absolute;
+  right: 0;
+  color: rgb(4, 165, 4);
+}
+.mb-0 > a[aria-expanded="true"]:before {
+  content: "\f068"; /* fa-chevron-up */
+}

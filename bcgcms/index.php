@@ -197,11 +197,11 @@ header{
     <h2>Content Management System(CMS)</h2>
   </div>
 </header>
-<h3>Login</h3>
+<!-- <h3>Login</h3> -->
   <form id="admin_login">
     <div class="row">
       <label for="email">User Name</label>
-      <input type="text" name="user_name" autocomplete="off" placeholder="email@example.com">
+      <input type="text" name="user_name" autocomplete="off" placeholder="User Name">
     </div>
     <div class="row">
       <label for="password">Password</label>

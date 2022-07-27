@@ -36,6 +36,11 @@
 2. Body and some general stuff
 *********************************/
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -320,7 +325,7 @@ section {
 .header_content {
   height: 44px;
   margin-top: 0px;
-  margin-right: 100px;
+  margin-right: 72px;
 }
 .header.scrolled .header_content {
   margin-top: 62px;
@@ -329,7 +334,7 @@ section {
   display: inline-block;
 }
 .main_nav ul li {
-  margin-left: -7px;
+  margin-left: -16px;
 }
 .main_nav ul li a {
   font-size: 15px;
@@ -727,7 +732,6 @@ section {
   width: 100%;
   background: #ffffff;
   padding-top: 147px;
-  /* padding-bottom: 92px; */
 }
 .about_text {
   margin-top: 34px;
@@ -981,14 +985,19 @@ section {
 *********************************/
 
 .footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  position: relative;
-  /* left: 0; */
-  /* bottom: 0;
-  height: 95px; */
-  flex: 1 0 auto;
-  /* margin-top: 125px; */
+  /* Set the fixed height of the footer here */
+  height: 0;
+  /* line-height: 60px;  */
+  /* background-color: #f5f5f5; */
 }
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 .footer_container {
   width: 100%;
   background: #060b3ad9;
@@ -1324,9 +1333,9 @@ ul.tittle_bcg {
 }
 .sidebar {
   position: fixed;
-  top: 168px;
+  top: 43px;
   bottom: 0;
-  left: 986px;
+  left: 1044px;
   /* padding: 58px 0 0;  */
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
   width: 240px;
@@ -1853,10 +1862,11 @@ div#myTabContent {
 
 /* sidebar button */
 .close_btn {
-  position: absolute;
   top: 12px;
-  right: 22px;
-  width: 14px;
+  left: 214px;
+  width: 21px;
+  height: 3px;
+  background: #3a3a3a;
   cursor: pointer;
   z-index: 10;
   -webkit-transform: rotate(45deg);
@@ -1865,18 +1875,7 @@ div#myTabContent {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.menu_clos {
-  top: 9px;
-  width: 21px;
-  height: 3px;
-  background: #3a3a3a;
-  -webkit-transition: all 200ms ease;
-  -moz-transition: all 200ms ease;
-  -ms-transition: all 200ms ease;
-  -o-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.menu_clos::after {
+.close_btn::after {
   display: block;
   position: absolute;
   top: -9px;
@@ -2908,4 +2907,64 @@ img.mfp-img {
 
 section#about {
   padding-bottom: 100px;
+}
+
+/* Accordian */
+.mb-0 > a {
+  display: block;
+  position: relative;
+}
+.mb-0 > a:before {
+  content: "\f067"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 0;
+  color: rgb(4, 165, 4);
+}
+.mb-0 > a[aria-expanded="true"]:before {
+  content: "\f068"; /* fa-chevron-up */
+}
+
+#accordion a {
+  color: #154375;
+}
+
+/* Gallery Box */
+.gallery-image {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-image img {
+  height: 250px;
+  width: 350px;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+}
+
+.img-box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 285px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  position: relative;
+  background-color: white;
+  border: 11px solid #ededed;
+}
+.img-box img {
+  margin-bottom: 10px;
+}
+
+.img-box:hover img {
+  transform: scale(1.1);
+}
+.img-box p {
+  text-align: center;
+  font-weight: 700;
+  background: #e8ddcd;
 }

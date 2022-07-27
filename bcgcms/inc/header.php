@@ -917,20 +917,29 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'active':'');
+                      }?>">
                 <a data-toggle="collapse" href="#rti">
                   <i class="fas fa-bars"></i>
                   <p>RTI</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="rti">
+                <div class="collapse <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'show':'');
+                      }?>" id="rti">
                   <ul class="nav nav-collapse">
-                    <li>
-                      <a data-toggle="collapse" href="#rti1">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'active':'');
+                      }?>">
+                      <a href="rti.php">
                         <span class="sub-item">RTI Proactive Disclosure</span>
                         <span class="caret"></span>
                       </a>
-                      <div class="collapse" id="rti1">
+                      <!-- <div class="collapse" id="rti1">
                         <ul class="nav nav-collapse subnav">
                           <li>
                             <a href="#">
@@ -971,7 +980,7 @@ include('inc/dbconnection.php');?>
                             </a>
                           </li>
                         </ul>
-                      </div>
+                      </div> -->
                     </li>
                     <li>
                       <a data-toggle="collapse" href="#subnav2">

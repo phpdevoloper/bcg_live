@@ -282,4 +282,10 @@ $(document).ready(function () {
     //   })
     //   .magnificPopup("open");
   });
+
+  $(".close_btn").on("click", function (event) {
+    event.preventDefault();
+    // console.log("sidebarMenu");
+    $("#sidebarMenu").removeClass("show");
+  });
 });

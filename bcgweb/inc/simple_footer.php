@@ -1,6 +1,5 @@
 <!-- Footer -->
-
-<footer class="footer py-4">
+<footer class="footer">
     <div class="copyright">
       <div class="container">
         <div class="row">
@@ -49,7 +48,7 @@
       </div>
     </div>
 </footer>
-</div>
+<!-- </div> -->
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="plugins/dataTables/datatables.min.js"></script>
