@@ -230,3 +230,16 @@ a.btn.btn-primary.btn-round.ml-auto {
 .mb-0 > a[aria-expanded="true"]:before {
   content: "\f068"; /* fa-chevron-up */
 }
+
+.exe > a {
+  display: block;
+  position: relative;
+}
+
+.exe > a:after {
+  content: "\f35d"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Solid";
+  position: absolute;
+  right: 0;
+  color: #3e93ff;
+}

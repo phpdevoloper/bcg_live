@@ -27,7 +27,7 @@ include('inc/dbconnection.php');
                         $i = 1;
                         foreach ($row as $value) {
                 ?>
-                <div class="card" style="border-color: green;">
+                <div class="card" style="border-color: green; margin-bottom: 30px;">
                     <div class="card-header" id="heading-<?php echo $i;?>">
                     <h5 class="mb-0">
                         <a role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
@@ -45,24 +45,32 @@ include('inc/dbconnection.php');
                                     foreach ($row as $value) {
                                 ?>
                                     <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>">
-                                    <h5 class="mb-0">
-                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
-                                        <?php echo $value['sub_rti_name'];?>
-                                        </a>
-                                    </h5>
+                                        <?php if ($value['mst_rti_id'] == '3') { ?>
+                                            <h5 class="exe">
+                                                <a href="<?php echo $value['rti_upload'];?>">
+                                                <?php echo $value['sub_rti_name'];?>
+                                                </a>
+                                            </h5>
+                                        <?php } else { ?>
+                                            <h5 class="mb-0">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
+                                                <?php echo $value['sub_rti_name'];?>
+                                                </a>
+                                            </h5>
+                                    <?php } ?>
                                     </div>
                                     <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
                                         <div class="card-body">
                                             <div id="accordion-<?php echo $i;?>-<?php echo $b;?>">
-                                                <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."'"; 
+                                                <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."' order by subs_rti_id asc"; 
                                                 $exe = pg_query($db,$sql);
                                                 $row = pg_fetch_all($exe);
                                                 $c = 1;
                                                 foreach ($row as $value) {
                                                 ?>
                                                 <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>-<?php echo $c;?>">
-                                                    <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1-1-<?php echo $c;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>-<?php echo $c;?>">
+                                                    <h5 class="exe">
+                                                    <a href="<?php echo $value['rti_upload'];?>">
                                                         <?php echo $value['subs_rti_name'];?>
                                                     </a>
                                                     </h5>

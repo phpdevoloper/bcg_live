@@ -2968,3 +2968,11 @@ section#about {
   font-weight: 700;
   background: #e8ddcd;
 }
+
+.exe > a:after {
+  content: "\f35d"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 44px;
+  color: #3e93ff;
+}

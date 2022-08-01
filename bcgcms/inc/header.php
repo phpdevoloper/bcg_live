@@ -929,8 +929,20 @@ include('inc/dbconnection.php');?>
                 <div class="collapse <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'show':'');
-                      }?>" id="rti">
+                      }
+                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'show':'');
+                      }
+                      ?>" id="rti">
                   <ul class="nav nav-collapse">
+                  <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'active':'');
+                      }?>">
+                      <a href="bcgvl_contacts.php">
+                        <span class="sub-item">BCGVL Contacts</span>
+                      </a>
+                    </li>
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'active':'');
@@ -938,53 +950,6 @@ include('inc/dbconnection.php');?>
                       <a href="rti.php">
                         <span class="sub-item">RTI Proactive Disclosure</span>
                         <span class="caret"></span>
-                      </a>
-                      <!-- <div class="collapse" id="rti1">
-                        <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >Organisation and Function</span
-                              >
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">Budget and Programme</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >Publicity Band Public Interface</span
-                              >
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item">E governance</span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >Information as may be Prescribed</span
-                              >
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span class="sub-item"
-                                >Information Disclosed on Own Initiative</span
-                              >
-                            </a>
-                          </li>
-                        </ul>
-                      </div> -->
-                    </li>
-                    <li>
-                      <a data-toggle="collapse" href="#subnav2">
-                        <span class="sub-item">RTI Contacts</span>
                       </a>
                     </li>
                   </ul>
@@ -1029,13 +994,13 @@ include('inc/dbconnection.php');?>
                 </div>
               </li>
               <li class="nav-item">
-                <a href="#">
+                <a href="faq.php">
                 <i class="fas fa-question"></i>
                   <span class="sub-item">FAQ</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#">
+                <a href="feedback.php">
                 <i class="fas fa-comments"></i>
                   <span class="sub-item">FEEDBACK</span>
                 </a>
