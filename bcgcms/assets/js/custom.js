@@ -1206,4 +1206,148 @@ $(document).ready(function () {
       }
     });
   });
+
+  // form validation
+  $("#bcgvl_rti_contacts").validate({
+    rules: {
+      con_title: {
+        required: true,
+        minlength: 3,
+      },
+      con_name: {
+        required: true,
+      },
+      designation: {
+        required: true,
+      },
+      user_email: {
+        required: true,
+        email: true,
+      },
+      user_phone: {
+        required: true,
+        number: true,
+      },
+      office_addres: {
+        required: true,
+      },
+    },
+    messages: {
+      con_title: {
+        minlength: "Title should be at least 3 characters",
+      },
+      user_email: {
+        email: "The email should be in the format: abc@domain.com",
+      },
+      user_phone: {
+        number: "Please enter your phone no as a numerical value",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      // var data = $("form").serialize();
+      // console.log(data);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add RTI the contacts",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          console.log("Form submitted");
+          $.ajax({
+            method: "POST",
+            url: "addRTIContacts.php",
+            data: $("form").serialize(),
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+        }
+      });
+    },
+  });
+
+  // BCGVL Contact form validation
+  $("#bcgvl_contacts").validate({
+    rules: {
+      user_email: {
+        required: true,
+        email: true,
+      },
+      user_phone: {
+        required: true,
+        number: true,
+      },
+      office_addres: {
+        required: true,
+      },
+      map_emb: {
+        required: true,
+      },
+    },
+    messages: {
+      user_email: {
+        email: "The email should be in the format: abc@domain.com",
+      },
+      user_phone: {
+        number: "Please enter your phone no as a numerical value",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add the contacts",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          console.log("Form submitted");
+          $.ajax({
+            method: "POST",
+            url: "addContacts.php",
+            data: $("form").serialize(),
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  // location.reload();
+                });
+              }
+            },
+          });
+        } else {
+        }
+      });
+    },
+  });
 });

@@ -86,11 +86,9 @@
                       <li class="social-media">
                         <i class="fa fa-wheelchair" aria-hidden="true"></i>
                         <ul class="accessiblelinks">
-                          <li>A+</li>
-                          <li>A</li>
-                          <li>A-</li>
-                          <li>A</li>
-                          <li>A</li>
+                          <li id="btn-increase">A+</li>
+                          <li id="btn-orig">A</li>
+                          <li id="btn-decrease">A-</li>
                         </ul>
                       </li>
                       <!-- <li class="line"></li> -->
@@ -276,8 +274,16 @@
                       </li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="contact.php" class="nav-link">Contacts Us</a>
+                  <li class="dropdown">
+                    <a href="#" class="nav-link">Contacts Us</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="contact.php" class="list_a">BCGVL Contacts</a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="bcgvl_rti_contacts.php" class="list_a">RTI Contacts</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </nav>
@@ -306,11 +312,6 @@
           <!-- Menu Close Button -->
           <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
-              <!-- <a
-                href="#"
-                class="list-group-item list-group-item-action py-2 ripple"
-                ><span>Gallery</span></a
-              > -->
               <a
                 href="tenders.php"
                 class="list-group-item list-group-item-action py-2 ripple"

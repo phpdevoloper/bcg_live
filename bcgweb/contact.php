@@ -10,48 +10,47 @@ include('inc/dbconnection.php');
     <section>
         <ul class="breadcrumb wizard">
             <li class="completed"><a href=""><i class="fa fa-home"></i></a></li>
-            <li class="completed"><a href="javascript:void(0);">About us</a></li>
-            <li class=""><a href="contact.php">contact us</a></li>
+            <li class="completed"><a href="javascript:void(0);">Contact us</a></li>
+            <li class=""><a href="contact.php">BCGVL Contacts</a></li>
         </ul>
     </section>
     <div class="contact">
         <div class="container">
-            <div class="row">
+            <div class="row" style="padding-top: 32px;">
             <div class="col-lg-6">
                 <div class="section_title"><h2>Contact Us</h2></div>
                 <div class="contact_text">
                 <p>
-                
                 </div>
                 <ul class="contact_about_list">
-                <li>
-                    <div class="contact_about_icon">
-                    <img src="images/phone-call.svg" alt="" />
-                    </div>
-                    <span>044 - 22500476, 044 - 22501189</span>
-                </li>
-                <li>
-                    <div class="contact_about_icon">
-                    <img src="images/envelope.svg" alt="" />
-                    </div>
-                    <span
-                    ><a
-                        href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
-                        class="__cf_email__"
-                        data-cfemail="e08f8686898385a094858d908c819485ce838f8d"
-                        >bcgvl.tnchn@nic.in</a
-                    ></span
-                    >
-                </li>
-                <li>
-                    <div class="contact_about_icon">
-                    <img src="images/placeholder.svg" alt="" />
-                    </div>
-                    <span><i class="fas fa-map-marked-alt"></i> , BCG Vaccine
-                  Laboratory,Guindy Industrial Estate, Guindy
-                  Institutional Area, Guindy, Chennai, Tamil Nadu 600032
-                </p></span>
-                </li>
+                    <li>
+                        <div class="contact_about_icon">
+                        <img src="images/phone-call.svg" alt="" />
+                        </div>
+                        <span>044 - 22500476, 044 - 22501189</span>
+                    </li>
+                    <li>
+                        <div class="contact_about_icon">
+                        <img src="images/envelope.svg" alt="" />
+                        </div>
+                        <span
+                        ><a
+                            href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
+                            class="__cf_email__"
+                            data-cfemail="e08f8686898385a094858d908c819485ce838f8d"
+                            >bcgvl.tnchn@nic.in</a
+                        ></span
+                        >
+                    </li>
+                    <li>
+                        <div class="contact_about_icon">
+                        <img src="images/placeholder.svg" alt="" />
+                        </div>
+                        <span><i class="fas fa-map-marked-alt"></i> , BCG Vaccine
+                    Laboratory,Guindy Industrial Estate, Guindy
+                    Institutional Area, Guindy, Chennai, Tamil Nadu 600032
+                    </p></span>
+                    </li>
                 </ul>
             </div>
             <!-- <div class="row map_row"> -->

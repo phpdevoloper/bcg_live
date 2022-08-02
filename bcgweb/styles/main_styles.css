@@ -1453,11 +1453,12 @@ a.navbar-brand.d-flex.align-items-center {
   width: 48px;
   background: #fff;
   top: 25px;
-  left: 293px;
+  left: 301px;
   z-index: 99;
   padding: 0 !important;
   border: 1px solid #d8d8d8;
   border-top: none;
+  cursor: pointer;
 }
 .social-media:hover .accessiblelinks {
   display: block;
@@ -1640,7 +1641,7 @@ div#myTabContent {
 .contact {
   width: 100%;
   background: #ffffff;
-  padding-top: 95px;
+  /* padding-top: 4 5px; */
   padding-bottom: 95px;
 }
 .contact_text {

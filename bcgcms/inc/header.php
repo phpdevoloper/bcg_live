@@ -935,14 +935,6 @@ include('inc/dbconnection.php');?>
                       }
                       ?>" id="rti">
                   <ul class="nav nav-collapse">
-                  <li class="<?php 
-                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'active':'');
-                      }?>">
-                      <a href="bcgvl_contacts.php">
-                        <span class="sub-item">BCGVL Contacts</span>
-                      </a>
-                    </li>
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'active':'');
@@ -955,23 +947,43 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'active':'');
+                      }?>">
                 <a data-toggle="collapse" href="#contacts">
                 <i class="fas fa-address-book"></i>
                   <p>CONTACT US</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="contacts">
+                <div class="collapse <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'show':'');
+                      }?>" id="contacts">
                   <ul class="nav nav-collapse">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'active':'');
+                      }?>">
+                      <a href="bcgvl_contacts.php">
+                        <span class="sub-item">BCGVL Contacts</span>
+                      </a>
+                    </li>
                     <li>
                       <a data-toggle="collapse" href="#con1">
                         <span class="sub-item">RTI Contacts</span>
                         <span class="caret"></span>
                       </a>
-                      <div class="collapse" id="con1">
+                      <div class="collapse <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'show':'');
+                      }?>" id="con1">
                         <ul class="nav nav-collapse subnav">
-                          <li>
-                            <a href="#">
+                          <li class="<?php 
+                            if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
+                              echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'active':'');
+                            }?>">
+                            <a href="bcgvl_rti_contacts.php">
                               <span class="sub-item">PIO / APIO</span>
                             </a>
                           </li>
