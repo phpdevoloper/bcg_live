@@ -701,9 +701,6 @@ include('inc/dbconnection.php');?>
 								if (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php'? 'active':'');
 								}
-								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'active':'');
-								}
                 ?>">
                 <a data-toggle="collapse" href="#events_list">
                 <i class="fas fa-calendar-alt"></i>

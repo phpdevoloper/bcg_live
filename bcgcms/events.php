@@ -31,79 +31,81 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <!-- Modal -->
-                            <div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header no-bd">
-                                            <h5 class="modal-title">
-                                                <span class="fw-mediumbold">
-                                                 Add New</span>
-                                                <span class="fw-light">
-                                                    Event
-                                                </span>
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form id="add_new_event">
-                                                <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Event Title</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" name="event_title" id="event_title">
+                        <!-- Modal -->
+                        <div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header no-bd">
+                                        <h5 class="modal-title">
+                                            <span class="fw-mediumbold">
+                                             Add New</span>
+                                            <span class="fw-light">
+                                                Event
+                                            </span>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="add_new_event">
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">Event Title</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="event_title" id="event_title">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="event_desc" id="event_desc" cols="20" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">Start Date</label>
+                                                <div class="col-sm-10">
+                                                    <input type="date" class="form-control" name="date_from" id="date_from">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">End Date</label>
+                                                <div class="col-sm-10">
+                                                    <input type="date" class="form-control" name="date_to" id="date_to">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row ">
+                                                <div class="col-sm-4">
+                                                    <label for="inputPassword" class="col-form-label">Event Attachment</label>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                        <label for="inputPassword" class="col-sm-3 col-form-label">File</label>
+                                                        <input class="col-sm-4 form-check-input" type="checkbox" id="file_check" name="upload_c[]" value="">
+                                                        <label for="inputPassword" class="col-sm-3 col-form-label">URL</label>
+                                                        <input class="col-sm-4 form-check-input" type="checkbox" id="url_check" name="upload_c[]" value="">
                                                     </div>
+                                                </div>
+
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                                                    <div class="col-sm-2"></div>
                                                     <div class="col-sm-10">
-                                                        <textarea class="form-control" name="event_desc" id="event_desc" cols="20" rows="3"></textarea>
-                                                    </div>
+                                                    <input type="file" class="form-control upload_event" name="event_file" id="event_file">
+                                                    <input type="text" class="form-control event_url" name="event_url" id="event_url">
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">Start Date</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="date" class="form-control" name="date_from" id="date_from">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="inputPassword" class="col-sm-2 col-form-label">End Date</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="date" class="form-control" name="date_to" id="date_to">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row ">
-                                                    <div class="col-sm-4">
-                                                        <label for="inputPassword" class="col-form-label">Event Attachment</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <label for="inputPassword" class="col-sm-4 col-form-label">File</label>
-                                                        <input class="form-check-input" type="checkbox" id="file_check" value="">
-                                                        <label for="inputPassword" class="col-sm-4 col-form-label">URL</label>
-                                                        <input class="form-check-input" type="checkbox" id="url_check" value="">
-                                                    </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-2"></div>
-                                                        <div class="col-sm-10">
-                                                        <input type="file" class="form-control upload_event" name="event_file" id="event_file">
-                                                        <input type="text" class="form-control event_url" name="event_url" id="event_url">
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                    <button type="submit" id="addRowButton"
-                                                        class="btn btn-primary">Submit</button>
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-dismiss="modal">Close</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            
+                                            <div class="modal-footer" style="justify-content: center !important;">
+                                                <button type="submit" id="addRowButton"
+                                                    class="btn btn-primary">Submit</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card-body">
                             <div class="table-responsive">
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">

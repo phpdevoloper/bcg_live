@@ -17,6 +17,12 @@ include('inc/dbconnection.php');
     <div class="contact">
         <div class="container">
             <div class="row" style="padding-top: 32px;">
+                <?php $sql = "SELECT * FROM bcgvl_contacts"; 
+                    $res = pg_query($db, $sql);
+                    $result = pg_fetch_all($res);
+                    $i=1;
+                    foreach ($result as $value) {
+                ?>
             <div class="col-lg-6">
                 <div class="section_title"><h2>Contact Us</h2></div>
                 <div class="contact_text">
@@ -27,7 +33,7 @@ include('inc/dbconnection.php');
                         <div class="contact_about_icon">
                         <img src="images/phone-call.svg" alt="" />
                         </div>
-                        <span>044 - 22500476, 044 - 22501189</span>
+                        <span><?php echo $value['con_phone'];?></span>
                     </li>
                     <li>
                         <div class="contact_about_icon">
@@ -38,7 +44,7 @@ include('inc/dbconnection.php');
                             href="https://preview.colorlib.com/cdn-cgi/l/email-protection"
                             class="__cf_email__"
                             data-cfemail="e08f8686898385a094858d908c819485ce838f8d"
-                            >bcgvl.tnchn@nic.in</a
+                            ><?php echo $value['con_email'];?></a
                         ></span
                         >
                     </li>
@@ -46,20 +52,17 @@ include('inc/dbconnection.php');
                         <div class="contact_about_icon">
                         <img src="images/placeholder.svg" alt="" />
                         </div>
-                        <span><i class="fas fa-map-marked-alt"></i> , BCG Vaccine
-                    Laboratory,Guindy Industrial Estate, Guindy
-                    Institutional Area, Guindy, Chennai, Tamil Nadu 600032
-                    </p></span>
+                        <span><?php echo $value['con_address'];?></p></span>
                     </li>
                 </ul>
             </div>
-            <!-- <div class="row map_row"> -->
-                <div class="col-lg-6">
-                    <div style="width: 100%;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15549.47068578314!2d80.2167916!3d13.0122426!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x397827da6929a22b!2sBCG%20Vaccine%20Laboratory!5e0!3m2!1sen!2sin!4v1658210803746!5m2!1sen!2sin" width="100%" height="300" frameborder="0" style="border:0"></iframe>
-                    </div>
+            <div class="col-lg-6">
+                <div style="width: 100%;">
+                <iframe src="<?php echo $value['map_embed'];?>"
+                    width="100%" height="300" frameborder="0" style="border:0"></iframe>
                 </div>
-            <!-- </div> -->
+            </div>
+            <?php } ?>
         </div>
     </div>
 </div>   

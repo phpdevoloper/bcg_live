@@ -33,8 +33,17 @@
                                         <tr>
                                             <td class="held"><h5>Product Name</h5></td>
                                             <td>
-                                                <input type="hidden" name="product_id" id="product_id" class="custom_text" value="<?php echo $result['product_name'];?>">
+                                                <input type="hidden" name="product_id" id="product_id" class="custom_text" value="<?php echo $result['product_id'];?>">
                                                 <input type="text" name="product_name" id="product_name" class="custom_text" value="<?php echo $result['product_name'];?>">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="held"><h5>Product Name</h5></td>
+                                            <td>
+                                                <input type="file" name="product_img" id="product_img" class="custom_text"  accept="image/png, image/jpeg, image/gif">
+                                                <img src="<?php echo $result['product_image'];?>" style="width:100px; height:80px; border: 2px solid" alt="">
+                                                <label for="" class="text-center" style="color:green !important;font-size:17px !important">
+                                                <?php echo $result['product_image'];?></label>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -47,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="#" class="btn btn-primary">Update</a>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <a href="product.php" id="editBasicInline" class="btn btn-danger">cancel</a>
                             </div>
                         </form>
@@ -61,6 +70,7 @@
 <script>
   var content_desc = <?php echo json_encode($result['product_desc'] ?? '');?>;
   tinymce.init({
+    height : "480",
     selector: "textarea#product_desc",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",

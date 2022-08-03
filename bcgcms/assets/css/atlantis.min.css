@@ -6481,7 +6481,7 @@ label {
 }
 label.error {
   color: #f25961 !important;
-  font-size: 80% !important;
+  font-size: 100% !important;
   margin-top: 0.5rem;
 }
 .select2-input {

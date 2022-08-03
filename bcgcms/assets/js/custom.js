@@ -185,39 +185,67 @@ $(document).ready(function () {
     $("#Whats_desc").val(whats_desc);
     $("#file_lable").text(what_file);
   });
-  //Add what's new Ajax
-  $("#add_whats").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to add new!",
-      icon: "warning",
-      buttons: ["No, cancel it!", "Yes, I am sure!"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "addWhats_new.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (data) {
-            swal({
-              title: "Updated!",
-              text: "New Record added and uploaded successfully!",
-              icon: "success",
-            }).then(function () {
-              location.reload();
-            });
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
+
+  //******************************************** Add what's new Ajax ********************************************
+  $("#add_whats").validate({
+    rules: {
+      whats_title: {
+        required: true,
+      },
+      description: {
+        required: true,
+      },
+      what_file: {
+        required: true,
+      },
+    },
+    // messages: {
+    //   con_title: {
+    //     minlength: "Title should be at least 3 characters",
+    //   },
+    //   user_email: {
+    //     email: "The email should be in the format: abc@domain.com",
+    //   },
+    //   user_phone: {
+    //     number: "Please enter your phone no as a numerical value",
+    //   },
+    // },
+    submitHandler: function (form, e) {
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add new!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "addWhats_new.php",
+            data: new FormData($("#add_whats")[0]),
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              swal({
+                title: "Updated!",
+                text: "New Record added and uploaded successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
+
+  // $("#add_whats").submit(function (e) {
+  //   e.preventDefault();
+  // });
+
   //Edit what's new Ajax
   $("#edit_whats_new").submit(function (e) {
     e.preventDefault();
@@ -339,41 +367,70 @@ $(document).ready(function () {
     });
   });
 
-  //Edit pro Chart Ajax
-  $("#add_new_event").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to add New Event!",
-      icon: "warning",
-      buttons: ["No, cancel it!", "Yes, I am sure!"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        console.log(data);
+  //********************************** Eevent Section **********************************
+  $("#add_new_event").validate({
+    rules: {
+      event_title: {
+        required: true,
+      },
+      date_to: {
+        required: true,
+        greaterThan: "#date_from",
+      },
+      "upload_c[]": {
+        required: true,
+        maxlength: 2,
+      },
+      // deg_code: {
+      //   required: true,
+      // },
+      // group_cate: {
+      //   required: true,
+      // },
+    },
+    messages: {
+      "upload_c[]": {
+        required: "You must check at least 1 box",
+        maxlength: "Check no more than {0} boxes",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#add_new_event")[0]);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add New Event!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          console.log(data);
 
-        $.ajax({
-          method: "POST",
-          url: "eventsAjax.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            swal({
-              title: "Updated!",
-              text: "Event Added successfully!",
-              icon: "success",
-            }).then(function () {
-              // location.reload();
-            });
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
+          $.ajax({
+            method: "POST",
+            url: "eventsAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              swal({
+                title: "Updated!",
+                text: "Event Added successfully!",
+                icon: "success",
+              }).then(function () {
+                // location.reload();
+              });
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
+
+  // $("#add_new_event").submit(function (e) {});
 
   $("#file_check").change(function () {
     if ($(this).is(":checked")) {
@@ -396,74 +453,98 @@ $(document).ready(function () {
   });
 
   //Add New Product
-  $("#addProduct").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to add New Product!",
-      icon: "warning",
-      buttons: ["No, cancel it!", "Yes, I am sure!"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        console.log(data);
+  // $("#addProduct").submit(function (e) {
+  //   e.preventDefault();
+  //   var data = new FormData(this);
+  //   swal({
+  //     title: "Are you sure?",
+  //     text: "You wants to add New Product!",
+  //     icon: "warning",
+  //     buttons: ["No, cancel it!", "Yes, I am sure!"],
+  //     dangerMode: true,
+  //   }).then(function (isConfirm) {
+  //     if (isConfirm) {
+  //       console.log(data);
 
-        $.ajax({
-          method: "POST",
-          url: "addProductAjax.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            swal({
-              title: "Updated!",
-              text: "Product Added successfully!",
-              icon: "success",
-            }).then(function () {
-              location.reload();
-            });
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
+  //       $.ajax({
+  //         method: "POST",
+  //         url: "addProductAjax.php",
+  //         data: data,
+  //         contentType: false,
+  //         processData: false,
+  //         success: function (response) {
+  //           swal({
+  //             title: "Updated!",
+  //             text: "Product Added successfully!",
+  //             icon: "success",
+  //           }).then(function () {
+  //             location.reload();
+  //           });
+  //         },
+  //       });
+  //     } else {
+  //       swal("Cancelled", "Done :)", "error");
+  //     }
+  //   });
+  // });
+
+  //**************************  Add staff Details *************************************************
+  $("#add_staff").validate({
+    rules: {
+      staff_name: {
+        required: true,
+      },
+      deg_code: {
+        required: true,
+      },
+      group_cate: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#add_staff")[0]);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add New Staff!",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "staffDetailsAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Updated!",
+                  text: "Staff Updated successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
 
-  //Add staff Details
-  $("#add_staff").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to add New Staff!",
-      icon: "warning",
-      buttons: ["Cancel!", "Yes"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "staffDetailsAjax.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            swal({
-              title: "Updated!",
-              text: "Staff Added successfully!",
-              icon: "success",
-            }).then(function () {
-              location.reload();
-            });
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
-  });
+  // $("#add_staff").submit(function (e) {});
 
   //Edit staff Details
   $("#editStaffDet").submit(function (e) {
@@ -526,47 +607,63 @@ $(document).ready(function () {
     });
   });
 
-  $("#addformer").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to Add!",
-      icon: "warning",
-      buttons: ["Cancel!", "Yes"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "formerDetailsAjax.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Updated!",
-                text: "New Director Successfully!",
-                icon: "success",
-              }).then(function () {
-                location.reload();
-              });
-            } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                location.reload();
-              });
-            }
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
+  /* *************************************** Former Directors Section ********************************************/
+  $("#addformer").validate({
+    rules: {
+      former_dir: {
+        required: true,
+      },
+      service_from: {
+        required: true,
+      },
+      service_to: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#addformer")[0]);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to Add!",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "formerDetailsAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Updated!",
+                  text: "New Director Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
+
+  // $("#addformer").submit(function (e) {});
 
   $("#editformer").submit(function (e) {
     e.preventDefault();
@@ -610,6 +707,66 @@ $(document).ready(function () {
     });
   });
 
+  /************************* Products Section ************************* */
+  $("#addProduct").validate({
+    rules: {
+      product_title: {
+        required: true,
+      },
+      product_img: {
+        required: true,
+      },
+      pro_desc: {
+        required: true,
+      },
+    },
+    messages: {},
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#addProduct")[0]);
+      // console.log(data);
+      // var form_date = $("form").serialize();
+
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add the contacts",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            dataType: "html",
+            url: "addProductAjax.php",
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+        }
+      });
+    },
+  });
+
   $("#editProduct").submit(function (e) {
     e.preventDefault();
     var data = new FormData(this);
@@ -623,7 +780,7 @@ $(document).ready(function () {
       if (isConfirm) {
         $.ajax({
           method: "POST",
-          url: "formerDetailsAjax.php",
+          url: "addProductAjax.php",
           data: data,
           contentType: false,
           processData: false,
@@ -1294,7 +1451,6 @@ $(document).ready(function () {
       },
       user_phone: {
         required: true,
-        number: true,
       },
       office_addres: {
         required: true,
@@ -1306,9 +1462,6 @@ $(document).ready(function () {
     messages: {
       user_email: {
         email: "The email should be in the format: abc@domain.com",
-      },
-      user_phone: {
-        number: "Please enter your phone no as a numerical value",
       },
     },
     submitHandler: function (form, e) {
@@ -1340,7 +1493,7 @@ $(document).ready(function () {
                   title: "Something went wrong!",
                   icon: "error",
                 }).then(function () {
-                  // location.reload();
+                  location.reload();
                 });
               }
             },

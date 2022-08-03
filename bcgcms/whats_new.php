@@ -102,7 +102,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM what_new"; 
+                                                    <?php $sql = "SELECT * FROM what_new ORDER BY whats_id"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           $i=1;

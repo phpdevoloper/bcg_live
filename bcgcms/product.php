@@ -12,6 +12,9 @@
                         <div class="card-header">
                             <div class="edit_btn">
                                 <a href="editProduct.php" id="editBasicInline" class="btn btn-primary">Edit</a>
+                                <a href="editProduct.php" id="editBasicInline" class="btn btn-primary" 
+                                data-toggle="modal" data-target="#addProductModal" style="margin-right:10px;">
+                                <i class="fa fa-plus" style="margin-right:5px;"></i>Add</a>
                             </div>
                             <div class="d-flex align-items-center">
                                 <div class="page-header">
@@ -23,8 +26,56 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header no-bd">
+                                        <h5 class="modal-title">
+                                            <span class="fw-mediumbold">
+                                            Add New</span>
+                                            <span class="fw-light">
+                                                Product
+                                            </span>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="addProduct">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="qualifi" class="pro">Product Title</label>
+                                                        <input type="text" class="form-control" name="product_title" id="product_title">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="qualifi" class="pro">Product Image</label>
+                                                        <input type="file" class="form-control" name="product_img" id="product_img" accept="image/png, image/jpeg, image/gif">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="qualifi" class="pro">Description</label>
+                                                        <textarea class="form-control" name="pro_desc" id="pro_desc" cols="20" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer" style="justify-content: center !important;">
+                                                <button type="submit" id="addRowButton"
+                                                    class="btn btn-primary">Submit</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
-                            <div>
+                            <div class="col-4">
                                 <select class="form-control" id="pro_name">
                                     <option value="">Choose Product</option>
                                     <?php $sql = "SELECT * FROM product";
@@ -33,56 +84,7 @@
                                         foreach ($result as $value) { ?>
                                         <option value="<?php echo $value['product_id']?>"><?php echo $value['product_name']?></option>
                                     <?php  } ?>
-                                    <option value="">Add New Product</option>
                                 </select>
-                                <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header no-bd">
-                                                <h5 class="modal-title">
-                                                    <span class="fw-mediumbold">
-                                                    Add New</span>
-                                                    <span class="fw-light">
-                                                        Product
-                                                    </span>
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form id="addProduct">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="qualifi" class="pro">Product Title</label>
-                                                                <input type="text" class="form-control" name="product_title" id="product_title">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="qualifi" class="pro">Product Image</label>
-                                                                <input type="file" class="form-control" name="product_img" id="product_img">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label for="qualifi" class="pro">Description</label>
-                                                                <textarea class="form-control" name="pro_desc" id="pro_desc" cols="20" rows="10"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer" style="justify-content: center !important;">
-                                                        <button type="submit" id="addRowButton"
-                                                            class="btn btn-primary">Submit</button>
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="product_section">
                                     <div class="content_pro"></div>
@@ -98,6 +100,7 @@
 <script>
   var content_desc <?php //echo json_encode($result['content_description']);?>;
   tinymce.init({
+    height : "480",
     selector: "textarea#pro_desc",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",

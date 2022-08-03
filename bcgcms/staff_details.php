@@ -147,89 +147,89 @@
                                                                     ></i>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal fade" id="editStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                <div class="modal-dialog modal-lg" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header no-bd">
-                                                                            <h5 class="modal-title">
-                                                                                <span class="fw-mediumbold">
-                                                                                    Staff</span>
-                                                                                <span class="fw-light">
-                                                                                    Detail Edit
-                                                                                </span>
-                                                                            </h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">×</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form id="editStaffDet">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Staff Name</label>
-                                                                                            <input type="text" class="form-control" name="staff_name" id="Staff_name">
-                                                                                            <input type="hidden" class="form-control" name="staff_id" id="Staff_id">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-6">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Designation</label>
-                                                                                            <select name="deg_code" id="Deg_code" class="form-control">
-                                                                                            <option value="">Please select your designation</option>
-                                                                                            <?php $sql = "SELECT * FROM bcgvl_staff_designation ORDER BY deg_id";
-                                                                                            $res = pg_query($db, $sql);
-                                                                                            $result = pg_fetch_all($res);
-                                                                                            foreach ($result as $value) { 
-                                                                                                ?>
-                                                                                                <option value="<?php echo $value['deg_code'];?>"><?php echo $value['deg_name'];?></option>
-                                                                                            <?php }
-                                                                                            ?>
-                                                                                        </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-6">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Staff Group</label>
-                                                                                            <select name="group_cate" id="Group_cate" class="form-control">
-                                                                                                <option value="">Please select your group</option>
-                                                                                                <?php $sql = "SELECT * FROM bcgvl_staff_groups ORDER BY cate_id";
-                                                                                                $res = pg_query($db, $sql);
-                                                                                                $result = pg_fetch_all($res);
-                                                                                                foreach ($result as $value) { ?>
-                                                                                                <option value="<?php echo $value['cate_code'];?>"><?php echo $value['cate_name'];?></option>
-                                                                                                <?php }?>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-6">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Status</label>
-                                                                                            <select name="staff_status" id="Staff_status" class="form-control">
-                                                                                                <option value="INS">In-service</option>
-                                                                                                <option value="RET">Retaired</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-sm-6">
-                                                                                        <div class="form-group">
-                                                                                            <label id="What_file_view"></label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </td>
                                                     </tr>
                                                     <?php } ?>
                                                 </tbody>
+                                                <div class="modal fade" id="editStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header no-bd">
+                                                                <h5 class="modal-title">
+                                                                    <span class="fw-mediumbold">
+                                                                        Staff</span>
+                                                                    <span class="fw-light">
+                                                                        Detail Edit
+                                                                    </span>
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="editStaffDet">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="qualifi">Staff Name</label>
+                                                                                <input type="text" class="form-control" name="staff_name" id="Staff_name">
+                                                                                <input type="hidden" class="form-control" name="staff_id" id="Staff_id">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="qualifi">Designation</label>
+                                                                                <select name="deg_code" id="Deg_code" class="form-control">
+                                                                                <option value="">Please select your designation</option>
+                                                                                <?php $sql = "SELECT * FROM bcgvl_staff_designation ORDER BY deg_id";
+                                                                                $res = pg_query($db, $sql);
+                                                                                $result = pg_fetch_all($res);
+                                                                                foreach ($result as $value) { 
+                                                                                    ?>
+                                                                                    <option value="<?php echo $value['deg_code'];?>"><?php echo $value['deg_name'];?></option>
+                                                                                <?php }
+                                                                                ?>
+                                                                            </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="qualifi">Staff Group</label>
+                                                                                <select name="group_cate" id="Group_cate" class="form-control">
+                                                                                    <option value="">Please select your group</option>
+                                                                                    <?php $sql = "SELECT * FROM bcgvl_staff_groups ORDER BY cate_id";
+                                                                                    $res = pg_query($db, $sql);
+                                                                                    $result = pg_fetch_all($res);
+                                                                                    foreach ($result as $value) { ?>
+                                                                                    <option value="<?php echo $value['cate_code'];?>"><?php echo $value['cate_name'];?></option>
+                                                                                    <?php }?>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label for="qualifi">Status</label>
+                                                                                <select name="staff_status" id="Staff_status" class="form-control">
+                                                                                    <option value="INS">In-service</option>
+                                                                                    <option value="RET">Retaired</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label id="What_file_view"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer" style="justify-content: center !important;">
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </table>
                                         </div>
                                     </div>
