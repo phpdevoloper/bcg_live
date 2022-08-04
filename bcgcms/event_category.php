@@ -110,13 +110,13 @@
                                                 <td><?php echo date("d/m/Y h:i:s",strtotime($value['created_at']));?></td>
                                                 <td>
                                                     <button type="button" data-toggle="modal"
-                                                        data-target="#editRowModal" title=""
+                                                        data-target="#EditRowModal" title=""
                                                         class="btn btn-link btn-primary btn-lg"
                                                         data-original-title="Edit Achivement">
-                                                        <i class="fa fa-edit get_what"
+                                                        <i class="fa fa-edit get_gall_cate"
                                                             data-cate_id="<?php echo $value['cate_id'];?>"
                                                             data-cate_title="<?php echo $value['category_title'];?>"
-                                                            data-cate_from="<?php echo $value['from_date'];?>"
+                                                            data-cate_from ="<?php echo $value['from_date'];?>"
                                                             data-cate_to="<?php echo $value['to_date'];?>"
                                                         ></i>
                                                     </button>
@@ -124,6 +124,64 @@
                                             </tr>
                                         <?php $i++;}
                                         ?>
+                                        <div class="modal fade" id="EditRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header no-bd">
+                                                        <h5 class="modal-title">
+                                                            <span class="fw-mediumbold">
+                                                                Edit Category
+                                                            </span>
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="edit_event_category">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group form-inline">
+                                                                        <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
+                                                                        <div class="col-md-9 p-0">
+                                                                            <input type="text" class="form-control input-full" name="category_title" id="category_title">
+                                                                            <input type="hidden" class="form-control input-full" name="category_id" id="category_id">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group form-inline">
+                                                                        <label for="inlineinput" class="col-md-3 col-form-label">From date</label>
+                                                                        <div class="col-md-9 p-0">
+                                                                            <input type="date" class="form-control input-full" name="from_date" id="from_date"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group form-inline">
+                                                                        <label for="inlineinput" class="col-md-3 col-form-label">To date</label>
+                                                                        <div class="col-md-9 p-0">
+                                                                            <input type="date" class="form-control input-full" name="to_date" id="to_date"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer" style="justify-content: center !important;">
+                                                                <button type="submit" id="addRowButton"
+                                                                    class="btn btn-primary">Submit</button>
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End modal -->
                                     </tbody>
                                 </table>
                             </div>

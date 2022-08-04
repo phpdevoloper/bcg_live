@@ -247,7 +247,7 @@
     <script src="assets/js/core/jquery.3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
 
     <!-- jQuery UI -->
     <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>

@@ -199,17 +199,6 @@ $(document).ready(function () {
         required: true,
       },
     },
-    // messages: {
-    //   con_title: {
-    //     minlength: "Title should be at least 3 characters",
-    //   },
-    //   user_email: {
-    //     email: "The email should be in the format: abc@domain.com",
-    //   },
-    //   user_phone: {
-    //     number: "Please enter your phone no as a numerical value",
-    //   },
-    // },
     submitHandler: function (form, e) {
       swal({
         title: "Are you sure?",
@@ -368,9 +357,107 @@ $(document).ready(function () {
   });
 
   //********************************** Eevent Section **********************************
+  $("#File_chec").change(function () {
+    if ($(this).is(":checked")) {
+      // $("#url_check").attr("checked", false);
+      $("#Url_chec").prop("checked", false);
+      $(".event_url").attr("style", "display:none");
+      $(".upload_event").attr("style", "display:block");
+    } else {
+      $(".upload_event").attr("style", "display:none");
+    }
+  });
+  $("#Url_chec").change(function () {
+    if ($(this).is(":checked")) {
+      $("#File_chec").prop("checked", false);
+      $(".upload_event").attr("style", "display:none");
+      $(".event_url").attr("style", "display:block");
+    } else {
+      $(".event_url").attr("style", "display:none");
+    }
+  });
+
+  $(document).on("click", ".get_event", function (e) {
+    e.preventDefault();
+    var event_id = $(this).attr("data-event_id");
+    var event_name = $(this).attr("data-event_name");
+    var event_des = $(this).attr("data-event_des");
+    var date_from = $(this).attr("data-date_from");
+    var date_to = $(this).attr("data-date_to");
+    var event_file = $(this).attr("data-event_file");
+    var event_type = $(this).attr("data-event_file_type");
+    $("#Event_id").val(event_id);
+    $("#Event_title").val(event_name);
+    $("#Event_desc").val(event_des);
+    $("#Date_from").val(date_from);
+    $("#Date_to").val(date_to);
+    $("#Event_type").val(event_type);
+    if (event_type == "pdf") {
+      $("#Url_chec").removeAttr("checked");
+      $("#File_chec").attr("checked", "checked");
+      $(".event_url").attr("style", "display:none");
+      $("#Event_file").attr("style", "display:block");
+      $("#file_data").removeAttr("style");
+      $("#file_data").text(event_file);
+      $("#file_data").attr("style", "color:green !important");
+    } else {
+      $("#File_chec").removeAttr("checked");
+      $("#Url_chec").attr("checked", "checked");
+      $(".upload_event").attr("style", "display:none");
+      $("#file_data").attr("style", "display:none");
+      $("#Event_url").attr("style", "display:block");
+      $("#Event_url").val(event_file);
+    }
+  });
+
+  $("#edit_event").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to update the Event!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "eventsAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Updated!",
+                text: "Event Updated successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
   $("#add_new_event").validate({
     rules: {
       event_title: {
+        required: true,
+      },
+      date_from: {
         required: true,
       },
       date_to: {
@@ -379,7 +466,7 @@ $(document).ready(function () {
       },
       "upload_c[]": {
         required: true,
-        maxlength: 2,
+        maxlength: 1,
       },
       // deg_code: {
       //   required: true,
@@ -390,8 +477,11 @@ $(document).ready(function () {
     },
     messages: {
       "upload_c[]": {
-        required: "You must check at least 1 box",
+        required: "You must check at least 1 option",
         maxlength: "Check no more than {0} boxes",
+      },
+      date_to: {
+        greaterThan: "End date must be greaterthan Start Date",
       },
     },
     submitHandler: function (form, e) {
@@ -419,7 +509,7 @@ $(document).ready(function () {
                 text: "Event Added successfully!",
                 icon: "success",
               }).then(function () {
-                // location.reload();
+                location.reload();
               });
             },
           });
@@ -428,6 +518,11 @@ $(document).ready(function () {
         }
       });
     },
+  });
+  $.validator.addMethod("greaterThan", function (value, element) {
+    var dateFrom = $("#date_from").val();
+    var dateTo = $("#date_to").val();
+    return dateTo >= dateFrom;
   });
 
   // $("#add_new_event").submit(function (e) {});
@@ -451,42 +546,6 @@ $(document).ready(function () {
       $(".event_url").attr("style", "display:none");
     }
   });
-
-  //Add New Product
-  // $("#addProduct").submit(function (e) {
-  //   e.preventDefault();
-  //   var data = new FormData(this);
-  //   swal({
-  //     title: "Are you sure?",
-  //     text: "You wants to add New Product!",
-  //     icon: "warning",
-  //     buttons: ["No, cancel it!", "Yes, I am sure!"],
-  //     dangerMode: true,
-  //   }).then(function (isConfirm) {
-  //     if (isConfirm) {
-  //       console.log(data);
-
-  //       $.ajax({
-  //         method: "POST",
-  //         url: "addProductAjax.php",
-  //         data: data,
-  //         contentType: false,
-  //         processData: false,
-  //         success: function (response) {
-  //           swal({
-  //             title: "Updated!",
-  //             text: "Product Added successfully!",
-  //             icon: "success",
-  //           }).then(function () {
-  //             location.reload();
-  //           });
-  //         },
-  //       });
-  //     } else {
-  //       swal("Cancelled", "Done :)", "error");
-  //     }
-  //   });
-  // });
 
   //**************************  Add staff Details *************************************************
   $("#add_staff").validate({
@@ -921,13 +980,93 @@ $(document).ready(function () {
   //   },
   // });
 
-  // add_event_category;
-  $("#add_event_category").submit(function (e) {
+  // ************************************* GALLERY SECTION ***********************************************
+
+  $("#add_event_category").validate({
+    rules: {
+      category_title: {
+        required: true,
+      },
+      from_date: {
+        required: true,
+      },
+      to_date: {
+        required: true,
+        greaterThan: true,
+      },
+    },
+    messages: {
+      to_date: {
+        greaterThan: "To date must be greater or equal to From date",
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#add_event_category")[0]);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to Add New category!",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "eventcategoryAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
+  });
+  $.validator.addMethod("greaterThan", function (value, element) {
+    var dateFrom = $("#From_date").val();
+    var dateTo = $("#To_date").val();
+    return dateTo >= dateFrom;
+  });
+
+  $(document).on("click", ".get_gall_cate", function (e) {
+    var cate_id = $(this).attr("data-cate_id");
+    var cate_name = $(this).attr("data-cate_title");
+    var d_from = $(this).attr("data-cate_from");
+    var d_to = $(this).attr("data-cate_to");
+
+    console.log(cate_name);
+    $("#category_id").val(cate_id);
+    $("#category_title").val(cate_name);
+    $("#from_date").val(d_from);
+    $("#to_date").val(d_to);
+  });
+
+  $("#edit_event_category").submit(function (e) {
     e.preventDefault();
     var data = new FormData(this);
     swal({
       title: "Are you sure?",
-      text: "You wants to Add New category!",
+      text: "You wants to Update the category!",
       icon: "warning",
       buttons: ["Cancel!", "Yes"],
       dangerMode: true,
@@ -942,8 +1081,8 @@ $(document).ready(function () {
           success: function (response) {
             if (response == 1) {
               swal({
-                title: "Added!",
-                text: "Added Successfully!",
+                title: "Updated!",
+                text: "Updated Successfully!",
                 icon: "success",
               }).then(function () {
                 location.reload();
@@ -1006,13 +1145,72 @@ $(document).ready(function () {
     });
   });
 
-  // Add photo category
-  $("#add_photo_category").submit(function (e) {
+  // Add photo gallery
+  $("#add_photo_category").validate({
+    rules: {
+      category_title: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData($("#add_photo_category")[0]);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to Add New category!",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "photocategoryAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
+  });
+
+  // $("#add_photo_category").submit(function (e) {});
+  $(document).on("click", ".get_gp", function (e) {
+    var cate_id = $(this).attr("data-cate_id");
+    var cate_name = $(this).attr("data-cate_title");
+
+    console.log(cate_name);
+    $("#category_id").val(cate_id);
+    $("#category_title").val(cate_name);
+  });
+
+  $("#edit_photo_category").submit(function (e) {
     e.preventDefault();
     var data = new FormData(this);
     swal({
       title: "Are you sure?",
-      text: "You wants to Add New category!",
+      text: "You wants to update category!",
       icon: "warning",
       buttons: ["Cancel!", "Yes"],
       dangerMode: true,
@@ -1090,13 +1288,12 @@ $(document).ready(function () {
       }
     });
   });
-  // Add videos category
-  $("#add_video_category").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
+  // Add videos gallery************************
+  $(document).on("click", ".v_del", function (e) {
+    console.log($(this).attr("data-cate_id"));
     swal({
       title: "Are you sure?",
-      text: "You wants to Add New category!",
+      text: "You wants to Delete this!",
       icon: "warning",
       buttons: ["Cancel!", "Yes"],
       dangerMode: true,
@@ -1132,6 +1329,64 @@ $(document).ready(function () {
       }
     });
   });
+  $(document).on("click", ".get_vide", function (e) {
+    var cate_id = $(this).attr("data-cate_id");
+    var cate_name = $(this).attr("data-cate_title");
+
+    console.log(cate_name);
+    $("#category_id").val(cate_id);
+    $("#category_title").val(cate_name);
+  });
+
+  $("#add_video_category").validate({
+    rules: {
+      category_title: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      var data = new FormData(this);
+      swal({
+        title: "Are you sure?",
+        text: "You wants to Add New category!",
+        icon: "warning",
+        buttons: ["Cancel!", "Yes"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "videocategoryAjax.php",
+            data: data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "Added Successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
+  });
+  // $("#add_video_category").submit(function (e) {});
 
   $("#add_photo_galley").submit(function (e) {
     e.preventDefault();
