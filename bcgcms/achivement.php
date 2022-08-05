@@ -49,11 +49,11 @@
 <script>
   var content_desc = <?php echo json_encode($result['content_description'] ??'');?>;
   tinymce.init({
+    height:400,
     selector: "textarea#revenue",
     plugins:
       "a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker",
-    toolbar:
-      "a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents",
+      toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
     toolbar_mode: "floating",
     tinycomments_mode: "embedded",
     tinycomments_author: "Author name",

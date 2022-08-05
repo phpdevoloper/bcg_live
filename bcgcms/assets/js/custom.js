@@ -13,9 +13,15 @@ $(document).ready(function () {
       dataType: "json",
       processData: false,
       success: function (data) {
-        console.log(data);
         if (data == 1) {
           window.location.href = "dashboard.php";
+        } else if (data == 2) {
+          swal({
+            title: "Incorrect Captch!",
+            icon: "error",
+          }).then(function () {
+            location.reload();
+          });
         }
       },
     });
@@ -457,17 +463,19 @@ $(document).ready(function () {
       event_title: {
         required: true,
       },
+      event_desc: {
+        required: true,
+      },
       date_from: {
         required: true,
       },
-      date_to: {
-        required: true,
-        greaterThan: "#date_from",
-      },
-      "upload_c[]": {
-        required: true,
-        maxlength: 1,
-      },
+      // date_to: {
+      //   greaterThan: "#date_from",
+      // },
+      // "upload_c[]": {
+      //   required: true,
+      //   maxlength: 1,
+      // },
       // deg_code: {
       //   required: true,
       // },
@@ -476,10 +484,6 @@ $(document).ready(function () {
       // },
     },
     messages: {
-      "upload_c[]": {
-        required: "You must check at least 1 option",
-        maxlength: "Check no more than {0} boxes",
-      },
       date_to: {
         greaterThan: "End date must be greaterthan Start Date",
       },
@@ -519,11 +523,11 @@ $(document).ready(function () {
       });
     },
   });
-  $.validator.addMethod("greaterThan", function (value, element) {
-    var dateFrom = $("#date_from").val();
-    var dateTo = $("#date_to").val();
-    return dateTo >= dateFrom;
-  });
+  // $.validator.addMethod("greaterThan", function (value, element) {
+  //   var dateFrom = $("#date_from").val();
+  //   var dateTo = $("#date_to").val();
+  //   return dateTo >= dateFrom;
+  // });
 
   // $("#add_new_event").submit(function (e) {});
 
@@ -1757,5 +1761,17 @@ $(document).ready(function () {
         }
       });
     },
+  });
+
+  $(".logout").on("click", function () {
+    $.ajax({
+      method: "POST",
+      url: "logoutAjax.php", // <-- point to server-side PHP script
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        window.location = "index.php";
+      },
+    });
   });
 });

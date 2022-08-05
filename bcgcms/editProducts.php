@@ -78,6 +78,7 @@
     ],
     toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
     toolbar_mode: "floating",
+    images_upload_url: 'postAcceptor.php',
     tinycomments_mode: "embedded",
     tinycomments_author: "Author name",
     statusbar: false,

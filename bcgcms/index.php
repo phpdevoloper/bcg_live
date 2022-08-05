@@ -1,4 +1,16 @@
-<?php include('inc/dbconnection.php');?>
+<?php  session_start();
+
+include('inc/dbconnection.php');   
+
+$data=[
+  "user_name"=>"",
+  "user_pass"=>"",
+  "err_uname"=>"",
+  "err_upass"=>"",
+  "err_msg"=>"",
+  ];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,16 +213,27 @@ header{
   <form id="admin_login">
     <div class="row">
       <label for="email">User Name</label>
-      <input type="text" name="user_name" autocomplete="off" placeholder="User Name">
+      <input type="text" name="user_name" autocomplete="off" placeholder="User Name" required>
+      <p style='color:red;'><?php echo $data["err_uname"]; ?></p>
     </div>
     <div class="row">
       <label for="password">Password</label>
-      <input type="password" name="user_pass">
+      <input type="password" name="user_pass" required>
+      <p style='color:red;'><?php echo $data["err_upass"]; ?></p>
+    </div>
+    <div class="row" style="width: 100px;">
+        <img src="captcha.php">
+    </div>
+    <div class="row">
+      <label for="password">Please Enter the verification code</label>
+      <input type="text" name="captcha_code" required>
+      <p style='color:red;'><?php echo $data["err_msg"]; ?></p>
     </div>
     <button type="submit">Login</button>
   </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 <script src="assets/js/custom.js"></script>
 </html>

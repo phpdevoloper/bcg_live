@@ -146,7 +146,7 @@ include('inc/dbconnection.php');?>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="#">Account Setting</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Logout</a>
+                      <a class="dropdown-item logout" href="#">Logout</a>
                     </li>
                   </div>
                 </ul>
@@ -237,22 +237,22 @@ include('inc/dbconnection.php');?>
               </li> -->
 							<li class="nav-item <?php 
 								if (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details1.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details1.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details1.php'?'active':'');
 								}
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details.php'?'active':'');
 								}
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php'?'active':'');
 								}
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php'?'active':'');
 								}
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMessage.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMessage.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMessage.php'?'active':'');
 								}
 								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'director_message.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'director_message.php'? 'active':'');
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'director_message.php'?'active':'');
 								}
         			?>">
                 <a data-toggle="collapse" href="#ddesk">
@@ -295,13 +295,12 @@ include('inc/dbconnection.php');?>
                     <li class="
                     <?php 
                     if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php') {
-                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php'? 'active':'');
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewProfile.php' ? 'active':'');
                     } 
                     elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php') {
-                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php'? 'active':'');
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'profile_details.php' ? 'active':'');
                     } 
-                    ?>
-                    ">
+                    ?>">
                       <a href="viewProfile.php">
                         <span class="sub-item">Profile Details</span>
                       </a>
@@ -468,7 +467,7 @@ include('inc/dbconnection.php');?>
                     <li class="<?php if(basename($_SERVER['SCRIPT_FILENAME']) == 'viewACH.php'){
                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewACH.php'? 
                      'active':''); 
-                    }elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'){
+                    }else if(basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'){
                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'? 
         						'active':'');}?>">
                       <a href="viewACH.php">
@@ -478,7 +477,7 @@ include('inc/dbconnection.php');?>
                     <li class="<?php if(basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php'){
                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php'? 
                      'active':''); 
-                    }elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'future_plans.php'){
+                    }else if(basename($_SERVER['SCRIPT_FILENAME']) == 'future_plans.php'){
                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'future_plans.php'? 
         						'active':'');}?>">
                       <a href="viewFUT.php">
@@ -702,48 +701,10 @@ include('inc/dbconnection.php');?>
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php'? 'active':'');
 								}
                 ?>">
-                <a data-toggle="collapse" href="#events_list">
+                <a href="events.php">
                 <i class="fas fa-calendar-alt"></i>
                   <p>EVENTS</p>
-                  <span class="caret"></span>
                 </a>
-                <div class="collapse 
-                <?php 
-                  if (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php') {
-                    echo (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php'? 'show':'');
-                  }
-                  elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
-                    echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'active':'');
-                  }?>" id="events_list">
-                  <ul class="nav nav-collapse">
-                    <li class="<?php 
-                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'events.php'? 'active':'');
-                      }
-                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'product.php'? 'active':'');
-                      }?>">
-                      <a href="events.php">
-                        <span class="sub-item">Milestones / Major Events</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="sub-item">Current Events</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="sub-item">Past Events</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="sub-item">Training Programmes</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li class="nav-item <?php 
 								if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {

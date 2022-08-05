@@ -48,19 +48,20 @@
 		selector: "textarea#vs_supply",
 		height: 500,
 		plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
-										"searchreplace visualblocks code",
-										"insertdatetime media paste codesample table preview"
-		],
-		toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
-		toolbar_mode: "floating",
-		tinycomments_mode: "embedded",
-		tinycomments_author: "Author name",
-		statusbar: false,
-		setup: function (editor) {
-			editor.on('init', function (e) {
-				editor.setContent(content_desc);
-			});
-		}
+                    "searchreplace visualblocks code",
+                    "insertdatetime media paste codesample table preview"
+    ],
+    toolbar: "preview undo redo | fontselect styleselect fontsizeselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol ",
+	toolbar_mode: "floating",
+	images_upload_url: 'postAcceptor.php',
+	tinycomments_mode: "embedded",
+	tinycomments_author: "Author name",
+	statusbar: false,
+	setup: function (editor) {
+		editor.on('init', function (e) {
+			editor.setContent(content_desc);
+		});
+	}
 });
 
 //  About us updating;

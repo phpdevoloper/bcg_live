@@ -245,7 +245,7 @@
                         <a href="" class="list_a">Past Events</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Training Programmes</a>
+                        <a href="training_programmes.php" class="list_a">Training Programmes</a>
                       </li>
                     </ul>
                   </li>

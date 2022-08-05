@@ -83,50 +83,65 @@
         }
 	}
     else{
-        if(isset($_FILES) && $_FILES["event_file"]["name"] !== ''){
-            $target_dir = "uploads/events/";
-            if(!is_dir($target_dir )) 
-            {
-                mkdir($target_dir, 0777, true);
+        if ($_FILES["event_file"]["name"] == '' && $_POST['event_url'] == '') {
+            $sql = "INSERT INTO events(event_title,event_desc,date_from,date_to,event_file)
+            VALUES
+            ('".$_POST['event_title']."','".$_POST['event_desc']."','".$_POST['date_from']."','".$_POST['date_to']."',
+            '".$_POST['event_url']."')";
+            $ret = pg_query($db, $sql);
+            if(!$ret) {
+                echo pg_last_error($db);
+                exit;
+            }else{
+                echo 1;
             }
-            $name =date('m-d-Y_');
-            $target_file = $name.basename($_FILES["event_file"]["name"]);
-            // var_dump($target_file);die;
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-            // Check if image file is a actual image or fake image
-            if (move_uploaded_file($_FILES["event_file"]["tmp_name"], $target_dir.$name.$_FILES["event_file"]["name"])) {
-                // echo 1;
-                } else {
-                echo "Sorry, there was an error uploading your file.";
+            pg_close($db);
+        }else{
+            if(isset($_FILES) && $_FILES["event_file"]["name"] !== ''){
+                $target_dir = "uploads/events/";
+                if(!is_dir($target_dir )) 
+                {
+                    mkdir($target_dir, 0777, true);
                 }
-            $sql = "INSERT INTO events(event_title,event_desc,date_from,date_to,event_file,uploads_type)
-            VALUES
-            ('".$_POST['event_title']."','".$_POST['event_desc']."','".$_POST['date_from']."','".$_POST['date_to']."',
-            '$target_file','$imageFileType')";
-            $ret = pg_query($db, $sql);
-            if(!$ret) {
-                echo pg_last_error($db);
-                exit;
-            }else{
-                echo 1;
+                $name =date('m-d-Y_');
+                $target_file = $name.basename($_FILES["event_file"]["name"]);
+                // var_dump($target_file);die;
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    
+                // Check if image file is a actual image or fake image
+                if (move_uploaded_file($_FILES["event_file"]["tmp_name"], $target_dir.$name.$_FILES["event_file"]["name"])) {
+                    // echo 1;
+                    } else {
+                    echo "Sorry, there was an error uploading your file.";
+                    }
+                $sql = "INSERT INTO events(event_title,event_desc,date_from,date_to,event_file,uploads_type)
+                VALUES
+                ('".$_POST['event_title']."','".$_POST['event_desc']."','".$_POST['date_from']."','".$_POST['date_to']."',
+                '$target_file','$imageFileType')";
+                $ret = pg_query($db, $sql);
+                if(!$ret) {
+                    echo pg_last_error($db);
+                    exit;
+                }else{
+                    echo 1;
+                }
+                pg_close($db);
             }
-            pg_close($db);
-        }
-        else{
-            $url = 'Url';
-            $sql = "INSERT INTO events(event_title,event_desc,date_from,date_to,event_file,uploads_type)
-            VALUES
-            ('".$_POST['event_title']."','".$_POST['event_desc']."','".$_POST['date_from']."','".$_POST['date_to']."',
-            '".$_POST['event_url']."','$url')";
-            $ret = pg_query($db, $sql);
-            if(!$ret) {
-                echo pg_last_error($db);
-                exit;
-            }else{
-                echo 1;
+            else{
+                $url = 'Url';
+                $sql = "INSERT INTO events(event_title,event_desc,date_from,date_to,event_file,uploads_type)
+                VALUES
+                ('".$_POST['event_title']."','".$_POST['event_desc']."','".$_POST['date_from']."','".$_POST['date_to']."',
+                '".$_POST['event_url']."','$url')";
+                $ret = pg_query($db, $sql);
+                if(!$ret) {
+                    echo pg_last_error($db);
+                    exit;
+                }else{
+                    echo 1;
+                }
+                pg_close($db);
             }
-            pg_close($db);
         }
 	}
 ?>
