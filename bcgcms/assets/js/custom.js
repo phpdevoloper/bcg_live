@@ -1774,4 +1774,144 @@ $(document).ready(function () {
       },
     });
   });
+
+  $(".gallery_edit").on("click", function () {
+    var gallery_id = $(this).attr("data-gallery_id");
+    var cate = $(this).attr("data-cate");
+    var photofile = $(this).attr("data-photofile");
+    var photo_caption = $(this).attr("data-photo_caption");
+    console.log(gallery_id);
+
+    $("#Event_id").val(gallery_id);
+    $("#Even_cat").val(cate);
+    $("#Event_cap").val(photo_caption);
+    $(".photo_file").text(photofile);
+  });
+  // Edit event_photo file
+  $("#edit_event_photo").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update the photo!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addEventPhoto.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  //
+  $("#add_photo_gallery").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Add New category!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addEventPhoto.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $("#edit_photo_gallery").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update the photo!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "PhotogalleryAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
 });

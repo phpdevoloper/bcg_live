@@ -24,9 +24,6 @@
                         </div>
                         <div class="card-body">
                             <div>
-                                <!-- <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add photos</button> -->
-                                <!-- Modal -->
                                 <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">

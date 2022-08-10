@@ -243,3 +243,24 @@ a.btn.btn-primary.btn-round.ml-auto {
   right: 0;
   color: #3e93ff;
 }
+
+.boxInner .btn {
+  /* position: absolute; */
+  bottom: 0;
+  right: 0;
+  margin-bottom: -67px;
+  background: #f6dbc3 !important;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.boxInner:hover .btn,
+.boxInner.touchFocus .btn {
+  margin-bottom: 0;
+}

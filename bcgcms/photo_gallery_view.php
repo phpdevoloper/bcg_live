@@ -65,7 +65,7 @@
                                                             <div class="form-group form-inline">
                                                                 <label for="inlineinput" class="col-md-3 col-form-label">Upload Photo</label>
                                                                 <div class="col-md-9 p-0">
-                                                                    <input type="file" class="form-control input-full" name="event_photo" id="event_photo">
+                                                                    <input type="file" class="form-control input-full" name="event_photo" id="event_photo" accept="image/png, image/gif, image/jpeg">
                                                                     <label for="inlineinput" class="col-form-label" style="color:green !important;">Allowed types(JPG,PNG,GIF)</label>
                                                                 </div>
                                                             </div>
@@ -97,15 +97,28 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql    = "select * from photo_gallery where category ='".$_GET['cate_id']."'";
+                                    $sql    = "select * from photo_gallery where category ='".$_GET['cate_id']."' ORDER BY photo_id ";
                                     // echo $sql;exit;
                                     $exe    = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
-                                    foreach($result as $value){ ?>
+                                    foreach($result as $value){ 
+                                    // var_dump($value); ?>
                                     <div class="col-4">
                                         <a href="#">
                                             <div class="box">
                                                 <div class="boxInner">
+                                                    <div class="btn">
+                                                        <a href="#" class="gallery_edit" data-toggle="modal" data-target="#editGallModal"
+                                                            data-gallery_id = "<?php echo $value['photo_id'];?>"
+                                                            data-cate = "<?php echo $value['category'];?>"
+                                                            data-photofile = "<?php echo $value['photo_file'];?>"
+                                                            data-photo_caption = "<?php echo $value['photo_caption'];?>"
+                                                        ><i class="fa fa-edit" 
+                                                        ></i></a>
+                                                    </div>
+                                                    <div class="btn">
+                                                        <a href="#" class="gallery_del"><i class="fa fa-trash"></i></a>
+                                                    </div>
                                                     <img src="uploads/gallery/photo/<?php echo $value['photo_file'];?>"/>
                                                 </div>
                                             </div>
@@ -118,6 +131,75 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="editGallModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header no-bd">
+                                        <h5 class="modal-title">
+                                            <span class="fw-mediumbold">
+                                                Edit Photo
+                                            </span>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="edit_photo_gallery">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-inline">
+                                                        <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
+                                                        <div class="col-md-9 p-0">
+                                                            <select class="form-control input-full" name="even_cat" id="Even_cat">
+                                                                <option value="">Select the Category</option>
+                                                                <?php 
+                                                                    $sql = "SELECT * FROM photo_category WHERE gall_cate_id = '2' ORDER BY cate_id";
+                                                                    $exe = pg_query($db,$sql);
+                                                                    $result = pg_fetch_all($exe);
+                                                                    foreach($result as $value){ ?>
+                                                                <option value="<?php echo $value['cate_id'];?>"><?php echo $value['category_title'];?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-inline">
+                                                        <label for="inlineinput" class="col-md-3 col-form-label">Upload Photo</label>
+                                                        <div class="col-md-9 p-0">
+                                                            <input type="file" class="form-control input-full" name="event_photo" id="Event_photo">
+                                                            <label for="inlineinput" class="col-form-label photo_file" style="color:green !important;">Allowed types(JPG,PNG,GIF)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group form-inline">
+                                                        <label for="inlineinput" class="col-md-3 col-form-label">Caption</label>
+                                                        <div class="col-md-9 p-0">
+                                                            <input type="text" class="form-control input-full" name="event_caption" id="Event_cap">
+                                                            <input type="hidden" class="form-control input-full" name="event_cate_id" id="Event_id">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer" style="justify-content: center !important;">
+                                                <button type="submit" id="addRowButton"
+                                                    class="btn btn-primary">Submit</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End modal -->
                     </div>
                 </div>
             </div>

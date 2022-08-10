@@ -23,65 +23,63 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div>
-                                <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header no-bd">
-                                                <h5 class="modal-title">
-                                                    <span class="fw-mediumbold">
-                                                        Add New Category
-                                                    </span>
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form id="add_event_photo">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-inline">
-                                                                <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
-                                                                <div class="col-md-9 p-0">
-                                                                    <select class="form-control input-full" name="even_cat" id="even_cat">
-                                                                        <option value="">Select the Category</option>
-                                                                        <?php 
-                                                                            $sql = "SELECT * FROM event_category ORDER BY cate_id";
-                                                                            $exe = pg_query($db,$sql);
-                                                                            $result = pg_fetch_all($exe);
-                                                                            foreach($result as $value){ ?>
-                                                                        <option value="<?php echo $value['cate_id'];?>"><?php echo $value['category_title'];?></option>
-                                                                        <?php } ?>
-                                                                    </select>
-                                                                </div>
+                            <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header no-bd">
+                                            <h5 class="modal-title">
+                                                <span class="fw-mediumbold">
+                                                    Add New Category
+                                                </span>
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="add_photo_gallery">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <select class="form-control input-full" name="even_cat" id="even_cat">
+                                                                    <option value="">Select the Category</option>
+                                                                    <?php 
+                                                                        $sql = "SELECT * FROM event_category ORDER BY cate_id";
+                                                                        $exe = pg_query($db,$sql);
+                                                                        $result = pg_fetch_all($exe);
+                                                                        foreach($result as $value){ ?>
+                                                                    <option value="<?php echo $value['cate_id'];?>"><?php echo $value['category_title'];?></option>
+                                                                    <?php } ?>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group form-inline">
-                                                                <label for="inlineinput" class="col-md-3 col-form-label">Upload Photo</label>
-                                                                <div class="col-md-9 p-0">
-                                                                    <input type="file" class="form-control input-full" name="event_photo" id="event_photo">
-                                                                    <label for="inlineinput" class="col-form-label" style="color:green !important;">Allowed types(JPG,PNG,GIF)</label>
-                                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Upload Photo</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <input type="file" class="form-control input-full" name="event_photo" id="event_photo" accept="image/png, image/gif, image/jpeg">
+                                                                <label for="inlineinput" class="col-form-label" style="color:green !important;">Allowed types(JPG,PNG,GIF)</label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer" style="justify-content: center !important;">
-                                                        <button type="submit" id="addRowButton"
-                                                            class="btn btn-primary">Submit</button>
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                </div>
+                                                <div class="modal-footer" style="justify-content: center !important;">
+                                                    <button type="submit" id="addRowButton"
+                                                        class="btn btn-primary">Submit</button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End modal -->
                             </div>
+                            <!-- End modal -->
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 

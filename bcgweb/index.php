@@ -221,29 +221,11 @@
                 <h5 class="title_card trans_200">EVENTS</h5>
                 <div class="container">
                     <ul class="cont">
-                        <?php $sql= "SELECT * FROM events";
+                        <?php $sql= "SELECT * FROM events order by event_id LIMIT 5";
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         foreach($result as $value){
                         ?>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['event_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['event_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['event_title']; ?></a
-                            >
-                        </li>
                         <li>
                             <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
                                 ><i class="far fa-hand-point-right"></i>
