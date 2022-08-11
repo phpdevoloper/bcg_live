@@ -85,7 +85,7 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql = "select * from video_category where gall_cate_id= '3'";
+                                    $sql = "select * from video_category where gall_cate_id= '3' order by cate_id";
                                     $exe = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
                                     foreach($result as $value){ ?>

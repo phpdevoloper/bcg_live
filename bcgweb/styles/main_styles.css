@@ -1687,6 +1687,7 @@ div#myTabContent {
   display: block;
   position: relative;
   width: 100%;
+  padding-bottom: 40px;
 }
 .contact_input {
   position: relative;

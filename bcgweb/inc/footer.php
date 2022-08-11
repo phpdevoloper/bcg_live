@@ -183,7 +183,7 @@
 <script src="js/custom.js"></script>
 <script>
 $(".item-slider").slick({
-  autoplay: true,
+  // autoplay: true,
   arrows: false,
   cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
   slidesToShow: 4,

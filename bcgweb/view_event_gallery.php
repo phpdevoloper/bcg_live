@@ -27,9 +27,11 @@ include('inc/dbconnection.php');
                     $result = pg_fetch_all($exe);
                     foreach($result as $value){
                 ?>
-                <div class="img-box">
+                <div class="img-box magnific-img">
+                <a class="image-popup-vertical-fit" href="uploads/gallery/event/<?php echo $value['photo_file'];?>">
                     <img src="uploads/gallery/event/<?php echo $value['photo_file']; ?>"/>
-                    <p><?php echo $value['photo_caption'];?></p>
+                </a>
+                <p><?php echo $value['photo_caption'];?></p>
                 </div>
                 <?php } ?>
             </div>

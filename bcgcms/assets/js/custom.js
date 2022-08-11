@@ -237,10 +237,6 @@ $(document).ready(function () {
     },
   });
 
-  // $("#add_whats").submit(function (e) {
-  //   e.preventDefault();
-  // });
-
   //Edit what's new Ajax
   $("#edit_whats_new").submit(function (e) {
     e.preventDefault();
@@ -1913,5 +1909,171 @@ $(document).ready(function () {
         swal("Cancelled", "Done :)", "error");
       }
     });
+  });
+
+  // Edit Video gallery
+  $(".vid_gallery_edit").on("click", function () {
+    var gallery_id = $(this).attr("data-gallery_id");
+    var cate = $(this).attr("data-cate");
+    var photofile = $(this).attr("data-photofile");
+    var photo_caption = $(this).attr("data-photo_caption");
+    console.log(photofile);
+
+    $("#Event_id").val(gallery_id);
+    $("#Even_cat").val(cate);
+    $("#Event_cap").val(photo_caption);
+    $("#Event_photo").val(photofile);
+  });
+
+  $("#edit_video_gallery").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update the photo!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addVideogallery.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                // location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                // location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  //******************************** */ Add new annual report **********************************
+  $("#add_annual_report").validate({
+    rules: {
+      report_title: {
+        required: true,
+      },
+      r_description: {
+        required: true,
+      },
+      report_file: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add new Report!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "AnnualreportAjax.php",
+            data: new FormData($("#add_annual_report")[0]),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "New Report added and uploaded successfully!",
+                  icon: "success",
+                }).then(function () {
+                  // location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  // location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
+  });
+
+  //Edit Annual Report Ajax
+  $("#edit_annual_report").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "AnnualreportAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "New Report added and uploaded successfully!",
+                icon: "success",
+              }).then(function () {
+                // location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                // location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+  // Edit Annual Report
+  $(".get_report").on("click", function () {
+    var report_id = $(this).attr("data-report_id");
+    var report_title = $(this).attr("data-report_title");
+    var report_desc = $(this).attr("data-report_desc");
+    var report_attach = $(this).attr("data-file_attach");
+    console.log(report_desc);
+
+    $("#Report_id").val(report_id);
+    $("#Report_titl").val(report_title);
+    $("#R_Desc").text(report_desc);
+    $("#Report_attach").text(report_attach);
   });
 });

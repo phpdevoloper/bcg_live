@@ -43,7 +43,7 @@ form {
   background: #fff;
   max-width: 360px;
   width: 100%;
-  padding: 58px 44px;
+  padding: 14px 23px;
   border: 1px solid ##e1e2f0;
   border-radius: 4px;
   box-shadow: 0 0 5px 0 rgba(42, 45, 48, 0.12);
@@ -212,12 +212,15 @@ header{
 <!-- <h3>Login</h3> -->
   <form id="admin_login">
     <div class="row">
-      <label for="email">User Name</label>
+      <label for="email">User Name
+        <span style="color:#ff0000">*</span></label>
       <input type="text" name="user_name" autocomplete="off" placeholder="User Name" required>
       <p style='color:red;'><?php echo $data["err_uname"]; ?></p>
     </div>
     <div class="row">
-      <label for="password">Password</label>
+      <label for="password">Password
+      <span style="color:#ff0000">*</span>
+      </label>
       <input type="password" name="user_pass" required>
       <p style='color:red;'><?php echo $data["err_upass"]; ?></p>
     </div>
@@ -225,7 +228,9 @@ header{
         <img src="captcha.php">
     </div>
     <div class="row">
-      <label for="password">Please Enter the verification code</label>
+      <label for="password">Please enter the verification code
+      <span style="color:#ff0000">*</span>
+      </label>
       <input type="text" name="captcha_code" required>
       <p style='color:red;'><?php echo $data["err_msg"]; ?></p>
     </div>

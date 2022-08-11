@@ -30,7 +30,7 @@ include('inc/dbconnection.php');
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM events"; 
+                <?php $sql = "SELECT * FROM events ORDER BY event_id ASC "; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         //    var_dump($value['position_held']);die;
@@ -39,10 +39,11 @@ include('inc/dbconnection.php');
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead style="background: #a2dcfd; font-size: 20px; vertical-align: middle;">
+                                <thead style="background: #a2dcfd; font-size: 15px;">
                                     <tr>
                                         <th>S.NO</th>
-                                        <th>Events Title</th>
+                                        <th>Event Title</th>
+                                        <th>Event Description</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                     </tr>
@@ -53,6 +54,7 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <td><?php echo $value['event_id'];?></td>
                                         <td><a href="<?php echo $value['event_file'];?>"><?php echo $value['event_title'];?></a></td>
+                                        <td><?php echo $value['event_desc'];?></td>
                                         <td><?php echo $value['date_from'];?></td>
                                         <td><?php echo $value['date_to'];?></td>
                                 <?php }?>
