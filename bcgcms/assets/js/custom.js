@@ -2002,14 +2002,14 @@ $(document).ready(function () {
                   text: "New Report added and uploaded successfully!",
                   icon: "success",
                 }).then(function () {
-                  // location.reload();
+                  location.reload();
                 });
               } else {
                 swal({
                   title: "Something went wrong!",
                   icon: "error",
                 }).then(function () {
-                  // location.reload();
+                  location.reload();
                 });
               }
             },
@@ -2046,14 +2046,14 @@ $(document).ready(function () {
                 text: "New Report added and uploaded successfully!",
                 icon: "success",
               }).then(function () {
-                // location.reload();
+                location.reload();
               });
             } else {
               swal({
                 title: "Something went wrong!",
                 icon: "error",
               }).then(function () {
-                // location.reload();
+                location.reload();
               });
             }
           },
@@ -2075,5 +2075,154 @@ $(document).ready(function () {
     $("#Report_titl").val(report_title);
     $("#R_Desc").text(report_desc);
     $("#Report_attach").text(report_attach);
+  });
+
+  // FAQ section
+  $("#add_faq").validate({
+    rules: {
+      faq_title: {
+        required: true,
+      },
+      faq_description: {
+        required: true,
+      },
+      faq_status: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add new FAQ!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "faqAjax.php",
+            data: new FormData($("#add_faq")[0]),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "New FAQ added successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
+  });
+  $(".get_faq").on("click", function () {
+    var report_id = $(this).attr("data-faq_id");
+    var report_title = $(this).attr("data-faq_title");
+    var report_desc = $(this).attr("data-faq_desc");
+    var report_attach = $(this).attr("data-faq_status");
+    console.log(report_desc);
+
+    $("#Faq_id").val(report_id);
+    $("#Faq_title").val(report_title);
+    $("#Faq_description").text(report_desc);
+    $("#Faq_status").val(report_attach);
+  });
+
+  $("#edit_faq").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "faqAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "New Report added and uploaded successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  $(".faq_del").on("click", function () {
+    // e.preventDefault();
+    var data = $(this).attr("data-faq_id");
+    // console.log(data);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to delete this!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "deleteFaq.php",
+          data: { id: data },
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Deleted!",
+                text: "Successfully Deleted!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
   });
 });

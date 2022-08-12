@@ -288,4 +288,69 @@ $(document).ready(function () {
     // console.log("sidebarMenu");
     $("#sidebarMenu").removeClass("show");
   });
+
+  $(".fontSizeEvent").on("fontSelected", function () {
+    let fontSizeStatus = _getCookie("fontSizeStatus");
+
+    if (fontSizeStatus == null) {
+      fontSizeStatus = "normal";
+    }
+    console.log(fontSizeStatus);
+    let label = $(
+      '.fontSizeEvent a[data-event-type="' + fontSizeStatus + '"]'
+    ).attr("data-label");
+    let dataSelected = $(
+      '.fontSizeEvent a[data-event-type="' + fontSizeStatus + '"]'
+    ).attr("data-selected-text");
+
+    $('.fontSizeEvent a[data-event-type="' + fontSizeStatus + '"')
+      .attr("aria-label", label + " - " + dataSelected)
+      .attr("title", label + " - " + dataSelected)
+      .addClass("link-selected");
+
+    $('.fontSizeEvent a[data-event-type="' + fontSizeStatus + '"')
+      .parent()
+      .siblings()
+      .each(function () {
+        let label = $(this).find("a").attr("data-label");
+        $(this)
+          .find("a")
+          .attr("aria-label", label)
+          .attr("title", label)
+          .removeClass("link-selected");
+      });
+  });
+
+  $(".fontSizeEvent").trigger("fontSelected");
+
+  $(".fontSizeEvent a").on("click", function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    let fontEvent = $(this).attr("data-event-type");
+
+    if (fontEvent == "increase") {
+      if (parseInt(fontSize) < 18) {
+        fontSize = parseInt(fontSize) + 2;
+        _setCookie("fontSizeStatus", "increase");
+      }
+    } else if (fontEvent == "decrease") {
+      if (parseInt(fontSize) > 10) {
+        fontSize = parseInt(fontSize) - 2;
+      }
+      _setCookie("fontSizeStatus", "decrease");
+    } else {
+      fontSize = 14;
+      _setCookie("fontSizeStatus", "normal");
+    }
+
+    $(this)
+      .addClass("link-selected")
+      .parent()
+      .siblings()
+      .find("a")
+      .removeClass("link-selected");
+    _setCookie("fontSize", fontSize);
+    $("body").css("font-size", fontSize + "px");
+    $(".fontSizeEvent").trigger("fontSelected");
+  });
 });

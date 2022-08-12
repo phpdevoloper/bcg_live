@@ -44,7 +44,7 @@
     <!-- <link rel="stylesheet" href="plugins/icofont/icofont.min.css" /> -->
   </head>
   <body>
-    <!-- <div class="super_container"> -->
+    <div class="super_container">
       <!-- Header -->
 
       <header class="header trans_200">
@@ -127,12 +127,11 @@
                   href="index.php"
                   ><img src="images/logo/download.png" alt="" />
                   <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
-                  <p class="titbcg">
+                  <h5 class="titbcg">
                     Directorate General of Health Services(DGHS),
-                  </p>
-                  <p class="titbcg two">
-                    Ministry of Health and Family Welfare, Govt. of India
-                  </p>
+                  </h5>
+                  <h5 class="titbcg two">
+                    Ministry of Health and Family Welfare, Govt. of India</h5>
                 </a>
                 <img class="dghs" src="images/logo/logo.png" alt="" />
               </div>

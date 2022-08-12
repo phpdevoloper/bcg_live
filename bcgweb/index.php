@@ -77,95 +77,96 @@
 
 <!-- Services section one -->
 <div class="services">
-<div class="container">
-    <div class="row services_row">
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-        <div class="card">
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">ABOUT BCGVL</h5>
-                <div class="container">
-                    <?php
-                        $sql = "select * from about_us where content_id='ABG'";
-                        $exe = pg_query($db,$sql);
-                        $res = pg_fetch_all($exe);
-                    ?>
-                    <?php echo $res[0]['content_description'];?>
-                </div>
-            </div>
-            <div class="read_more">
-                <a href="about_bcg.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-            <?php
-                $sql = "select * from director_desk";
-                $exe = pg_query($db,$sql);
-                $res = pg_fetch_all($exe);
-            ?>
-        <div class="card">
-            <div id="servhov" class="service text-center trans_200">
-            <h5 class="title_card trans_200">DIRECTOR</h5>
-                <div class="">
-                    <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
-                </div>
-                <div class="service_title trans_200 direct">
-                    <h3><?php echo $res[0]['director_name'];?></h3>
-                    <h4><?php echo $res[0]['director_qualification'];?></h3>
-                </div>
-            </div>
-            <div class="read_more">
-                <a href="director_desk3.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 service_col">
-        <div class="card">
-            <div id="servhov" class="service whats">
-                <h5 class="title_card">WHAT'S NEW</h5>
-                <div class="container">
-                    <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
-                    <ul class="cont">
-                        <?php $sql= "SELECT * FROM what_new";
-                        $res = pg_query($db,$sql);
-                        $result = pg_fetch_all($res);
-                        foreach($result as $value){
+    <div class="container">
+        <div class="row services_row">
+        <!-- Service -->
+        <div class="col-lg-4 col-md-6 service_col">
+            <div class="card">
+                <div id="servhov" class="service">
+                    <h5 class="title_card trans_200">ABOUT BCGVL</h5>
+                    <div class="container">
+                        <?php
+                            $sql = "select * from about_us where content_id='ABG'";
+                            $exe = pg_query($db,$sql);
+                            $res = pg_fetch_all($exe);
                         ?>
-                            <li>
-                            <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['whats_title']; ?></a
-                            >
-                            </li>
-                            <?php }?>
-                        </ul>
-                    </marquee>
+                        <?php echo $res[0]['content_description'];?>
+                    </div>
+                </div>
+                <div class="read_more">
+                    <a href="about_bcg.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
-            <div class="read_more">
-                <a href="whats_new.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+        </div>
+        <!-- Service -->
+        <div class="col-lg-4 col-md-6 service_col">
+                <?php
+                    $sql = "select * from director_desk";
+                    $exe = pg_query($db,$sql);
+                    $res = pg_fetch_all($exe);
+                ?>
+            <div class="card">
+                <div id="servhov" class="service text-center trans_200">
+                <h5 class="title_card trans_200">DIRECTOR</h5>
+                    <div class="">
+                        <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
+                    </div>
+                    <div class="service_title trans_200 direct">
+                        <h3><?php echo $res[0]['director_name'];?></h3>
+                        <h4><?php echo $res[0]['director_qualification'];?></h3>
+                    </div>
+                </div>
+                <div class="read_more">
+                    <a href="director_desk3.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 service_col">
+            <div class="card">
+                <div id="servhov" class="service whats">
+                    <h5 class="title_card">WHAT'S NEW</h5>
+                    <div class="container">
+                        <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
+                        <ul class="cont">
+                            <?php $sql= "SELECT * FROM what_new";
+                            $res = pg_query($db,$sql);
+                            $result = pg_fetch_all($res);
+                            foreach($result as $value){
+                            ?>
+                                <li>
+                                <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['whats_title']; ?></a
+                                >
+                                </li>
+                                <?php }?>
+                            </ul>
+                        </marquee>
+                    </div>
+                </div>
+                <div class="read_more">
+                    <a href="whats_new.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div class="bgone">
 <div id="cards_landscape_wrap-2">
 <h3 class="h_head">OUR PRODUCTS</h3>
     <div class="container">
     <div class="row services_row">
-        <div class="col-lg-6 col-md-6 service_col">
+        <div class="col-lg-2 col-md-2 service_col"></div>
+        <div class="col-lg-8 col-md-8 service_col">
             <div class="card-flyer">
                 <div class="card">
                     <div class="text-box">
                         <div class="image-box">
-                            <img src="images/products/fd.jpg" alt="" />
+                            <img src="images/product2.png" alt="" />
                         </div>
                         <div class="text-container">
                             <h6 class="text-center">
-                                F.D BCG VACCINE ( 10 DOSES) I.P
+                                BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
                             </h6>
                             <p>
                                 Freeze dried BCG Vaccine is a preparation of live
@@ -183,7 +184,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 service_col">
+        <div class="col-lg-2 col-md-2 service_col"></div>
+        <!-- <div class="col-lg-6 col-md-6 service_col">
             <div class="card-flyer">
                 <div class="card">
                     <div class="text-box">
@@ -207,7 +209,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     </div>
 </div>

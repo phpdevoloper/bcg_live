@@ -102,7 +102,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM documents_bcg"; 
+                                                    <?php $sql = "SELECT * FROM documents_bcg where doc_cate = 'ANNUAL' order by doc_id"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {

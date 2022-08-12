@@ -986,7 +986,7 @@ section {
 
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: -70;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 0;
@@ -1297,8 +1297,8 @@ ul.tittle_bcg {
   margin-left: -468px;
 }
 .two {
-  margin-top: auto;
-  margin-left: -294px;
+  margin-top: 69px;
+  margin-left: -330px;
 }
 
 .main_nav ul li:hover > #dropdown03 {
@@ -2386,6 +2386,7 @@ li.text-center {
 
 .section h3 {
   padding-bottom: 20px;
+  font-weight: 600;
 }
 .section h3::before {
   content: "";

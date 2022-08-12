@@ -235,6 +235,22 @@ include('inc/dbconnection.php');?>
                 </span>
                 <h4 class="text-section">Components</h4>
               </li> -->
+              <li class="nav-item">
+                <a data-toggle="collapse" href="#hps">
+                    <i class="fas fa-user-md"></i>
+                    <p>HOME PAGE</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="hps">
+                    <ul class="nav nav-collapse">
+                      <li>
+                          <a href="#">
+                            <span class="sub-item">Sliders</span>
+                          </a>
+                      </li>
+                    </ul>
+                  </div>
+              </li>
 							<li class="nav-item <?php 
 								if (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details1.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'basic_details1.php'?'active':'');
@@ -809,6 +825,8 @@ include('inc/dbconnection.php');?>
               <li class="nav-item <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php'? 'active':'');
+                      } elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php'? 'active':'');
                       }?>">
                 <a data-toggle="collapse" href="#charts">
                 <i class="fas fa-file-alt"></i>
@@ -818,18 +836,24 @@ include('inc/dbconnection.php');?>
                 <div class="collapse <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php'? 'show':'');
-                      }?>" id="charts">
+                      }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php'? 'show':'');
+                      }
+                      ?>" id="charts">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php'? 'active':'');
+                        echo(basename($_SERVER['SCRIPT_FILENAME']) == 'annual_report.php'? 'active':'');
                       }?>">
                       <a href="annual_report.php">
                         <span class="sub-item">Annual Reports</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php') {
+                        echo(basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php'? 'active':'');
+                      }?>">
+                      <a href="recruitment_rules.php">
                         <span class="sub-item">Recruitment Rules</span>
                       </a>
                     </li>
@@ -963,7 +987,10 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php'? 'active':'');
+                      }?>">
                 <a href="faq.php">
                 <i class="fas fa-question"></i>
                   <span class="sub-item">FAQ</span>
