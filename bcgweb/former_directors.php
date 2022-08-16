@@ -23,7 +23,7 @@ include('inc/dbconnection.php');
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM former_directors ORDER BY director_id ASC"; 
+                <?php $sql = "SELECT * FROM former_directors ORDER BY director_id DESC"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         //    var_dump($value['position_held']);die;
@@ -31,7 +31,7 @@ include('inc/dbconnection.php');
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
-                            <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead style="background: #a2dcfd; font-size: 20px; vertical-align: middle;">
                                     <tr>
                                         <th>S.NO</th>

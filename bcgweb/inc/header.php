@@ -44,7 +44,7 @@
     <!-- <link rel="stylesheet" href="plugins/icofont/icofont.min.css" /> -->
   </head>
   <body>
-    <div class="super_container">
+    <!-- <div class="super_container"> -->
       <!-- Header -->
 
       <header class="header trans_200">
@@ -269,7 +269,7 @@
                         <a href="annual_report.php" class="list_a">Annual Reports</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Recruitment Rules</a>
+                        <a href="recruitment_rules.php" class="list_a">Recruitment Rules</a>
                       </li>
                     </ul>
                   </li>
@@ -322,7 +322,7 @@
                 ><span>RTI</span></a
               >
               <a
-                href="#"
+                href="faq.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>FAQ</span></a
               >

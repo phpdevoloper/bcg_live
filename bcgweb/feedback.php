@@ -21,50 +21,48 @@ include('inc/dbconnection.php');
         <div class="row text-center">
             <!-- About Content -->
             <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="contact_form_container">
-                    <form action="#" id="contact_form" class="contact_form">
-                        <div class="row">
-                        <div class="col-md-6 input_col">
-                            <div class="input_container input_name">
-                            <input
-                                type="text"
-                                class="contact_input"
-                                placeholder="Name"
-                                required
-                            />
+                <div class="col-lg-8">
+                    <div class="contact_form_container">
+                        <form id="contact_form" class="contact_form">
+                            <div class="row">
+                                <div class="col-md-6 input_col">
+                                    <div class="input_container input_name">
+                                    <input
+                                        type="text"
+                                        class="contact_input"
+                                        name="user_name"
+                                        placeholder="Name"
+                                    />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 input_col">
+                                    <div class="input_container">   
+                                    <input
+                                        type="email"
+                                        class="contact_input"
+                                        name="user_email"
+                                        placeholder="E-mail"
+                                    />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 input_col">
                             <div class="input_container">
-                            <input
-                                type="email"
-                                class="contact_input"
-                                placeholder="E-mail"
-                                required
-                            />
+                                <input
+                                    type="text"
+                                    class="contact_input"
+                                    name="user_sub"
+                                    placeholder="Subject"
+                                />
                             </div>
-                        </div>
-                        </div>
-                        <div class="input_container">
-                        <input
-                            type="text"
-                            class="contact_input"
-                            placeholder="Subject"
-                            required
-                        />
-                        </div>
-                        <div class="input_container">
-                        <textarea
-                            class="contact_input contact_text_area"
-                            placeholder="Message"
-                            required
-                        ></textarea>
-                        </div>
-                        <button class="button contact_button">
-                        <a href="#">send</a>
-                        </button>
-                    </form>
+                            <div class="input_container">
+                                <textarea
+                                    class="contact_input contact_text_area"
+                                    name="user_msg"
+                                    placeholder="Message"
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="button contact_button sub"> send </button>
+                        </form>
                     </div>
                 </div>
             </div>

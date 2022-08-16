@@ -102,12 +102,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php $sql ="SELECT faq.*, faq_mst_status.faq_status_title FROM faq JOIN faq_mst_status 
-                                ON faq.faq_id = faq_mst_status.faq_status_id";
+                                <?php $sql ="SELECT faq.*, faq_mst_status.faq_status_title 
+FROM faq left JOIN faq_mst_status ON faq.faq_status = faq_mst_status.faq_status_id";
                                 $res = pg_query($db, $sql);
                                 $result = pg_fetch_all($res);
                                 // echo $sql;exit;
                                         foreach ($result as $value) { 
+                                            // var_dump($value);
                                          ?>
 
                                     <tr role="row" class="odd">

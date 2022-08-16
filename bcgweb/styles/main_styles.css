@@ -186,7 +186,7 @@ section {
 }
 .super_container {
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .prlx_parent {
   overflow: hidden;
@@ -222,13 +222,13 @@ section {
   -o-transition: all 400ms cubic-bezier(0.33, 0.68, 0.59, 0.99);
   transition: all 400ms cubic-bezier(0.33, 0.68, 0.59, 0.99);
 }
-.button a {
+.sub {
   display: block;
   position: relative;
   line-height: 51px;
   font-size: 14px;
   font-weight: 900;
-  color: #ffffff;
+  color: #ffffff !important;
   padding-left: 39px;
   padding-right: 45px;
   text-transform: uppercase;
@@ -238,7 +238,7 @@ section {
 .button:hover::after {
   height: 100%;
 }
-.button:hover a {
+.button:hover .sub {
   color: #ffffff !important;
 }
 /* .section_title {
@@ -986,12 +986,11 @@ section {
 
 .footer {
   position: absolute;
-  bottom: -70;
+  bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 0;
-  /* line-height: 60px;  */
-  /* background-color: #f5f5f5; */
+  /* line-height: 60px; */
+  /* background-color: #f5f5f5;*/
 }
 .footer > .container {
   padding-right: 15px;
@@ -1645,7 +1644,7 @@ div#myTabContent {
   padding-bottom: 95px;
 }
 .contact_text {
-  margin-top: 34px;
+  /* margin-top: 34px; */
   padding-right: 90px;
 }
 .contact_about_list {
@@ -2209,7 +2208,7 @@ p.fst-italic {
   background: #d4d4d4;
   list-style: none;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 9px;
 }
 
@@ -2978,4 +2977,10 @@ section#about {
   position: absolute;
   right: 44px;
   color: #3e93ff;
+}
+
+label.error {
+  color: #f25961 !important;
+  font-size: 100% !important;
+  margin-top: 0.5rem;
 }
