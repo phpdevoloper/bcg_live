@@ -13,11 +13,6 @@
 	// 		$exc = pg_query($db,$query);
 	// 		pg_close($db);
 	// 	}else{
-            if (condition) {
-                # code...
-            }else {
-                # code...
-            }
             if ($_FILES["rti_file"]["name"] !== '') {
                 // var_dump($_FILES);die;
                 $target_dir = "uploads/RTI/";

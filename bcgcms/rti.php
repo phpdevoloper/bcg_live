@@ -31,10 +31,7 @@
                                             <div class="modal-header no-bd">
                                                 <h5 class="modal-title">
                                                     <span class="fw-mediumbold">
-                                                       Add New</span>
-                                                    <span class="fw-light">
-                                                        RTI
-                                                    </span>
+                                                       Add New RTI</span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
@@ -45,20 +42,28 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Title</label>
+                                                                <label for="qualifi">Title
+                                                                <span style="color:#ff0000">*</span>
+                                                                </label>
                                                                 <input type="text" class="form-control" name="rti_title" id="rti_title">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row ">
-                                                        <div class="col-sm-4">
-                                                            <label for="inputPassword" class="col-form-label">RTI Attachment</label>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <label for="inputPassword" class="col-sm-4 col-form-label">File</label>
-                                                            <input class="form-check-input" type="checkbox" id="rti_file" value="">
-                                                            <label for="inputPassword" class="col-sm-4 col-form-label">URL</label>
-                                                            <input class="form-check-input" type="checkbox" id="rti_url" value="">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Status
+                                                                <span style="color:#ff0000">*</span>
+                                                                </label>
+                                                                <select class="form-control" name="rti_status" id="rti_status">
+                                                                    <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                    $exe = pg_query($db,$sql);
+                                                                    $result = pg_fetch_all($exe);
+                                                                    foreach ($result as $f_status) {?>
+                                                                    <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                        <?php } ?>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -186,7 +191,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form id="edit_rti">
+                                                    <form id="edit_subs_rti">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">

@@ -1472,153 +1472,6 @@ $(document).ready(function () {
     });
   });
 
-  // RTI Attachments
-  $("#rti_file").change(function () {
-    if ($(this).is(":checked")) {
-      // $("#url_check").attr("checked", false);
-      $("#rti_url").prop("checked", false);
-      $(".event_url").attr("style", "display:none");
-      $(".upload_event").attr("style", "display:block");
-    } else {
-      $(".upload_event").attr("style", "display:none");
-    }
-  });
-  $("#rti_url").change(function () {
-    if ($(this).is(":checked")) {
-      $("#rti_file").prop("checked", false);
-      $(".upload_event").attr("style", "display:none");
-      $(".event_url").attr("style", "display:block");
-    } else {
-      $(".event_url").attr("style", "display:none");
-    }
-  });
-
-  // Sub RTI Attachments
-  $("#sub_rti_file").change(function () {
-    if ($(this).is(":checked")) {
-      // $("#url_check").attr("checked", false);
-      $("#sub_rti_url").prop("checked", false);
-      $(".event_url").attr("style", "display:none");
-      $(".upload_event").attr("style", "display:block");
-    } else {
-      $(".upload_event").attr("style", "display:none");
-    }
-  });
-  $("#sub_rti_url").change(function () {
-    if ($(this).is(":checked")) {
-      $("#sub_rti_file").prop("checked", false);
-      $(".upload_event").attr("style", "display:none");
-      $(".event_url").attr("style", "display:block");
-    } else {
-      $(".event_url").attr("style", "display:none");
-    }
-  });
-  //Get the
-  $(document).on("click", ".getRTI", function (e) {
-    var subs_id = $(this).attr("data-subs_id");
-    var subs_name = $(this).attr("data-subs_name");
-    // console.log(subs_id);
-
-    $("#Rti_id").val(subs_id);
-    $("#Subs_name").val(subs_name);
-  });
-
-  //Get the sub RTI
-  $(document).on("click", ".getSub_RTI", function (e) {
-    var subs_id = $(this).attr("data-sub_id");
-    var subs_name = $(this).attr("data-sub_name");
-    // console.log(subs_id);
-
-    $("#Sub_Rti_id").val(subs_id);
-    $("#Sub_name").val(subs_name);
-  });
-
-  // Edit RTI file
-  $("#edit_rti").submit(function (e) {
-    e.preventDefault();
-    console.log("sdfdsf");
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to Update the pdf/Url!",
-      icon: "warning",
-      buttons: ["Cancel!", "Yes"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "updateRTI.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Added!",
-                text: "Added Successfully!",
-                icon: "success",
-              }).then(function () {
-                location.reload();
-              });
-            } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                location.reload();
-              });
-            }
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
-  });
-  // Edit Sub RTI file
-  $("#edit_sub_rti").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to Update the pdf/Url!",
-      icon: "warning",
-      buttons: ["Cancel!", "Yes"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "updateSub_RTI.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Added!",
-                text: "Added Successfully!",
-                icon: "success",
-              }).then(function () {
-                location.reload();
-              });
-            } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                location.reload();
-              });
-            }
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
-  });
-
   // form validation
   $("#bcgvl_rti_contacts").validate({
     rules: {
@@ -2224,5 +2077,203 @@ $(document).ready(function () {
         swal("Cancelled", "Done :)", "error");
       }
     });
+  });
+
+  /* *********************** RTI Disclouser *****************************/
+  // RTI Attachments
+  $("#rti_file").change(function () {
+    if ($(this).is(":checked")) {
+      // $("#url_check").attr("checked", false);
+      $("#rti_url").prop("checked", false);
+      $(".event_url").attr("style", "display:none");
+      $(".upload_event").attr("style", "display:block");
+    } else {
+      $(".upload_event").attr("style", "display:none");
+    }
+  });
+  $("#rti_url").change(function () {
+    if ($(this).is(":checked")) {
+      $("#rti_file").prop("checked", false);
+      $(".upload_event").attr("style", "display:none");
+      $(".event_url").attr("style", "display:block");
+    } else {
+      $(".event_url").attr("style", "display:none");
+    }
+  });
+
+  // Sub RTI Attachments
+  $("#sub_rti_file").change(function () {
+    if ($(this).is(":checked")) {
+      // $("#url_check").attr("checked", false);
+      $("#sub_rti_url").prop("checked", false);
+      $(".event_url").attr("style", "display:none");
+      $(".upload_event").attr("style", "display:block");
+    } else {
+      $(".upload_event").attr("style", "display:none");
+    }
+  });
+  $("#sub_rti_url").change(function () {
+    if ($(this).is(":checked")) {
+      $("#sub_rti_file").prop("checked", false);
+      $(".upload_event").attr("style", "display:none");
+      $(".event_url").attr("style", "display:block");
+    } else {
+      $(".event_url").attr("style", "display:none");
+    }
+  });
+  //Get the
+  $(document).on("click", ".getRTI", function (e) {
+    var subs_id = $(this).attr("data-subs_id");
+    var subs_name = $(this).attr("data-subs_name");
+    // console.log(subs_id);
+
+    $("#Rti_id").val(subs_id);
+    $("#Subs_name").val(subs_name);
+  });
+
+  //Get the sub RTI
+  $(document).on("click", ".getSub_RTI", function (e) {
+    var subs_id = $(this).attr("data-sub_id");
+    var subs_name = $(this).attr("data-sub_name");
+    // console.log(subs_id);
+
+    $("#Sub_Rti_id").val(subs_id);
+    $("#Sub_name").val(subs_name);
+  });
+
+  // Edit RTI file
+  $("#edit_subs_rti").submit(function (e) {
+    e.preventDefault();
+    console.log("sdfdsf");
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update the pdf/Url!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "updateRTI.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+  // Edit Sub RTI file
+  $("#edit_sub_rti").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to Update the pdf/Url!",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "updateSub_RTI.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+  // Add New RTI
+  $("#add_rti").validate({
+    rules: {
+      rti_title: {
+        required: true,
+      },
+      rti_status: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add new RTI!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "add_rtiAjax.php",
+            data: new FormData($("#add_rti")[0]),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "New RTI added successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
 });

@@ -21,7 +21,7 @@ include('inc/dbconnection.php');
     <section>
         <div class="container">
             <div id="accordion">
-            <?php $sql = "SELECT * FROM faq ORDER BY faq_id ASC"; 
+            <?php $sql = "SELECT * FROM faq WHERE faq_status = '2' ORDER BY faq_id ASC"; 
             $exe = pg_query($db,$sql);
             $row = pg_fetch_all($exe);
             $i = 1;
@@ -30,7 +30,7 @@ include('inc/dbconnection.php');
             ?>
                 <div class="card" style="border-color: green; margin-bottom: 30px;">
                     <div class="card-header" id="heading-<?php echo $value["faq_title"];?>">
-                        <h5 class="mb-0">
+                        <h5 class="mb-0 faq">
                             <a role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
                             <?php echo $value["faq_title"];?>
                             </a>

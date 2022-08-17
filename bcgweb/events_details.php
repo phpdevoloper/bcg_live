@@ -41,9 +41,9 @@ include('inc/dbconnection.php');
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead style="background: #a2dcfd; font-size: 15px;">
                                     <tr>
-                                        <th>S.NO</th>
-                                        <th>Event Title</th>
-                                        <th>Event Description</th>
+                                        <th style="width: 1%">S.No</th>
+                                        <th style="width: 30%">Event Title</th>
+                                        <th style="width: 40%">Event Description</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                     </tr>

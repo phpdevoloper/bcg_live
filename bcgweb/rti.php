@@ -69,11 +69,15 @@ include('inc/dbconnection.php');
                                                 foreach ($row as $value) {
                                                 ?>
                                                 <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>-<?php echo $c;?>">
-                                                    <h5 class="exe">
-                                                    <a href="<?php echo $value['rti_upload'];?>">
-                                                        <?php echo $value['subs_rti_name'];?>
-                                                    </a>
-                                                    </h5>
+                                                    <?php if($value['file_type'] == 'pdf'){ ?>
+                                                        <h5 class="ex">
+                                                           <a href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                        </h5>
+                                                           <?php }else{ ?>
+                                                        <h5 class="exe">
+                                                            <a href="<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                        </h5>
+                                                       <?php } ?>
                                                 </div>
                                                 <?php $c++; } ?>
                                             </div>

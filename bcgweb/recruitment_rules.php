@@ -1,13 +1,6 @@
-<?php include('inc/header.php'); 
+ <?php include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
-<style>
-    ul {
-        list-style: none !important;
-        margin-bottom : 0px;
-    }
-</style>
-
 <!-- Home -->
 <!-- <div class="banner">
     <img src="images/about.jpg" alt="" />
@@ -16,58 +9,89 @@ include('inc/dbconnection.php');
 <div class="about">
     <section>
         <ul class="breadcrumb wizard">
-            <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
-            <li class=""><a href="staff_list.php">Documents</a></li>
+            <li class="completed"><a href=""><i class="fa fa-home"></i></a></li>
+            <li class="completed"><a href="javascript:void(0);">Documents</a></li>
+            <li class=""><a href="contact.php">Recruitment Rules</a></li>
         </ul>
     </section>
-    <div class="container">
-        <div class="section">
-            <h3 class="text-center txt" style="color: #299adc;">Recruitment Rules</h3>
-        </div>
-        <div class="row">
-            <!-- About Content -->
-            <div class="col-lg-12">
-                <div class="section_title">
-                </div>
-                <?php $sql = "SELECT * FROM documents_bcg WHERE doc_cate='RECR' ORDER BY doc_id ASC"; 
-                        $res = pg_query($db,$sql);
-                        $result = pg_fetch_all($res);
-                        $i=0;
+    <div class="section">
+        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;">Recruitment Rules</h3>
+    </div>
+
+    <section>
+        <div class="container">
+            <div id="accordion">
+                <?php $sql = "SELECT * FROM mst_rti where rti_id ='2'"; 
+                        $exe = pg_query($db,$sql);
+                        $row = pg_fetch_all($exe);
+                        $i = 1;
+                        foreach ($row as $value) {
                 ?>
-                <section id="about">
-                    <div class="container aos-init aos-animate" data-aos="fade-up">
-                        <div class="testimonial-item" style="padding-top: 20px;">
-                            <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead style="background: #a2dcfd; font-size: 20px; vertical-align: middle;">
-                                    <tr>
-                                        <th>S.NO</th>
-                                        <th>Title</th>
-                                        <th>file</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="font-size: 13px;">
-                                <?php foreach($result as $value){ 
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $i;?></td>
-                                        <td><?php echo $value['doc_title'];?></td>
-                                        <td><a href="<?php echo $value['doc_attachment'];?>" target="_blank">
-                                        <img src="images/pdf.png" class="ficon" alt="">view</a></td>
-                                <?php $i++; }?>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="card" style="border-color: green; margin-bottom: 30px;">
+                    <div class="card-header" id="heading-<?php echo $i;?>">
+                    <h5 class="mb-0 faq">
+                        <a role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
+                        <?php echo $value['rti_name'];?>
+                        </a>
+                    </h5>
+                    </div>
+                    <div id="collapse-<?php echo $i;?>" class="collapse" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
+                        <div class="card-body">
+                            <div id="accordion-<?php echo $i;?>">
+                                <?php $sql = "SELECT * FROM mst_sub_rti WHERE mst_rti_id = '".$value['rti_id']."'"; 
+                                    $exe = pg_query($db,$sql);
+                                    $row = pg_fetch_all($exe);
+                                    $b = 1;
+                                    foreach ($row as $value) {
+                                ?>
+                                    <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>">
+                                        <?php if ($value['mst_rti_id'] == '3') { ?>
+                                            <h5 class="exe">
+                                                <a href="<?php echo $value['rti_upload'];?>">
+                                                <?php echo $value['sub_rti_name'];?>
+                                                </a>
+                                            </h5>
+                                        <?php } else { ?>
+                                            <h5 class="mb-0">
+                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
+                                                <?php echo $value['sub_rti_name'];?>
+                                                </a>
+                                            </h5>
+                                    <?php } ?>
+                                    </div>
+                                    <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
+                                        <div class="card-body">
+                                            <div id="accordion-<?php echo $i;?>-<?php echo $b;?>">
+                                                <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."' order by subs_rti_id asc"; 
+                                                $exe = pg_query($db,$sql);
+                                                $row = pg_fetch_all($exe);
+                                                $c = 1;
+                                                foreach ($row as $value) {
+                                                ?>
+                                                <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>-<?php echo $c;?>">
+                                                    <?php if($value['file_type'] == 'pdf'){ ?>
+                                                        <h5 class="ex">
+                                                           <a href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                        </h5>
+                                                           <?php }else{ ?>
+                                                        <h5 class="exe">
+                                                            <a href="<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                        </h5>
+                                                       <?php } ?>
+                                                </div>
+                                                <?php $c++; } ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php $b++; } ?>
+                            </div>      
                         </div>
                     </div>
-                </section>
+                </div>
+                <?php $i++; } ?>
             </div>
         </div>
-    </div>
+    </section>
 </div>
+    
 <?php include('inc/simple_footer.php'); ?>
-<script>
-    $(document).ready(function () {
-    $("#example").DataTable();
-    $(".dataTables_length").addClass("bs-select");
-  });
-</script>

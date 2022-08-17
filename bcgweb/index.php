@@ -156,12 +156,14 @@
 <h3 class="h_head">OUR PRODUCTS</h3>
     <div class="container">
     <div class="row services_row">
-        <div class="col-lg-2 col-md-2 service_col"></div>
-        <div class="col-lg-8 col-md-8 service_col">
+        <div class="col-lg-6 col-md-6 service_col">
+        </div>
+        <div class="col-lg-6 col-md-6 service_col">
             <div class="card-flyer">
                 <div class="card">
                     <div class="text-box">
                         <div class="image-box">
+                            <img src="images/BCG.png" alt=""/>
                             <img src="images/product2.png" alt="" />
                         </div>
                         <div class="text-container">
@@ -184,7 +186,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2 col-md-2 service_col"></div>
         <!-- <div class="col-lg-6 col-md-6 service_col">
             <div class="card-flyer">
                 <div class="card">
@@ -260,36 +261,6 @@
                                 <?php echo $value['rect_title']; ?></a
                             >
                         </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
                         <?php }?>
                     </ul>
                 </div>
@@ -317,25 +288,7 @@
                                     <?php echo $value['tender_title']; ?></a
                                 >
                             </li>
-                            <li>
-                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
-                                    ><i class="far fa-hand-point-right"></i>
-                                    <?php echo $value['tender_title']; ?></a
-                                >
-                            </li>
-                            <li>
-                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
-                                    ><i class="far fa-hand-point-right"></i>
-                                    <?php echo $value['tender_title']; ?></a
-                                >
-                            </li>
-                            <li>
-                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
-                                    ><i class="far fa-hand-point-right"></i>
-                                    <?php echo $value['tender_title']; ?></a
-                                >
-                            </li>
-                                <?php }?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

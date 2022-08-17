@@ -1584,8 +1584,8 @@ div#myTabContent {
 }
 #cards_landscape_wrap-2 .card-flyer .image-box img {
   transition: all 0.9s ease;
-  width: 100%;
-  height: 200px;
+  width: 47%;
+  height: 160px;
 }
 #cards_landscape_wrap-2 .card-flyer:hover .image-box img {
   /* opacity: 0.7; */
@@ -1597,7 +1597,7 @@ div#myTabContent {
 }
 #cards_landscape_wrap-2 .card-flyer .text-box {
   text-align: center;
-  height: 470px;
+  height: 369px;
 }
 #cards_landscape_wrap-2 .card-flyer .text-box .text-container {
   padding: 30px 18px;
@@ -2923,8 +2923,18 @@ section#about {
   right: 0;
   color: rgb(4, 165, 4);
 }
+.faq > a:before {
+  content: "\f107"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 0;
+  color: rgb(4, 165, 4);
+}
 .mb-0 > a[aria-expanded="true"]:before {
   content: "\f068"; /* fa-chevron-up */
+}
+.faq > a[aria-expanded="true"]:before {
+  content: "\f106"; /* fa-chevron-up */
 }
 
 #accordion a {
@@ -2978,9 +2988,18 @@ section#about {
   right: 44px;
   color: #3e93ff;
 }
+.ex > a:after {
+  content: "\f1c1"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 44px;
+  color: #e30000;
+}
 
 label.error {
   color: #f25961 !important;
   font-size: 100% !important;
   margin-top: 0.5rem;
 }
+
+/* Sliding images for products */
