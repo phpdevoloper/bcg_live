@@ -156,16 +156,28 @@
 <h3 class="h_head">OUR PRODUCTS</h3>
     <div class="container">
     <div class="row services_row">
-        <div class="col-lg-6 col-md-6 service_col">
+        <div class="col-lg-4 col-md-4 service_col">
+            <div id="owl-carousel" class="owl-carousel owl-theme">
+                <div class="itm">
+                    <div class="image-box">
+                        <img src="images/BCG.png" alt="">
+                    </div>
+                </div>
+                <div class="itm">
+                    <div class="image-box">
+                        <img src="images/product1.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-6 col-md-6 service_col">
+        <div class="col-lg-8 col-md-8 service_col">
             <div class="card-flyer">
                 <div class="card">
                     <div class="text-box">
-                        <div class="image-box">
+                        <!-- <div class="image-box">
                             <img src="images/BCG.png" alt=""/>
                             <img src="images/product2.png" alt="" />
-                        </div>
+                        </div> -->
                         <div class="text-container">
                             <h6 class="text-center">
                                 BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)

@@ -35,7 +35,7 @@ include('inc/dbconnection.php');
                         </a>
                     </h5>
                     </div>
-                    <div id="collapse-<?php echo $i;?>" class="collapse" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
+                    <div id="collapse-<?php echo $i;?>" class="collapse show" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
                         <div class="card-body">
                             <div id="accordion-<?php echo $i;?>">
                                 <?php $sql = "SELECT * FROM mst_sub_rti WHERE mst_rti_id = '".$value['rti_id']."'"; 

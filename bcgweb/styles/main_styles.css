@@ -731,7 +731,7 @@ section {
 .about {
   width: 100%;
   background: #ffffff;
-  padding-top: 147px;
+  padding-top: 176px;
 }
 .about_text {
   margin-top: 34px;
@@ -928,7 +928,7 @@ section {
   font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-weight: 600;
-  padding-top: 16px;
+  padding-top: 8px;
   /* margin-top: 173px; */
 }
 .service_title h4 {
@@ -1000,7 +1000,7 @@ section {
 .footer_container {
   width: 100%;
   background: #060b3ad9;
-  padding-bottom: 77px;
+  padding-bottom: 43px;
 }
 .footer_logo_container {
   width: 100%;
@@ -1356,8 +1356,8 @@ ul.tittle_bcg {
   margin-left: 32px;
 }
 .foo_nav ul li a {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  /* font-weight: 700; */
   color: #000000;
 }
 li.lines {
@@ -1597,7 +1597,7 @@ div#myTabContent {
 }
 #cards_landscape_wrap-2 .card-flyer .text-box {
   text-align: center;
-  height: 369px;
+  height: 300px;
 }
 #cards_landscape_wrap-2 .card-flyer .text-box .text-container {
   padding: 30px 18px;
@@ -2208,7 +2208,7 @@ p.fst-italic {
   background: #d4d4d4;
   list-style: none;
   overflow: hidden;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   font-size: 9px;
 }
 
@@ -2384,7 +2384,7 @@ li.text-center {
 }
 
 .section h3 {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-weight: 600;
 }
 .section h3::before {
@@ -2465,7 +2465,8 @@ img.history {
   color: #00acc1;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  padding-right: 10px;
+  padding-right: 26px;
+  margin-top: -31px;
   font-weight: 800;
 }
 
@@ -2502,8 +2503,8 @@ img.history {
 /* Slick Slide */
 .items {
   width: 91%;
-  margin: 0px 0px 0 241px;
-  padding-top: 15px;
+  margin: 0px 0px 0 234px;
+  padding-top: 14px;
 }
 .items .slick-track {
   margin-left: 669px !important;
@@ -2909,6 +2910,7 @@ img.mfp-img {
 
 section#about {
   padding-bottom: 100px;
+  padding-top: 0;
 }
 
 /* Accordian */
@@ -3002,4 +3004,19 @@ label.error {
   margin-top: 0.5rem;
 }
 
+.sitemap li {
+  margin-left: 27px;
+}
+
+.sitemap a {
+  color: #299adc;
+}
+
 /* Sliding images for products */
+.itm {
+  align-items: center;
+  color: white;
+  display: flex;
+  height: 232px;
+  justify-content: center;
+}

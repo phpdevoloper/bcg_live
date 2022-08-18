@@ -36,7 +36,7 @@ include('inc/dbconnection.php');
                             $result = pg_fetch_all($exe);
                         ?>
                         <div class="testimonial-item">
-                            <h4 class="text-center"><?php echo $result[0]['product_name']; ?></h4>
+                            <h4 class="text-center" style="font-weight: 700;"><?php echo $result[0]['product_name']; ?></h4>
                             <div>
                                 <?php echo $result[0]['product_desc']; ?>
                             </div>

@@ -80,7 +80,7 @@
                       </li>
                       <li class="line"></li>
                       <li class="social-media">
-                        <i class="fa fa-sitemap" aria-hidden="true"></i>
+                        <a href="sitemap.php"><i class="fa fa-sitemap" aria-hidden="true"></i></a>
                       </li>
                       <li class="line"></li>
                       <li class="social-media">
@@ -238,10 +238,10 @@
                         >
                       </li>
                       <li>
-                        <a href="" class="list_a">Current Events</a>
+                        <a href="current_events.php" class="list_a">Current Events</a>
                       </li>
                       <li>
-                        <a href="" class="list_a">Past Events</a>
+                        <a href="past_events.php" class="list_a">Past Events</a>
                       </li>
                       <li>
                         <a href="training_programmes.php" class="list_a">Training Programmes</a>
