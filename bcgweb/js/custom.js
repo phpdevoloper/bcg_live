@@ -355,65 +355,6 @@ $(document).ready(function () {
     $(".fontSizeEvent").trigger("fontSelected");
   });
 
-  // Feedback ajax
-  // $("#contact_form").validate({
-  //   rules: {
-  //     user_name: {
-  //       required: true,
-  //     },
-  //     user_email: {
-  //       required: true,
-  //       email: true,
-  //     },
-  //     user_sub: {
-  //       required: true,
-  //     },
-  //     user_msg: {
-  //       required: true,
-  //     },
-  //   },
-  //   submitHandler: function (form, e) {
-  //     e.preventDefault();
-
-  //     swal({
-  //       title: "Are you sure?",
-  //       text: "You wants to add new FAQ!",
-  //       icon: "warning",
-  //       buttons: ["No, cancel it!", "Yes, I am sure!"],
-  //       dangerMode: true,
-  //     }).then(function (isConfirm) {
-  //       if (isConfirm) {
-  //         $.ajax({
-  //           method: "POST",
-  //           url: "faqAjax.php",
-  //           data: new FormData($("#add_faq")[0]),
-  //           contentType: false,
-  //           processData: false,
-  //           success: function (response) {
-  //             if (response == 1) {
-  //               swal({
-  //                 title: "Added!",
-  //                 text: "New FAQ added successfully!",
-  //                 icon: "success",
-  //               }).then(function () {
-  //                 // location.reload();
-  //               });
-  //             } else {
-  //               swal({
-  //                 title: "Something went wrong!",
-  //                 icon: "error",
-  //               }).then(function () {
-  //                 // location.reload();
-  //               });
-  //             }
-  //           },
-  //         });
-  //       } else {
-  //         swal("Cancelled", "Done :)", "error");
-  //       }
-  //     });
-  //   },
-  // });
   $("#owl-carousel").owlCarousel({
     autoplay: true,
     loop: true,
@@ -421,5 +362,64 @@ $(document).ready(function () {
     dots: true,
     nav: true,
     items: 1,
+  });
+
+  // Feedback ajax
+  $("#contact_form").validate({
+    rules: {
+      user_name: {
+        required: true,
+      },
+      user_email: {
+        required: true,
+        email: true,
+      },
+      user_sub: {
+        required: true,
+      },
+      user_msg: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      e.preventDefault();
+      swal({
+        title: "Are you sure?",
+        text: "You wants to submit your feedback!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "feedbackAjax.php",
+            data: new FormData($("#contact_form")[0]),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Submitted!",
+                  text: "Feedback submitted successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
 });

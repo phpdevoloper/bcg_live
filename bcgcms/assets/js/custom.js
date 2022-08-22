@@ -2276,4 +2276,10 @@ $(document).ready(function () {
       });
     },
   });
+
+  $(".btnRefresh").click(function () {
+    console.log("sdfsdf");
+    $("#captcha_code").attr("src", "captcha.php");
+    return false;
+  });
 });

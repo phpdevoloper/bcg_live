@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 include('inc/dbconnection.php');?>
 <!DOCTYPE html>
 <html lang="en">
@@ -866,7 +866,7 @@ include('inc/dbconnection.php');?>
                       }?>">
                 <a href="recruitment.php">
                   <i class="fas fa-bars"></i>
-                  <span class="sub-item">RECRUITMENTS</span>
+                  <span class="sub-item"><p>RECRUITMENTS</p></span>
                 </a>
               </li>
               <li class="nav-item <?php 
@@ -993,13 +993,16 @@ include('inc/dbconnection.php');?>
                       }?>">
                 <a href="faq.php">
                 <i class="fas fa-question"></i>
-                  <span class="sub-item">FAQ</span>
+                  <span class="sub-item"><p>FAQ</p></span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'feedback.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'feedback.php'? 'active':'');
+                      }?>">
                 <a href="feedback.php">
                 <i class="fas fa-comments"></i>
-                  <span class="sub-item">FEEDBACK</span>
+                  <span class="sub-item"><p>FEEDBACK</p></span>
                 </a>
               </li>
             </ul>

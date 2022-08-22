@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+    if(isset($_SESSION['user'])){
 	 include('inc/dbconnection.php');
 	 include('inc/header.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
@@ -145,3 +147,6 @@
 //     });
 //   });
 </script>
+<?php }else{
+    header("Location:index.php");
+} ?>

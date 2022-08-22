@@ -1,4 +1,7 @@
-<?php include('inc/header.php');?>
+<?php 
+session_start();
+if(isset($_SESSION['user'])){
+include('inc/header.php');?>
 <div class="main-panel">
   <div class="content">
     <div class="page-inner">
@@ -92,3 +95,7 @@ $(".updatehis").on("click", function () {
     });
   });
 </script>
+<?php }else {
+  header("Location:index.php");
+}
+?>

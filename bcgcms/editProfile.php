@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+    if(isset($_SESSION['user'])){
 	include('inc/dbconnection.php');
 	include('inc/header.php');
 ?>
@@ -68,4 +70,7 @@
         </div>
     </div>
 </div>
-<?php include('inc/footer.php');?>
+<?php include('inc/footer.php');
+}else {
+    header("Location:index.php");
+} ?>

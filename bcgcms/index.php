@@ -18,7 +18,28 @@ $data=[
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Lato:300,400,700,900"] },
+        custom: {
+          families: [
+            "Flaticon",
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css">
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
   <style>
     /* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
     @import url('css/roboto');
@@ -52,7 +73,7 @@ form {
 
 .row {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin-bottom: 20px;
 }
 
@@ -63,7 +84,7 @@ form {
 
 .row input {
   flex: 1;
-  padding: 13px;
+  /* padding: 13px; */
   border: 1px solid #d6d8e6;
   border-radius: 4px;
   font-size: 16px;
@@ -89,6 +110,19 @@ button {
   border-radius: 100px;
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
+  /* margin-top: 15px; */
+  transition: background 0.2s ease-out;
+}
+
+.btnRefresh{
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background: #15C39A;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
   margin-top: 15px;
   transition: background 0.2s ease-out;
 }
@@ -224,8 +258,13 @@ header{
       <input type="password" name="user_pass" required>
       <p style='color:red;'><?php echo $data["err_upass"]; ?></p>
     </div>
-    <div class="row" style="width: 100px;">
-        <img src="captcha.php">
+    <div class="row">
+      <div class="col"> 
+        <img id="captcha_code" src="captcha.php" style="width: 100%;">
+      </div>
+      <div class="col">
+        <i class="icon-refresh btnRefresh" style="margin-top:10px"></i>
+      </div>
     </div>
     <div class="row">
       <label for="password">Please enter the verification code
@@ -238,6 +277,8 @@ header{
   </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 <script src="assets/js/custom.js"></script>

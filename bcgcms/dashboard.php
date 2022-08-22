@@ -1,4 +1,6 @@
 <?php 
+session_start();	
+if($_SESSION !==''){
 	include('inc/dbconnection.php');
 	include('inc/header.php');
 ?>
@@ -23,28 +25,57 @@
 				<div class="col-md-4">
 					<div class="card full-height">
 						<div class="card-body">
-							<div class="card-title">Whats's New</div>
+							<div class="card-title text-center">Whats's New</div>
+							<ul class="dash">
+								<?php $sql = "SELECT * FROM what_new ORDER BY whats_id limit 5"; 
+									$res = pg_query($db, $sql);
+									$result = pg_fetch_all($res);
+									foreach ($result as $value) { ?>
+									<li><?php echo $value['whats_title']; ?></li>
+								<?php } ?>
+							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="card full-height">
 						<div class="card-body">
-							<div class="card-title">About BCGVL</div>
+							<div class="card-title text-center">Recruitments</div>
+							<ul class="dash">
+								<?php $sql = "SELECT * FROM recruitment order by rec_id limit 5"; 
+									$res = pg_query($db, $sql);
+									$result = pg_fetch_all($res);
+									foreach ($result as $value) { ?>
+									<li><?php echo $value['rect_title']; ?></li>
+								<?php } ?>
+							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="card full-height">
 						<div class="card-body">
-							<div class="card-title">Recruitments</div>
+							<div class="card-title text-center">Tenders</div>
+							<ul class="dash">
+								<?php $sql = "SELECT * FROM tenders order by tender_id limit 5"; 
+									$res = pg_query($db, $sql);
+									$result = pg_fetch_all($res);
+									foreach ($result as $value) { ?>
+									<li><?php echo $value['tender_title']; ?></li>
+								<?php } ?>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<?php include('inc/footer.php');?>
+	<?php include('inc/footer.php');
+  }else{
+	header("Location: index.php"); 
+  }
+
+	?>
 	<!-- <script src="assets/js/demo.js"></script>
 	<script>
 		Circles.create({

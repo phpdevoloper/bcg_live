@@ -14,10 +14,10 @@
 
   header("Content-type:image/png");
   $image=imagecreate(70,30);
-  $backColor=imagecolorallocate($image,168,167,165);
-  $txtColor=imagecolorallocate($image,250,250,250);
+  $backColor=imagecolorallocate($image,255, 255, 255);
+  $txtColor=imagecolorallocate($image,128, 0, 0);
   $code=randText();
-  $_SESSION["captcha"]=$code;
+  $_SESSION["captcha"] = $code;
   imagestring($image,5,15,7,$code,$txtColor);
   imagepng($image);
   imagecolordeallocate($backColor);

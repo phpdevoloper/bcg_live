@@ -65,6 +65,7 @@
 <script src="plugins/slick-carousel/slick/slick.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 <!-- <script src="js/fontsize.min.js"></script> -->
 <script src="js/custom.js"></script>
 <script>
