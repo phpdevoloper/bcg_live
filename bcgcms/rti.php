@@ -107,6 +107,13 @@
                                         <h5 class="mb-0">
                                             <a class="exe" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
                                             <?php echo $value['rti_name'];?>
+                                            <i class="fa fa-edit getMSTRTI" 
+                                            data-toggle="modal"
+                                            data-target="#addMSTRTI"
+                                            data-original-title="Edit RTI" 
+                                            data-mst_rti_id="<?php echo $value['rti_id'];?>"
+                                            data-mst_rti_subs_name="<?php echo $value['rti_name'];?>"
+                                            ></i>
                                             </a>
                                         </h5>
                                         </div>
@@ -284,6 +291,67 @@
                                                             <div class="col-sm-10">
                                                                 <input type="file" class="form-control upload_event" name="sub_rti_file" id="event_file">
                                                                 <input type="text" class="form-control event_url" name="sub_rti_url" id="event_url">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="justify-content: center !important;">
+                                                            <button type="submit" id="addRowButton"
+                                                                class="btn btn-primary">Submit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+
+                                    <div class="modal fade" id="addMSTRTI" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header no-bd">
+                                                    <h5 class="modal-title">
+                                                        <span class="fw-mediumbold">
+                                                            Add New RTI</span>
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="add_rti" method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="qualifi">Title
+                                                                    <span style="color:#ff0000">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control" name="rti_title" id="rti_title">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="qualifi">Status
+                                                                    <span style="color:#ff0000">*</span>
+                                                                    </label>
+                                                                    <select class="form-control" name="rti_status" id="rti_status">
+                                                                        <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                        $exe = pg_query($db,$sql);
+                                                                        $result = pg_fetch_all($exe);
+                                                                        foreach ($result as $f_status) {?>
+                                                                        <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                            <?php } ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-2"></div>
+                                                            <div class="col-sm-10">
+                                                                <input type="file" class="form-control upload_event" name="event_file" id="event_file">
+                                                                <input type="text" class="form-control event_url" name="event_url" id="event_url">
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer" style="justify-content: center !important;">

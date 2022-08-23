@@ -18,15 +18,8 @@ include('inc/dbconnection.php');
         <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;">Administration</h3>
     </div>
 
-    <section>
-        <div>
-            <!-- <?php 
-            // $sql = "select * from division where div_name='ADM'";
-            // $res = pg_query($db,$sql);
-            // $result = pg_fetch_result($res);
-             
-            ?> -->
-        </div>
+    <section id="about">
+        <div class="container"></div>
     </section>
 </div>
     

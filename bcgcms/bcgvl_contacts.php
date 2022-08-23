@@ -122,11 +122,12 @@
                                                     data-target="#editRTIContact" title=""
                                                     class="btn btn-link btn-primary btn-lg"
                                                     data-original-title="Edit Achivement">
-                                                    <i class="fa fa-edit"
+                                                    <i class="fa fa-edit get_bcgvl_contact"
                                                         data-contact_id ="<?php echo $value['contact_id'];?>"
-                                                        data-contact_title ="<?php echo $value['con_email'];?>"
-                                                        data-contact_name ="<?php echo $value['con_phone'];?>"
-                                                        data-designation ="<?php echo $value['con_address'];?>"
+                                                        data-contact_email ="<?php echo $value['con_email'];?>"
+                                                        data-contact_phone ="<?php echo $value['con_phone'];?>"
+                                                        data-con_address ="<?php echo $value['con_address'];?>"
+                                                        data-map_embeded ="<?php echo $value['map_embed'];?>"
                                                     ></i>
                                                 </button>
                                             </div>
@@ -136,47 +137,45 @@
                                                         <div class="modal-header no-bd">
                                                             <h5 class="modal-title">
                                                                 <span class="fw-mediumbold">
-                                                                    Edit RTI</span>
-                                                                <span class="fw-light">
-                                                                    Contact
-                                                                </span>
+                                                                    Edit Bcgvl Contacts</span>
+                                                                
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">×</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="edit_whats_new">
+                                                            <form id="edit_bcgvl_contact">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Title</label>
-                                                                            <input type="text" class="form-control" name="whats_title" id="What_new_title">
-                                                                            <input type="hidden" class="form-control" name="whats_id" id="Whats_id">
+                                                                            <label for="qualifi">Email</label>
+                                                                            <input type="text" class="form-control" name="user_email" id="User_email">
+                                                                            <input type="hidden" class="form-control" name="user_id" id="User_id">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Description</label>
-                                                                            <textarea class="form-control" name="description" id="Whats_desc" cols="30" rows="3"></textarea>
+                                                                            <label for="qualifi">Phone</label>
+                                                                            <input type="tel" class="form-control" name="user_phone" id="User_phone">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
-                                                                            <input type="file" class="form-control" name="what_file" id="   " accept="application/pdf,application/vnd.ms-excel">
-                                                                            <label id="file_lable" style="color:green !important;"></label>
+                                                                            <label for="qualifi">Address</label>
+                                                                            <textarea class="form-control" name="office_addres" id="Office_addres" cols="30" rows="3"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-sm-12">
+                                                                    <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label id="What_file_view"></label>
+                                                                            <label for="qualifi">Map embedded</label>
+                                                                            <textarea class="form-control" name="map_emb" id="Map_emb" cols="30" rows="3"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>

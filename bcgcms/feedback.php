@@ -117,18 +117,30 @@
                                         <td class="sorting_1"><?php echo $value['feedback_from'];?></td>
                                         <td class="sorting_1"><?php echo $value['feed_sub'];?></td>
                                         <td class="sorting_1"><?php echo $value['feed_msg'];?></td>
-                                        <td class="sorting_1"><a href="javascript:void(0);" class="viewMsg" 
-                                        ><i class="fa fa-eye"></i></a></td>
+                                        <td class="sorting_1"><a href="javascript:void(0);" class="" 
+                                        data-toggle="modal" data-target="#viewMsg"
+                                        >
+                                        <i class="fa fa-eye viewMsg" 
+                                            data-feed_id = "<?php echo $value['feedback_id'];?>"
+                                            data-name="<?php echo $value['feedback_from'];?>"
+                                            data-sub="<?php echo $value['feed_sub'];?>"
+                                            data-msg="<?php echo $value['feed_msg'];?>"
+                                        ></i></a></td>
                                         <td class="sorting_1"><?php echo $value['feed_status_title'];?></td>
                                     </tr>
                                     <?php }else { ?>
-                                         <tr role="row" class="odd">
+                                         <tr role="row" class="odd" style="background-color: rgba(0, 0, 0, 0.075);">
                                          <td class="sorting_1"><?php echo $value['feedback_from'];?></td>
                                          <td class="sorting_1"><?php echo $value['feed_sub'];?></td>
                                          <td class="sorting_1"><?php echo $value['feed_msg'];?></td>
                                          <td class="sorting_1"><a href="javascript:void(0);" class="" 
                                          data-toggle="modal" data-target="#viewMsg"
-                                         ><i class="fa fa-eye"></i></a></td>
+                                         ><i class="fa fa-eye viewMsg"
+                                            data-feed_id = "<?php echo $value['feedback_id'];?>" 
+                                            data-name ="<?php echo $value['feedback_from'];?>"
+                                            data-sub ="<?php echo $value['feed_sub'];?>"
+                                            data-msg ="<?php echo $value['feed_msg'];?>"
+                                         ></i></a></td>
                                          <td class="sorting_1"><?php echo $value['feed_status_title'];?></td>
                                         </tr>
                                         <?php }
@@ -156,7 +168,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="body-message">
-                        <h4></h4>
+                        <h4 class="msg_title"></h4>
+                        <p class="msg_desc" style="margin-left: 30px;"></p>
                     </div>
                     <div class="modal-footer" style="justify-content: center !important;">
                         <!-- <button type="submit" id="addRowButton"

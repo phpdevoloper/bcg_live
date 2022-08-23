@@ -1551,6 +1551,21 @@ $(document).ready(function () {
   });
 
   // BCGVL Contact form validation
+
+  $(".get_bcgvl_contact").on("click", function () {
+    var contact_id = $(this).attr("data-contact_id");
+    var contact_email = $(this).attr("data-contact_email");
+    var contact_phone = $(this).attr("data-contact_phone");
+    var con_address = $(this).attr("data-con_address");
+    var map_embeded = $(this).attr("data-map_embeded");
+
+    $("#User_id").val(contact_id);
+    $("#User_email").val(contact_email);
+    $("#User_phone").val(contact_phone);
+    $("#Office_addres").text(con_address);
+    $("#Map_emb").text(map_embeded);
+  });
+
   $("#bcgvl_contacts").validate({
     rules: {
       user_email: {
@@ -1612,6 +1627,53 @@ $(document).ready(function () {
     },
   });
 
+  $("#edit_bcgvl_contact").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants Update the contacts",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addContacts.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "Added Successfully!",
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal({
+          title: "Cancelled!",
+          icon: "error",
+        }).then(function () {
+          location.reload();
+        });
+      }
+    });
+  });
+
   $(".logout").on("click", function () {
     $.ajax({
       method: "POST",
@@ -1629,7 +1691,6 @@ $(document).ready(function () {
     var cate = $(this).attr("data-cate");
     var photofile = $(this).attr("data-photofile");
     var photo_caption = $(this).attr("data-photo_caption");
-    console.log(gallery_id);
 
     $("#Event_id").val(gallery_id);
     $("#Even_cat").val(cate);
@@ -2281,5 +2342,30 @@ $(document).ready(function () {
     console.log("sdfsdf");
     $("#captcha_code").attr("src", "captcha.php");
     return false;
+  });
+
+  // Feedback section
+  $(".viewMsg").click(function () {
+    var name = $(this).attr("data-name");
+    var sub = $(this).attr("data-sub");
+    var msg = $(this).attr("data-msg");
+    var feed_id = $(this).attr("data-feed_id");
+    console.log(feed_id);
+
+    $(".user_name").text(name);
+    $(".msg_title").text(sub);
+    $(".msg_desc").text(msg);
+
+    $.ajax({
+      method: "POST",
+      url: "feedback_statusAjax.php",
+      dataType: "json",
+      data: { feed_id: feed_id },
+      success: function (response) {
+        if (response == 1) {
+          $("#add-row").load(location.href + " #add-row");
+        }
+      },
+    });
   });
 });

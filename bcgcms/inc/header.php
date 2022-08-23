@@ -912,9 +912,6 @@ include('inc/dbconnection.php');?>
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'rti.php'? 'show':'');
                       }
-                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'show':'');
-                      }
                       ?>" id="rti">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
@@ -932,7 +929,10 @@ include('inc/dbconnection.php');?>
               <li class="nav-item <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'active':'');
-                      }?>">
+                      }elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'active':'');
+                      }
+                      ?>">
                 <a data-toggle="collapse" href="#contacts">
                 <i class="fas fa-address-book"></i>
                   <p>CONTACT US</p>
@@ -941,7 +941,10 @@ include('inc/dbconnection.php');?>
                 <div class="collapse <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_rti_contacts.php'? 'show':'');
-                      }?>" id="contacts">
+                      }elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php'? 'show':'');
+                      }
+                      ?>" id="contacts">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'bcgvl_contacts.php') {
@@ -977,13 +980,13 @@ include('inc/dbconnection.php');?>
                         </ul>
                       </div>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href="#">
                         <span class="sub-item"
                           >Web Information Manager (WIM)</span
                         >
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </li>

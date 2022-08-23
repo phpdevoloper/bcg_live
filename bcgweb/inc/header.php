@@ -44,7 +44,7 @@
     <!-- <link rel="stylesheet" href="plugins/icofont/icofont.min.css" /> -->
   </head>
   <body>
-    <!-- <div class="super_container"> -->
+    <div class="super_container">
       <!-- Header -->
 
       <header class="header trans_200">

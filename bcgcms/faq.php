@@ -136,7 +136,7 @@ FROM faq left JOIN faq_mst_status ON faq.faq_status = faq_mst_status.faq_status_
                                                     ></i>
                                                 </button>
                                             </div>
-                                        </td>
+                                        </td    >
                                     </tr>
                                     <?php } ?>
                                 </tbody>
