@@ -30,28 +30,25 @@
                         <div class="card-body">
                             <!-- Modal -->
                             <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
+                                <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header no-bd">
                                             <h5 class="modal-title">
                                                 <span class="fw-mediumbold">
-                                                    What's</span>
-                                                <span class="fw-light">
-                                                    New
-                                                </span>
+                                                   Add Sliders</span>
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form id="add_whats">
+                                            <form id="add_slider">
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-3 col-form-label">Title</label>
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Slider Title</label>
                                                             <div class="col-md-9 p-0">
-                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                <input type="text" class="form-control input-full" name="slider_title" id="slider_title">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -59,9 +56,22 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-3 col-form-label">Description</label>
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Caption</label>
                                                             <div class="col-md-9 p-0">
-                                                                <textarea class="form-control input-full" name="description" id="Description" cols="30" rows="3"></textarea>
+                                                                <input type="text" class="form-control input-full" name="slider_caption" id="slider_caption">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Slider Type</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <select class="form-control input-full" name="slider_type" id="slider_type">
+                                                                    <option value="B">Banner Slider</option>
+                                                                    <option value="F">Footer Slider</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -71,7 +81,25 @@
                                                         <div class="form-group form-inline">
                                                             <label for="inlineinput" class="col-md-3 col-form-label">Upload Document</label>
                                                             <div class="col-md-9 p-0">
-                                                                <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
+                                                                <input type="file" class="form-control input-full" name="slider_upload" id="slider_upload" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <img id="blah" src="images/no_img.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-3 col-form-label">Upload Document</label>
+                                                            <div class="col-md-9 p-0">
+                                                                <select class="form-control input-full" name="slider_status" id="slider_status">
+                                                                    <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                    $exe = pg_query($db,$sql);
+                                                                    $result = pg_fetch_all($exe);
+                                                                    foreach ($result as $f_status) {?>
+                                                                    <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                        <?php } ?>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -98,13 +126,14 @@
                                                     <tr role="row">
                                                         <th>S.No</th>
                                                         <th>Title</th>
-                                                        <th style="width:10%">File</th>
+                                                        <th>File</th>
                                                         <th>Created Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM what_new ORDER BY whats_id"; 
+                                                    <?php $sql = "SELECT sliders.*,faq_mst_status.faq_status_title FROM sliders 
+                                                    left JOIN faq_mst_status ON sliders.slider_status = faq_mst_status.faq_status_id ORDER BY sliders.slider_id ASC"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           $i=1;
@@ -113,9 +142,9 @@
 
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
-                                                        <td class="sorting_1"><?php echo $value['whats_title'];?></td>
-                                                        <td class="sorting_1"><a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
-                                                        <td class="sorting_1"><?php echo $value['created_date'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['slider_title'];?></td>
+                                                        <td class="sorting_1"><img class="ficon" src="uploads/Sliders/<?php echo $value['slider_img'];?>" alt=""></a></td>
+                                                        <td class="sorting_1"><?php echo $value['faq_status_title'];?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
@@ -123,10 +152,10 @@
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
-                                                                        data-whats_id="<?php echo $value['whats_id'];?>"
-                                                                        data-whats_title="<?php echo $value['whats_title'];?>"
-                                                                        data-whats_desc="<?php echo $value['whats_desc'];?>"
-                                                                        data-what_file="<?php echo $value['whats_file'];?>"
+                                                                        data-whats_id="<?php echo $value['slider_id'];?>"
+                                                                        data-whats_title="<?php echo $value['slider_title'];?>"
+                                                                        data-whats_desc="<?php echo $value['slider_caption'];?>"
+                                                                        data-what_file="<?php echo $value['slider_img'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>
@@ -211,3 +240,18 @@
 }else{
   header("Location:index.php");
 }?>
+<style>
+    #blah{
+        float: right;
+        width: 75%;
+        height: 153px;
+    }
+</style>
+<script>
+    slider_upload.onchange = evt => {
+  const [file] = slider_upload.files
+  if (file) {
+    blah.src = URL.createObjectURL(file)
+  }
+}
+</script>

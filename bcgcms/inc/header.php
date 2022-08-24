@@ -235,16 +235,25 @@ include('inc/dbconnection.php');?>
                 </span>
                 <h4 class="text-section">Components</h4>
               </li> -->
-              <li class="nav-item">
+              <li class="nav-item <?php 
+								if (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php'?'active':'');
+								}?>">
                 <a data-toggle="collapse" href="#hps">
                     <i class="fas fa-user-md"></i>
                     <p>HOME PAGE</p>
                     <span class="caret"></span>
                   </a>
-                  <div class="collapse" id="hps">
+                  <div class="collapse <?php 
+                    if (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php') {
+                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php'?'show':'');
+                    }?>" id="hps">
                     <ul class="nav nav-collapse">
-                      <li>
-                          <a href="#">
+                      <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'sliders.php'?'active':'');
+                      }?>">
+                          <a href="sliders.php">
                             <span class="sub-item">Sliders</span>
                           </a>
                       </li>

@@ -112,13 +112,15 @@
                                             data-target="#addMSTRTI"
                                             data-original-title="Edit RTI" 
                                             data-mst_rti_id="<?php echo $value['rti_id'];?>"
-                                            data-mst_rti_subs_name="<?php echo $value['rti_name'];?>"
+                                            data-mst_rti_name="<?php echo $value['rti_name'];?>"
+                                            data-mst_rti_status="<?php echo $value['rti_status'];?>"
                                             ></i>
                                             </a>
                                         </h5>
                                         </div>
                                         <div id="collapse-<?php echo $i;?>" class="collapse" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
                                             <div class="card-body">
+                                                <button class="btn btn-primary btn-xs">Add Sub RTI</button>
                                                 <div id="accordion-<?php echo $i;?>">
                                                     <?php $sql = "SELECT * FROM mst_sub_rti WHERE mst_rti_id = '".$value['rti_id']."' order by sub_rti_id asc "; 
                                                         $exe = pg_query($db,$sql);
@@ -150,6 +152,7 @@
                                                     </div>
                                                         <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
                                                             <div class="card-body">
+                                                            <button class="btn btn-primary btn-xs">Add RTI</button>
                                                                 <div id="accordion-<?php echo $i;?>-<?php echo $b;?>">
                                                                     <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."' order by subs_rti_id asc"; 
                                                                     $exe = pg_query($db,$sql);
@@ -305,28 +308,29 @@
                                         </div>
                                     </div>
                                     <!-- Modal -->
-
+                                    <!--RTI Level 1  -->
                                     <div class="modal fade" id="addMSTRTI" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header no-bd">
                                                     <h5 class="modal-title">
                                                         <span class="fw-mediumbold">
-                                                            Add New RTI</span>
+                                                            Add RTI</span>
                                                     </h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form id="add_rti" method="post" enctype="multipart/form-data">
+                                                    <form id="add_mst_rti" method="post" enctype="multipart/form-data">
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="qualifi">Title
                                                                     <span style="color:#ff0000">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control" name="rti_title" id="rti_title">
+                                                                    <input type="text" class="form-control" name="rti_title" id="Edit_rti_title">
+                                                                    <input type="hidden" class="form-control" name="rti_id" id="Edit_Rti_id">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -336,7 +340,7 @@
                                                                     <label for="qualifi">Status
                                                                     <span style="color:#ff0000">*</span>
                                                                     </label>
-                                                                    <select class="form-control" name="rti_status" id="rti_status">
+                                                                    <select class="form-control" name="rti_status" id="Edit_rti_status">
                                                                         <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
                                                                         $exe = pg_query($db,$sql);
                                                                         $result = pg_fetch_all($exe);
@@ -347,11 +351,22 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group row ">
+                                                            <div class="col-sm-4">
+                                                                <label for="inputPassword" class="col-form-label">RTI Attachment</label>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label for="inputPassword" class="col-sm-4 col-form-label">File</label>
+                                                                <input class="form-check-input" type="checkbox" id="RTI_file_check" value="">
+                                                                <label for="inputPassword" class="col-sm-4 col-form-label">URL</label>
+                                                                <input class="form-check-input" type="checkbox" id="RTI_url_check" value="">
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-2"></div>
                                                             <div class="col-sm-10">
-                                                                <input type="file" class="form-control upload_event" name="event_file" id="event_file">
-                                                                <input type="text" class="form-control event_url" name="event_url" id="event_url">
+                                                                <input type="file" class="form-control RTI_upload" name="rti_file" id="RTI_file">
+                                                                <input type="text" class="form-control RTI_url" name="rti_url" id="RTI_url">
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer" style="justify-content: center !important;">

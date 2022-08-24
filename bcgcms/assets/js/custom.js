@@ -1,6 +1,8 @@
 $(document).ready(function () {
   $(".upload_event").attr("style", "display:none");
   $(".event_url").attr("style", "display:none");
+  $(".RTI_upload").attr("style", "display:none");
+  $(".RTI_url").attr("style", "display:none");
 
   // Login ajax
   $("#admin_login").submit(function (e) {
@@ -2141,7 +2143,82 @@ $(document).ready(function () {
   });
 
   /* *********************** RTI Disclouser *****************************/
-  // RTI Attachments
+  //  get RTI Level 1
+  $(document).on("click", ".getMSTRTI", function (e) {
+    var rti_id = $(this).attr("data-mst_rti_id");
+    var rti_name = $(this).attr("data-mst_rti_name");
+    var rti_status = $(this).attr("data-mst_rti_status");
+    console.log(rti_id);
+
+    $("#Edit_Rti_id").val(rti_id);
+    $("#Edit_rti_title").val(rti_name);
+    $("#Edit_rti_status").val(rti_status);
+  });
+
+  $("#RTI_file_check").change(function () {
+    if ($(this).is(":checked")) {
+      // $("#url_check").attr("checked", false);
+      $("#RTI_url_check").prop("checked", false);
+      $(".RTI_url").attr("style", "display:none");
+      $(".RTI_upload").attr("style", "display:block");
+    } else {
+      $(".RTI_upload").attr("style", "display:none");
+    }
+  });
+
+  $("#RTI_url_check").change(function () {
+    if ($(this).is(":checked")) {
+      $("#RTI_file_check").prop("checked", false);
+      $(".RTI_upload").attr("style", "display:none");
+      $(".RTI_url").attr("style", "display:block");
+    } else {
+      $(".RTI_url").attr("style", "display:none");
+    }
+  });
+
+  $("#add_mst_rti").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants to add new RTI!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "add_rtiAjax.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            if (response == 1) {
+              swal({
+                title: "Added!",
+                text: "New RTI added successfully!",
+                icon: "success",
+              }).then(function () {
+                // location.reload();
+              });
+            } else {
+              swal({
+                title: "Something went wrong!",
+                icon: "error",
+              }).then(function () {
+                // location.reload();
+              });
+            }
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  // RTI Level 3 Attachments
   $("#rti_file").change(function () {
     if ($(this).is(":checked")) {
       // $("#url_check").attr("checked", false);
@@ -2205,7 +2282,6 @@ $(document).ready(function () {
   // Edit RTI file
   $("#edit_subs_rti").submit(function (e) {
     e.preventDefault();
-    console.log("sdfdsf");
     var data = new FormData(this);
     swal({
       title: "Are you sure?",
@@ -2367,5 +2443,55 @@ $(document).ready(function () {
         }
       },
     });
+  });
+
+  $("#add_slider").validate({
+    rules: {
+      slider_title: {
+        required: true,
+      },
+      slider_upload: {
+        required: true,
+      },
+    },
+    submitHandler: function (form, e) {
+      swal({
+        title: "Are you sure?",
+        text: "You wants to add new slider!",
+        icon: "warning",
+        buttons: ["No, cancel it!", "Yes, I am sure!"],
+        dangerMode: true,
+      }).then(function (isConfirm) {
+        if (isConfirm) {
+          $.ajax({
+            method: "POST",
+            url: "sliderAjax.php",
+            data: new FormData($("#add_slider")[0]),
+            contentType: false,
+            processData: false,
+            success: function (response) {
+              if (response == 1) {
+                swal({
+                  title: "Added!",
+                  text: "New Slider Added successfully!",
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                swal({
+                  title: "Something went wrong!",
+                  icon: "error",
+                }).then(function () {
+                  location.reload();
+                });
+              }
+            },
+          });
+        } else {
+          swal("Cancelled", "Done :)", "error");
+        }
+      });
+    },
   });
 });
