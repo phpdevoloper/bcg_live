@@ -121,7 +121,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $sql = "SELECT * FROM rti_contacts"; 
+                                    <?php $sql = "SELECT * FROM rti_contacts order by contact_id"; 
                                             $res = pg_query($db, $sql);
                                             $result = pg_fetch_all($res);
                                             $i=1;
@@ -139,16 +139,21 @@
                                                     data-target="#editRTIContact" title=""
                                                     class="btn btn-link btn-primary btn-lg"
                                                     data-original-title="Edit Achivement">
-                                                    <i class="fa fa-edit"
-                                                        data-contact_id ="<?php echo $value['contact_id'];?>"
-                                                        data-contact_title ="<?php echo $value['contact_title'];?>"
-                                                        data-contact_name ="<?php echo $value['user_name'];?>"
-                                                        data-designation ="<?php echo $value['designation'];?>"
+                                                    <i class="fa fa-edit get_rti_contacts"
+                                                        data-contact_id        ="<?php echo $value['contact_id'];?>"
+                                                        data-contact_title     ="<?php echo $value['contact_title'];?>"
+                                                        data-contact_name      ="<?php echo $value['user_name'];?>"
+                                                        data-designation       ="<?php echo $value['designation'];?>"
+                                                        data-contact_address   ="<?php echo $value['contact_address'];?>"
+                                                        data-user_phone        ="<?php echo $value['user_phone'];?>"
+                                                        data-office_phone      ="<?php echo $value['office_phone'];?>"
+                                                        data-organization_email   ="<?php echo $value['organization_email'];?>"
+                                                        data-user_email        ="<?php echo $value['user_email'];?>"
                                                     ></i>
                                                 </button>
                                             </div>
                                             <div class="modal fade" id="editRTIContact" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-dialog modal-lg" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header no-bd">
                                                             <h5 class="modal-title">
@@ -163,37 +168,55 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form id="edit_whats_new">
+                                                            <form id="edit_rti_contacts" method="post" enctype="multipart/form-data">
                                                                 <div class="row">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-6">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Title</label>
-                                                                            <input type="text" class="form-control" name="whats_title" id="What_new_title">
-                                                                            <input type="hidden" class="form-control" name="whats_id" id="Whats_id">
+                                                                            <label for="qualifi">Contact Title</label>
+                                                                            <input type="text" class="form-control" name="con_title" id="Con_title">
+                                                                            <input type="hidden" class="form-control" name="con_id" id="Con_id">
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-6">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Description</label>
-                                                                            <textarea class="form-control" name="description" id="Whats_desc" cols="30" rows="3"></textarea>
+                                                                            <label for="qualifi">Organization Email</label>
+                                                                            <input type="text" class="form-control" name="org_email" id="Org_email">
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-6">
                                                                         <div class="form-group">
-                                                                            <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
-                                                                            <input type="file" class="form-control" name="what_file" id="   " accept="application/pdf,application/vnd.ms-excel">
-                                                                            <label id="file_lable" style="color:green !important;"></label>
+                                                                            <label for="qualifi">Name</label>
+                                                                            <input type="text" class="form-control" name="con_name" id="Con_name">
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-sm-12">
+                                                                    <div class="col-md-6">
                                                                         <div class="form-group">
-                                                                            <label id="What_file_view"></label>
+                                                                            <label for="qualifi">phone</label>
+                                                                            <input type="text" class="form-control" name="user_phone" id="User_phone">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="qualifi">Designation</label>
+                                                                            <input type="text" class="form-control" name="designation" id="Designation">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="qualifi">office phone</label>
+                                                                            <input type="text" class="form-control" name="office_phone" id="Office_phone">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="qualifi">Email</label>
+                                                                            <input type="text" class="form-control" name="user_email" id="User_email">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label for="qualifi">Address</label>
+                                                                            <textarea class="form-control" name="office_addres" id="Office_addres" cols="30" rows="3"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -220,6 +243,35 @@
         </div>
     </div>
 </div>
-<?php include('inc/footer.php');}else{
+<?php include('inc/footer.php');
+}else{
     header("Location:index.php");
 } ?>
+<script>
+$(document).ready(function () {
+    $(document).on("click", ".get_rti_contacts", function (e) {
+    var contact_id = $(this).attr("data-contact_id");
+    var contact_title = $(this).attr("data-contact_title");
+    var contact_name = $(this).attr("data-contact_name");
+    var designation = $(this).attr("data-designation");
+    var contact_address = $(this).attr("data-contact_address");
+    var user_phone = $(this).attr("data-user_phone");
+    var office_phone = $(this).attr("data-office_phone");
+    var organization_email = $(this).attr("data-organization_email");
+    var user_email = $(this).attr("data-user_email");
+
+    console.log(office_phone);
+    // console.log(comp_ip);
+
+    $("#Con_id").val(contact_id);
+    $("#Con_title").val(contact_title);
+    $("#Con_name").val(contact_name);
+    $("#Designation").val(designation);
+    $("#Office_addres").text(contact_address);
+    $("#User_phone").val(user_phone);
+    $("#Office_phone").val(office_phone);
+    $("#Org_email").val(organization_email);
+    $("#User_email").val(user_email);
+    });
+});
+</script>
