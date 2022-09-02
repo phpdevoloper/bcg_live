@@ -1,4 +1,4 @@
- <?php include('inc/header.php'); 
+<?php include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
@@ -9,18 +9,25 @@ include('inc/dbconnection.php');
 <div class="about">
     <section>
         <ul class="breadcrumb wizard">
-            <li class="completed"><a href=""><i class="fa fa-home"></i></a></li>
+            <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">Division</a></li>
-            <li class=""><a href="contact.php">Administration</a></li>
+            <li class=""><a href="administration.php">Administration</a></li>
         </ul>
     </section>
     <div class="section">
-        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;">Administration</h3>
+        <h3 class="text-center txt" style="color: #299adc;">Administration</h3>
     </div>
-
-    <section id="about">
-        <div class="container"></div>
-    </section>
+    <div class="container aos-init aos-animate" data-aos="fade-up" style="padding-top: 38px;">
+        <div class="container">
+        <!-- About Content -->
+            <section id="about">
+                <div class="container aos-init aos-animate" data-aos="fade-up">
+                    <div class="testimonial-item">
+                        <p></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
-    
 <?php include('inc/simple_footer.php'); ?>
