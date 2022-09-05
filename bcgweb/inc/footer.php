@@ -243,7 +243,6 @@ $(document).on("click", ".filter-option li a", function () {
     $(".item-slider").slick("slickUnfilter");
   }
 });
-
 </script>
 </body>
 </html>

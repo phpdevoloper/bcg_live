@@ -38,7 +38,7 @@
 
 html {
   position: relative;
-  height: 100%;
+  min-height: 100%;
 }
 
 * {
@@ -328,7 +328,7 @@ section {
   margin-right: 72px;
 }
 .header.scrolled .header_content {
-  margin-top: 62px;
+  margin-top: 53px;
 }
 .main_nav ul li {
   display: inline-block;
@@ -988,10 +988,11 @@ section {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* height: 0; */
+  height: 0;
   /* line-height: 60px; */
   /* background-color: #f5f5f5;*/
   /* margin-top: 60px; */
+  /* overflow: hidden; */
 }
 .footer > .container {
   padding-right: 15px;
@@ -3020,4 +3021,23 @@ label.error {
   display: flex;
   height: 232px;
   justify-content: center;
+}
+.drop-d {
+  font-size: 15px;
+}
+.exCollapse {
+  padding-left: 26px;
+}
+.exCollapse li a {
+  color: black;
+  padding-top: 1;
+  padding-bottom: 2px;
+  /* padding-left: 30px; */
+  padding-left: 26px;
+}
+i.fa-arrow-down i {
+  float: right;
+}
+.downar {
+  float: right;
 }

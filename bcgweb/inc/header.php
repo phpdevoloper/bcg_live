@@ -213,6 +213,12 @@
                       <li>
                         <a href="quality_control.php" class="list_a">Quality Control</a>
                       </li>
+                      <li>
+                        <a href="quality_control.php" class="list_a">Engineering</a>
+                      </li>
+                      <li>
+                        <a href="quality_control.php" class="list_a">Warehouse</a>
+                      </li>
                     </ul>
                   </li>
                   <li class="dropdown">
@@ -229,7 +235,22 @@
                       </li>
                     </ul>
                   </li>
+
                   <li class="dropdown">
+                    <a href="tenders.php" class="nav-link">Tenders</a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="nav-link">RTI</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="rti.php" class="list_a">RTI Proactive Disclosure</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="recruitments.php" class="nav-link">Recruitments</a>
+                  </li>
+                  <!-- <li class="dropdown">
                     <a href="#" class="nav-link">Events</a>
                     <ul class="dropdown-nav">
                       <li>
@@ -247,8 +268,8 @@
                         <a href="training_programmes.php" class="list_a">Training Programmes</a>
                       </li>
                     </ul>
-                  </li>
-                  <li class="dropdown">
+                  </li> -->
+                  <!-- <li class="dropdown">
                     <a href="#" class="nav-link">Gallery</a>
                       <ul class="dropdown-nav">
                         <li>
@@ -261,8 +282,8 @@
                           <a href="video_gallery.php" class="list_a">Video Gallery</a>
                         </li>
                       </ul>
-                  </li>
-                  <li class="dropdown">
+                  </li> -->
+                  <!-- <li class="dropdown">
                     <a href="#" class="nav-link">Publications / Documents</a>
                     <ul class="dropdown-nav">
                       <li>
@@ -272,7 +293,7 @@
                         <a href="recruitment_rules.php" class="list_a">Recruitment Rules</a>
                       </li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li class="dropdown">
                     <a href="#" class="nav-link">Contacts Us</a>
                     <ul class="dropdown-nav">
@@ -311,7 +332,78 @@
           <!-- Menu Close Button -->
           <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
+              <!-- <a
+                href="#"
+                class="list-group-item list-group-item-action py-2 ripple navbar-toggler drop-d"
+                data-toggle ="collapse" data-target ="#colNav"
+                ><span>Employees Corner</span>
+                <i class="fa fa-angle-down downar"></i>
+              </a>
+              <div class ="collapse navbar-collapse exCollapse" id ="colNav">
+                <ul class ="navbar-nav">
+                  <li class ="nav-item">
+                    <a class ="nav-link" href="#"> Services </a>
+                  </li>
+                  <li class ="nav-item">
+                    <a class ="nav-link" href ="#"> About Us</a>
+                  </li>
+                  <li class ="nav-item">
+                    <a class ="nav-link" href ="#"> Contact Us </a>
+                  </li>
+                </ul>
+              </div> -->
               <a
+                href="#"
+                class="list-group-item list-group-item-action py-2 ripple navbar-toggler drop-d"
+                data-toggle ="collapse" data-target ="#colNav1"
+                ><span>Events</span>
+                <i class="fa fa-angle-down downar"></i>
+              </a>
+              <div class ="collapse navbar-collapse exCollapse" id ="colNav1">
+                <ul class ="navbar-nav">
+                  <li class ="nav-item">
+                    <a class ="nav-link" href="events_details.php"> Milestones / Major Events </a>
+                  </li>
+                  <li class ="nav-item">
+                    <a class ="nav-link" href ="training_programmes.php"> Training Programmes </a>
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action py-2 ripple navbar-toggler drop-d"
+                data-toggle ="collapse" data-target ="#colNav2"
+                ><span>Gallery</span>
+                <i class="fa fa-angle-down downar"></i>
+              </a>
+              <div class ="collapse navbar-collapse exCollapse" id ="colNav2">
+                <ul class ="navbar-nav">
+                  <li class ="nav-item">
+                    <a class ="nav-link" href="#"> Photo Gallery</a>
+                  </li>
+                  <li class ="nav-item">
+                    <a class ="nav-link" href ="#"> Video Gallery </a>
+                  </li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action py-2 ripple navbar-toggler drop-d"
+                data-toggle ="collapse" data-target ="#colNav3"
+                ><span>Publications / Documents</span>
+                <i class="fa fa-angle-down downar"></i>
+              </a>
+              <div class ="collapse navbar-collapse exCollapse" id ="colNav3">
+                <ul class ="navbar-nav">
+                  <li class ="nav-item">
+                    <a class ="nav-link" href="#"> Annual Reports</a>
+                  </li>
+                  <li class ="nav-item">
+                    <a class ="nav-link" href ="#"> Recruitment Rules </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- <a
                 href="tenders.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Tenders</span></a
@@ -320,17 +412,17 @@
                 href="rti.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>RTI</span></a
-              >
-              <a
+              > -->
+              <!-- <a
                 href="faq.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>FAQ</span></a
-              >
-              <a
+              > -->
+              <!-- <a
                 href="recruitments.php"
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Recruitments</span></a
-              >
+              > -->
               <a
                 href="feedback.php"
                 class="list-group-item list-group-item-action py-2 ripple"

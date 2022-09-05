@@ -82,7 +82,18 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable();
+    $("#example").DataTable({
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+    });
     $(".dataTables_length").addClass("bs-select");
+
+    $('#example tr').each(function(){
+        var tdVal = $(this).find("td:first").text();
+        if(tdVal == "Dog") continue;
+        else $(this).hide();
+    });
   });
 </script>

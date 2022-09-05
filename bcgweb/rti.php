@@ -21,7 +21,7 @@ include('inc/dbconnection.php');
     <section>
         <div class="container">
             <div id="accordion">
-                <?php $sql = "SELECT * FROM mst_rti"; 
+                <?php $sql = "SELECT * FROM mst_rti ORDER BY rti_id"; 
                         $exe = pg_query($db,$sql);
                         $row = pg_fetch_all($exe);
                         $i = 1;

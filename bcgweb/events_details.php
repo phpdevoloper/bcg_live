@@ -30,10 +30,9 @@ include('inc/dbconnection.php');
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM events ORDER BY event_id ASC "; 
+                <?php $sql = "SELECT * FROM events ORDER BY date_from DESC"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
-                        //    var_dump($value['position_held']);die;
                 ?>
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -49,15 +48,18 @@ include('inc/dbconnection.php');
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
-                                <?php foreach($result as $value){ 
-                                    ?>
+                                    <?php foreach($result as $value){ ?>
                                     <tr>
                                         <td><?php echo $value['event_id'];?></td>
                                         <td><a href="<?php echo $value['event_file'];?>"><?php echo $value['event_title'];?></a></td>
                                         <td><?php echo $value['event_desc'];?></td>
-                                        <td><?php echo $value['date_from'];?></td>
-                                        <td><?php echo $value['date_to'];?></td>
-                                <?php }?>
+                                        <td><?php echo date('d/m/Y',strtotime($value['date_from']));?></td>
+                                        <?php if($value['date_to'] == ''){ ?>
+                                            <td class="text-center"><?php echo '-';?></td>    
+                                        <?php }else{ ?>
+                                            <td><?php echo date('d/m/Y',strtotime($value['date_to']));?></td>
+                                        <?php } ?>
+                                    <?php } ?>
                                     </tr>
                                 </tbody>
                             </table>

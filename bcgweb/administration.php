@@ -19,7 +19,7 @@ include('inc/dbconnection.php');
     </div>
     <div class="container aos-init aos-animate" data-aos="fade-up" style="padding-top: 38px;">
         <div class="container">
-        <!-- About Content -->
+            <!-- About Content -->
             <section id="about">
                 <div class="container aos-init aos-animate" data-aos="fade-up">
                     <div class="testimonial-item">

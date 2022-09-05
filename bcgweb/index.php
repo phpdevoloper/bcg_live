@@ -3,76 +3,76 @@
 <!-- Home -->
 
 <div class="home">
-<div class="home_slider_container">
-    <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-ride="carousel"
-    >
-    <ol class="carousel-indicators">
-        <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="0"
-        class="active"
-        ></li>
-        <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="1"
-        ></li>
-        <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="2"
-        ></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-        <img
-            class="d-block w-100 slideimg"
-            src="images/sliders/DSC05001.jpg"
-            alt="First slide"
-        />
+    <div class="home_slider_container">
+        <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-ride="carousel"
+        >
+        <ol class="carousel-indicators">
+            <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="0"
+            class="active"
+            ></li>
+            <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="1"
+            ></li>
+            <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="2"
+            ></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img
+                class="d-block w-100 slideimg"
+                src="images/sliders/DSC05001.jpg"
+                alt="First slide"
+            />
+            </div>
+            <div class="carousel-item">
+            <img
+                class="d-block w-100 slideimg"
+                src="images/sliders/DSC05007.jpg"
+                alt="Second slide"
+            />
+            </div>
+            <div class="carousel-item">
+            <img
+                class="d-block w-100 slideimg"
+                src="images/sliders/Banner.png"
+                alt="Second slide"
+            />
+            </div>
         </div>
-        <div class="carousel-item">
-        <img
-            class="d-block w-100 slideimg"
-            src="images/sliders/DSC05007.jpg"
-            alt="Second slide"
-        />
-        </div>
-        <div class="carousel-item">
-        <img
-            class="d-block w-100 slideimg"
-            src="images/sliders/Banner.png"
-            alt="Second slide"
-        />
+        <a
+            class="carousel-control-prev slide"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+        >
+            <span
+            class="carousel-control-prev-icon slide"
+            aria-hidden="true"
+            ></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+        >
+            <span
+            class="carousel-control-next-icon"
+            aria-hidden="true"
+            ></span>
+            <span class="sr-only">Next</span>
+        </a>
         </div>
     </div>
-    <a
-        class="carousel-control-prev slide"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-    >
-        <span
-        class="carousel-control-prev-icon slide"
-        aria-hidden="true"
-        ></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a
-        class="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-    >
-        <span
-        class="carousel-control-next-icon"
-        aria-hidden="true"
-        ></span>
-        <span class="sr-only">Next</span>
-    </a>
-    </div>
-</div>
 </div>
 
 <!-- Services section one -->
@@ -152,319 +152,141 @@
     </div>
 </div>
 <div class="bgone">
-<div id="cards_landscape_wrap-2">
-<h3 class="h_head">OUR PRODUCTS</h3>
-    <div class="container">
-    <div class="row services_row">
-        <div class="col-lg-4 col-md-4 service_col">
-            <div id="owl-carousel" class="owl-carousel owl-theme">
-                <div class="itm">
-                    <div class="image-box">
-                        <img src="images/BCG.png" alt="">
+    <div id="cards_landscape_wrap-2">
+        <h3 class="h_head">OUR PRODUCTS</h3>
+        <div class="container">
+            <div class="row services_row">
+                <div class="col-lg-4 col-md-4 service_col">
+                    <div id="owl-carousel" class="owl-carousel owl-theme">
+                        <div class="itm">
+                            <div class="image-box">
+                                <img src="images/BCG.png" alt="">
+                            </div>
+                        </div>
+                        <div class="itm">
+                            <div class="image-box">
+                                <img src="images/product1.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="itm">
-                    <div class="image-box">
-                        <img src="images/product1.png" alt="">
+                <div class="col-lg-8 col-md-8 service_col">
+                    <div class="card-flyer">
+                        <div class="card">
+                            <div class="text-box">
+                                <!-- <div class="image-box">
+                                    <img src="images/BCG.png" alt=""/>
+                                    <img src="images/product2.png" alt="" />
+                                </div> -->
+                                <div class="text-container">
+                                    <h6 class="text-center">
+                                        BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
+                                    </h6>
+                                    <p>
+                                        Freeze dried BCG Vaccine is a preparation of live
+                                        bacteria derived from the culture of attenuated strain
+                                        of Mycobacterium bovis BCG. It is used for the
+                                        prevention of childhood tuberculosis. The vaccine
+                                        complies with the requirements of Indian Pharmacopoeia
+                                        2010.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="read_more">
+                                <a href="product.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-8 col-md-8 service_col">
-            <div class="card-flyer">
-                <div class="card">
-                    <div class="text-box">
-                        <!-- <div class="image-box">
-                            <img src="images/BCG.png" alt=""/>
-                            <img src="images/product2.png" alt="" />
-                        </div> -->
-                        <div class="text-container">
-                            <h6 class="text-center">
-                                BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
-                            </h6>
-                            <p>
-                                Freeze dried BCG Vaccine is a preparation of live
-                                bacteria derived from the culture of attenuated strain
-                                of Mycobacterium bovis BCG. It is used for the
-                                prevention of childhood tuberculosis. The vaccine
-                                complies with the requirements of Indian Pharmacopoeia
-                                2010.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="read_more">
-                        <a href="product.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="col-lg-6 col-md-6 service_col">
-            <div class="card-flyer">
-                <div class="card">
-                    <div class="text-box">
-                        <div class="image-box">
-                            <img src="images/products/therap.png" alt="" />
-                        </div>
-                        <div class="text-container">
-                            <h6 class="text-center">BCG THERAPEUTIC (40 MG.)</h6>
-                            <p>
-                                From the year 1994 BCGVL started manufacturing BCG
-                                Therapeutic Vaccine (40mg). This is also a live,
-                                freeze-dried preparation of Danish 1331 strain of BCG
-                                Mycobacterium bovis, meant for therapeutic use in
-                                Carcinoma bladder. Sodium glutamate is used as
-                                stabilizer. No preservatives are added.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="read_more">
-                        <a href="product.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-    </div>
-</div>
 </div>
 <div class="container">
-<div class="row services_row">
-    <!-- Service -->
-    <div class="col-lg-4 col-md-6 service_col">
-        <div class="card">
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">EVENTS</h5>
-                <div class="container">
-                    <ul class="cont">
-                        <?php $sql= "SELECT * FROM events order by event_id LIMIT 5";
-                        $res = pg_query($db,$sql);
-                        $result = pg_fetch_all($res);
-                        foreach($result as $value){
-                        ?>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['event_title']; ?></a
-                            >
-                        </li>
-                        <?php }?>
-                    </ul>
-                </div>
-            </div>
-            <div class="read_more">
-                <a href="events_details.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 service_col">
-        <div class="card">
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">RECRUITMENTS</h5>
-                <div class="container">
-                    <ul class="cont">
-                        <?php $sql= "SELECT * FROM recruitment";
-                        $res = pg_query($db,$sql);
-                        $result = pg_fetch_all($res);
-                        foreach($result as $value){
-                        ?>
-                        <li>
-                            <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
-                                ><i class="far fa-hand-point-right"></i>
-                                <?php echo $value['rect_title']; ?></a
-                            >
-                        </li>
-                        <?php }?>
-                    </ul>
-                </div>
-            </div>
-            <div class="read_more">
-                <a href="recruitments.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 service_col">
-        <a href="">
+    <div class="row services_row">
+        <!-- Service -->
+        <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
                 <div id="servhov" class="service">
-                    <h5 class="title_card trans_200">TENDERS</h5>
+                    <h5 class="title_card trans_200">EVENTS</h5>
                     <div class="container">
                         <ul class="cont">
-                            <?php $sql= "SELECT * FROM tenders";
+                            <?php $sql= "SELECT * FROM events order by event_id LIMIT 5";
                             $res = pg_query($db,$sql);
                             $result = pg_fetch_all($res);
                             foreach($result as $value){
                             ?>
                             <li>
-                                <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                <a href="uploads/event/<?php echo $value['event_file'] ?? '';?>" target="_blank"
                                     ><i class="far fa-hand-point-right"></i>
-                                    <?php echo $value['tender_title']; ?></a
+                                    <?php echo $value['event_title']; ?></a
                                 >
                             </li>
-                            <?php } ?>
+                            <?php }?>
                         </ul>
                     </div>
                 </div>
                 <div class="read_more">
-                    <a href="tenders.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                    <a href="events_details.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
-        </a>
-    </div>
-</div>
-</div>
-<!-- Services section two-->
-<!-- <div class="bgimg">
-    <div class="container">
-        <div class="row services_row">
+        </div>
+        <div class="col-lg-4 col-md-6 service_col">
+            <div class="card">
+                <div id="servhov" class="service">
+                    <h5 class="title_card trans_200">RECRUITMENTS</h5>
+                    <div class="container">
+                        <ul class="cont">
+                            <?php $sql= "SELECT * FROM recruitment";
+                            $res = pg_query($db,$sql);
+                            $result = pg_fetch_all($res);
+                            foreach($result as $value){
+                            ?>
+                            <li>
+                                <a href="uploads/event/<?php echo $value['upload_advt'] ?? '';?>" target="_blank"
+                                    ><i class="far fa-hand-point-right"></i>
+                                    <?php echo $value['rect_title']; ?></a
+                                >
+                            </li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="read_more">
+                    <a href="recruitments.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-4 col-md-6 service_col">
             <a href="">
-            <div id="servhov" class="service">
-                <h5 class="title_card trans_200">EVENTS</h5>
-                <ul class="text-center cont">
-                <li>
-                    <a href="">
-                    <i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Events 1</h4></a
-                    >
-                </li>
-                <li>
-                    <a href="">
-                    <i class="fa fa-check-circle"></i>
-
-                    <h4>The Sample Link of Events 2</h4></a
-                    >
-                </li>
-                <li>
-                    <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Events 3</h4></a
-                    >
-                </li>
-                <li>
-                    <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Events 4</h4></a
-                    >
-                </li>
-                <li>
-                    <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Events 5</h4></a
-                    >
-                </li>
-                <li>
-                    <a href=""
-                    ><i class="fa fa-check-circle"></i>
-                    <h4>The Sample Link of Events 6</h4></a
-                    >
-                </li>
-                </ul>
-            </div>
-            </a>
-        </div>
-
-        <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
-            <a href="">
-            <div id="servhov" class="service trans_200">
-                <div class="service_title text-center trans_200">
-                RECRUITMENTS
+                <div class="card">
+                    <div id="servhov" class="service">
+                        <h5 class="title_card trans_200">TENDERS</h5>
+                        <div class="container">
+                            <ul class="cont">
+                                <?php $sql= "SELECT * FROM tenders";
+                                $res = pg_query($db,$sql);
+                                $result = pg_fetch_all($res);
+                                foreach($result as $value){
+                                ?>
+                                <li>
+                                    <a href="uploads/tenders/<?php echo $value['tenders_notice'] ?? '';?>" target="_blank"
+                                        ><i class="far fa-hand-point-right"></i>
+                                        <?php echo $value['tender_title']; ?></a
+                                    >
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="read_more">
+                        <a href="tenders.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
+                    </div>
                 </div>
-                <div class="service_text">
-                <ul class="text-center cont">
-                    <li>
-                    <a href="">
-                        <i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 1</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href="">
-                        <i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 2</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 3</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 4</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 5</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Recruitments 6</h4></a
-                    >
-                    </li>
-                </ul>
-                </div>
-            </div>
             </a>
-        </div>
-
-        <div class="col-lg-4 col-md-6 service_col" style="height: 376px">
-            <a href="">
-            <div id="servhov" class="service trans_200">
-                <div class="service_title text-center trans_200">TENDERS</div>
-                <div class="service_text">
-                <ul class="text-center cont">
-                    <li>
-                    <a href="">
-                        <i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 1</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href="">
-                        <i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 2</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 3</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 4</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 5</h4></a
-                    >
-                    </li>
-                    <li>
-                    <a href=""
-                        ><i class="fa fa-check-circle"></i>
-                        <h4>The Sample Link of Tender 6</h4></a
-                    >
-                    </li>
-                </ul>
-                </div>
-            </div>
-            </a>
-        </div>
         </div>
     </div>
-</div> -->
-<!-- Departments -->
-
+</div>
 <div class="photo_video_gallery">
     <div class="container">
         <ul class="filter-option">

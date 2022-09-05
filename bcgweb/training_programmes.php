@@ -7,7 +7,7 @@ include('inc/dbconnection.php');
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">About us</a></li>
-            <li class=""><a href="objectives_of_bcg.php">Training Programes</a></li>
+            <li class=""><a href="training_programmes.php">Training Programes</a></li>
         </ul>
     </section>
     <div class="container">
@@ -17,7 +17,6 @@ include('inc/dbconnection.php');
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-12">
-                <h5>Training Programes</h5>
                 <div style="margin-left: 100px;">
                     <ol>
                                             <li>The new recruits will be subjected to induction training, before involving

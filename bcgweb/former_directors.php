@@ -23,7 +23,7 @@ include('inc/dbconnection.php');
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM former_directors ORDER BY director_id DESC"; 
+                <?php $sql = "SELECT * FROM former_directors ORDER BY director_id ASC"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         //    var_dump($value['position_held']);die;
