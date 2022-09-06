@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer">
+<footer class="simple_footer">
   <div class="copyright">
     <div class="container">
       <div class="row">

@@ -38,12 +38,13 @@ include('inc/dbconnection.php');
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead style="background: #a2dcfd; font-size: 20px; vertical-align: middle;">
+                                <thead>
                                     <tr>
                                         <th>S.NO</th>
                                         <th>Title</th>
-                                        <th>Date of Announcement</th>
-                                        <th>Created Date</th>
+                                        <th>Published Date</th>
+                                        <th>Closing Date</th>
+                                        <th>Size</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">

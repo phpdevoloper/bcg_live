@@ -34,20 +34,22 @@ include('inc/dbconnection.php');
                               ON bs.deg_code = bsd.deg_code JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
+                        $i=1;
                         //    var_dump($value['position_held']);die;
                 ?>
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
                         <div class="row">
-                            <div class="col-lg-9"></div>
-                            <div class="col-lg-3 text-center" style="padding-bottom: 17px">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4 text-center Groupfilter">
                                 <label for="">Category</label>
                                 <select class="custom-select-sm cate" id="group_cate">
-                                    <option>Group A</option>
-                                    <option>Group B</option>
-                                    <option>Group C</option>
-                                    <option>Group D</option>
+                                    <option value="">All</option>
+                                    <option value="GROUP-A">GROUP-A</option>
+                                    <option value="GROUP-B(Gazetted)">GROUP-B(Gazetted)</option>
+                                    <option value="GROUP-B(Non-Gazetted)">GROUP-B(Non-Gazetted)</option>
+                                    <option value="GROUP–C">GROUP–C</option>
                                 </select>
                             </div>
                         </div>
@@ -64,13 +66,21 @@ include('inc/dbconnection.php');
                                 <?php foreach($result as $value){ 
                                     ?>
                                     <tr>
-                                        <td><?php echo $value['staff_id'];?></td>
+                                        <td><?php echo $i;?></td>
                                         <td><?php echo $value['staff_name'];?></td>
                                         <td><?php echo $value['deg_name'];?></td>
                                         <td><?php echo $value['cate_name'];?></td>
-                                <?php }?>
+                                <?php $i++ ; }?>
                                     </tr>
                                 </tbody>
+                                <!-- <tfoot>
+                                    <tr>
+                                        <th>S.NO</th>
+                                        <th>INCUMBENCY POSITION</th>
+                                        <th>DESIGNATION</th>
+                                        <th>GROUP</th>
+                                    </tr>
+                                </tfoot> -->
                             </table>
                         </div>
                     </div>
@@ -82,18 +92,25 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable({
+    //      $("#example").DataTable({
+    //     lengthMenu: [
+    //         [10, 25, 50, -1],
+    //         [10, 25, 50, 'All'],
+    //     ],
+    // });
+
+    // $(".dataTables_length").addClass("bs-select");
+    var table = $('#example').DataTable({
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],
         ],
     });
-    $(".dataTables_length").addClass("bs-select");
+    $('#group_cate').on('change', function () {
+        console.log('sdf');
+        table.columns(3).search( this.value ).draw();
+    } );
+    // this.api().columns( 5 ).every( function () {});
 
-    $('#example tr').each(function(){
-        var tdVal = $(this).find("td:first").text();
-        if(tdVal == "Dog") continue;
-        else $(this).hide();
-    });
   });
 </script>

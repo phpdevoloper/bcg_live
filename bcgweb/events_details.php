@@ -30,17 +30,19 @@ include('inc/dbconnection.php');
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM events ORDER BY date_from DESC"; 
+                <?php $sql = "SELECT * FROM events ORDER BY date_from Desc"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
+                        $i = 1;
                 ?>
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
+                        <a href="archive_events.php" class="archive_btn float-right">Archive <i class="fa fa-archive"></i> </a><br><br>
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead style="background: #a2dcfd; font-size: 15px;">
                                     <tr>
-                                        <th style="width: 1%">S.No</th>
+                                        <th style="width: 2%">S.No</th>
                                         <th style="width: 30%">Event Title</th>
                                         <th style="width: 40%">Event Description</th>
                                         <th>Start Date</th>
@@ -50,8 +52,8 @@ include('inc/dbconnection.php');
                                 <tbody style="font-size: 13px;">
                                     <?php foreach($result as $value){ ?>
                                     <tr>
-                                        <td><?php echo $value['event_id'];?></td>
-                                        <td><a href="<?php echo $value['event_file'];?>"><?php echo $value['event_title'];?></a></td>
+                                        <td><?php echo $i;//$value['event_id'];?></td>
+                                        <td><?php echo $value['event_title'];?></td>
                                         <td><?php echo $value['event_desc'];?></td>
                                         <td><?php echo date('d/m/Y',strtotime($value['date_from']));?></td>
                                         <?php if($value['date_to'] == ''){ ?>
@@ -59,7 +61,8 @@ include('inc/dbconnection.php');
                                         <?php }else{ ?>
                                             <td><?php echo date('d/m/Y',strtotime($value['date_to']));?></td>
                                         <?php } ?>
-                                    <?php } ?>
+                                    <?php $i++;
+                                 } ?>
                                     </tr>
                                 </tbody>
                             </table>
@@ -73,7 +76,13 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable();
+    $("#example").DataTable({
+
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+    });
     $(".dataTables_length").addClass("bs-select");
   });
 </script>

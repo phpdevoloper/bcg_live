@@ -169,6 +169,9 @@
                         <a href="achivement_of_bcg.php" class="list_a">Achivements</a>
                       </li>
                       <li>
+                        <a href="milestones_of_bcg.php" class="list_a">Milestones</a>
+                      </li>
+                      <li>
                         <a href="future_plans.php" class="list_a">Future Plans</a>
                       </li>
                     </ul>
@@ -379,10 +382,10 @@
               <div class ="collapse navbar-collapse exCollapse" id ="colNav2">
                 <ul class ="navbar-nav">
                   <li class ="nav-item">
-                    <a class ="nav-link" href="#"> Photo Gallery</a>
+                    <a class ="nav-link" href="photo_gallery.php"> Photo Gallery</a>
                   </li>
                   <li class ="nav-item">
-                    <a class ="nav-link" href ="#"> Video Gallery </a>
+                    <a class ="nav-link" href ="video_gallery.php"> Video Gallery </a>
                   </li>
                 </ul>
               </div>
@@ -396,10 +399,10 @@
               <div class ="collapse navbar-collapse exCollapse" id ="colNav3">
                 <ul class ="navbar-nav">
                   <li class ="nav-item">
-                    <a class ="nav-link" href="#"> Annual Reports</a>
+                    <a class ="nav-link" href="annual_report.php">Annual Reports</a>
                   </li>
                   <li class ="nav-item">
-                    <a class ="nav-link" href ="#"> Recruitment Rules </a>
+                    <a class ="nav-link" href ="recruitment_rules.php">Recruitment Rules </a>
                   </li>
                 </ul>
               </div>
@@ -423,6 +426,11 @@
                 class="list-group-item list-group-item-action py-2 ripple"
                 ><span>Recruitments</span></a
               > -->
+              <a
+                href="feedback.php"
+                class="list-group-item list-group-item-action py-2 ripple"
+                ><span>Employees Corner</span></a
+              >
               <a
                 href="feedback.php"
                 class="list-group-item list-group-item-action py-2 ripple"

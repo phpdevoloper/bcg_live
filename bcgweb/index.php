@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<!-- Services section one -->
+    <!-- Services section one -->
 <div class="services">
     <div class="container">
         <div class="row services_row">
@@ -107,13 +107,13 @@
                 ?>
             <div class="card">
                 <div id="servhov" class="service text-center trans_200">
-                <h5 class="title_card trans_200">DIRECTOR</h5>
+                    <h5 class="title_card trans_200">DIRECTOR</h5>
                     <div class="">
                         <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
                     </div>
                     <div class="service_title trans_200 direct">
                         <h3><?php echo $res[0]['director_name'];?></h3>
-                        <h4><?php echo $res[0]['director_qualification'];?></h3>
+                        <h4><?php echo $res[0]['director_qualification'];?></h4>
                     </div>
                 </div>
                 <div class="read_more">
@@ -127,18 +127,19 @@
                     <h5 class="title_card">WHAT'S NEW</h5>
                     <div class="container">
                         <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
-                        <ul class="cont">
-                            <?php $sql= "SELECT * FROM what_new";
-                            $res = pg_query($db,$sql);
-                            $result = pg_fetch_all($res);
-                            foreach($result as $value){
-                            ?>
-                                <li>
-                                <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
-                                    ><i class="far fa-hand-point-right"></i>
-                                    <?php echo $value['whats_title']; ?></a
-                                >
-                                </li>
+                            <ul class="cont">
+                                <?php $sql= "SELECT * FROM what_new";
+                                $res = pg_query($db,$sql);
+                                $result = pg_fetch_all($res);
+                                foreach($result as $value){
+                                ?>
+                                    <li>
+                                        <a href="uploads/whatsNew/<?php echo $value['whats_file'];?>" target="_blank"
+                                            >
+                                            <i class="far fa-hand-point-right"></i>
+                                            <?php echo $value['whats_title']; ?>
+                                        </a>
+                                    </li>
                                 <?php }?>
                             </ul>
                         </marquee>
