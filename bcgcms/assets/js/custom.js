@@ -17,6 +17,13 @@ $(document).ready(function () {
       success: function (data) {
         if (data == 1) {
           window.location.href = "dashboard.php";
+        } else if (data == 3) {
+          swal({
+            title: "Invalid Username or password!",
+            icon: "error",
+          }).then(function () {
+            location.reload();
+          });
         } else if (data == 2) {
           swal({
             title: "Incorrect Captch!",
@@ -1912,7 +1919,23 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              if (response == 1) {
+              var res = $.parseJSON(response);
+              if (
+                typeof res.extension != "undefined" &&
+                res.extension !== null
+              ) {
+                swal({
+                  title: "Warning!",
+                  text: res.extension,
+                  icon: "warning",
+                });
+              } else if (typeof res.size != "undefined" && res.size !== null) {
+                swal({
+                  title: "Warning!",
+                  text: res.size,
+                  icon: "warning",
+                });
+              } else if (response == 1) {
                 swal({
                   title: "Added!",
                   text: "New Report added and uploaded successfully!",
@@ -1956,7 +1979,21 @@ $(document).ready(function () {
           contentType: false,
           processData: false,
           success: function (response) {
-            if (response == 1) {
+            var res = $.parseJSON(response);
+            console.log(res);
+            if (res.extension != "") {
+              swal({
+                title: "Warning!",
+                text: res.extension,
+                icon: "warning",
+              });
+            } else if (res.size != "") {
+              swal({
+                title: "Warning!",
+                text: res.size,
+                icon: "warning",
+              });
+            } else if (response == 1) {
               swal({
                 title: "Added!",
                 text: "New Report added and uploaded successfully!",

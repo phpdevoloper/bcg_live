@@ -20,11 +20,11 @@ include('inc/dbconnection.php');
                 <h3 class="text-center txt" style="color: #299adc;">RTI Contacts</h3>
             </div>
             <div class="row" style="padding-top: 32px;">
-            <?php $sql = "select * from rti_contacts ORDER BY contact_id ASC"; 
-                  $res = pg_query($db,$sql);
-                  $result = pg_fetch_all($res);
-                  foreach($result as $value){
-            ?>
+                <?php $sql = "select * from rti_contacts ORDER BY contact_id ASC"; 
+                    $res = pg_query($db,$sql);
+                    $result = pg_fetch_all($res);
+                    foreach($result as $value){
+                ?>
                 <div class="col-lg-6">
                     <div class="section_title">
                         <h3><?php echo $value['contact_title'];?></h3>
@@ -65,7 +65,28 @@ include('inc/dbconnection.php');
                 </div>
                 <?php  } ?>
             </div>
+            <div class="rti_complaint">
+                <p>File your RTI complaints online&nbsp;</table><a href="#" id="online_complaint">Click here</a></p>
+            </div>         
         </div>
     </div>   
 </div>   
 <?php include('inc/simple_footer.php'); ?>
+<script>
+     $(document).ready(function () {
+        $("#online_complaint").on("click", function (event) {
+            swal({
+            title: "BCGVL",
+            text: "You are being redirected to an external website. Please note that BCG Vaccine Laboratory cannot be held responsible for external websites content & privacy policies.",
+            buttons: ["No, cancel it!", "Ok"],
+            dangerMode: true,
+          }).then(function (isConfirm) {
+            if (isConfirm) {
+                window.open("http://online.gov.in", "_blank");
+            } else {
+              swal("Cancelled", "Done :)", "error");
+            }
+          });
+        });
+     });
+</script>

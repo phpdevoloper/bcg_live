@@ -40,6 +40,7 @@
       href="plugins/slick-carousel/slick/slick-theme.css"
     />
     <link rel="stylesheet" type="text/css" href="plugins/dataTables/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/custom.css"/>
     <!-- Icon Font Css -->
     <!-- <link rel="stylesheet" href="plugins/icofont/icofont.min.css" /> -->
   </head>
@@ -84,7 +85,7 @@
                       </li>
                       <li class="line"></li>
                       <li class="social-media">
-                        <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                      <a href="#"><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
                         <ul class="accessiblelinks">
                           <li id="btn-increase">A+</li>
                           <li id="btn-orig">A</li>
@@ -102,10 +103,10 @@
                       </li> -->
                       <li class="line"></li>
                       <li class="social-media">
-                        <i class="fab fa-facebook-f"></i>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                       </li>
                       <li class="social-media">
-                        <i class="fab fa-twitter"></i>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                       </li>
                     </ul>
                   </div>
@@ -217,10 +218,10 @@
                         <a href="quality_control.php" class="list_a">Quality Control</a>
                       </li>
                       <li>
-                        <a href="quality_control.php" class="list_a">Engineering</a>
+                        <a href="engineering.php" class="list_a">Engineering</a>
                       </li>
                       <li>
-                        <a href="quality_control.php" class="list_a">Warehouse</a>
+                        <a href="warehouse.php" class="list_a">Warehouse</a>
                       </li>
                     </ul>
                   </li>

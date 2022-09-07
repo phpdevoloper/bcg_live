@@ -23,7 +23,7 @@ $(document).ready(function () {
   $(".items").slick({
     arrows: true,
     accessibility: true,
-    autoplay: true,
+    // autoplay: true,
     variableWidth: false,
     autoplaySpeed: 3000,
     infinite: true,
@@ -271,7 +271,6 @@ $(document).ready(function () {
   $("a .btn-gallery").on("click", function (event) {
     event.preventDefault();
     var gallery = $(this).attr("href");
-    console.log(gallery);
     // $(gallery)
     //   .magnificPopup({
     //     delegate: "a",
@@ -356,6 +355,7 @@ $(document).ready(function () {
   });
 
   $("#owl-carousel").owlCarousel({
+    arrows: false,
     autoplay: true,
     loop: true,
     margin: 30,

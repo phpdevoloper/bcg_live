@@ -40,10 +40,10 @@ include('inc/dbconnection.php');
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>S.NO</th>
                                         <th>Title</th>
                                         <th>Published Date</th>
                                         <th>Closing Date</th>
+                                        <th>File</th>
                                         <th>Size</th>
                                     </tr>
                                 </thead>
@@ -51,7 +51,7 @@ include('inc/dbconnection.php');
                                 <?php foreach($result as $value){ 
                                     ?>
                                     <tr>
-                                        <td><?php echo $value['tender_id'];?></td>
+                                        <!-- <td><?php //echo $value['tender_id'];?></td> -->
                                         <td><a href="<?php echo $value['tenders_notice'];?>"><?php echo $value['tender_title'];?></a></td>
                                         <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
                                         <td><?php echo date("d-m-Y h:i:s", strtotime($value['created_date']));?></td>

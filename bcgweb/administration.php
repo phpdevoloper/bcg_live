@@ -22,9 +22,6 @@ include('inc/dbconnection.php');
             <!-- About Content -->
             <section id="about">
                 <div class="container aos-init aos-animate" data-aos="fade-up">
-                    <div class="testimonial-item">
-                        <p></p>
-                    </div>
                 </div>
             </section>
         </div>

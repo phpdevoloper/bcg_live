@@ -33,6 +33,14 @@
 ************/
 
 @media only screen and (max-width: 1440px) {
+  .items {
+    width: 91%;
+    margin: 0px 0px 0 264px;
+    padding-top: 14px;
+  }
+  .slick-next {
+    right: 362px;
+  }
 }
 
 /************

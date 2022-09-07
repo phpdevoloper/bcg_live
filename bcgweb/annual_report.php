@@ -44,18 +44,20 @@ include('inc/dbconnection.php');
                                         <th>S.No</th>
                                         <th>Title</th>
                                         <th>File</th>
+                                        <th>Size</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
-                                <?php foreach($result as $value){ 
-                                    ?>
+                                    <?php foreach($result as $value){ ?>
                                     <tr>
                                         <td><?php echo $value['doc_id'];?></td>
                                         <td><?php echo $value['doc_title'];?></td>
                                         <td><a href="uploads/document/<?php echo $value['doc_attachment'];?>" target="_blank">
                                         <img src="images/pdf.png" class="ficon" alt=""> View</a></td>
-                                <?php }?>
+                                        <td><?php $directory_s = $value['doc_attachment'];
+                                        echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td>
                                     </tr>
+                                    <?php }?>
                                 </tbody>
                             </table>
                         </div>
@@ -68,7 +70,12 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable();
+    $("#example").DataTable({
+        lengthMenu: [
+            [10, 25, 50, -1],
+            [10, 25, 50, 'All'],
+        ],
+    });
     $(".dataTables_length").addClass("bs-select");
   });
 </script>

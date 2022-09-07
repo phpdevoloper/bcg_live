@@ -10,6 +10,8 @@
 			if($res>0){
 				$_SESSION["user"] 	   = $result;
 				echo 1;
+			}else{
+				echo 3;
 			}
 		}else{
 			$t = 2;

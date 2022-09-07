@@ -47,13 +47,20 @@ $data=[
 body {
   font-family: 'Open Sans', sans-serif;
   background: #f9faff;
-  color: #3a3c47;
+  color: #f6f9ff;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0;
+  
+}
+.main_content{
+  width:100%;
+  height: 450px;
+  background: url('images/sliders/Banner.png');
+  background-size: cover;
 }
 
 h1 {
@@ -64,22 +71,23 @@ form {
   background: #fff;
   max-width: 360px;
   width: 100%;
-  padding: 14px 23px;
-  border: 1px solid ##e1e2f0;
+  padding: 30px 30px;
+  /* border: 1px solid ##e1e2f0; */
   border-radius: 4px;
-  box-shadow: 0 0 5px 0 rgba(42, 45, 48, 0.12);
+  box-shadow: 0 0 5px 0 rgb(42 45 48 / 12%);
   transition: all 0.3s ease;
+  margin-top: 15px;
 }
 
 .row {
   display: flex;
   /* flex-direction: column; */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .row label {
-  font-size: 13px;
-  color: #8086a9;
+  font-size: 16px;
+  color: #242428;
 }
 
 .row input {
@@ -116,7 +124,7 @@ button {
 
 .btnRefresh{
   width: 100%;
-  padding: 12px;
+  padding: 4px;
   font-size: 18px;
   background: #15C39A;
   color: #fff;
@@ -185,6 +193,9 @@ header{
     text-align: center;
     color: #f9faff;
 }
+.ref_btn{
+  margin-top: 22px;
+}
 
 
 @media(max-width: 458px) {
@@ -244,37 +255,48 @@ header{
   </div>
 </header>
 <!-- <h3>Login</h3> -->
-  <form id="admin_login">
-    <div class="row">
-      <label for="email">User Name
-        <span style="color:#ff0000">*</span></label>
-      <input type="text" name="user_name" autocomplete="off" placeholder="User Name" required>
-      <p style='color:red;'><?php echo $data["err_uname"]; ?></p>
-    </div>
-    <div class="row">
-      <label for="password">Password
-      <span style="color:#ff0000">*</span>
-      </label>
-      <input type="password" name="user_pass" required>
-      <p style='color:red;'><?php echo $data["err_upass"]; ?></p>
-    </div>
-    <div class="row">
-      <div class="col"> 
-        <img id="captcha_code" src="captcha.php" style="width: 100%;">
+<div class="main_content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+        <form id="admin_login">
+          <div class="row">
+            <label for="email" class="form-label">User Name
+              <span style="color:#ff0000">*</span></label>
+            <input type="text" class="form-control" name="user_name" autocomplete="off" placeholder="User Name" required>
+            <p style='color:red;'><?php echo $data["err_uname"]; ?></p>
+          </div>
+          <div class="row">
+            <label for="password" class="form-label">Password
+            <span style="color:#ff0000">*</span>
+            </label>
+            <input type="password" class="form-control" name="user_pass" placeholder="Password" required>
+            <p style='color:red;'><?php echo $data["err_upass"]; ?></p>
+          </div>
+          <div class="row">
+            <div class="col"> 
+              <img id="captcha_code" src="captcha.php" style="width: 100%;">
+            </div>
+            <div class="col">
+              <div class="ref_btn">
+                <i class="icon-refresh btnRefresh" style="margin-top:10px"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label for="password" class="form-label">Please enter the verification code
+            <span style="color:#ff0000">*</span>
+            </label>
+            <input type="text" class="form-control" name="captcha_code" required>
+            <p style='color:red;'><?php echo $data["err_msg"]; ?></p>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+  
       </div>
-      <div class="col">
-        <i class="icon-refresh btnRefresh" style="margin-top:10px"></i>
-      </div>
     </div>
-    <div class="row">
-      <label for="password">Please enter the verification code
-      <span style="color:#ff0000">*</span>
-      </label>
-      <input type="text" name="captcha_code" required>
-      <p style='color:red;'><?php echo $data["err_msg"]; ?></p>
-    </div>
-    <button type="submit">Login</button>
-  </form>
+  </div>
+</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>

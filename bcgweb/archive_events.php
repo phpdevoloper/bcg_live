@@ -15,7 +15,7 @@ include('inc/dbconnection.php');
         </ul>
     </section>
     <div class="section">
-        <h3 class="text-center txt" style="color: #299adc;">Archived Events</h3>
+        <h3 class="text-center txt" style="color: #299adc;">Events (Archived)</h3>
     </div>
     <div class="container aos-init aos-animate" data-aos="fade-up" style="padding-top: 38px;">
         <div class="container">

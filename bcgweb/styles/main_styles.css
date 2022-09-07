@@ -1338,9 +1338,10 @@ ul.tittle_bcg {
 }
 .sidebar {
   position: fixed;
-  top: 43px;
+  background-color: #3bc053 !important;
+  top: 0;
   bottom: 0;
-  left: 1044px;
+  left: 1109px;
   /* padding: 58px 0 0;  */
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
   width: 240px;
@@ -2419,7 +2420,7 @@ li.text-center {
 }
 
 .org_img {
-  padding-left: 50px;
+  padding-left: 95px;
 }
 .org_img img {
   width: 100%;
@@ -2509,7 +2510,7 @@ img.history {
 /* Slick Slide */
 .items {
   width: 91%;
-  margin: 0px 0px 0 234px;
+  margin: 0px 0px 0 264px;
   padding-top: 14px;
 }
 .items .slick-track {
@@ -3033,10 +3034,9 @@ label.error {
   padding-left: 26px;
 }
 .exCollapse li a {
-  color: black;
+  color: white;
   padding-top: 1;
   padding-bottom: 2px;
-  /* padding-left: 30px; */
   padding-left: 26px;
 }
 i.fa-arrow-down i {

@@ -23,7 +23,7 @@ include('inc/dbconnection.php');
                         $result = pg_fetch_assoc($res);
                 ?>
                 <div class="section">
-                    <h3 class="text-center txt" style="color: #299adc;">PRODUCTION PROCESS</h3>
+                    <h3 class="text-center txt" style="color: #299adc;">Production Process</h3>
                 </div>
                 <section id="about" class="about">
                     <div class="org_img">
