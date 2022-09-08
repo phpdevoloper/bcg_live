@@ -40,7 +40,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form id="add_rti" method="post" enctype="multipart/form-data">
+                                                <form id="add_rti" method="post">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
@@ -66,13 +66,6 @@
                                                                         <?php } ?>
                                                                 </select>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-2"></div>
-                                                        <div class="col-sm-10">
-                                                            <input type="file" class="form-control upload_event" name="event_file" id="event_file">
-                                                            <input type="text" class="form-control event_url" name="event_url" id="event_url">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer" style="justify-content: center !important;">
@@ -120,7 +113,8 @@
                                         </div>
                                         <div id="collapse-<?php echo $i;?>" class="collapse" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
                                             <div class="card-body">
-                                                <button class="btn btn-primary btn-xs">Add Sub RTI</button>
+                                                <button class="btn btn-primary btn-xs" 
+                                                data-toggle="modal" data-target="#addSubRTI" title="" data-original-title="Add New RTI">Add Sub RTI</button>
                                                 <div id="accordion-<?php echo $i;?>">
                                                     <?php $sql = "SELECT * FROM mst_sub_rti WHERE mst_rti_id = '".$value['rti_id']."' order by sub_rti_id asc "; 
                                                         $exe = pg_query($db,$sql);
@@ -186,6 +180,76 @@
                                         </div>
                                         <?php $i++; } ?>
                                     </div>
+                                    <!-- Add Sub RTI Modal -->
+                                    <div class="modal fade" id="addSubRTI" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header no-bd">
+                                                    <h5 class="modal-title">
+                                                        <span class="fw-mediumbold">
+                                                        Add Sub RTI</span>
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="add_rti" method="post">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="qualifi">Title
+                                                                    <span style="color:#ff0000">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control" name="rti_title" id="rti_title">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-12">
+                                                                <label for="qualifi">Documents<span style="color:#ff0000">*</span></label>
+                                                                <div class="row">
+                                                                    <div class="col-md-6"></div>
+                                                                    <div class="col-md-6"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-2"></div>
+                                                            <div class="col-sm-10">
+                                                                <input type="file" class="form-control upload_event" name="event_file" id="event_file">
+                                                                <input type="text" class="form-control event_url" name="event_url" id="event_url">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="qualifi">Status
+                                                                    <span style="color:#ff0000">*</span>
+                                                                    </label>
+                                                                    <select class="form-control" name="rti_status" id="rti_status">
+                                                                        <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                        $exe = pg_query($db,$sql);
+                                                                        $result = pg_fetch_all($exe);
+                                                                        foreach ($result as $f_status) {?>
+                                                                        <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                            <?php } ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="justify-content: center !important;">
+                                                            <button type="submit" id="addRowButton"
+                                                                class="btn btn-primary">Submit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Add Sub RTI Modal -->
                                     <!-- Modal -->
                                     <div class="modal fade" id="editRtiModal" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog" role="document">

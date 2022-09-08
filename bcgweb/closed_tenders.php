@@ -17,34 +17,33 @@ include('inc/dbconnection.php');
     <section>
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
-            <li class=""><a href="staff_list.php">Recruitments</a></li>
+            <li class=""><a href="tenders.php">Tenders</a></li>
         </ul>
     </section>
     <div class="container">
         <div class="section">
-            <h3 class="text-center txt" style="color: #299adc;">Recruitments</h3>
+            <h3 class="text-center txt" style="color: #299adc;">Tenders(Closed)</h3>
         </div>
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-12">
                 <div class="section_title">
                 </div>
-                <?php $sql = "SELECT * FROM recruitment"; 
+                <?php $sql = "SELECT * FROM tenders"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
-                        //    var_dump($value['position_held']);die;
-                        $i = 1;
+                        $i = 1; 
                 ?>
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead class="rec_thead">
+                                <thead>
                                     <tr>
-                                        <th>S.NO</th>
+                                        <th>S.No</th>
                                         <th>Title</th>
-                                        <th>Date of Announcement</th>
-                                        <th>Last date to apply</th>
+                                        <th>Date of Publish</th>
+                                        <th>Closing Date</th>
                                         <th>Documents</th>
                                     </tr>
                                 </thead>
@@ -53,15 +52,9 @@ include('inc/dbconnection.php');
                                     ?>
                                     <tr>
                                         <td><?php echo $i;?></td>
-                                        <td><?php echo $value['rect_title'];?></td>
+                                        <td><a href="<?php echo $value['tenders_notice'];?>"><?php echo $value['tender_title'];?></a></td>
                                         <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
-                                        <td><?php echo $tt = date("d-m-Y", strtotime($value['last_date_to_apply']));?></td>
-                                        <td><a href="uploads/recruitment/<?php echo $value['upload_advt'];?>" target="_blank">
-                                        <img src="images/pdf.png" class="ficon" alt=""> View
-                                        </a></td>
-                                        <!-- <td><?php //$directory_s = $value['doc_attachment'];
-                                        //echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td> -->
-                                <?php $i++; }?>
+                                <?php }?>
                                     </tr>
                                 </tbody>
                             </table>

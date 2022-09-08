@@ -6,3 +6,8 @@
   background: #a2dcfd;
   vertical-align: middle;
 }
+
+.dark {
+  background-color: black;
+  color: azure;
+}

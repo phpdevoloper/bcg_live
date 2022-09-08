@@ -43,8 +43,7 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <th>S.No</th>
                                         <th>Title</th>
-                                        <th>File</th>
-                                        <th>Size</th>
+                                        <th>Documents</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
@@ -53,9 +52,9 @@ include('inc/dbconnection.php');
                                         <td><?php echo $value['doc_id'];?></td>
                                         <td><?php echo $value['doc_title'];?></td>
                                         <td><a href="uploads/document/<?php echo $value['doc_attachment'];?>" target="_blank">
-                                        <img src="images/pdf.png" class="ficon" alt=""> View</a></td>
-                                        <td><?php $directory_s = $value['doc_attachment'];
-                                        echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td>
+                                        <img src="images/pdf.png" class="ficon" alt=""> View(<?php $directory_s = $value['doc_attachment'];
+                                        echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a></td>
+                                        <td></td>
                                     </tr>
                                     <?php }?>
                                 </tbody>

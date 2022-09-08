@@ -47,8 +47,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-4 col-form-label">Title</label>
-                                                            <div class="col-md-8 p-0">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
+                                                            <div class="col-md-7 p-0">
                                                                 <input type="text" class="form-control input-full" name="tender_title" id="tender_title">
                                                             </div>
                                                         </div>
@@ -57,8 +57,18 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-4 col-form-label">Date of Announcement</label>
-                                                            <div class="col-md-8 p-0">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Advertise No</label>
+                                                            <div class="col-md-7 p-0">
+                                                                <input type="text" class="form-control input-full" name="advt_no" id="advt_no">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Date of Publish</label>
+                                                            <div class="col-md-7 p-0">
                                                                 <input type="date" class="form-control input-full" name="data_announce" id="data_announce">
                                                             </div>
                                                         </div>
@@ -67,8 +77,18 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-4 col-form-label">Tender Notice</label>
-                                                            <div class="col-md-8 p-0">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Closed Date</label>
+                                                            <div class="col-md-7 p-0">
+                                                                <input type="date" class="form-control input-full" name="closed_date" id="closed_date">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Tender Notice</label>
+                                                            <div class="col-md-7 p-0">
                                                                 <input type="file" class="form-control input-full" name="tender_upload" id="tender_upload" accept="application/pdf,application/vnd.ms-excel">
                                                             </div>
                                                         </div>
@@ -77,8 +97,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-4 col-form-label">Tender Status</label>
-                                                            <div class="col-md-8 p-0">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Tender Status</label>
+                                                            <div class="col-md-7 p-0">
                                                                 <select class="form-control input-full" name="tender_status" id="tender_status">
                                                                     <option value="Active">Active</option>
                                                                     <option value="Closed" selected>Closed</option>
@@ -110,12 +130,13 @@
                                                         <th>S.No</th>
                                                         <th>Title</th>
                                                         <th>Date Of Announcement</th>
+                                                        <th>Closed Date</th>
                                                         <th>Tender Notice</th>
                                                         <th>Created Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody> 
                                                     <?php $sql = "SELECT * FROM tenders"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
@@ -127,7 +148,9 @@
                                                         <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['tender_title'];?></td>
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
-                                                        <td class="sorting_1"><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view</a></td>
+                                                        <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['date_of_closed']));?></td>
+                                                        <td class="sorting_1"><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view
+                                                         (<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a></td>
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y h:i:s", strtotime($value['created_date']));?></td>
                                                         <td>
                                                             <div class="form-button-action">
@@ -136,9 +159,13 @@
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
-                                                                        data-whats_id="<?php echo $value['tender_title'];?>"
-                                                                        data-whats_desc="<?php echo $value['date_of_announce'];?>"
-                                                                        data-what_file="<?php echo $value['tenders_notice'];?>"
+                                                                        data-tender_id="<?php echo $value['tender_id'];?>"
+                                                                        data-tender_title="<?php echo $value['tender_title'];?>"
+                                                                        data-advertise_no="<?php echo $value['advertise_no'];?>"
+                                                                        data-date_of_announce="<?php echo $value['date_of_announce'];?>"
+                                                                        data-date_of_closed="<?php echo $value['date_of_closed'];?>"
+                                                                        data-tenders_notice="<?php echo $value['tenders_notice'];?>"
+                                                                        data-tender_status="<?php echo $value['tender_status'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>
@@ -161,8 +188,8 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group form-inline">
                                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
-                                                                                            <div class="col-md-6 p-0">
-                                                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                                            <div class="col-md-7 p-0">
+                                                                                                <input type="text" class="form-control input-full" name="tender_title" id="Tender_title">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -171,8 +198,8 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group form-inline">
                                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
-                                                                                            <div class="col-md-6 p-0">
-                                                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                                            <div class="col-md-7 p-0">
+                                                                                                <input type="text" class="form-control input-full" name="advt_no" id="Advt_no">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -181,8 +208,8 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group form-inline">
                                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Date of Announcement</label>
-                                                                                            <div class="col-md-6 p-0">
-                                                                                                <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                                            <div class="col-md-7 p-0">
+                                                                                                <input type="date" class="form-control input-full" name="data_announce" id="Data_announce">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -190,9 +217,9 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Last Date to Apply</label>
-                                                                                            <div class="col-md-6 p-0">
-                                                                                            <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
+                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Closed Date</label>
+                                                                                            <div class="col-md-7 p-0">
+                                                                                                <input type="date" class="form-control input-full" name="closed_date" id="Cosed_Date">
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -201,8 +228,22 @@
                                                                                     <div class="col-md-12">
                                                                                         <div class="form-group form-inline">
                                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Upload Advt.Notification</label>
-                                                                                            <div class="col-md-6 p-0">
+                                                                                            <div class="col-md-7 p-0">
                                                                                                 <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
+                                                                                                <label for="inlineinput" class="col-form-label" id="upload_document"></label>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group form-inline">
+                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Tender Status</label>
+                                                                                            <div class="col-md-7 p-0">
+                                                                                                <select class="form-control input-full" name="tender_status" id="Tender_status">
+                                                                                                    <option value="Active">Active</option>
+                                                                                                    <option value="Closed" selected>Closed</option>
+                                                                                                </select>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -237,3 +278,91 @@
 <?php include('inc/footer.php'); }else{
      header("Location:index.php");
 }?>
+<script type="application/javascript">
+$(document).ready(function () {
+    $("#add_tenders").validate({
+        rules: {
+            tender_title: {
+            required: true,
+          },
+          advt_no: {
+            required: true,
+          },
+          data_announce: {
+            required: true,
+          },
+          closed_date: {
+            required: true,
+          },
+          tender_upload: {
+            required: true,
+          },
+        },
+        messages: {},
+        submitHandler: function (form, e) {
+          e.preventDefault();
+          var data = new FormData($("#add_tenders")[0]);
+    
+          swal({
+          title: "Are you sure?",
+          text: "You want to Add Tenders!",
+          icon: "warning",
+          buttons: ["Cancel!", "Yes"],
+          dangerMode: true,
+        }).then(function (isConfirm) {
+          if (isConfirm) {
+            $.ajax({
+              method: "POST",
+              url: "addTendersAjax.php",
+              data: data,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                if (response == 1) {
+                  swal({
+                    title: "Temder Added!",
+                    icon: "success",
+                  }).then(function () {
+                    // location.reload();
+                  });
+                } else {
+                  swal({
+                    title: "Something went wrong!",
+                    icon: "error",
+                  }).then(function () {
+                    // location.reload();
+                  });
+                }
+              },
+            });
+          } else {
+            swal("Cancelled", "Done :)", "error");
+          }
+        });
+     }
+    });
+
+    // Edit View
+    $(document).on("click", ".get_what", function (e) {
+    e.preventDefault();
+    var tender_id = $(this).attr("data-tender_id");
+    var tender_title = $(this).attr("data-tender_title");
+    var advertise_no = $(this).attr("data-advertise_no");
+    var date_of_announce = $(this).attr("data-date_of_announce");
+    var date_of_closed = $(this).attr("data-date_of_closed");
+    var tenders_notice = $(this).attr("data-tenders_notice");
+    var tender_status = $(this).attr("data-tender_status");
+    $("#Whats_id").val(tender_id);
+    $("#Tender_title").val(tender_title);
+    $("#Advt_no").val(advertise_no);
+    $("#Data_announce").val(date_of_announce);
+    console.log(date_of_announce);
+    console.log(date_of_closed);
+    $("#Cosed_Date").val(date_of_closed);
+    $("#upload_document").text(tenders_notice);
+    $("#Tender_status").val(tender_status);
+
+
+  });
+});
+</script>

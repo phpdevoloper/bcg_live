@@ -36,24 +36,35 @@
             }
         }
     }else{
-        $target_dir = "uploads/RTI/";
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
-        $name =date('m-d-Y_');
-        $target_file = $name.basename($_FILES["rti_file"]["name"]);
-        $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // if (isset($_FILES)) {
+        //     $target_dir = "uploads/RTI/";
+        //     if (!file_exists($target_dir)) {
+        //         mkdir($target_dir, 0777, true);
+        //     }
+        //     $name =date('m-d-Y_');
+        //     $target_file = $name.basename($_FILES["rti_file"]["name"]);
+        //     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        //     if (move_uploaded_file($_FILES["rti_file"]["tmp_name"], $target_dir.$name.$_FILES["rti_file"]["name"])) {
+        //         $sql = "INSERT INTO mst_rti(rti_name,rti_status,rti_attachment,file_type) VALUES
+        //         ('".$_POST['rti_title']."', '".$_POST['rti_status']."','".$_POST['rti_attachment']."','".$_POST['file_type']."','".$_POST['rti_url']."')";
+        //         $ret = pg_query($db, $sql);
+        //         if($ret != ''){
+        //             echo 1;
+        //         }
+        //         pg_close($db);
+        //     }
+        // }else{
+            $sql = "INSERT INTO mst_rti(rti_name,rti_status) VALUES
+                ('".$_POST['rti_title']."', '".$_POST['rti_status']."')";
+                $ret = pg_query($db, $sql);
+                if($ret != ''){
+                    echo 1;
+                }
+            pg_close($db);
+        // }
+
         
         // Check if image file is a actual image or fake image
-        if (move_uploaded_file($_FILES["rti_file"]["tmp_name"], $target_dir.$name.$_FILES["rti_file"]["name"])) {
-            $sql = "INSERT INTO mst_rti(rti_name,rti_status,rti_attachment,file_type) VALUES
-            ('".$_POST['rti_title']."', '".$_POST['rti_status']."','".$_POST['rti_attachment']."','".$_POST['file_type']."','".$_POST['rti_url']."')";
-            $ret = pg_query($db, $sql);
-            if($ret != ''){
-                echo 1;
-            }
-            pg_close($db);
-        }
     }
 
 ?>

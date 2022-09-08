@@ -88,8 +88,10 @@
                       <a href="#"><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
                         <ul class="accessiblelinks">
                           <li id="btn-increase">A+</li>
-                          <li id="btn-orig">A</li>
+                          <li id="btn-orig" onclick="original_function();">A</li>
                           <li id="btn-decrease">A-</li>
+                          <li class="dark">A</li>
+                          <li class="light">A</li>
                         </ul>
                       </li>
                       <!-- <li class="line"></li> -->
@@ -241,7 +243,18 @@
                   </li>
 
                   <li class="dropdown">
-                    <a href="tenders.php" class="nav-link">Tenders</a>
+                    <a href="#" class="nav-link">Tenders</a>
+                    <ul class="dropdown-nav">
+                      <li>
+                        <a href="tenders.php" class="list_a">Open Tenders</a>
+                      </li>
+                      <li>
+                        <a href="tenders.php" class="list_a">Closed Tenders</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="recruitments.php" class="nav-link">Recruitments</a>
                   </li>
                   <li class="dropdown">
                     <a href="#" class="nav-link">RTI</a>
@@ -250,9 +263,6 @@
                         <a href="rti.php" class="list_a">RTI Proactive Disclosure</a>
                       </li>
                     </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="recruitments.php" class="nav-link">Recruitments</a>
                   </li>
                   <!-- <li class="dropdown">
                     <a href="#" class="nav-link">Events</a>

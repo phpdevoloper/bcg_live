@@ -67,10 +67,10 @@
 		$extensions= array("pdf");
 		// var_dump(in_array($imageFileType,$extensions) == false);die;
       
-		// if(in_array($imageFileType,$extensions) == false){
-		// 	$errors['extension']="extension not allowed, please choose a PDF file.";
-		// 	// echo json_encode($errors);
-		// }
+		if(in_array($imageFileType,$extensions) == false){
+			$errors['extension']="extension not allowed, please choose a PDF file.";
+			// echo json_encode($errors);
+		}
 		
 		if($file_size > 2097152){
 			$errors['size']='File size must be excately 2 MB';

@@ -22,7 +22,7 @@ include('inc/dbconnection.php');
     </section>
     <div class="container">
         <div class="section">
-            <h3 class="text-center txt" style="color: #299adc;">Tenders</h3>
+            <h3 class="text-center txt" style="color: #299adc;">Tenders(Open)</h3>
         </div>
         <div class="row">
             <!-- About Content -->
@@ -32,29 +32,29 @@ include('inc/dbconnection.php');
                 <?php $sql = "SELECT * FROM tenders"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
-                        //    var_dump($value['position_held']);die;
+                        $i = 1; 
                 ?>
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
+                            <a href="closed_tenders.php" class="closed_tender float-right">Closed Tenders<i class="fa fa-archive"></i> </a><br><br>
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th>S.No</th>
                                         <th>Title</th>
-                                        <th>Published Date</th>
+                                        <th>Date of Publish</th>
                                         <th>Closing Date</th>
-                                        <th>File</th>
-                                        <th>Size</th>
+                                        <th>Documents</th>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
                                 <?php foreach($result as $value){ 
                                     ?>
                                     <tr>
-                                        <!-- <td><?php //echo $value['tender_id'];?></td> -->
+                                        <td><?php echo $i;?></td>
                                         <td><a href="<?php echo $value['tenders_notice'];?>"><?php echo $value['tender_title'];?></a></td>
                                         <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
-                                        <td><?php echo date("d-m-Y h:i:s", strtotime($value['created_date']));?></td>
                                 <?php }?>
                                     </tr>
                                 </tbody>
