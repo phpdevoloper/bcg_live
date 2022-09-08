@@ -382,6 +382,12 @@ include('inc/dbconnection.php');?>
                 elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'? 'active':'');
 								}
+                elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php'? 'active':'');
+								}
+                elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php'? 'active':'');
+								}
                 elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php'? 'active':'');
 								}
@@ -430,6 +436,12 @@ include('inc/dbconnection.php');?>
 								}
                 elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'? 'show':'');
+								}
+                elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php'? 'show':'');
+								}
+                elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php'? 'show':'');
 								}
                 elseif(basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php'? 'show':'');
@@ -496,7 +508,17 @@ include('inc/dbconnection.php');?>
                      echo (basename($_SERVER['SCRIPT_FILENAME']) == 'achivement.php'? 
         						'active':'');}?>">
                       <a href="viewACH.php">
-                        <span class="sub-item">Achievements / Milestones</span>
+                        <span class="sub-item">Achievements</span>
+                      </a>
+                    </li>
+                    <li class="<?php if(basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php'){
+                     echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewMIL.php'? 
+                     'active':''); 
+                    }else if(basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php'){
+                     echo (basename($_SERVER['SCRIPT_FILENAME']) == 'milestone.php'? 
+        						'active':'');}?>">
+                      <a href="viewMIL.php">
+                        <span class="sub-item">Milestones</span>
                       </a>
                     </li>
                     <li class="<?php if(basename($_SERVER['SCRIPT_FILENAME']) == 'viewFUT.php'){
@@ -999,15 +1021,15 @@ include('inc/dbconnection.php');?>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item <?php 
-                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php') {
-                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php'? 'active':'');
-                      }?>">
+              <!-- <li class="nav-item <?php 
+                      // if (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php') {
+                      //   echo (basename($_SERVER['SCRIPT_FILENAME']) == 'faq.php'? 'active':'');
+                      //}?>">
                 <a href="faq.php">
                 <i class="fas fa-question"></i>
                   <span class="sub-item"><p>FAQ</p></span>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'feedback.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'feedback.php'? 'active':'');

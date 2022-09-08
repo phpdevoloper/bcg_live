@@ -38,6 +38,7 @@ include('inc/dbconnection.php');
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
+                            <a href="archive_recruitments.php" class="archive_btn float-right">Archive <i class="fa fa-archive"></i> </a><br><br>
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead class="rec_thead">
                                     <tr>
@@ -49,19 +50,22 @@ include('inc/dbconnection.php');
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
-                                <?php foreach($result as $value){ 
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $i;?></td>
-                                        <td><?php echo $value['rect_title'];?></td>
-                                        <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
-                                        <td><?php echo $tt = date("d-m-Y", strtotime($value['last_date_to_apply']));?></td>
-                                        <td><a href="uploads/recruitment/<?php echo $value['upload_advt'];?>" target="_blank">
-                                        <img src="images/pdf.png" class="ficon" alt=""> View
-                                        </a></td>
-                                        <!-- <td><?php //$directory_s = $value['doc_attachment'];
-                                        //echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td> -->
-                                <?php $i++; }?>
+                                <?php 
+                                if (is_array($result) || is_object($result)){
+                                    foreach($result as $value){ 
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i;?></td>
+                                            <td><?php echo $value['rect_title'];?></td>
+                                            <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
+                                            <td><?php echo $tt = date("d-m-Y", strtotime($value['last_date_to_apply']));?></td>
+                                            <td><a href="uploads/recruitment/<?php echo $value['upload_advt'];?>" target="_blank">
+                                            <img src="images/pdf.png" class="ficon" alt=""> View(<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)
+                                            </a></td>
+                                            <!-- <td><?php //$directory_s = $value['doc_attachment'];
+                                            //echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td> -->
+                                    <?php $i++; } 
+                                }?>
                                     </tr>
                                 </tbody>
                             </table>

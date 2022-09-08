@@ -18,7 +18,7 @@ include('inc/header.php');?>
                             <i class="flaticon-right-arrow"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="achivement.php">Achivement</a>
+                            <a href="milestone.php">Milestones</a>
                         </li>
                     </ul>
                 </div>
@@ -27,7 +27,7 @@ include('inc/header.php');?>
               <div class="row">
                 <div class="col-md-12 col-lg-12">
                   <div class="form-group">
-                    <input type="hidden" name="content_id" id="content_id" value="ACH">
+                    <input type="hidden" name="content_id" id="content_id" value="MILE">
                     <textarea class="form-control" id="revenue" rows="5">
                     </textarea>
                   </div>
@@ -36,7 +36,7 @@ include('inc/header.php');?>
             </div>
             <div class="card-action">
               <button class="btn btn-success updatehis">Submit</button>
-              <a href="viewACH.php" class="btn btn-danger">Cancel</a>
+              <a href="viewMIL.php" class="btn btn-danger">Cancel</a>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ include('inc/header.php');?>
   </div>
 </div>
 <?php include('inc/footer.php');  
- $sql    = "SELECT * FROM about_us WHERE content_id = 'ACH'";
+ $sql    = "SELECT * FROM about_us WHERE content_id = 'MILE'";
  $res    = pg_query($db,$sql);
  $result = pg_fetch_assoc($res);
 ?>

@@ -51,12 +51,27 @@ include('inc/dbconnection.php');
                                                 <?php echo $value['sub_rti_name'];?>
                                                 </a>
                                             </h5>
-                                        <?php } else { ?>
-                                            <h5 class="mb-0">
-                                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
-                                                <?php echo $value['sub_rti_name'];?>
-                                                </a>
-                                            </h5>
+                                        <?php } else { 
+                                            if($value['file_type'] == 'pdf'){
+                                            ?>
+                                                <h5 class="ex">
+                                                    <a href="uploads/RTI/<?php echo $value['rti_upload'];?>">
+                                                    <?php echo $value['sub_rti_name'];?>
+                                                    </a>
+                                                </h5>
+                                            <?php  }else if($value['file_type'] == 'Url'){?>
+                                                <h5 class="exe">
+                                                    <a href="<?php echo $value['rti_upload'];?>">
+                                                    <?php echo $value['sub_rti_name'];?>
+                                                    </a>
+                                                </h5>
+                                            <?php }else{?>
+                                                <h5 class="mb-0">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
+                                                    <?php echo $value['sub_rti_name'];?>
+                                                    </a>
+                                                </h5>
+                                            <?php } ?>
                                     <?php } ?>
                                     </div>
                                     <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">

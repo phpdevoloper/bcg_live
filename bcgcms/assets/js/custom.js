@@ -890,48 +890,7 @@ $(document).ready(function () {
     $("#Service_to").val(service_to);
   });
 
-  // Recruitment Add
-  $("#add_recruitment").submit(function (e) {
-    e.preventDefault();
-    var data = new FormData(this);
-    swal({
-      title: "Are you sure?",
-      text: "You wants to Add Notification!",
-      icon: "warning",
-      buttons: ["Cancel!", "Yes"],
-      dangerMode: true,
-    }).then(function (isConfirm) {
-      if (isConfirm) {
-        $.ajax({
-          method: "POST",
-          url: "addRecruitmentAjax.php",
-          data: data,
-          contentType: false,
-          processData: false,
-          success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Updated!",
-                text: "Updated Successfully!",
-                icon: "success",
-              }).then(function () {
-                location.reload();
-              });
-            } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                location.reload();
-              });
-            }
-          },
-        });
-      } else {
-        swal("Cancelled", "Done :)", "error");
-      }
-    });
-  });
+  
 
   $("#add-row").DataTable({
     lengthMenu: [
@@ -2439,53 +2398,5 @@ $(document).ready(function () {
     });
   });
 
-  $("#add_slider").validate({
-    rules: {
-      slider_title: {
-        required: true,
-      },
-      slider_upload: {
-        required: true,
-      },
-    },
-    submitHandler: function (form, e) {
-      swal({
-        title: "Are you sure?",
-        text: "You wants to add new slider!",
-        icon: "warning",
-        buttons: ["No, cancel it!", "Yes, I am sure!"],
-        dangerMode: true,
-      }).then(function (isConfirm) {
-        if (isConfirm) {
-          $.ajax({
-            method: "POST",
-            url: "sliderAjax.php",
-            data: new FormData($("#add_slider")[0]),
-            contentType: false,
-            processData: false,
-            success: function (response) {
-              if (response == 1) {
-                swal({
-                  title: "Added!",
-                  text: "New Slider Added successfully!",
-                  icon: "success",
-                }).then(function () {
-                  location.reload();
-                });
-              } else {
-                swal({
-                  title: "Something went wrong!",
-                  icon: "error",
-                }).then(function () {
-                  location.reload();
-                });
-              }
-            },
-          });
-        } else {
-          swal("Cancelled", "Done :)", "error");
-        }
-      });
-    },
-  });
+  
 });

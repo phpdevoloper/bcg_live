@@ -5,6 +5,13 @@
 	include('inc/header.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
 ?>
+<style type="text/css">
+    #blah{
+        float: right;
+        width: 67%;
+        height: 153px;
+    }
+</style>
 <div class="main-panel">
     <div class="content">
         <div class="page-inner">
@@ -152,10 +159,12 @@
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
-                                                                        data-whats_id="<?php echo $value['slider_id'];?>"
-                                                                        data-whats_title="<?php echo $value['slider_title'];?>"
-                                                                        data-whats_desc="<?php echo $value['slider_caption'];?>"
-                                                                        data-what_file="<?php echo $value['slider_img'];?>"
+                                                                        data-slider_id="<?php echo $value['slider_id'];?>"
+                                                                        data-slider_title="<?php echo $value['slider_title'];?>"
+                                                                        data-slider_caption="<?php echo $value['slider_caption'];?>"
+                                                                        data-slider_img="<?php echo $value['slider_img'];?>"
+                                                                        data-slider_status="<?php echo $value['slider_status'];?>"
+                                                                        data-slider_type="<?php echo $value['slider_type'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>
@@ -175,47 +184,76 @@
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form id="edit_whats_new">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Title</label>
-                                                                                            <input type="text" class="form-control" name="whats_title" id="What_new_title">
-                                                                                            <input type="hidden" class="form-control" name="whats_id" id="Whats_id">
+                                                                        <form id="edit_slider">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group form-inline">
+                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Slider Title</label>
+                                                                                        <div class="col-md-8 p-0">
+                                                                                            <input type="text" class="form-control input-full" name="slider_title" id="Slider_title">
+                                                                                            <input type="hidden" class="form-control input-full" name="slider_id" id="Slider_id">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Description</label>
-                                                                                            <textarea class="form-control" name="description" id="Whats_desc" cols="30" rows="3"></textarea>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group form-inline">
+                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Caption</label>
+                                                                                        <div class="col-md-8 p-0">
+                                                                                            <input type="text" class="form-control input-full" name="slider_caption" id="Slider_caption">
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group">
-                                                                                            <label for="qualifi">Upload Document</label>&nbsp;<label for="" style="color:red !important;">(*PDF only allowed)</label>
-                                                                                            <input type="file" class="form-control" name="what_file" id="   " accept="application/pdf,application/vnd.ms-excel">
-                                                                                            <label id="file_lable" style="color:green !important;"></label>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group form-inline">
+                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Slider Type</label>
+                                                                                        <div class="col-md-8 p-0">
+                                                                                            <select class="form-control input-full" name="slider_type" id="Slider_type">
+                                                                                                <option value="B">Banner Slider</option>
+                                                                                                <option value="F">Footer Slider</option>
+                                                                                            </select>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12">
-                                                                                        <div class="form-group">
-                                                                                            <label id="What_file_view"></label>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group form-inline">
+                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
+                                                                                        <div class="col-md-8 p-0">
+                                                                                            <input type="file" class="form-control input-full" name="slider_upload" id="Slider_upload" accept="image/*">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <img id="blah" src="images/no_img.png" alt="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group form-inline">
+                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
+                                                                                        <div class="col-md-8 p-0">
+                                                                                            <select class="form-control input-full" name="slider_status" id="Slider_status">
+                                                                                                <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                                                $exe = pg_query($db,$sql);
+                                                                                                $result = pg_fetch_all($exe);
+                                                                                                foreach ($result as $f_status) {?>
+                                                                                                <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                                                    <?php } ?>
+                                                                                            </select>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                                                    <button type="submit" id="addRowButton"
-                                                                                        class="btn btn-primary">Submit</button>
-                                                                                    <button type="button" class="btn btn-danger"
-                                                                                        data-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </form>
+                                                                            </div>
+                                                                            <div class="modal-footer" style="justify-content: center !important;">
+                                                                                <button type="submit" id="addRowButton"
+                                                                                    class="btn btn-primary">Submit</button>
+                                                                                <button type="button" class="btn btn-danger"
+                                                                                    data-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -240,18 +278,31 @@
 }else{
   header("Location:index.php");
 }?>
-<style>
-    #blah{
-        float: right;
-        width: 75%;
-        height: 153px;
+<script type="application/javascript">
+    $(document).ready(function(){
+        slider_upload.onchange = evt => {
+      const [file] = slider_upload.files
+      if (file) {
+        blah.src = URL.createObjectURL(file)
+      }
     }
-</style>
-<script>
-    slider_upload.onchange = evt => {
-  const [file] = slider_upload.files
-  if (file) {
-    blah.src = URL.createObjectURL(file)
-  }
-}
+    $(document).on("click", ".get_what", function (e) {
+        e.preventDefault();
+        var slider_id = $(this).attr("data-slider_id");
+        var slider_title = $(this).attr("data-slider_title");
+        var slider_caption = $(this).attr("data-slider_caption");
+        var slider_img = $(this).attr("data-slider_img");
+        var slider_status = $(this).attr("data-slider_status");
+        var slider_type = $(this).attr("data-slider_type");
+       
+        $("#Slider_id").val(slider_id);
+        $("#Slider_title").val(slider_title);
+        $("#Slider_caption").val(slider_caption);
+        $("#Slider_type").val(slider_type);
+        $("#blah").attr("src",'uploads/Sliders/'+slider_img);//val(Slider_type);
+        $("#Slider_status").val(slider_status);
+    });
+
+    });
+
 </script>

@@ -280,3 +280,8 @@ a.btn.btn-primary.btn-round.ml-auto {
   padding-right: 10px;
   color: #0d5abd;
 }
+
+.btd {
+  right: 176px;
+  position: absolute;
+}
