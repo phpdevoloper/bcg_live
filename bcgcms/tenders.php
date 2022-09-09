@@ -119,6 +119,8 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
+                                <a href="archived_tenders.php" class="btn btn-secondary float-right mb-3"><i class="fa fa-archive"></i>&nbsp;Closed Tenders</a>
+                                </button>
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -138,12 +140,11 @@
                                                 </thead>
                                                 <tbody> 
                                                     <?php $sql = "SELECT * FROM tenders"; 
-                                                          $res = pg_query($db, $sql);
-                                                          $result = pg_fetch_all($res);
-                                                          $i=1;
-                                                          foreach ($result as $value) {
-                                                    ?>
-
+                                                    $res = pg_query($db, $sql);
+                                                    $result = pg_fetch_all($res);
+                                                    $i=1;
+                                                    foreach ($result as $value) {
+                                                    if ($value['date_of_closed'] >= $date = date('Y-m-d')) { ?>
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['tender_title'];?></td>
@@ -169,100 +170,101 @@
                                                                     ></i>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header no-bd">
-                                                                            <h5 class="modal-title">
-                                                                                <span class="fw-mediumbold">
-                                                                                    Recruitment
-                                                                                </span>
-                                                                            </h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">×</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form id="edit_recruitment">
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <input type="text" class="form-control input-full" name="tender_title" id="Tender_title">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <input type="text" class="form-control input-full" name="advt_no" id="Advt_no">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Date of Announcement</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <input type="date" class="form-control input-full" name="data_announce" id="Data_announce">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Closed Date</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <input type="date" class="form-control input-full" name="closed_date" id="Cosed_Date">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Upload Advt.Notification</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
-                                                                                                <label for="inlineinput" class="col-form-label" id="upload_document"></label>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group form-inline">
-                                                                                            <label for="inlineinput" class="col-md-5 col-form-label">Tender Status</label>
-                                                                                            <div class="col-md-7 p-0">
-                                                                                                <select class="form-control input-full" name="tender_status" id="Tender_status">
-                                                                                                    <option value="Active">Active</option>
-                                                                                                    <option value="Closed" selected>Closed</option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                                                    <button type="submit" id="addRowButton"
-                                                                                        class="btn btn-primary">Submit</button>
-                                                                                    <button type="button" class="btn btn-danger"
-                                                                                        data-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </td>
                                                     </tr>
-                                                    <?php $i++; } ?>
+                                                    <?php  }
+                                                    $i++; }?>
                                                 </tbody>
+                                                <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header no-bd">
+                                                                <h5 class="modal-title">
+                                                                    <span class="fw-mediumbold">
+                                                                        Recruitment
+                                                                    </span>
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="edit_recruitment">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <input type="text" class="form-control input-full" name="tender_title" id="Tender_title">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <input type="text" class="form-control input-full" name="advt_no" id="Advt_no">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Date of Announcement</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <input type="date" class="form-control input-full" name="data_announce" id="Data_announce">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Closed Date</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <input type="date" class="form-control input-full" name="closed_date" id="Cosed_Date">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Upload Advt.Notification</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
+                                                                                    <label for="inlineinput" class="col-form-label" id="upload_document"></label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-5 col-form-label">Tender Status</label>
+                                                                                <div class="col-md-7 p-0">
+                                                                                    <select class="form-control input-full" name="tender_status" id="Tender_status">
+                                                                                        <option value="Active">Active</option>
+                                                                                        <option value="Closed" selected>Closed</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer" style="justify-content: center !important;">
+                                                                        <button type="submit" id="addRowButton"
+                                                                            class="btn btn-primary">Submit</button>
+                                                                        <button type="button" class="btn btn-danger"
+                                                                            data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </table>
                                         </div>
                                     </div>

@@ -33,8 +33,6 @@ include('inc/dbconnection.php');
                     <li dir="ltr" style="list-style-type: disc; font-size: 12pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;" aria-level="1"><span style="font-family: Arial;"><span style="white-space: pre-wrap;">Developed Green Belt in the BCG campus.</span></span></li>
                 </ul>
                 <p>&nbsp;</p>
-                <p><strong><span style="font-family: Arial;"><span style="white-space: pre-wrap;">Milestones:</span></span></strong></p>
-                <p>&nbsp;</p>
             </div>
         </div>
     </div>

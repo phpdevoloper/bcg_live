@@ -82,7 +82,7 @@ include('inc/dbconnection.php');
             dangerMode: true,
           }).then(function (isConfirm) {
             if (isConfirm) {
-                window.open("http://online.gov.in", "_blank");
+                window.open("https://rtionline.gov.in/", "_blank");
             } else {
               swal("Cancelled", "Done :)", "error");
             }

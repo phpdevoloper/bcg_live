@@ -236,8 +236,16 @@
                       <li>
                         <a href="production_chart.php" class="list_a">Production Process</a>
                       </li>
-                      <li>
-                        <a href="supply_vaccine.php" class="list_a">Supply of BCG Vaccine</a>
+                      <li class="dropdown">
+                        <a href="supply_vaccine.php" class="nav-link">Supply of BCG Vaccine</a>
+                        <ul class="dropdown-nav">
+                        <li>
+                          <a href="tenders.php" class="list_a">Open Tenders</a>
+                        </li>
+                        <li>
+                          <a href="closed_tenders.php" class="list_a">Closed Tenders</a>
+                        </li>
+                      </ul>
                       </li>
                     </ul>
                   </li>
@@ -249,7 +257,7 @@
                         <a href="tenders.php" class="list_a">Open Tenders</a>
                       </li>
                       <li>
-                        <a href="tenders.php" class="list_a">Closed Tenders</a>
+                        <a href="closed_tenders.php" class="list_a">Closed Tenders</a>
                       </li>
                     </ul>
                   </li>

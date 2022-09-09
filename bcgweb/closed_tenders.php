@@ -52,8 +52,12 @@ include('inc/dbconnection.php');
                                     ?>
                                     <tr>
                                         <td><?php echo $i;?></td>
-                                        <td><a href="<?php echo $value['tenders_notice'];?>"><?php echo $value['tender_title'];?></a></td>
+                                        <td><?php echo $value['tender_title'];?>    </td>
                                         <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
+                                        <td><?php echo $dt = date("d-m-Y", strtotime($value['date_of_closed']));?></td>
+                                        <td><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank">   
+                                          <img src="images/pdf.png" class="ficon" alt="">View(<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a>
+                                        </td>
                                 <?php }?>
                                     </tr>
                                 </tbody>

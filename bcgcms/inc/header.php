@@ -903,7 +903,9 @@ include('inc/dbconnection.php');?>
               <li class="nav-item <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php'? 'active':'');
-                      }?>">
+                      }else if (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php'? 'active':'');
+                      } ?>">
                 <a data-toggle="collapse" href="#tenders">
                   <i class="far fa-chart-bar"></i>
                   <p>TENDERS</p>
@@ -912,7 +914,10 @@ include('inc/dbconnection.php');?>
                 <div class="collapse <?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
                         echo (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php'? 'show':'');
-                      }?>" id="tenders">
+                      }else if (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php'? 'show':'');
+                      }
+                      ?>" id="tenders">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
                       if (basename($_SERVER['SCRIPT_FILENAME']) == 'tenders.php') {
@@ -922,8 +927,11 @@ include('inc/dbconnection.php');?>
                         <span class="sub-item">Active Tenders</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="#">
+                    <li class="<?php 
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'archived_tenders.php'? 'active':'');
+                      }?>">
+                      <a href="archived_tenders.php">
                         <span class="sub-item">Closed Tenders</span>
                       </a>
                     </li>

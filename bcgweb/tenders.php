@@ -37,7 +37,7 @@ include('inc/dbconnection.php');
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
-                            <a href="closed_tenders.php" class="closed_tender float-right">Closed Tenders<i class="fa fa-archive"></i> </a><br><br>
+                            <a href="closed_tenders.php" class="closed_tender float-right">Closed Tenders &nbsp;<i class="fa fa-archive"></i> </a><br><br>
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>

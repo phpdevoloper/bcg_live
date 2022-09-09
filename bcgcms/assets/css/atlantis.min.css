@@ -7539,8 +7539,8 @@ label.error {
   border-color: #1572e8 !important;
 }
 .btn-secondary {
-  background: #6861ce !important;
-  border-color: #6861ce !important;
+  background: gray !important;
+  border-color: gray !important;
 }
 .btn-secondary:disabled,
 .btn-secondary:focus,

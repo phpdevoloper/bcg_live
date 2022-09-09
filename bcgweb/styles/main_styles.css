@@ -3060,7 +3060,7 @@ i.fa-arrow-down i {
   padding: 6px 24px;
 }
 .closed_tender {
-  background-color: #740819;
+  background-color: gray;
   color: #fff;
   font-size: 14px;
   font-weight: 900;

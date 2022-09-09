@@ -18,12 +18,12 @@ include('inc/dbconnection.php');
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class=""><a href="#">Document</a></li>
-            <li class=""><a href="annual_report.php">Annual Report</a></li>
+            <li class=""><a href="annual_report.php">Annual Reports</a></li>
         </ul>
     </section>
     <div class="container">
         <div class="section">
-            <h3 class="text-center txt" style="color: #299adc;">Annual Report</h3>
+            <h3 class="text-center txt" style="color: #299adc;">Annual Reports</h3>
         </div>
         <div class="row">
             <!-- About Content -->
@@ -43,6 +43,7 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <th>S.No</th>
                                         <th>Title</th>
+                                        <th>Year</th>
                                         <th>Documents</th>
                                     </tr>
                                 </thead>
@@ -51,10 +52,11 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <td><?php echo $value['doc_id'];?></td>
                                         <td><?php echo $value['doc_title'];?></td>
-                                        <td><a href="uploads/document/<?php echo $value['doc_attachment'];?>" target="_blank">
-                                        <img src="images/pdf.png" class="ficon" alt=""> View(<?php $directory_s = $value['doc_attachment'];
-                                        echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a></td>
-                                        <td></td>
+                                        <td><?php echo $value['year_of_report'];?></td>
+                                        <td><a href="uploads/Documents/<?php echo $value['doc_attachment'];?>" target="_blank">
+                                        <img src="images/pdf.png" class="ficon" alt=""> View(<?php
+                                        echo $file_size = round($value['file_size'] / 1024, 2).'KB';
+                                        ?>)</a></td>
                                     </tr>
                                     <?php }?>
                                 </tbody>

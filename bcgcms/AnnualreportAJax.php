@@ -72,17 +72,17 @@
 			// echo json_encode($errors);
 		}
 		
-		if($file_size > 2097152){
-			$errors['size']='File size must be excately 2 MB';
-			// echo json_encode($errors);
-		}
+		// if($file_size > 2097152){
+		// 	$errors['size']='File size must be excately 2 MB';
+		// 	// echo json_encode($errors);
+		// }
 
 		// Check if image file is a actual image or fake image
 		if(empty($errors) == true) {
 			if (move_uploaded_file($_FILES["report_file"]["tmp_name"], $target_dir.$name.$_FILES["report_file"]["name"])) {
-				$sql = "INSERT INTO documents_bcg(doc_title,doc_attachment,doc_description,doc_cate,file_size)
+				$sql = "INSERT INTO documents_bcg(doc_title,doc_attachment,doc_description,doc_cate,file_size,year_of_report)
 				VALUES
-				('".$_POST['report_title']."','$target_file','".$_POST['r_description']."','".$_POST['report_cate']."','$file_size')";
+				('".$_POST['report_title']."','$target_file','".$_POST['r_description']."','".$_POST['report_cate']."','$file_size','".$_POST['year_of_report']."')";
 				// echo $sql;exit;  
 				$ret = pg_query($db, $sql);
 				if(!$ret) {

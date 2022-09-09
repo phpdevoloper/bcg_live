@@ -70,6 +70,27 @@ if(isset($_SESSION['user'])){
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
+                                                            <label for="qualifi">Year of Report
+                                                            <span style="color:#ff0000">*</span>
+                                                            </label>
+                                                            <select class="form-control" name="year_of_report" id="year_of_report">
+                                                                <option value="">Please select the year of report</option>
+                                                                <?php 
+                                                                $a = 2016;
+                                                                $b = 2017;
+                                                                for ($i=0; $i <= 10 ; $i++) { 
+                                                                    $a = $a + 1;
+                                                                    $b = $b + 1;
+                                                                    ?>
+                                                                    <option value="<?php echo $a.'-'.$b;?>"><?php echo $a .'-'.$b;?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
                                                             <label for="qualifi">Upload Document
                                                             <span style="color:#ff0000">*</span>
                                                             </label>&nbsp;<label for="" style="color:red !important;">(PDF only allowed)</label>
@@ -99,7 +120,8 @@ if(isset($_SESSION['user'])){
                                                     <tr role="row">
                                                         <th>S.No</th>
                                                         <th>Title</th>
-                                                        <th>File</th>
+                                                        <th>Year</th>
+                                                        <th>Document</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -118,13 +140,23 @@ if(isset($_SESSION['user'])){
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
                                                                     data-target="#editRowModal" title=""
-                                                                    class="btn btn-link btn-primary btn-lg"
+                                                                    class="btn-primary"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_report"
                                                                     data-report_id      = "<?php echo $value['doc_id'];?>"
                                                                     data-report_title   = "<?php echo $value['doc_title'];?>"
                                                                     data-report_desc   = "<?php echo $value['doc_description'];?>"
                                                                     data-file_attach  = "<?php echo $value['doc_attachment'];?>"
+                                                                    ></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="form-button-action">
+                                                                <button type="button" data-toggle="modal"
+                                                                    class="btn-danger"
+                                                                    data-target="#editRowModal" title=""
+                                                                    data-original-title="Edit Achivement">
+                                                                    <i class="fa fa-trash get_report"
+                                                                    data-report_id      = "<?php echo $value['doc_id'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>
@@ -175,6 +207,27 @@ if(isset($_SESSION['user'])){
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
+                                                                        <label for="qualifi">Year of Report
+                                                                        <span style="color:#ff0000">*</span>
+                                                                        </label>
+                                                                        <select class="form-control" name="year_of_report" id="year_of_report">
+                                                                            <option value="">Please select the year of report</option>
+                                                                            <?php 
+                                                                            $a = 2016;
+                                                                            $b = 2017;
+                                                                            for ($i=0; $i <= 10 ; $i++) { 
+                                                                                $a = $a + 1;
+                                                                                $b = $b + 1;
+                                                                                ?>
+                                                                                <option value="<?php echo $a.'-'.$b;?>"><?php echo $a .'-'.$b;?></option>
+                                                                            <?php } ?>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
                                                                         <label for="qualifi">Upload Document
                                                                         <span style="color:#ff0000">*</span>
                                                                         </label>&nbsp;<label for="" style="color:red !important;">(PDF only allowed)</label>
@@ -207,3 +260,146 @@ if(isset($_SESSION['user'])){
 <?php include('inc/footer.php'); }else{
     header("Location:index.php");
     }?>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $("#add_annual_report").validate({
+            rules: {
+            report_title: {
+                required: true,
+            },
+            r_description: {
+                required: true,
+            },
+            report_file: {
+                required: true,
+            },
+            },
+            submitHandler: function (form, e) {
+            swal({
+                title: "Are you sure?",
+                text: "You wants to add new Report!",
+                icon: "warning",
+                buttons: ["No, cancel it!", "Yes, I am sure!"],
+                dangerMode: true,
+            }).then(function (isConfirm) {
+                if (isConfirm) {
+                $.ajax({
+                    method: "POST",
+                    url: "AnnualreportAjax.php",
+                    data: new FormData($("#add_annual_report")[0]),
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                    var res = $.parseJSON(response);
+                    if (
+                        typeof res.extension != "undefined" &&
+                        res.extension !== null
+                    ) {
+                        swal({
+                        title: "Warning!",
+                        text: res.extension,
+                        icon: "warning",
+                        });
+                    } else if (typeof res.size != "undefined" && res.size !== null) {
+                        swal({
+                        title: "Warning!",
+                        text: res.size,
+                        icon: "warning",
+                        });
+                    } else if (response == 1) {
+                        swal({
+                        title: "Added!",
+                        text: "New Report added and uploaded successfully!",
+                        icon: "success",
+                        }).then(function () {
+                        location.reload();
+                        });
+                    } else {
+                        swal({
+                        title: "Something went wrong!",
+                        icon: "error",
+                        }).then(function () {
+                        location.reload();
+                        });
+                    }
+                    },
+                });
+                } else {
+                swal("Cancelled", "Done :)", "error");
+                }
+            });
+            },
+        });
+
+        //Edit Annual Report Ajax
+        $("#edit_annual_report").submit(function (e) {
+            e.preventDefault();
+            var data = new FormData(this);
+            swal({
+            title: "Are you sure?",
+            text: "You wants to Update!",
+            icon: "warning",
+            buttons: ["No, cancel it!", "Yes, I am sure!"],
+            dangerMode: true,
+            }).then(function (isConfirm) {
+            if (isConfirm) {
+                $.ajax({
+                method: "POST",
+                url: "AnnualreportAjax.php",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    var res = $.parseJSON(response);
+                    console.log(res);
+                    if (res.extension != "") {
+                    swal({
+                        title: "Warning!",
+                        text: res.extension,
+                        icon: "warning",
+                    });
+                    } else if (res.size != "") {
+                    swal({
+                        title: "Warning!",
+                        text: res.size,
+                        icon: "warning",
+                    });
+                    } else if (response == 1) {
+                    swal({
+                        title: "Added!",
+                        text: "New Report added and uploaded successfully!",
+                        icon: "success",
+                    }).then(function () {
+                        location.reload();
+                    });
+                    } else {
+                    swal({
+                        title: "Something went wrong!",
+                        icon: "error",
+                    }).then(function () {
+                        location.reload();
+                    });
+                    }
+                },
+                });
+            } else {
+                swal("Cancelled", "Done :)", "error");
+            }
+            });
+        });
+        // Edit Annual Report
+        $(".get_report").on("click", function () {
+            var report_id = $(this).attr("data-report_id");
+            var report_title = $(this).attr("data-report_title");
+            var report_desc = $(this).attr("data-report_desc");
+            var report_attach = $(this).attr("data-file_attach");
+            console.log(report_desc);
+
+            $("#Report_id").val(report_id);
+            $("#Report_titl").val(report_title);
+            $("#R_Desc").text(report_desc);
+            $("#Report_attach").text(report_attach);
+        });
+    });
+
+</script>
