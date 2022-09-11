@@ -1292,7 +1292,7 @@ a img {
 
 .main_nav ul li {
   display: inline-block;
-}
+} 
 ul.tittle_bcg {
   font-size: 11px;
   padding-top: 17px;
@@ -1429,9 +1429,9 @@ li.lines {
 .dropdown .list_a:hover {
   color: white;
 }
-.dropdown-nav ul li:not(:first-child) {
+/* .dropdown-nav ul li:not(:first-child) {
   margin-left: 26px;
-}
+} */
 .dropdown ul li:hover {
   background-color: #3bc053;
 }
@@ -3051,7 +3051,7 @@ i.fa-arrow-down i {
   padding-left: 93px;
 }
 .archive_btn {
-  background-color: #05c2ff;
+  background-color: #636666;
   color: #fff;
   font-size: 14px;
   font-weight: 900;

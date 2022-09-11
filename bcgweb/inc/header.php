@@ -236,16 +236,16 @@
                       <li>
                         <a href="production_chart.php" class="list_a">Production Process</a>
                       </li>
-                      <li class="dropdown">
-                        <a href="supply_vaccine.php" class="nav-link">Supply of BCG Vaccine</a>
-                        <ul class="dropdown-nav">
-                        <li>
-                          <a href="tenders.php" class="list_a">Open Tenders</a>
-                        </li>
-                        <li>
-                          <a href="closed_tenders.php" class="list_a">Closed Tenders</a>
-                        </li>
-                      </ul>
+                      <li class="dropdown drop">
+                        <a href="supply_vaccine.php">Supply of BCG Vaccine <i class="fa fa-chevron-right"></i> </a>
+                          <ul class="dropdown-nav-1">
+                            <li>
+                              <a href="tenders.php" class="list_a">FY 2021-2022</a>
+                            </li>
+                            <li>
+                              <a href="closed_tenders.php" class="list_a">FY 2020-2021</a>
+                            </li>
+                          </ul>
                       </li>
                     </ul>
                   </li>

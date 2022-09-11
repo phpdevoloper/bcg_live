@@ -4,7 +4,7 @@
 
 	if(isset($_POST['report_id']) && ($_POST['report_id'] != '')){
         if ($_FILES['report_file']['name'] == '') {
-            // var_dump($_POST);die;	
+            var_dump($_POST);die;	
 			$sql = "select * from documents_bcg where doc_id = '".$_POST['report_id']."'";
 			$ret = pg_query($db, $sql); 
 			$data = pg_fetch_assoc($ret);
@@ -12,7 +12,13 @@
 			$query = "UPDATE documents_bcg SET doc_title='".$_POST['report_title']."',doc_attachment ='".$data['doc_attachment']."',
 			doc_description ='".$_POST['r_description']."'  WHERE doc_id='".$_POST['report_id']."'";
 			$exc = pg_query($db,$query);
-            echo 1;
+			if(!$exc) {
+				echo pg_last_error($db);
+				exit;
+			}else{
+				echo 1;
+			}
+            
 			pg_close($db);
 		}else {
 			$target_dir = "uploads/Documents/";
@@ -27,21 +33,26 @@
 
 			$extensions= array("pdf");
       
-			if(in_array($file_ext,$imageFileType)=== false){
-				$errors[]="extension not allowed, please choose a JPEG or PNG file.";
+			if(in_array($imageFileType,$extensions)=== false){
+				$errors['extension']="extension not allowed, please choose a JPEG or PNG file.";
 			}
 			
-			if($file_size > 2097152){
-				$errors[]='File size must be excately 2 MB';
-			}
+			// if($file_size > 2097152){
+			// 	$errors['extension']='File size must be excately 2 MB';
+			// }
 			
 			// Check if image file is a actual image or fake image
 			if(empty($errors) == true) {
 				if (move_uploaded_file($_FILES["report_file"]["tmp_name"], $target_dir.$name.$_FILES["report_file"]["name"])) {
-					echo 1;
 					$query = "UPDATE documents_bcg SET doc_title='".$_POST['report_title']."',doc_attachment ='$target_file',
-					doc_description ='".$_POST['r_description']."' file_size = '$file_size'  WHERE doc_id='".$_POST['report_id']."'";
+					doc_description ='".$_POST['r_description']."',file_size = '$file_size',year_of_report='".$_POST['year_of_report']."'  WHERE doc_id='".$_POST['report_id']."'";
 					$ret = pg_query($db, $query);
+					if(!$ret) {
+						echo pg_last_error($db);
+						exit;
+					}else{
+						echo 1;
+					}
 					pg_close($db);
 				} else {
 					echo "Sorry, there was an error uploading your file.";

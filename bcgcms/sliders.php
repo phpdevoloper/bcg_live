@@ -150,13 +150,18 @@
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['slider_title'];?></td>
-                                                        <td class="sorting_1"><img class="ficon" src="uploads/Sliders/<?php echo $value['slider_img'];?>" alt=""></a></td>
+                                                        <td class="sorting_1"><a href="#"
+                                                            data-toggle="modal"
+                                                            data-target="#previewModal" title=""
+                                                            class="btn btn-link btn-primary btn-lg"
+                                                            data-original-title="Edit Achivement"
+                                                            ><img id="myImg" class="ficon" src="uploads/Sliders/<?php echo $value['slider_img'];?>" alt="No image"></a></td>
                                                         <td class="sorting_1"><?php echo $value['faq_status_title'];?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
                                                                     data-target="#editRowModal" title=""
-                                                                    class="btn btn-link btn-primary btn-lg"
+                                                                    class="btn-primary"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
                                                                         data-slider_id="<?php echo $value['slider_id'];?>"
@@ -168,100 +173,127 @@
                                                                     ></i>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header no-bd">
-                                                                            <h5 class="modal-title">
-                                                                                <span class="fw-mediumbold">
-                                                                                    What's</span>
-                                                                                <span class="fw-light">
-                                                                                    New Edit
-                                                                                </span>
-                                                                            </h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">×</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                        <form id="edit_slider">
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group form-inline">
-                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Slider Title</label>
-                                                                                        <div class="col-md-8 p-0">
-                                                                                            <input type="text" class="form-control input-full" name="slider_title" id="Slider_title">
-                                                                                            <input type="hidden" class="form-control input-full" name="slider_id" id="Slider_id">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group form-inline">
-                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Caption</label>
-                                                                                        <div class="col-md-8 p-0">
-                                                                                            <input type="text" class="form-control input-full" name="slider_caption" id="Slider_caption">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group form-inline">
-                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Slider Type</label>
-                                                                                        <div class="col-md-8 p-0">
-                                                                                            <select class="form-control input-full" name="slider_type" id="Slider_type">
-                                                                                                <option value="B">Banner Slider</option>
-                                                                                                <option value="F">Footer Slider</option>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group form-inline">
-                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
-                                                                                        <div class="col-md-8 p-0">
-                                                                                            <input type="file" class="form-control input-full" name="slider_upload" id="Slider_upload" accept="image/*">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <img id="blah" src="images/no_img.png" alt="">
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="form-group form-inline">
-                                                                                        <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
-                                                                                        <div class="col-md-8 p-0">
-                                                                                            <select class="form-control input-full" name="slider_status" id="Slider_status">
-                                                                                                <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
-                                                                                                $exe = pg_query($db,$sql);
-                                                                                                $result = pg_fetch_all($exe);
-                                                                                                foreach ($result as $f_status) {?>
-                                                                                                <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
-                                                                                                    <?php } ?>
-                                                                                            </select>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="modal-footer" style="justify-content: center !important;">
-                                                                                <button type="submit" id="addRowButton"
-                                                                                    class="btn btn-primary">Submit</button>
-                                                                                <button type="button" class="btn btn-danger"
-                                                                                    data-dismiss="modal">Close</button>
-                                                                            </div>
-                                                                        </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="form-button-action">
+                                                                <button type="button" title=""
+                                                                    class="btn-danger"
+                                                                    data-original-title="Edit Achivement">
+                                                                    <i class="fa fa-trash get_what"
+                                                                        data-slider_id="<?php echo $value['slider_id'];?>"
+                                                                    ></i>
+                                                                </button>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     <?php $i++; } ?>
                                                 </tbody>
+                                                <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header no-bd">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <img id="previw" src="images/no_img.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header no-bd">
+                                                                <h5 class="modal-title">
+                                                                    <span class="fw-mediumbold">
+                                                                        What's</span>
+                                                                    <span class="fw-light">
+                                                                        New Edit
+                                                                    </span>
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="edit_slider">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Slider Title</label>
+                                                                                <div class="col-md-8 p-0">
+                                                                                    <input type="text" class="form-control input-full" name="slider_title" id="Slider_title">
+                                                                                    <input type="hidden" class="form-control input-full" name="slider_id" id="Slider_id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Caption</label>
+                                                                                <div class="col-md-8 p-0">
+                                                                                    <input type="text" class="form-control input-full" name="slider_caption" id="Slider_caption">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Slider Type</label>
+                                                                                <div class="col-md-8 p-0">
+                                                                                    <select class="form-control input-full" name="slider_type" id="Slider_type">
+                                                                                        <option value="B">Banner Slider</option>
+                                                                                        <option value="F">Footer Slider</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
+                                                                                <div class="col-md-8 p-0">
+                                                                                    <input type="file" class="form-control input-full" name="slider_upload" id="Slider_upload" accept="image/*">
+                                                                                </div>
+                                                                            </div>
+                                                                            <img id="blah" src="images/no_img.png" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group form-inline">
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
+                                                                                <div class="col-md-8 p-0">
+                                                                                    <select class="form-control input-full" name="slider_status" id="Slider_status">
+                                                                                        <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
+                                                                                        $exe = pg_query($db,$sql);
+                                                                                        $result = pg_fetch_all($exe);
+                                                                                        foreach ($result as $f_status) {?>
+                                                                                        <option value="<?php echo $f_status['faq_status_id']; ?>"><?php echo $f_status['faq_status_title']; ?></option>
+                                                                                            <?php } ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer" style="justify-content: center !important;">
+                                                                        <button type="submit" id="addRowButton"
+                                                                            class="btn btn-primary">Submit</button>
+                                                                        <button type="button" class="btn btn-danger"
+                                                                            data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </table>
                                         </div>
                                     </div>
@@ -294,15 +326,27 @@
         var slider_img = $(this).attr("data-slider_img");
         var slider_status = $(this).attr("data-slider_status");
         var slider_type = $(this).attr("data-slider_type");
+        console.log(slider_img);
        
         $("#Slider_id").val(slider_id);
         $("#Slider_title").val(slider_title);
         $("#Slider_caption").val(slider_caption);
         $("#Slider_type").val(slider_type);
-        $("#blah").attr("src",'uploads/Sliders/'+slider_img);//val(Slider_type);
+        var img1 = document.getElementById("blah");
+        img1.src = 'uploads/Sliders/'+slider_img;//val(Slider_type);
         $("#Slider_status").val(slider_status);
     });
 
+    
+    
+    $(document).on("click", "#myImg", function (e) {
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("previw");
+        modalImg.src = img.src;
+        
     });
-
+});
+    // img.onclick = function(){
+    //   captionText.innerHTML = this.alt;
+    // }
 </script>

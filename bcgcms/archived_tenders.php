@@ -49,7 +49,6 @@
                                                           $i=1;
                                                           foreach ($result as $value) {
                                                     ?>
-
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['tender_title'];?></td>

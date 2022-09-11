@@ -120,7 +120,6 @@
                             </div>
                             <div class="table-responsive">
                                 <a href="archived_tenders.php" class="btn btn-secondary float-right mb-3"><i class="fa fa-archive"></i>&nbsp;Closed Tenders</a>
-                                </button>
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">

@@ -42,7 +42,7 @@ include('inc/dbconnection.php');
                                     <tr>
                                         <th>S.No</th>
                                         <th>Title</th>
-                                        <th>Date of Publish</th>
+                                        <th>Date of Published</th>
                                         <th>Closing Date</th>
                                         <th>Documents</th>
                                     </tr>
@@ -72,7 +72,12 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable();
+    $("#example").DataTable({
+        lengthMenu: [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"],
+            ],
+    });
     $(".dataTables_length").addClass("bs-select");
   });
 </script>

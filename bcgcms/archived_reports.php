@@ -16,101 +16,14 @@ if(isset($_SESSION['user'])){
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php">Annual Report</a>
+                                            <a href="archived_reports.php">Archived Reprots</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal">
-                                    <i class="fa fa-plus"></i>
-                                    Add New
-                                </button>
                             </div>
                         </div>
                         <div class="card-body">
-                            <!-- Modal -->
-                            <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header no-bd">
-                                            <h5 class="modal-title">
-                                                <span class="fw-mediumbold">
-                                                    Add</span>
-                                                <span class="fw-light">
-                                                    Annual Report
-                                                </span>
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form id="add_annual_report">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Title
-                                                            <span style="color:#ff0000">*</span>
-                                                            </label>
-                                                            <input type="text" class="form-control" name="report_title" id="Report_title">
-                                                            <input type="hidden" class="form-control" name="report_cate" id="Report_cate" value="ANNUAL">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Description
-                                                            <span style="color:#ff0000">*</span>
-                                                            </label>
-                                                            <textarea class="form-control" name="r_description" id="R_Description" cols="30" rows="3"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Year of Report
-                                                            <span style="color:#ff0000">*</span>
-                                                            </label>
-                                                            <select class="form-control" name="year_of_report" id="year_of_report">
-                                                                <option value="">Please select the year of report</option>
-                                                                <?php 
-                                                                $a = 2016;
-                                                                $b = 2017;
-                                                                for ($i=0; $i <= 10 ; $i++) { 
-                                                                    $a = $a + 1;
-                                                                    $b = $b + 1;
-                                                                    ?>
-                                                                    <option value="<?php echo $a.'-'.$b;?>"><?php echo $a .'-'.$b;?></option>
-                                                                <?php } ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="qualifi">Upload Document
-                                                            <span style="color:#ff0000">*</span>
-                                                            </label>&nbsp;<label for="" style="color:red !important;">(PDF only allowed)</label>
-                                                            <input type="file" class="form-control" name="report_file" id="Report_file" accept="application/pdf,application/vnd.ms-excel">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                    <button type="submit" id="addRowButton"
-                                                        class="btn btn-primary">Submit</button>
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-dismiss="modal">Close</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
-                                <a href="archived_reports.php" class="btn btn-secondary float-right mb-3"><i class="fa fa-archive"></i>&nbsp;Archived</a>
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -131,6 +44,7 @@ if(isset($_SESSION['user'])){
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {
+                                                        //   if ($value['date_of_closed'] <= $date = date('Y-m-d')) {
                                                     ?>
 
                                                     <tr role="row" class="odd">
@@ -148,7 +62,6 @@ if(isset($_SESSION['user'])){
                                                                     <i class="fa fa-edit get_report"
                                                                     data-report_id      = "<?php echo $value['doc_id'];?>"
                                                                     data-report_title   = "<?php echo $value['doc_title'];?>"
-                                                                    data-year_of_report   = "<?php echo $value['year_of_report'];?>"
                                                                     data-report_desc   = "<?php echo $value['doc_description'];?>"
                                                                     data-file_attach  = "<?php echo $value['doc_attachment'];?>"
                                                                     ></i>
@@ -166,7 +79,7 @@ if(isset($_SESSION['user'])){
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <?php } ?>
+                                                    <?php } //} ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -214,7 +127,7 @@ if(isset($_SESSION['user'])){
                                                                         <label for="qualifi">Year of Report
                                                                         <span style="color:#ff0000">*</span>
                                                                         </label>
-                                                                        <select class="form-control" name="year_of_report" id="Year_of_report">
+                                                                        <select class="form-control" name="year_of_report" id="year_of_report">
                                                                             <option value="">Please select the year of report</option>
                                                                             <?php 
                                                                             $a = 2016;
@@ -354,29 +267,24 @@ if(isset($_SESSION['user'])){
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    // var res = $.parseJSON(response);
+                    var res = $.parseJSON(response);
                     console.log(res);
-                    if (
-                        typeof res.extension != "undefined" &&
-                        res.extension !== null
-                    ) {
-                        swal({
-                            title: "Warning!",
-                            text: res.extension,
-                            icon: "warning",
-                        });
-                    }
-                    //  else if (res.size != "") {
-                    // swal({
-                    //     title: "Warning!",
-                    //     text: res.size,
-                    //     icon: "warning",
-                    // });
-                    // }
-                     else if (response == 1) {
+                    if (res.extension != "") {
+                    swal({
+                        title: "Warning!",
+                        text: res.extension,
+                        icon: "warning",
+                    });
+                    } else if (res.size != "") {
+                    swal({
+                        title: "Warning!",
+                        text: res.size,
+                        icon: "warning",
+                    });
+                    } else if (response == 1) {
                     swal({
                         title: "Added!",
-                        text: "Report updated successfully!",
+                        text: "New Report added and uploaded successfully!",
                         icon: "success",
                     }).then(function () {
                         location.reload();
@@ -400,13 +308,12 @@ if(isset($_SESSION['user'])){
         $(".get_report").on("click", function () {
             var report_id = $(this).attr("data-report_id");
             var report_title = $(this).attr("data-report_title");
-            var year_of_report = $(this).attr("data-year_of_report");
             var report_desc = $(this).attr("data-report_desc");
             var report_attach = $(this).attr("data-file_attach");
+            console.log(report_desc);
 
             $("#Report_id").val(report_id);
             $("#Report_titl").val(report_title);
-            $("#Year_of_report").val(year_of_report);
             $("#R_Desc").text(report_desc);
             $("#Report_attach").text(report_attach);
         });

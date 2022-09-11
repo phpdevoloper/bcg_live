@@ -880,14 +880,15 @@ include('inc/dbconnection.php');?>
                         <span class="sub-item">Annual Reports</span>
                       </a>
                     </li>
-                    <li class="<?php 
-                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php') {
-                        echo(basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php'? 'active':'');
-                      }?>">
+                    <!-- <li class="<?php 
+                      // if (basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php') {
+                      //   echo(basename($_SERVER['SCRIPT_FILENAME']) == 'recruitment_rules.php'? 'active':'');
+                      // }
+                      ?>">
                       <a href="recruitment_rules.php">
                         <span class="sub-item">Recruitment Rules</span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </li>
