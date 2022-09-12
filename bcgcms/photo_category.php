@@ -88,9 +88,18 @@
                                                 <td>
                                                     <button type="button" data-toggle="modal"
                                                         data-target="#editRowModal" title=""
-                                                        class="btn btn-link btn-primary btn-lg"
+                                                        class="btn-primary"
                                                         data-original-title="Edit Achivement">
                                                         <i class="fa fa-edit get_gp"
+                                                            data-cate_id="<?php echo $value['cate_id'];?>"
+                                                            data-cate_title="<?php echo $value['category_title'];?>"
+                                                        ></i>
+                                                    </button>
+                                                    <button type="button" data-toggle="modal"
+                                                        data-target="#editRowModal" title=""
+                                                        class="btn-danger"
+                                                        data-original-title="Edit Achivement">
+                                                        <i class="fa fa-trash delete_cate"
                                                             data-cate_id="<?php echo $value['cate_id'];?>"
                                                             data-cate_title="<?php echo $value['category_title'];?>"
                                                         ></i>
@@ -139,6 +148,43 @@
                                         </div>
                                         <!-- End modal -->
                                     </tbody>
+                                    <div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header no-bd">
+                                                    <h5 class="modal-title">
+                                                        <span class="fw-mediumbold">
+                                                            Edit Category
+                                                        </span>
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="edit_photo_category">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group form-inline">
+                                                                    <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
+                                                                    <div class="col-md-9 p-0">
+                                                                        <input type="text" class="form-control input-full" name="category_title" id="category_title">
+                                                                        <input type="hidden" class="form-control input-full" name="category_id" id="category_id">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer" style="justify-content: center !important;">
+                                                            <button type="submit" id="addRowButton"
+                                                                class="btn btn-primary">Submit</button>
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
                                 </table>
                             </div>
                         </div>

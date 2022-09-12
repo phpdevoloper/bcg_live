@@ -53,6 +53,7 @@ include('inc/dbconnection.php');
                                 <?php 
                                 if (is_array($result) || is_object($result)){
                                     foreach($result as $value){ 
+                                        if ($value['last_date_to_apply'] >= $date = date('Y-m-d')) {
                                         ?>
                                         <tr>
                                             <td><?php echo $i;?></td>
@@ -64,7 +65,7 @@ include('inc/dbconnection.php');
                                             </a></td>
                                             <!-- <td><?php //$directory_s = $value['doc_attachment'];
                                             //echo $file_size = round($value['file_size'] / 1024, 2).'KB';?></td> -->
-                                    <?php $i++; } 
+                                    <?php $i++; } }
                                 }?>
                                     </tr>
                                 </tbody>

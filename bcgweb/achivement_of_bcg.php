@@ -20,7 +20,7 @@ include('inc/dbconnection.php');
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-lg-12">
+            <div class="col-lg-12 achivement">
                 <ul style="margin-top: 0; margin-bottom: 0; padding-inline-start: 48px;">
                     <li dir="ltr" style="list-style-type: disc; font-size: 12pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;" aria-level="1"><span style="font-size: 12pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">New cGMP facility for manufacturing was taken over in March 2016.</span></li>
                     <li dir="ltr" style="list-style-type: disc; font-size: 12pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;" aria-level="1"><span style="font-size: 12pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial;"><span style="white-space: pre-wrap;">After undertaking trial and consistency batches, obtained Manufacturing and sale License in form 28D (Commercial License) from SLA for cGMP facility in October 2019.</span></span></span></li>

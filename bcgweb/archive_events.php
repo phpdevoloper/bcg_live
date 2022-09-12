@@ -35,7 +35,9 @@ include('inc/dbconnection.php');
                                     GROUP BY EXTRACT(year FROM date_from);"; 
                                     $res = pg_query($db,$sql);
                                     $results = pg_fetch_all($res);
-                                    foreach($results as $result){ ?>
+                                    foreach($results as $result){ 
+                                        
+                                    ?>
                                         <option value="<?php echo $result['year'];?>" <?php echo $current_year == $result['year']?"selected":""?>><?php echo $result['year'];?></option>
                                     <?php }?>
                             </select>
@@ -59,6 +61,10 @@ include('inc/dbconnection.php');
                             $j=1;
                             foreach($result as $value){ 
                                 $date = DateTime::createFromFormat("Y-m-d", $value['date_from']);
+                                // var_dump($value['date_to'] != '' ?  $value['date_to'] : $value['date_to']);
+                                // var_dump($value['date_to'] == '');
+                                if(($value['date_to'] != '' ? $value['date_to']:$value['date_to']) <= $date = date('Y-m-d')){
+                            
                             ?>
                             <tr>
                                 <td><?php echo $j;//$value['event_id'];?></td>
@@ -72,7 +78,7 @@ include('inc/dbconnection.php');
                                     <td><?php echo date('d/m/Y',strtotime($value['date_to']));?></td>
                                 <?php } ?>
                             <?php $j++;
-                            } ?>
+                            } }?>
                             </tr>
                         </tbody>
                     </table>

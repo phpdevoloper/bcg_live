@@ -799,21 +799,21 @@ include('inc/dbconnection.php');?>
 								}
                 ?>" id="maps">
                   <ul class="nav nav-collapse">
-                    <li class="<?php 
-								if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php'? 'active':'');
-								}
-								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php'? 'active':'');
-								}
-								elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'active':'');
-								}
+                    <!-- <li class="<?php 
+								// if (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php') {
+								// 	echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery.php'? 'active':'');
+								// }
+								// elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php') {
+								// 	echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_gallery_view.php'? 'active':'');
+								// }
+								// elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php') {
+								// 	echo (basename($_SERVER['SCRIPT_FILENAME']) == 'event_category.php'? 'active':'');
+								// }
                 ?>">
                       <a href="event_gallery.php">
                         <span class="sub-item">Event Gallery</span>
                       </a>
-                    </li>
+                    </li> -->
                     <li class="<?php 
 								if (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'photo_gallery.php'? 'active':'');

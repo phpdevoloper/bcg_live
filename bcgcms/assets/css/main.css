@@ -60,8 +60,8 @@ img.profile {
 }
 
 .ficon {
-  width: 50px;
-  height: 34px;
+  width: 30px;
+  height: 25px;
 }
 #myImg {
   width: 100px;
@@ -294,4 +294,8 @@ a.btn.btn-primary.btn-round.ml-auto {
 } */
 img#previw {
   width: 100%;
+}
+
+#upload_document {
+  color: green !important;
 }

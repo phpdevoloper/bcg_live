@@ -50,7 +50,10 @@ include('inc/dbconnection.php');
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
-                                    <?php foreach($result as $value){ ?>
+                                    <?php foreach($result as $value){ 
+                                    // if ($value['date_from'] >= $date = date('Y-m-d') || $value['date_to'] >= $date = date('Y-m-d')) { 
+                                       if(($value['date_to'] == '' ?$value['date_to']:$value['date_to']) >= $date = date('Y-m-d')){
+                                        ?>
                                     <tr>
                                         <td><?php echo $i;//$value['event_id'];?></td>
                                         <td><?php echo $value['event_title'];?></td>
@@ -62,7 +65,7 @@ include('inc/dbconnection.php');
                                             <td><?php echo date('d/m/Y',strtotime($value['date_to']));?></td>
                                         <?php } ?>
                                     <?php $i++;
-                                 } ?>
+                                 } }?>
                                     </tr>
                                 </tbody>
                             </table>

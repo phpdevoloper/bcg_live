@@ -16,15 +16,10 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php">Recruitment</a>
+                                            <a href="whats_new.php">Recruitment(Archived)</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal">
-                                    <i class="fa fa-plus"></i>
-                                    Add New
-                                </button>
                             </div>
                         </div>
                         <div class="card-body">
@@ -119,7 +114,6 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <a href="archived_recruitment.php" class="btn btn-secondary float-right mb-3"><i class="fa fa-archive"></i>&nbsp;Archived</a>
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -145,7 +139,7 @@
                                                           $i=1;
                                                           if (is_array($result) || is_object($result)){
                                                           foreach ($result as $value) {
-                                                          if ($value['last_date_to_apply'] >= $date = date('Y-m-d')) {
+                                                          if ($value['last_date_to_apply'] <= $date = date('Y-m-d')) {
                                                     ?>
 
                                                     <tr role="row" class="odd">
@@ -163,13 +157,10 @@
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement">
                                                                     <i class="fa fa-edit get_what"
-                                                                        data-rec_id="<?php echo $value['rec_id'];?>"
-                                                                        data-rect_title="<?php echo $value['rect_title'];?>"
-                                                                        data-advt_no="<?php echo $value['advt_no'];?>"
-                                                                        data-date_of_announce="<?php echo $value['date_of_announce'];?>"
-                                                                        data-last_date_to_apply="<?php echo $value['last_date_to_apply'];?>"
-                                                                        data-upload_advt="<?php echo $value['upload_advt'];?>"
-                                                                        data-rec_status="<?php echo $value['rec_status'];?>"
+                                                                        data-whats_id="<?php echo $value['rect_title'];?>"
+                                                                        data-whats_title="<?php echo $value['advt_no'];?>"
+                                                                        data-whats_desc="<?php echo $value['date_of_announce'];?>"
+                                                                        data-what_file="<?php echo $value['upload_advt'];?>"
                                                                     ></i>
                                                                 </button>
                                                             </div>
@@ -184,7 +175,7 @@
                                                         <div class="modal-header no-bd">
                                                             <h5 class="modal-title">
                                                                 <span class="fw-mediumbold">
-                                                                    Edit Recruitment
+                                                                    Recruitment
                                                                 </span>
                                                             </h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -198,8 +189,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Title</label>
                                                                             <div class="col-md-6 p-0">
-                                                                                <input type="text" class="form-control input-full" name="rec_title" id="Rec_title">
-                                                                                <input type="hidden" class="form-control input-full" name="rec_id" id="Rec_id">
+                                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -209,7 +199,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
                                                                             <div class="col-md-6 p-0">
-                                                                                <input type="text" class="form-control input-full" name="advt_no" id="Advt_no">
+                                                                                <input type="text" class="form-control input-full" name="whats_title" id="Whats_title">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -219,7 +209,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Date of Announcement</label>
                                                                             <div class="col-md-6 p-0">
-                                                                                <input type="date" class="form-control input-full" name="date_of_announe" id="Date_of_announe">
+                                                                                <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -229,7 +219,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Last Date to Apply</label>
                                                                             <div class="col-md-6 p-0">
-                                                                            <input type="date" class="form-control input-full" name="last_date_apply" id="Last_date_apply">
+                                                                            <input type="date" class="form-control input-full" name="whats_title" id="Whats_title">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -239,8 +229,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Upload Advt.Notification</label>
                                                                             <div class="col-md-6 p-0">
-                                                                                <input type="file" class="form-control input-full" name="rec_file" id="Rec_file" accept="application/pdf,application/vnd.ms-excel">
-                                                                                <label id="upload_document" for="inlineinput"></label>
+                                                                                <input type="file" class="form-control input-full" name="what_file" id="What_file" accept="application/pdf,application/vnd.ms-excel">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -250,7 +239,7 @@
                                                                         <div class="form-group form-inline">
                                                                             <label for="inlineinput" class="col-md-5 col-form-label">Status</label>
                                                                             <div class="col-md-6 p-0">
-                                                                                <select class="form-control input-full" name="rec_status" id="Rec_status">
+                                                                                <select class="form-control input-full" name="rec_status" id="rec_status">
                                                                                     <option value="draft">Draft</option>
                                                                                     <option value="published">Published</option>
                                                                                 </select>
@@ -354,64 +343,22 @@
     // Edit View
     $(document).on("click", ".get_what", function (e) {
         e.preventDefault();
-        var rec_id = $(this).attr("data-rec_id");
-        var rect_title = $(this).attr("data-rect_title");
-        var advt_no = $(this).attr("data-advt_no");
+        var tender_id = $(this).attr("data-tender_id");
+        var tender_title = $(this).attr("data-tender_title");
+        var advertise_no = $(this).attr("data-advertise_no");
         var date_of_announce = $(this).attr("data-date_of_announce");
-        var last_date_to_apply = $(this).attr("data-last_date_to_apply");
-        var upload_advt = $(this).attr("data-upload_advt");
-        var rec_status = $(this).attr("data-rec_status");
-
-        $("#Rec_id").val(rec_id);
-        $("#Rec_title").val(rect_title);
-        $("#Advt_no").val(advt_no);
-        $("#Date_of_announe").val(date_of_announce);
-        // console.log(date_of_announce);
-        // console.log(date_of_closed);
-        $("#Last_date_apply").val(last_date_to_apply);
-        $("#upload_document").text(upload_advt);
-        $("#Rec_status").val(rec_status);
-    });
-
-    $("#edit_recruitment").submit(function(e){
-        e.preventDefault();
-        var data = new FormData(this);
-        swal({
-        title: "Are you sure?",
-        text: "You wants to Upadte recruitment!",
-        icon: "warning",
-        buttons: ["Cancel!", "Yes"],
-        dangerMode: true,
-        }).then(function (isConfirm) {
-        if (isConfirm) {
-            $.ajax({
-            method: "POST",
-            url: "addRecruitmentAjax.php",
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                if (response == 1) {
-                swal({
-                    title: "Added!",
-                    icon: "success",
-                }).then(function () {
-                    location.reload();
-                });
-                } else {
-                swal({
-                    title: "Something went wrong!",
-                    icon: "error",
-                }).then(function () {
-                    location.reload();
-                });
-                }
-            },
-            });
-        } else {
-            swal("Cancelled", "Done :)", "error");
-        }
-        });
+        var date_of_closed = $(this).attr("data-date_of_closed");
+        var tenders_notice = $(this).attr("data-tenders_notice");
+        var tender_status = $(this).attr("data-tender_status");
+        $("#Whats_id").val(tender_id);
+        $("#Tender_title").val(tender_title);
+        $("#Advt_no").val(advertise_no);
+        $("#Data_announce").val(date_of_announce);
+        console.log(date_of_announce);
+        console.log(date_of_closed);
+        $("#Cosed_Date").val(date_of_closed);
+        $("#upload_document").text(tenders_notice);
+        $("#Tender_status").val(tender_status);
     });
 
   });

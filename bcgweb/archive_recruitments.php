@@ -38,7 +38,6 @@ include('inc/dbconnection.php');
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
-                            <a href="archive_recruitments.php" class="archive_btn float-right">Archive <i class="fa fa-archive"></i> </a><br><br>
                             <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead class="rec_thead">
                                     <tr>
@@ -53,6 +52,7 @@ include('inc/dbconnection.php');
                                 <?php 
                                 if (is_array($result) || is_object($result)){
                                     foreach($result as $value){ 
+                                      if ($value['last_date_to_apply'] <= $date = date('Y-m-d')) {
                                         ?>
                                         <tr>
                                             <td><?php echo $i;?></td>
@@ -63,7 +63,7 @@ include('inc/dbconnection.php');
                                             <img src="images/pdf.png" class="ficon" alt=""> View(<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)
                                             </a></td>
                                     </tr>
-                                    <?php $i++; } }?>
+                                    <?php $i++; } }}?>
                                 </tbody>
                             </table>
                         </div>

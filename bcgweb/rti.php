@@ -55,13 +55,13 @@ include('inc/dbconnection.php');
                                             if($value['file_type'] == 'pdf'){
                                             ?>
                                                 <h5 class="ex">
-                                                    <a href="uploads/RTI/<?php echo $value['rti_upload'];?>">
+                                                    <a href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank">
                                                     <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>
                                             <?php  }else if($value['file_type'] == 'Url'){?>
                                                 <h5 class="exe">
-                                                    <a href="<?php echo $value['rti_upload'];?>">
+                                                    <a href="<?php echo $value['rti_upload'];?>" target="_blank">
                                                     <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>

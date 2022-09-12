@@ -890,8 +890,6 @@ $(document).ready(function () {
     $("#Service_to").val(service_to);
   });
 
-  
-
   $("#add-row").DataTable({
     lengthMenu: [
       [10, 25, 50, -1],
@@ -1150,8 +1148,8 @@ $(document).ready(function () {
           success: function (response) {
             if (response == 1) {
               swal({
-                title: "Added!",
-                text: "Added Successfully!",
+                title: "Updated!",
+                text: "Category Updated Successfully!",
                 icon: "success",
               }).then(function () {
                 location.reload();
@@ -1177,7 +1175,7 @@ $(document).ready(function () {
     var data = new FormData(this);
     swal({
       title: "Are you sure?",
-      text: "You wants to Add New category!",
+      text: "You wants to update the category!",
       icon: "warning",
       buttons: ["Cancel!", "Yes"],
       dangerMode: true,
@@ -1806,7 +1804,6 @@ $(document).ready(function () {
     });
   });
 
-  
   // FAQ section
   $("#add_faq").validate({
     rules: {
@@ -2259,5 +2256,18 @@ $(document).ready(function () {
     });
   });
 
-  
+  // Delete gallery Category
+  $(document).on("click", ".delete_cate", function () {
+    $.ajax({
+      method: "POST",
+      url: "feedback_statusAjax.php",
+      dataType: "json",
+      data: { feed_id: feed_id },
+      success: function (response) {
+        if (response == 1) {
+          $("#add-row").load(location.href + " #add-row");
+        }
+      },
+    });
+  });
 });
