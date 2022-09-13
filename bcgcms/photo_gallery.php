@@ -85,20 +85,29 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql = "select * from photo_category where gall_cate_id= '2' order by cate_id";
+                                    $sql = "select * from photo_category order by cate_id";
                                     $exe = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
-                                    foreach($result as $value){ ?>
+                                    foreach($result as $values){ 
+                                       ?>
                                     <div class="col-4">
-                                        <a href="photo_gallery_view.php?cate_id=<?php echo $value['cate_id'];?>&category_title=<?php echo $value['category_title'];?>">
+                                        <a href="photo_gallery_view.php?cate_id=<?php echo $values['cate_id'];?>&category_title=<?php echo $values['category_title'];?>">
                                             <div class="box">
                                                 <div class="boxInner">
-                                                    <img src="images/gallery/1DSCN0532.jpg"/>
-                                                    <div class="titleBox"><?php echo $value['category_title'];?></div>
+                                                    <?php
+                                                         $sql = "select * from photo_gallery where category='".$values['cate_id']."' order by photo_id";
+                                                         $exe = pg_query($db,$sql);
+                                                         $result = pg_fetch_all($exe);
+                                                         foreach($result as $value){ 
+                                                        ?>
+                                                            <img src="uploads/gallery/photo/<?php echo $value['photo_file'];?>"/>
+                                                        <!-- <img src="images/no_img.png"/> -->
+                                                         <?php  } ?>
+                                                    <div class="titleBox"><?php echo $values['category_title'];?></div>
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <?php echo $value['category_title'];?>
+                                                <?php echo $values['category_title'];?>
                                             </div>
                                         </a>
                                     </div>

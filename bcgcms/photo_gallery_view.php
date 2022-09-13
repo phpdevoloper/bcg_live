@@ -34,7 +34,7 @@
                                             <div class="modal-header no-bd">
                                                 <h5 class="modal-title">
                                                     <span class="fw-mediumbold">
-                                                        Add New Category
+                                                        Add Photo
                                                     </span>
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -49,9 +49,8 @@
                                                                 <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
                                                                 <div class="col-md-9 p-0">
                                                                     <select class="form-control input-full" name="even_cat" id="even_cat">
-                                                                        <option value="">Select the Category</option>
                                                                         <?php 
-                                                                            $sql = "SELECT * FROM photo_category WHERE gall_cate_id = '2' ORDER BY cate_id";
+                                                                            $sql = "SELECT * FROM photo_category WHERE cate_id ='".$_GET['cate_id']."' ORDER BY cate_id";
                                                                             $exe = pg_query($db,$sql);
                                                                             $result = pg_fetch_all($exe);
                                                                             foreach($result as $value){ ?>
@@ -155,9 +154,8 @@
                                                         <label for="inlineinput" class="col-md-3 col-form-label">Category Title*</label>
                                                         <div class="col-md-9 p-0">
                                                             <select class="form-control input-full" name="even_cat" id="Even_cat">
-                                                                <option value="">Select the Category</option>
                                                                 <?php 
-                                                                    $sql = "SELECT * FROM photo_category WHERE gall_cate_id = '2' ORDER BY cate_id";
+                                                                    $sql = "SELECT * FROM photo_category WHERE cate_id = '".$_GET['cate_id']."' ORDER BY cate_id";
                                                                     $exe = pg_query($db,$sql);
                                                                     $result = pg_fetch_all($exe);
                                                                     foreach($result as $value){ ?>

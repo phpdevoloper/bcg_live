@@ -1292,7 +1292,7 @@ a img {
 
 .main_nav ul li {
   display: inline-block;
-} 
+}
 ul.tittle_bcg {
   font-size: 11px;
   padding-top: 17px;
@@ -2968,7 +2968,7 @@ section#about {
 .img-box {
   box-sizing: content-box;
   margin: 10px;
-  height: 285px;
+  height: 250px;
   width: 350px;
   overflow: hidden;
   display: inline-block;
@@ -2976,6 +2976,7 @@ section#about {
   position: relative;
   background-color: white;
   border: 11px solid #ededed;
+  cursor: pointer;
 }
 .img-box img {
   margin-bottom: 10px;
@@ -3017,6 +3018,24 @@ label.error {
 
 .sitemap a {
   color: #299adc;
+}
+
+.caption {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transparent-box {
+  height: 250px;
+  /* width: 350px; */
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
 }
 
 /* Sliding images for products */

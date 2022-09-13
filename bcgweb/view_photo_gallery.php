@@ -20,20 +20,24 @@ include('inc/dbconnection.php');
 
     <section>
         <div class="container">
-            <div class="gallery-image">
+            <div class="row">
                 <?php 
                     $sql = "select * from photo_gallery where category='".$_GET['cate_id']."' order by photo_id";
                     $exe = pg_query($db,$sql);
                     $result = pg_fetch_all($exe);
                     foreach($result as $value){
                 ?>
-                <div class="img-box">
-                    <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
-                    <div class="transparent-box">
-                        <div class="caption">
-                            <p><?php echo $value['photo_caption'];?></p>
+                <div class="col-4">
+                    <div class="gallery-image btn-gallery">
+                        <div class="img-box">
+                            <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p><?php echo $value['photo_caption'];?></p>
+                                </div>
+                            </div> 
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <?php } ?>
             </div>
@@ -41,4 +45,23 @@ include('inc/dbconnection.php');
     </section>
 </div>
 <?php include('inc/simple_footer.php'); ?>
+<script type="application/javascript">
+    $(document).ready(function() {
+    
+    $('.btn-gallery').on('click', function(event) {
+        event.preventDefault();
+        
+        var gallery = $(this).attr('href');
+    
+        $(gallery).magnificPopup({
+      delegate: 'a',
+            type:'image',
+            gallery: {
+                enabled: true
+            }
+        }).magnificPopup('open');
+    });
+    
+    });
+</script>
     
