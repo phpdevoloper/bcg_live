@@ -34,6 +34,7 @@ include('inc/dbconnection.php');?>
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
     <link rel="stylesheet" href="assets/css/atlantis.min.css" />
 
     <!-- CSS Files -->

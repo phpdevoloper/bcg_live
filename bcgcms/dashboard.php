@@ -81,56 +81,6 @@ if($_SESSION !==''){
 ?>
 <script type="application/javascript">
 	$(document).ready(function(){
-
-		$("#add_slider").validate({
-		rules: {
-		  slider_title: {
-			required: true,
-		  },
-		  slider_upload: {
-			required: true,
-		  },
-		},
-		submitHandler: function (form, e) {
-		  swal({
-			title: "Are you sure?",
-			text: "You wants to add new slider!",
-			icon: "warning",
-			buttons: ["No, cancel it!", "Yes, I am sure!"],
-			dangerMode: true,
-		  }).then(function (isConfirm) {
-			if (isConfirm) {
-			  $.ajax({
-				method: "POST",
-				url: "sliderAjax.php",
-				data: new FormData($("#add_slider")[0]),
-				contentType: false,
-				processData: false,
-				success: function (response) {
-				  if (response == 1) {
-					swal({
-					  title: "Added!",
-					  text: "New Slider Added successfully!",
-					  icon: "success",
-					}).then(function () {
-					  location.reload();
-					});
-				  } else {
-					swal({
-					  title: "Something went wrong!",
-					  icon: "error",
-					}).then(function () {
-					  location.reload();
-					});
-				  }
-				},
-			  });
-			} else {
-			  swal("Cancelled", "Done :)", "error");
-			}
-		  });
-		},
-	  });
 	});
 </script>
 	<!-- <script src="assets/js/demo.js"></script>

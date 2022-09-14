@@ -9,43 +9,44 @@
         class="carousel slide"
         data-ride="carousel"
         >
-        <ol class="carousel-indicators">
-            <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            class="active"
-            ></li>
-            <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="1"
-            ></li>
-            <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="2"
-            ></li>
+        <?php
+         $sql = 'SELECT * FROM sliders order by slider_id';
+         $exe = pg_query($db,$sql);
+         $res = pg_fetch_all($exe);
+         $counter = 0;?>
+         <ol class="carousel-indicators">
+         <?php for ($i= 0; $i < pg_num_rows($exe) ; $i++) { ?>
+             <li
+             data-target="#carouselExampleIndicators"
+             data-slide-to="<?php echo $i; ?>"
+             class="active"
+             ></li>
+         <?php } ?>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+        <?php foreach ($res as $result) { ?>
+            <div class="carousel-item <?php echo ($counter == 0) ? 'active':'';?>">
             <img
                 class="d-block w-100 slideimg"
-                src="images/sliders/DSC05001.jpg"
-                alt="First slide"
+                src="uploads/Sliders/<?php echo $result['slider_img'];?>"
+                alt="slide"
             />
             </div>
-            <div class="carousel-item">
+            <!-- <div class="carousel-item">
             <img
                 class="d-block w-100 slideimg"
                 src="images/sliders/DSC05007.jpg"
                 alt="Second slide"
             />
-            </div>
-            <div class="carousel-item">
+            </div> -->
+            <!-- <div class="carousel-item">
             <img
                 class="d-block w-100 slideimg"
                 src="images/sliders/Banner.png"
                 alt="Second slide"
             />
-            </div>
+            </div> -->
+            <?php $counter++; } ?>
         </div>
         <a
             class="carousel-control-prev slide"

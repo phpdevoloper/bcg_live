@@ -2509,8 +2509,8 @@ img.history {
 
 /* Slick Slide */
 .items {
-  width: 91%;
-  margin: 0px 0px 0 264px;
+  width: 78%;
+  margin: 0px 0px 0 346px;
   padding-top: 14px;
 }
 .items .slick-track {
@@ -3030,7 +3030,7 @@ label.error {
 
 .transparent-box {
   height: 250px;
-  /* width: 350px; */
+  width: 350px;
   background-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 0;

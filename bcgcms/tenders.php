@@ -362,8 +362,6 @@ $(document).ready(function () {
     $("#Cosed_Date").val(date_of_closed);
     $("#upload_document").text(tenders_notice);
     $("#Tender_status").val(tender_status);
-
-
-  });
+    });
 });
 </script>
