@@ -136,11 +136,6 @@
                             </div>
                         </div>
                         <div class="card-body">
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="bi bi-exclamation-octagon me-1"></i>
-                            A simple danger alert with icon—check it out!
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
                             <div class="table-responsive">
                                 <div id="add-row_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
@@ -177,30 +172,24 @@
                                                             ><img id="myImg" class="ficon" src="uploads/Sliders/<?php echo $value['slider_img'];?>" alt="No image"></a></td>
                                                         <td class="sorting_1"><?php echo $value['faq_status_title'];?></td>
                                                         <td>
-                                                            <div class="form-button-action">
-                                                                <button type="button" data-toggle="modal"
-                                                                    data-target="#editRowModal" title=""
-                                                                    class="btn-primary"
-                                                                    data-original-title="Edit Achivement">
-                                                                    <i class="fa fa-edit get_what"
-                                                                        data-slider_id="<?php echo $value['slider_id'];?>"
-                                                                        data-slider_title="<?php echo $value['slider_title'];?>"
-                                                                        data-slider_caption="<?php echo $value['slider_caption'];?>"
-                                                                        data-slider_img="<?php echo $value['slider_img'];?>"
-                                                                        data-slider_status="<?php echo $value['slider_status'];?>"
-                                                                        data-slider_type="<?php echo $value['slider_type'];?>"
-                                                                    ></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="form-button-action">
-                                                                <button type="button" title=""
-                                                                    class="btn-danger"
-                                                                    data-original-title="Edit Achivement">
-                                                                    <i class="fa fa-trash get_what"
-                                                                        data-slider_id="<?php echo $value['slider_id'];?>"
-                                                                    ></i>
-                                                                </button>
-                                                            </div>
+                                                            <a type="button" data-toggle="modal"
+                                                                data-target="#editRowModal" title=""
+                                                                data-original-title="Edit Achivement">
+                                                                <i class="fa fa-edit get_what"
+                                                                    data-slider_id="<?php echo $value['slider_id'];?>"
+                                                                    data-slider_title="<?php echo $value['slider_title'];?>"
+                                                                    data-slider_caption="<?php echo $value['slider_caption'];?>"
+                                                                    data-slider_img="<?php echo $value['slider_img'];?>"
+                                                                    data-slider_status="<?php echo $value['slider_status'];?>"
+                                                                    data-slider_type="<?php echo $value['slider_type'];?>"
+                                                                ></i>
+                                                            </a>
+                                                            <a type="button" title=""
+                                                                data-original-title="Edit Achivement">
+                                                                <i class="fa fa-trash delete_slide"
+                                                                    data-slider_id="<?php echo $value['slider_id'];?>"
+                                                                ></i>
+                                                            </a>
                                                         </td>
                                                     </tr>
                                                     <?php $i++; } ?>
@@ -229,10 +218,7 @@
                                                             <div class="modal-header no-bd">
                                                                 <h5 class="modal-title">
                                                                     <span class="fw-mediumbold">
-                                                                        What's</span>
-                                                                    <span class="fw-light">
-                                                                        New Edit
-                                                                    </span>
+                                                                        Edit Slider</span>
                                                                 </h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">×</span>
@@ -279,7 +265,7 @@
                                                                             <div class="form-group form-inline">
                                                                                 <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
                                                                                 <div class="col-md-8 p-0">
-                                                                                    <input type="file" class="form-control input-full" name="slider_upload" id="Slider_upload" accept="image/*">
+                                                                                    <input type="file" class="form-control input-full" name="slider_u" id="Slider_u" accept="image/*">
                                                                                     <label id="get_file"></label>
                                                                                 </div>
                                                                             </div>
@@ -289,7 +275,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group form-inline">
-                                                                                <label for="inlineinput" class="col-md-4 col-form-label">Upload Document</label>
+                                                                                <label for="inlineinput" class="col-md-4 col-form-label">status</label>
                                                                                 <div class="col-md-8 p-0">
                                                                                     <select class="form-control input-full" name="slider_status" id="Slider_status">
                                                                                         <?php $sql = "SELECT * from faq_mst_status ORDER BY faq_status_id ASC";
@@ -338,6 +324,12 @@
         blah.src = URL.createObjectURL(file)
       }
     }
+    Slider_u.onchange = (evt) => {
+    const [file] = Slider_u.files;
+    if (file) {
+      blah1.src = URL.createObjectURL(file);
+    }
+  };
     $(document).on("click", ".get_what", function (e) {
         e.preventDefault();
         var slider_id = $(this).attr("data-slider_id");

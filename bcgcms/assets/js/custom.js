@@ -1,4 +1,65 @@
 $(document).ready(function () {
+  function alert_message(data) {
+    if (data == 1) {
+      swal({
+        title: "Added!",
+        text: "New Slider Added successfully!",
+        icon: "success",
+      }).then(function () {
+        location.reload();
+      });
+    } else if (data == 3) {
+      swal({
+        title: "Only letters and white space allowed!",
+        icon: "error",
+      }).then(function () {
+        // location.reload();
+      });
+    } else if (data == 4) {
+      swal({
+        title: "Deleted Succesfully",
+        icon: "success",
+      }).then(function () {
+        location.reload();
+      });
+    } else if (data == 6) {
+      swal({
+        title: "Upload valid images. Only PNG and JPEG are allowed!",
+        icon: "error",
+      }).then(function () {
+        // location.reload();
+      });
+    } else if (data == 7) {
+      swal({
+        title: "Updated Successfully",
+        icon: "success",
+      }).then(function () {
+        location.reload();
+      });
+    } else if (data == 5) {
+      swal({
+        title: "Enter valid data on text editor",
+        icon: "error",
+      }).then(function () {
+        // location.reload();
+      });
+    } else if (data == 10) {
+      swal({
+        title: "Enter valid email id",
+        icon: "error",
+      }).then(function () {
+        // location.reload();
+      });
+    } else {
+      swal({
+        title: "Something went wrong!",
+        icon: "error",
+      }).then(function () {
+        location.reload();
+      });
+    }
+  }
+
   $(".upload_event").attr("style", "display:none");
   $(".event_url").attr("style", "display:none");
   $(".RTI_upload").attr("style", "display:none");
@@ -39,6 +100,7 @@ $(document).ready(function () {
   $("#update_Basic").submit(function (e) {
     e.preventDefault();
     var fdata = new FormData(this);
+    // FormData($("#add_faq")[0])
     swal({
       title: "Are you sure?",
       text: "You want to update this!",
@@ -55,13 +117,7 @@ $(document).ready(function () {
           dataType: "json",
           processData: false,
           success: function (data) {
-            swal({
-              title: "Updated!",
-              text: "Director Details updated successfully!",
-              icon: "success",
-            }).then(function () {
-              location.reload();
-            });
+            alert_message(data);
           },
         });
       } else {
@@ -2297,24 +2353,7 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              console.log(response);
-              if (response == 4) {
-              } else if (response == 1) {
-                swal({
-                  title: "Added!",
-                  text: "New Slider Added successfully!",
-                  icon: "success",
-                }).then(function () {
-                  // location.reload();
-                });
-              } else {
-                swal({
-                  title: "Something went wrong!",
-                  icon: "error",
-                }).then(function () {
-                  // location.reload();
-                });
-              }
+              alert_message(response);
             },
           });
         } else {
@@ -2344,26 +2383,11 @@ $(document).ready(function () {
           $.ajax({
             method: "POST",
             url: "sliderAjax.php",
-            data: new FormData($("#add_slider")[0]),
+            data: new FormData($("#edit_slider")[0]),
             contentType: false,
             processData: false,
             success: function (response) {
-              if (response == 1) {
-                swal({
-                  title: "Added!",
-                  text: "New Slider Added successfully!",
-                  icon: "success",
-                }).then(function () {
-                  location.reload();
-                });
-              } else {
-                swal({
-                  title: "Something went wrong!",
-                  icon: "error",
-                }).then(function () {
-                  location.reload();
-                });
-              }
+              alert_message(response);
             },
           });
         } else {
@@ -2372,4 +2396,49 @@ $(document).ready(function () {
       });
     },
   });
+  $(document).on("click", ".delete_slide", function (e) {
+    e.preventDefault();
+    var slider_id = $(this).attr("data-slider_id");
+    swal({
+      title: "Are you sure?",
+      text: "You wants to delete this slider!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        console.log(slider_id);
+        var action_mes = "delete";
+
+        $.ajax({
+          method: "POST",
+          url: "sliderAjax.php",
+          dataType: "JSON",
+          data: {
+            slider_id: slider_id,
+            action_mes: action_mes,
+          },
+          // contentType: false,
+          // processData: false,
+          success: function (response) {
+            alert_message(response);
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
+
+  // today_date = "#date_from".val();
+  // function check_valid_date(c_date) {
+  //   c_date.datepicker({ minDate: 0 });
+  // }
+  // check_valid_date(today_date);
+
+  $("#date_from").datetimepicker({ minDate: "3" });
+
+  // $(".datepicker").datetimepicker({
+  //   format: "dd/mm/yyyy",
+  // });
 });
