@@ -284,6 +284,7 @@
 
     <!-- Atlantis DEMO methods, don't include it in your project! -->
     <script src="assets/js/bootstrap-datepicker.js"></script>
+    <script src="assets/js/jquery.inputmask.bundle.min.js"></script>
     <script src="assets/js/setting-demo.js"></script>
     <script src="assets/js/plugin/tinymce/tinymce.min.js"></script>
     <script src="assets/js/custom.js"></script>

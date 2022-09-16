@@ -58,7 +58,7 @@ body {
 }
 .main_content{
   width:100%;
-  height: 450px;
+  height: 571px;
   background: url('images/sliders/Banner.png');
   background-size: cover;
 }

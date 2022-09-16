@@ -50,6 +50,13 @@ $(document).ready(function () {
       }).then(function () {
         // location.reload();
       });
+    } else if (data == 11) {
+      swal({
+        title: "Enter valid mobile no",
+        icon: "error",
+      }).then(function () {
+        // location.reload();
+      });
     } else {
       swal({
         title: "Something went wrong!",
@@ -1547,26 +1554,27 @@ $(document).ready(function () {
 
   $("#bcgvl_contacts").validate({
     rules: {
-      user_email: {
-        required: true,
-        email: true,
-      },
-      user_phone: {
-        required: true,
-      },
-      office_addres: {
-        required: true,
-      },
-      map_emb: {
-        required: true,
-      },
-    },
-    messages: {
-      user_email: {
-        email: "The email should be in the format: abc@domain.com",
-      },
+      //   user_email: {
+      //     required: true,
+      //     email: true,
+      //   },
+      //   user_phone: {
+      //     required: true,
+      //   },
+      //   office_addres: {
+      //     required: true,
+      //   },
+      //   map_emb: {
+      //     required: true,
+      //   },
+      // },
+      // messages: {
+      //   user_email: {
+      //     email: "The email should be in the format: abc@domain.com",
+      //   },
     },
     submitHandler: function (form, e) {
+      var data = new FormData($("#bcgvl_contacts")[0]);
       e.preventDefault();
       swal({
         title: "Are you sure?",
@@ -1576,28 +1584,18 @@ $(document).ready(function () {
         dangerMode: true,
       }).then(function (isConfirm) {
         if (isConfirm) {
-          console.log("Form submitted");
+          // console.log("Form submitted");
           $.ajax({
             method: "POST",
             url: "addContacts.php",
-            data: $("form").serialize(),
+            data: data,
+            contentType: false,
+            processData: false,
             success: function (response) {
-              if (response == 1) {
-                swal({
-                  title: "Added!",
-                  text: "Added Successfully!",
-                  icon: "success",
-                }).then(function () {
-                  location.reload();
-                });
-              } else {
-                swal({
-                  title: "Something went wrong!",
-                  icon: "error",
-                }).then(function () {
-                  location.reload();
-                });
-              }
+              console.log(response);
+              result = JSON.parse(response);
+              console.log(result.a);
+              alert_message(result.a);
             },
           });
         } else {
@@ -1620,26 +1618,13 @@ $(document).ready(function () {
         $.ajax({
           method: "POST",
           url: "addContacts.php",
+          // dataType: "JSON",
           data: data,
           contentType: false,
           processData: false,
           success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Added!",
-                text: "Added Successfully!",
-                icon: "success",
-              }).then(function () {
-                location.reload();
-              });
-            } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                location.reload();
-              });
-            }
+            result = JSON.parse(response);
+            alert_message(result.a);
           },
         });
       } else {
@@ -1649,6 +1634,38 @@ $(document).ready(function () {
         }).then(function () {
           location.reload();
         });
+      }
+    });
+  });
+  $(".del_bcgvl_contact").on("click", function () {
+    var contact_id = $(this).attr("data-contact_id");
+    var action_mes = "delete";
+    swal({
+      title: "Are you sure?",
+      text: "You wants to delete this contact!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addContacts.php",
+          dataType: "JSON",
+          data: {
+            contact_id: contact_id,
+            action_mes: action_mes,
+          },
+          // contentType: false,
+          // processData: false,
+          success: function (response) {
+            result = JSON.parse(response);
+            console.log(result);
+            alert_message(result.a);
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
       }
     });
   });
@@ -2430,5 +2447,22 @@ $(document).ready(function () {
     });
   });
 
-});
+  // RECRUITMENT
+  var dtToday = new Date();
+  var month = dtToday.getMonth() + 1;
+  var day = dtToday.getDate();
+  var year = dtToday.getFullYear();
+  if (month < 10) month = "0" + month.toString();
+  if (day < 10) day = "0" + day.toString();
 
+  var maxDate = year + "-" + month + "-" + day;
+
+  // or instead:
+  // var maxDate = dtToday.toISOString().substr(0, 10);
+
+  $("#data_announce").attr("min", maxDate);
+  $("#last_date_to").attr("min", maxDate);
+  $("#closed_date").attr("min", maxDate);
+
+  $("#user_phone").inputmask("(999)-999-9999");
+});
