@@ -2430,15 +2430,5 @@ $(document).ready(function () {
     });
   });
 
-  // today_date = "#date_from".val();
-  // function check_valid_date(c_date) {
-  //   c_date.datepicker({ minDate: 0 });
-  // }
-  // check_valid_date(today_date);
-
-  $("#date_from").datetimepicker({ minDate: "3" });
-
-  // $(".datepicker").datetimepicker({
-  //   format: "dd/mm/yyyy",
-  // });
 });
+

@@ -40,6 +40,7 @@ include('inc/dbconnection.php');?>
 
     <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
 
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
