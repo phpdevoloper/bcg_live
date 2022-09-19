@@ -46,6 +46,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <form id="bcgvl_contacts">
+                                                <div class="alert alert-danger display-error" style="display:none;">
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
@@ -154,6 +156,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <form id="edit_bcgvl_contact">
+                                                <div class="alert alert-danger display-error" style="display:none;">
+                                                </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">

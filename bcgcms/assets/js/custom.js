@@ -1536,6 +1536,42 @@ $(document).ready(function () {
     },
   });
 
+  $("#edit_rti_contacts").submit(function (e) {
+    e.preventDefault();
+    var data = new FormData(this);
+    swal({
+      title: "Are you sure?",
+      text: "You wants Update the contacts",
+      icon: "warning",
+      buttons: ["Cancel!", "Yes"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addRTIContacts.php",
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            result = JSON.parse(response);
+            if (result.code == "200") {
+              alert_message(7);
+            } else {
+              $(".display-error").html("<ul>" + result.msg + "</ul>");
+              $(".display-error").css("display", "block");
+            }
+          },
+        });
+      } else {
+        swal({
+          title: "Cancelled!",
+          icon: "error",
+        }).then(function () {});
+      }
+    });
+  });
+
   // BCGVL Contact form validation
 
   $(".get_bcgvl_contact").on("click", function () {
@@ -1554,24 +1590,24 @@ $(document).ready(function () {
 
   $("#bcgvl_contacts").validate({
     rules: {
-      //   user_email: {
-      //     required: true,
-      //     email: true,
-      //   },
-      //   user_phone: {
-      //     required: true,
-      //   },
-      //   office_addres: {
-      //     required: true,
-      //   },
-      //   map_emb: {
-      //     required: true,
-      //   },
-      // },
-      // messages: {
-      //   user_email: {
-      //     email: "The email should be in the format: abc@domain.com",
-      //   },
+      user_email: {
+        required: true,
+        email: true,
+      },
+      user_phone: {
+        required: true,
+      },
+      office_addres: {
+        required: true,
+      },
+      map_emb: {
+        required: true,
+      },
+    },
+    messages: {
+      user_email: {
+        email: "The email should be in the format: abc@domain.com",
+      },
     },
     submitHandler: function (form, e) {
       var data = new FormData($("#bcgvl_contacts")[0]);
@@ -1592,13 +1628,17 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              console.log(response);
               result = JSON.parse(response);
-              console.log(result.a);
-              alert_message(result.a);
+              if (result.code == "200") {
+                alert_message(1);
+              } else {
+                $(".display-error").html("<ul>" + result.msg + "</ul>");
+                $(".display-error").css("display", "block");
+              }
             },
           });
         } else {
+          swal("Cancelled", "Done :)", "error");
         }
       });
     },
@@ -1618,22 +1658,24 @@ $(document).ready(function () {
         $.ajax({
           method: "POST",
           url: "addContacts.php",
-          // dataType: "JSON",
           data: data,
           contentType: false,
           processData: false,
           success: function (response) {
             result = JSON.parse(response);
-            alert_message(result.a);
+            if (result.code == "200") {
+              alert_message(7);
+            } else {
+              $(".display-error").html("<ul>" + result.msg + "</ul>");
+              $(".display-error").css("display", "block");
+            }
           },
         });
       } else {
         swal({
           title: "Cancelled!",
           icon: "error",
-        }).then(function () {
-          location.reload();
-        });
+        }).then(function () {});
       }
     });
   });
@@ -1656,12 +1698,8 @@ $(document).ready(function () {
             contact_id: contact_id,
             action_mes: action_mes,
           },
-          // contentType: false,
-          // processData: false,
           success: function (response) {
-            result = JSON.parse(response);
-            console.log(result);
-            alert_message(result.a);
+            alert_message(response);
           },
         });
       } else {
@@ -2060,7 +2098,7 @@ $(document).ready(function () {
     }
   });
 
-  $("#add_mst_rti").submit(function (e) {
+  $("#edit_mst_rti").submit(function (e) {
     e.preventDefault();
     var data = new FormData(this);
     swal({
@@ -2078,21 +2116,12 @@ $(document).ready(function () {
           contentType: false,
           processData: false,
           success: function (response) {
-            if (response == 1) {
-              swal({
-                title: "Added!",
-                text: "New RTI added successfully!",
-                icon: "success",
-              }).then(function () {
-                // location.reload();
-              });
+            result = JSON.parse(response);
+            if (result.code == "200") {
+              alert_message(7);
             } else {
-              swal({
-                title: "Something went wrong!",
-                icon: "error",
-              }).then(function () {
-                // location.reload();
-              });
+              $(".display-error").html("<ul>" + result.msg + "</ul>");
+              $(".display-error").css("display", "block");
             }
           },
         });
@@ -2248,6 +2277,7 @@ $(document).ready(function () {
     });
   });
   // Add New RTI
+
   $("#add_rti").validate({
     rules: {
       rti_title: {
@@ -2258,6 +2288,10 @@ $(document).ready(function () {
       },
     },
     submitHandler: function (form, e) {
+      e.preventDefault();
+
+      var data = new FormData($("#add_rti")[0]);
+      data.append("action_mes", "INSERT");
       swal({
         title: "Are you sure?",
         text: "You wants to add new RTI!",
@@ -2269,7 +2303,7 @@ $(document).ready(function () {
           $.ajax({
             method: "POST",
             url: "add_rtiAjax.php",
-            data: new FormData($("#add_rti")[0]),
+            data: data,
             contentType: false,
             processData: false,
             success: function (response) {
@@ -2346,14 +2380,14 @@ $(document).ready(function () {
 
   // Sliders
   $("#add_slider").validate({
-    // rules: {
-    //   slider_title: {
-    //     required: true,
-    //   },
-    //   slider_upload: {
-    //     required: true,
-    //   },
-    // },
+    rules: {
+      slider_title: {
+        required: true,
+      },
+      slider_upload: {
+        required: true,
+      },
+    },
     submitHandler: function (form, e) {
       swal({
         title: "Are you sure?",

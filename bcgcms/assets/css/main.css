@@ -299,3 +299,10 @@ img#previw {
 #upload_document {
   color: green !important;
 }
+.alert i.fa.fa-exclamation-circle {
+  color: red;
+  padding-right: 5px;
+}
+.alert ul {
+  list-style-type: none;
+}

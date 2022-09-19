@@ -152,89 +152,91 @@
                                                     ></i>
                                                 </button>
                                             </div>
-                                            <div class="modal fade" id="editRTIContact" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header no-bd">
-                                                            <h5 class="modal-title">
-                                                                <span class="fw-mediumbold">
-                                                                    Edit RTI</span>
-                                                                <span class="fw-light">
-                                                                    Contact
-                                                                </span>
-                                                            </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form id="edit_rti_contacts" method="post" enctype="multipart/form-data">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Contact Title</label>
-                                                                            <input type="text" class="form-control" name="con_title" id="Con_title">
-                                                                            <input type="hidden" class="form-control" name="con_id" id="Con_id">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Organization Email</label>
-                                                                            <input type="text" class="form-control" name="org_email" id="Org_email">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Name</label>
-                                                                            <input type="text" class="form-control" name="con_name" id="Con_name">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">phone</label>
-                                                                            <input type="text" class="form-control" name="user_phone" id="User_phone">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Designation</label>
-                                                                            <input type="text" class="form-control" name="designation" id="Designation">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">office phone</label>
-                                                                            <input type="text" class="form-control" name="office_phone" id="Office_phone">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Email</label>
-                                                                            <input type="text" class="form-control" name="user_email" id="User_email">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label for="qualifi">Address</label>
-                                                                            <textarea class="form-control" name="office_addres" id="Office_addres" cols="30" rows="3"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer" style="justify-content: center !important;">
-                                                                    <button type="submit" id="addRowButton"
-                                                                        class="btn btn-primary">Submit</button>
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </td>
                                     </tr>
                                     <?php $i++; } ?>
                                 </tbody>
+                                <div class="modal fade" id="editRTIContact" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header no-bd">
+                                                <h5 class="modal-title">
+                                                    <span class="fw-mediumbold">
+                                                        Edit RTI</span>
+                                                    <span class="fw-light">
+                                                        Contact
+                                                    </span>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="edit_rti_contacts" method="post" enctype="multipart/form-data">
+                                                    <div class="alert alert-danger display-error" style="display:none;">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Contact Title</label>
+                                                                <input type="text" class="form-control" name="con_title" id="Con_title">
+                                                                <input type="hidden" class="form-control" name="con_id" id="Con_id">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Organization Email</label>
+                                                                <input type="text" class="form-control" name="org_email" id="Org_email">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Name</label>
+                                                                <input type="text" class="form-control" name="con_name" id="Con_name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">phone</label>
+                                                                <input type="text" class="form-control" name="user_phone" id="User_phone">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Designation</label>
+                                                                <input type="text" class="form-control" name="designation" id="Designation">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">office phone</label>
+                                                                <input type="text" class="form-control" name="office_phone" id="Office_phone">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Email</label>
+                                                                <input type="text" class="form-control" name="user_email" id="User_email">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="qualifi">Address</label>
+                                                                <textarea class="form-control" name="office_addres" id="Office_addres" cols="30" rows="3"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer" style="justify-content: center !important;">
+                                                        <button type="submit" id="addRowButton"
+                                                            class="btn btn-primary">Submit</button>
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </table>
                         </div>
                     </div>
