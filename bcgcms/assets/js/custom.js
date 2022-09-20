@@ -3,7 +3,7 @@ $(document).ready(function () {
     if (data == 1) {
       swal({
         title: "Added!",
-        text: "New Slider Added successfully!",
+        text: "Added successfully!",
         icon: "success",
       }).then(function () {
         location.reload();
@@ -1477,7 +1477,6 @@ $(document).ready(function () {
       },
       user_phone: {
         required: true,
-        number: true,
       },
       office_addres: {
         required: true,
@@ -1490,14 +1489,13 @@ $(document).ready(function () {
       user_email: {
         email: "The email should be in the format: abc@domain.com",
       },
-      user_phone: {
-        number: "Please enter your phone no as a numerical value",
-      },
+      // user_phone: {
+      //   number: "Please enter your phone no as a numerical value",
+      // },
     },
     submitHandler: function (form, e) {
       e.preventDefault();
-      // var data = $("form").serialize();
-      // console.log(data);
+      var data = new FormData($("#bcgvl_rti_contacts")[0]);
       swal({
         title: "Are you sure?",
         text: "You wants to add RTI the contacts",
@@ -1510,23 +1508,14 @@ $(document).ready(function () {
           $.ajax({
             method: "POST",
             url: "addRTIContacts.php",
-            data: $("form").serialize(),
+            data: data,
             success: function (response) {
-              if (response == 1) {
-                swal({
-                  title: "Added!",
-                  text: "Added Successfully!",
-                  icon: "success",
-                }).then(function () {
-                  location.reload();
-                });
+              result = JSON.parse(response);
+              if (result.code == "200") {
+                alert_message(1);
               } else {
-                swal({
-                  title: "Something went wrong!",
-                  icon: "error",
-                }).then(function () {
-                  location.reload();
-                });
+                $(".display-error").html("<ul>" + result.msg + "</ul>");
+                $(".display-error").css("display", "block");
               }
             },
           });
@@ -2499,4 +2488,33 @@ $(document).ready(function () {
   $("#closed_date").attr("min", maxDate);
 
   $("#user_phone").inputmask("(999)-999-9999");
+
+  $(document).on("click", ".del_contacts", function (e) {
+    var contact_id = $(this).attr("data-contact_id");
+    var action_mes = "delete";
+    swal({
+      title: "Are you sure?",
+      text: "You wants to delete this contact!",
+      icon: "warning",
+      buttons: ["No, cancel it!", "Yes, I am sure!"],
+      dangerMode: true,
+    }).then(function (isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          method: "POST",
+          url: "addRTIContacts.php",
+          dataType: "JSON",
+          data: {
+            contact_id: contact_id,
+            action_mes: action_mes,
+          },
+          success: function (response) {
+            alert_message(response);
+          },
+        });
+      } else {
+        swal("Cancelled", "Done :)", "error");
+      }
+    });
+  });
 });

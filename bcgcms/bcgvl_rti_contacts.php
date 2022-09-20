@@ -135,9 +135,9 @@
                                         <td class="sorting_1"><?php echo $value['designation'];?></td>
                                         <td>
                                             <div class="form-button-action">
-                                                <button type="button" data-toggle="modal"
+                                                <button data-toggle="modal"
                                                     data-target="#editRTIContact" title=""
-                                                    class="btn btn-link btn-primary btn-lg"
+                                                    class="btn-primary"
                                                     data-original-title="Edit Achivement">
                                                     <i class="fa fa-edit get_rti_contacts"
                                                         data-contact_id        ="<?php echo $value['contact_id'];?>"
@@ -151,6 +151,14 @@
                                                         data-user_email        ="<?php echo $value['user_email'];?>"
                                                     ></i>
                                                 </button>
+                                            </div>
+                                            <div class="form-button-action">
+                                                <button class="btn-danger"
+                                                    data-original-title="Edit Achivement">
+                                                    <i class="fa fa-trash del_contacts"
+                                                        data-contact_id        ="<?php echo $value['contact_id'];?>"
+                                                    ></i>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -252,28 +260,29 @@
 <script>
 $(document).ready(function () {
     $(document).on("click", ".get_rti_contacts", function (e) {
-    var contact_id = $(this).attr("data-contact_id");
-    var contact_title = $(this).attr("data-contact_title");
-    var contact_name = $(this).attr("data-contact_name");
-    var designation = $(this).attr("data-designation");
-    var contact_address = $(this).attr("data-contact_address");
-    var user_phone = $(this).attr("data-user_phone");
-    var office_phone = $(this).attr("data-office_phone");
-    var organization_email = $(this).attr("data-organization_email");
-    var user_email = $(this).attr("data-user_email");
+        var contact_id = $(this).attr("data-contact_id");
+        var contact_title = $(this).attr("data-contact_title");
+        var contact_name = $(this).attr("data-contact_name");
+        var designation = $(this).attr("data-designation");
+        var contact_address = $(this).attr("data-contact_address");
+        var user_phone = $(this).attr("data-user_phone");
+        var office_phone = $(this).attr("data-office_phone");
+        var organization_email = $(this).attr("data-organization_email");
+        var user_email = $(this).attr("data-user_email");
 
-    console.log(office_phone);
-    // console.log(comp_ip);
+        console.log(office_phone);
+        // console.log(comp_ip);
 
-    $("#Con_id").val(contact_id);
-    $("#Con_title").val(contact_title);
-    $("#Con_name").val(contact_name);
-    $("#Designation").val(designation);
-    $("#Office_addres").text(contact_address);
-    $("#User_phone").val(user_phone);
-    $("#Office_phone").val(office_phone);
-    $("#Org_email").val(organization_email);
-    $("#User_email").val(user_email);
+        $("#Con_id").val(contact_id);
+        $("#Con_title").val(contact_title);
+        $("#Con_name").val(contact_name);
+        $("#Designation").val(designation);
+        $("#Office_addres").text(contact_address);
+        $("#User_phone").val(user_phone);
+        $("#Office_phone").val(office_phone);
+        $("#Org_email").val(organization_email);
+        $("#User_email").val(user_email);
     });
+
 });
 </script>
