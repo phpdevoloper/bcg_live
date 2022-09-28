@@ -2122,10 +2122,29 @@ div#home {
 .section-title p {
   margin-bottom: 0;
 }
+.admin li {
+  line-height: 23px;
+  margin-bottom: 11px;
+}
 .about ul {
   list-style-type: none;
   padding: 0;
 }
+.about ul {
+  list-style-type: disclosure-closed;
+  padding-left: 53px;
+}
+.admin table {
+  margin-top: 25px;
+  margin-bottom: 45px;
+}
+.admin table tr:first-child {
+  background: aquamarine;
+}
+.admin table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
 /* .about .content ul {
   list-style: none;
   padding: 0;

@@ -11,22 +11,22 @@ include('inc/dbconnection.php');
         <ul class="breadcrumb wizard">
             <li class="completed"><a href="index.php"><i class="fa fa-home"></i></a></li>
             <li class="completed"><a href="javascript:void(0);">Division</a></li>
-            <li class=""><a href="warehouse.php">Warehouse</a></li>
+            <li class=""><a href="laboratory_house.php">Laboratory animal house</a></li>
         </ul>
     </section>
     <div class="section">
-        <h3 class="text-center txt" style="color: #299adc;">Warehouse</h3>
+        <h3 class="text-center txt" style="color: #299adc;">Laboratory Animal House</h3>
     </div>
     <div class="container aos-init aos-animate" data-aos="fade-up" style="padding-top: 38px;">
         <div class="container">
             <!-- About Content -->
             <section id="about">
                 <div class="container aos-init aos-animate admin" data-aos="fade-up">
-                <?php $sql = "SELECT * FROM division WHERE div_name = 'WHO' ORDER BY div_id ASC "; 
+                <?php $sql = "SELECT * FROM division WHERE div_name = 'LAH' ORDER BY div_id ASC "; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         foreach($result as $value){?>
-                        <?php echo html_entity_decode($value['div_content']);?>
+                        <?php echo html_entity_decode($value['div_content'])??'Under Construction';?>
                         <?php } ?>
                 </div>
             </section>

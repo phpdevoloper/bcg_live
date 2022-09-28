@@ -34,10 +34,10 @@ include('inc/dbconnection.php');
                                     <div class="card-body">
                                         <ul>
                                             <li>
-                                                EL<a href="#">&nbsp;(Click here)</a>
+                                                EL<a href="uploads/emp_corner/CL Form.pdf" target="_blank">&nbsp;(Click here)</a>
                                             </li>
                                             <li>
-                                                CL<a href="#">&nbsp;(Click here)</a>
+                                                CL<a href="uploads/emp_corner/EL Form.pdf" target="_blank">&nbsp;(Click here)</a>
                                             </li>
                                         </ul>
                                     </div>

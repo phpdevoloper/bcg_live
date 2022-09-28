@@ -38,7 +38,7 @@
                                 $result = pg_fetch_assoc($res);
                             ?>
                             <div style="color: black;">
-                                <p> <?php echo $result['div_content'];?></p>
+                                <p> <?php echo html_entity_decode($result['div_content']);?></p>
                             </div>
                         <div>
                     </div>

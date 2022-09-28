@@ -21,7 +21,13 @@ include('inc/dbconnection.php');
         <div class="container">
             <!-- About Content -->
             <section id="about">
-                <div class="container aos-init aos-animate" data-aos="fade-up">
+                <div class="container aos-init aos-animate admin" data-aos="fade-up">
+                <?php $sql = "SELECT * FROM division WHERE div_name = 'ENG' ORDER BY div_id ASC "; 
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){?>
+                        <?php echo html_entity_decode($value['div_content'])??'Under Construction';?>
+                        <?php } ?>
                 </div>
             </section>
         </div>

@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="edit_btn">
-                                <a href="quality_assurance.php" class="btn btn-primary">Edit</a>
+                                <a href="warehouse.php" class="btn btn-primary">Edit</a>
                             </div>
                             <div class="d-flex align-items-center">
                                 <!-- <h4 class="card-title">Basic Details</h4> -->
@@ -26,14 +26,14 @@
                                             <i class="flaticon-right-arrow"></i>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="viewQUA.php">Quality Assurance</a>
+                                            <a href="viewWHO.php">Warehouse</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <?php $sql  = "SELECT * FROM division WHERE div_name ='QAS'"; 
+                            <?php $sql  = "SELECT * FROM division WHERE div_name ='WHO'"; 
                                 $res    = pg_query($db,$sql);
                                 $result = pg_fetch_assoc($res);
                             ?>
@@ -51,6 +51,4 @@
     }else{
         header("Location:index.php");
     }
-
-
 ?>

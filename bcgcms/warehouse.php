@@ -18,7 +18,7 @@ include('inc/header.php');?>
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="div_production.php">Production</a>
+                    <a href="div_production.php">Warehouse</a>
                 </li>
               </ul>
             </div>
@@ -27,8 +27,8 @@ include('inc/header.php');?>
               <div class="row">
                 <div class="col-md-12 col-lg-12">
                   <div class="form-group">
-                    <input type="hidden" name="content_id" id="content_id" value="PRO">
-                    <textarea class="form-control" id="production" rows="5">
+                    <input type="hidden" name="content_id" id="content_id" value="WHO">
+                    <textarea class="form-control" id="warehouse" rows="5">
                     </textarea>
                   </div>
                 </div>
@@ -36,7 +36,7 @@ include('inc/header.php');?>
             </div>
             <div class="card-action">
               <button class="btn btn-success updateadm">Submit</button>
-              <a href="viewOBJ.php" class="btn btn-danger">Cancel</a>
+              <a href="viewWHO.php" class="btn btn-danger">Cancel</a>
             </div>
           </div>
         </div>
@@ -45,14 +45,15 @@ include('inc/header.php');?>
   </div>
 </div>
 <?php include('inc/footer.php');  
- $sql    = "SELECT * FROM division WHERE div_name='PRO'";
+ $sql    = "SELECT * FROM division WHERE div_name='WHO'";
  $res    = pg_query($db,$sql);
  $result = pg_fetch_assoc($res);
+ $content = html_entity_decode($result['div_content']);
 ?>
 <script>
-  var content_desc = <?php echo json_encode(html_entity_decode($result['div_content'])??'');?>;
+  var content_desc = <?php echo json_encode($content);?>;
   tinymce.init({
-    selector: "textarea#production",
+    selector: "textarea#warehouse",
     height:500,
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",
@@ -73,7 +74,7 @@ include('inc/header.php');?>
 //  About us updating;
 $(".updateadm").on("click", function () {
     var div_id = $("#content_id").val();
-    var content = tinymce.get("production").getContent();
+    var content = tinymce.get("warehouse").getContent();
     var updated_by = <?php echo json_encode($_SESSION['user']['uname']); ?>;
     // alert(updated_by);
     // console.log(content_id);
@@ -98,6 +99,6 @@ $(".updateadm").on("click", function () {
     });
   });
 </script>
-<?php } else{
+<?php }else {
   header("Location:index.php");
-} ?>
+}?>

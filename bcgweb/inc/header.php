@@ -225,6 +225,9 @@
                       <li>
                         <a href="warehouse.php" class="list_a">Warehouse</a>
                       </li>
+                      <li>
+                        <a href="laboratory_house.php" class="list_a">Laboratory Animal House</a>
+                      </li>
                     </ul>
                   </li>
                   <li class="dropdown">

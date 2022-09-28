@@ -9,7 +9,7 @@
        if(empty($result)){
            
          $sql = "INSERT INTO division(div_name,div_content,content_updated_by)VALUES 
-         ('".$_POST['div_id']."','".$_POST['content_desc']."','".$_POST['updated_by']."')";
+         ('".$_POST['div_id']."','".htmlentities($_POST['content_desc'])."','".$_POST['updated_by']."')";
         //  echo $sql;exit; 
         $ret = pg_query($db, $sql);
         if(!$ret) {
@@ -20,7 +20,7 @@
         } 
        }
        else {
-            $sql = "UPDATE division SET div_content ='".$_POST['content_desc']."',
+            $sql = "UPDATE division SET div_content ='".htmlentities($_POST['content_desc'])."',
             content_updated_by='".$_POST['updated_by']."' WHERE 
             div_name ='".$_POST['div_id']."'";
             $ret = pg_query($db, $sql);

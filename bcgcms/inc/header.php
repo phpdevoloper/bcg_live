@@ -608,13 +608,21 @@ include('inc/dbconnection.php');?>
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php'? 'active':'');
               }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php'? 'active':'');
               }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'? 'active':'');
 							}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'active':'');
 							}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'active':'');
-								}
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php') {
+									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php'? 'active':'');
+              }
                 ?>">
                 <a data-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
@@ -633,14 +641,21 @@ include('inc/dbconnection.php');?>
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewPRO.php'? 'show':'');
               }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php'? 'show':'');
               }
-              elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_assurance.php'? 'show':'');
-								}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'div_production.php'? 'show':'');
-								}elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php') {
-									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'quality_control.php'? 'show':'');
-								}
                 ?>" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
                     <li class="<?php 
@@ -683,6 +698,28 @@ include('inc/dbconnection.php');?>
                       }?>">
                       <a href="viewQTC.php">
                         <span class="sub-item">Quality Control</span>
+                      </a>
+                    </li>
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewWHO.php'? 'active':'');
+                      } 
+                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php'? 'active':'');
+                      }?>">
+                      <a href="viewWHO.php">
+                        <span class="sub-item">Warehouse</span>
+                      </a>
+                    </li>
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewLAH.php'? 'active':'');
+                      } 
+                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php'? 'active':'');
+                      }?>">
+                      <a href="viewLAH.php">
+                        <span class="sub-item">Laboratory Animal House</span>
                       </a>
                     </li>
                   </ul>

@@ -50,9 +50,10 @@ include('inc/header.php');?>
  $result = pg_fetch_assoc($res);
 ?>
 <script>
-  var content_desc = <?php echo json_encode($result['div_content']??'');?>;
+  var content_desc = <?php echo json_encode((html_entity_decode($result['div_content']))??'');?>;
   tinymce.init({
     selector: "textarea#quality_con",
+    height:500,
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",
                     "searchreplace visualblocks code",
                     "insertdatetime media paste codesample table preview"
