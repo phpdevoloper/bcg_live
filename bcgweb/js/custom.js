@@ -174,7 +174,7 @@ $(document).ready(function () {
       homeSlider.owlCarousel({
         items: 1,
         loop: true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 10000,
         nav: false,
         dots: false,

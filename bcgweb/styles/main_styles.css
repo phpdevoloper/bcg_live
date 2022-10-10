@@ -1657,6 +1657,9 @@ div#myTabContent {
 .contact_about_list {
   margin-top: 48px;
 }
+.contact_about_list li {
+  list-style-type: none;
+}
 .contact_about_list li:not(:last-child) {
   margin-bottom: 9px;
 }
