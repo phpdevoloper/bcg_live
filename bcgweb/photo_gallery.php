@@ -29,8 +29,9 @@ include('inc/dbconnection.php');
             ?>
                 <div class="col-4">
                     <div class="gallery-image">
-                        <a href="view_photo_gallery.php?cate_id=<?php echo $value1['cate_id'];?>&category=<?php echo $value1['category_title'];?>">
-                            <div class="img-box">
+                        <!-- <a href="view_photo_gallery.php?cate_id=<?php //echo $value1['cate_id'];?>&category=<?php// echo $value1['category_title'];?>">  -->
+                        <a href="#" onclick="myFunction(<?php echo $value1['cate_id'];?>)">
+                            <div class="img-box" >
                                 <?php 
                                     $sql = "select * from photo_gallery where category = '".$value1['cate_id']."' order by photo_id";
                                     $exe = pg_query($db,$sql);
@@ -54,4 +55,26 @@ include('inc/dbconnection.php');
     </section>
 </div>
 <?php include('inc/simple_footer.php'); ?>
+<script type="text/javascript">
     
+   function myFunction(data){
+
+    var getUrl  = window.location;
+    var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+'/';
+    // console.log(baseUrl);
+        
+        $.ajax({
+            method: "POST",
+            url: "galleryAjax.php",
+            data: { cate_id : data },
+            dataType:'json',
+            success: function (response) {
+                console.log(response.status);
+                if(response.status == 200){
+                    window.location.href = baseUrl.'view_photo_gallery.php';
+                }
+            },
+          });
+        
+    }
+</script>    

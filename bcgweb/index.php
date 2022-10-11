@@ -32,20 +32,6 @@
                 alt="slide"
             />
             </div>
-            <!-- <div class="carousel-item">
-            <img
-                class="d-block w-100 slideimg"
-                src="images/sliders/DSC05007.jpg"
-                alt="Second slide"
-            />
-            </div> -->
-            <!-- <div class="carousel-item">
-            <img
-                class="d-block w-100 slideimg"
-                src="images/sliders/Banner.png"
-                alt="Second slide"
-            />
-            </div> -->
             <?php $counter++; } ?>
         </div>
         <a

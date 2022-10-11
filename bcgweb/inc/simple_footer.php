@@ -54,7 +54,7 @@
 <script src="plugins/dataTables/datatables.min.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script> 
 <script src="styles/bootstrap4/popper.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="plugins/OwlCarousel2-2.3.4/owl.carousel.min.js"></script>
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>

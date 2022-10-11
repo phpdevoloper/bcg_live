@@ -10,7 +10,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="plugins/bootstrap/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     />
     <link
       href="assets/fonts/fontawesome/css/all.min.css"
