@@ -1,7 +1,6 @@
 <?php
 	include('inc/dbconnection.php');
     include('inc/Validation.php');
-    var_dump($_POST,$_FILES);die;
 
     if(isset($_POST['rti_id']) && $_POST['rti_id'] != ''){
         if ($_POST['rti_url'] == '' && $_FILES['rti_file']['name'] == '') {

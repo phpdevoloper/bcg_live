@@ -52,6 +52,7 @@
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="plugins/dataTables/datatables.min.js"></script>
+<script type="text/javascript" src="plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script> 
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>

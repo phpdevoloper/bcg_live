@@ -1,5 +1,9 @@
- <?php include('inc/header.php'); 
+ <?php 
+ session_start();
+include('inc/header.php'); 
 include('inc/dbconnection.php');
+include('inc/checkval.php');
+
 ?>
 <!-- Home -->
 <!-- <div class="banner">
@@ -15,14 +19,25 @@ include('inc/dbconnection.php');
         </ul>
     </section>
     <div class="section">
-        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;"><?php echo $_GET['category'];?></h3>
+        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;"><?php 
+        $cate_id = check_numeric($_SESSION['cate_id']); 
+        $sql = "SELECT * FROM photo_category WHERE cate_id='$cate_id' ORDER BY cate_id ASC";
+        $exe = pg_query($db,$sql);
+        $re = pg_fetch_assoc($exe);
+        echo ($re['category_title']);
+        if ($cate_id == 2) { ?>
+             <ul>
+                 <li><i class="fa fa-exclamation-circle"></i>Invalid numeric</li>
+             </ul>
+        <?php } ?>
+        </h3>
     </div>
 
     <section>
         <div class="container">
             <div class="row">
                 <?php 
-                    $sql = "select * from photo_gallery where category='".$_GET['cate_id']."' order by photo_id";
+                    $sql = "select * from photo_gallery where category='$cate_id' order by photo_id";
                     $exe = pg_query($db,$sql);
                     $result = pg_fetch_all($exe);
                     foreach($result as $value){
@@ -39,7 +54,7 @@ include('inc/dbconnection.php');
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php }?>
             </div>
         </div>
     </section>

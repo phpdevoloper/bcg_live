@@ -51,6 +51,7 @@ include('inc/dbconnection.php');
                 <div class="col-lg-8">
                     <div class="contact_form_container">
                         <form id="contact_form" class="contact_form">
+                        <div class="alert alert-danger display-error" style="display:none;"></div>
                             <div class="row">
                                 <div class="col-md-6 input_col">
                                     <div class="input_container input_name">
@@ -164,29 +165,36 @@ include('inc/dbconnection.php');
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                        if (response == 1) {
+                        var data = JSON.parse(response);
+
+                        if (data.code == "200") {
                             swal({
-                            title: "Submitted!",
-                            text: "Feedback submitted successfully!",
-                            icon: "success",
+                                title: data.msg,
+                                icon: "success",
                             }).then(function () {
-                            location.reload();
+                                
                             });
-                        }else if (response == 2) {
+                        } 
+                        else if (data.code == "404") {
                             swal({
-                                title: "Incorrect Captch!",
-                                icon: "error",
+                                title: data.msg,
+                                icon: "warning",
                             }).then(function () {
-                                location.reload();
+                                
+                            });
+                        } 
+                        else if (data.code == "2") {
+                            swal({
+                                title: data.msg,
+                                icon: "warning",
+                            }).then(function () {
+                                
                             });
                         }else {
-                            swal({
-                                title: "Something went wrong!",
-                                icon: "error",
-                            }).then(function () {
-                                location.reload();
-                            });
+                            $(".display-error").html("<ul>" + data.msg + "</ul>");
+                            $(".display-error").css("display", "block");
                         }
+                    
                     }
                 });
                 } else {

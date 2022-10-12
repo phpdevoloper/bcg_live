@@ -4,7 +4,6 @@
 
 	if(isset($_POST['report_id']) && ($_POST['report_id'] != '')){
         if ($_FILES['report_file']['name'] == '') {
-            var_dump($_POST);die;	
 			$sql = "select * from documents_bcg where doc_id = '".$_POST['report_id']."'";
 			$ret = pg_query($db, $sql); 
 			$data = pg_fetch_assoc($ret);

@@ -17,7 +17,7 @@
     $image=imagecreate(150,25);
     $backColor=imagecolorallocate($image,255, 255, 255);
     $txtColor=imagecolorallocate($image,128, 0, 0);
-    $line_color = imagecolorallocate($image, 64,64,64); 
+    $line_color = imagecolorallocate($image, 151, 199, 214); 
     $pixel_color = imagecolorallocate($image, 0,0,255);
     
     for($i=0;$i<10;$i++) {
@@ -25,7 +25,7 @@
     }  
     $code=randText();
     $_SESSION["captcha"] = $code;
-    imagestring($image,5,15,7,$code,$txtColor);
+    imagestring($image,5,10,7,$code,$txtColor);
     imagepng($image);
     imagecolordeallocate($backColor);
     imagecolordeallocate($txtColor);

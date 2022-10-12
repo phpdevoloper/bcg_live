@@ -4,7 +4,8 @@ include('inc/Validation.php');
 
 function checkString($data){
 	$data = clean($data);
-	if (!preg_match("/^[a-zA-Z-']*$/",$data)) {
+	if (!preg_match("/^[A-Za-z0-9_-]*$/",$data)) {
+		var_dump('invalid');die;
         return 2;
 	}else {
 	    return;
@@ -73,6 +74,15 @@ function validate_url($data){
 function check_numeric($data){
     $data = clean($data);
     if (!is_numeric($data)) {
+        return 2;
+    }else {
+		return $data;
+	}
+
+}
+function check_empty($data){
+    $data = clean($data);
+    if(empty($data)) {
         return 2;
     }else {
 		return $data;

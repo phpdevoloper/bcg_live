@@ -1,4 +1,6 @@
- <?php include('inc/header.php'); 
+ <?php 
+ session_start();
+ include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
@@ -29,8 +31,7 @@ include('inc/dbconnection.php');
             ?>
                 <div class="col-4">
                     <div class="gallery-image">
-                        <!-- <a href="view_photo_gallery.php?cate_id=<?php //echo $value1['cate_id'];?>&category=<?php// echo $value1['category_title'];?>">  -->
-                        <a href="#" onclick="myFunction(<?php echo $value1['cate_id'];?>)">
+                        <a class="get_cate" data-cate_id="<?php echo $value1['cate_id'];?>"> 
                             <div class="img-box" >
                                 <?php 
                                     $sql = "select * from photo_gallery where category = '".$value1['cate_id']."' order by photo_id";
@@ -40,12 +41,12 @@ include('inc/dbconnection.php');
                                     <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
                                         <!-- <img src="images/no_image.webp" alt="" /> -->
                                     <?php } ?>
-                                    <div class="transparent-box">
-                                        <div class="caption">
-                                            <p><?php echo $value1['category_title'];?></p>
-                                        </div>
-                                    </div> 
-                                </div>
+                                <div class="transparent-box">
+                                    <div class="caption">
+                                        <p><?php echo $value1['category_title'];?></p>
+                                    </div>
+                                </div> 
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -56,25 +57,19 @@ include('inc/dbconnection.php');
 </div>
 <?php include('inc/simple_footer.php'); ?>
 <script type="text/javascript">
-    
-   function myFunction(data){
-
-    var getUrl  = window.location;
-    var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+'/';
-    // console.log(baseUrl);
-        
-        $.ajax({
-            method: "POST",
-            url: "galleryAjax.php",
-            data: { cate_id : data },
-            dataType:'json',
-            success: function (response) {
-                console.log(response.status);
-                if(response.status == 200){
-                    window.location.href = baseUrl.'view_photo_gallery.php';
+    $(document).ready(function(){
+        $(".get_cate").on('click',function(e){
+            e.preventDefault();
+            var cate_id = $(this).attr("data-cate_id");
+            // console.log(cate_id);
+            $.ajax({
+                type: "POST",
+                url: "galleryAjax.php",
+                data : {  cate_id :  cate_id},
+                success: function(response){
+                    window.location.href = "view_photo_gallery.php"
                 }
-            },
-          });
-        
-    }
-</script>    
+            });
+        });
+    });
+</script>
