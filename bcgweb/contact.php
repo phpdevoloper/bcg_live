@@ -58,8 +58,9 @@ include('inc/dbconnection.php');
             </div>
             <div class="col-lg-6">
                 <div style="width: 100%;">
-                <iframe src="<?php echo $value['map_embed'];?>"
-                    width="100%" height="300" frameborder="0" style="border:0"></iframe>
+                <!-- <iframe src="<?php //echo $value['map_embed'];?>"
+                    width="100%" height="300" frameborder="0" style="border:0"></iframe> -->
+                    <img src="images/Capture.png" alt="no image">
                 </div>
             </div>
             <?php } ?>

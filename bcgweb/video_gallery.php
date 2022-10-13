@@ -1,4 +1,6 @@
- <?php include('inc/header.php'); 
+ <?php 
+ session_start();
+ include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
 <!-- Home -->
@@ -29,7 +31,7 @@ include('inc/dbconnection.php');
                     $result = pg_fetch_all($exe);
                     foreach($result as $value1){
                 ?>
-                <a href="view_video_gallery.php?cate_id=<?php echo $value1['cate_id'];?>&category=<?php echo $value1['category_title'];?>">
+                <a class="get_cate" data-cate_id="<?php echo $value1['cate_id'];?>">
                     <div class="img-box">
                         <?php 
                             $sql = "select * from video_gallery where category = '".$value1['cate_id']."' order by photo_id";
@@ -51,4 +53,20 @@ include('inc/dbconnection.php');
     </section>
 </div>
 <?php include('inc/simple_footer.php'); ?>
-    
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".get_cate").on('click',function(e){
+            e.preventDefault();
+            var cate_id = $(this).attr("data-cate_id");
+            // console.log(cate_id);
+            $.ajax({
+                type: "POST",
+                url: "galleryAjax.php",
+                data : {  cate_id :  cate_id},
+                success: function(response){
+                    window.location.href = "view_video_gallery.php"
+                }
+            });
+        });
+    });
+</script>

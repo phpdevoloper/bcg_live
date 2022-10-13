@@ -77,6 +77,15 @@ include('inc/dbconnection.php');
                       <li>
                         <a href="quality_control.php">Quality Control</a>
                       </li>
+                      <li>
+                        <a href="engineering.php">Engineering</a>
+                      </li>
+                      <li>
+                        <a href="warehouse.php">Warehouse</a>
+                      </li>
+                      <li>
+                        <a href="laboratory_house.php">Laboratory Animal House</a>
+                      </li>
                     </ul>
                 </div>
             </div>
@@ -102,12 +111,6 @@ include('inc/dbconnection.php');
                             <a href="events_details.php"
                             >Milestones / Major Events</a
                             >
-                        </li>
-                        <li>
-                            <a href="current_events.php">Current Events</a>
-                        </li>
-                        <li>
-                            <a href="past_events.php">Past Events</a>
                         </li>
                         <li>
                             <a href="training_programmes.php">Training Programmes</a>
@@ -157,19 +160,16 @@ include('inc/dbconnection.php');
                 <div class="col-4">
                     <ul class="sitemap">
                         <li>
-                            <a href="event_gallery.php" class="">Tenders</a>
+                            <a href="tenders.php" class="">Tenders</a>
                         </li>
                         <li>
-                            <a href="photo_gallery.php" class="">RTI</a>
+                            <a href="rti.php" class="">RTI</a>
                         </li>
                         <li>
-                            <a href="video_gallery.php" class="">FAQ</a>
+                            <a href="recruitmetns.php" class="">Recruitments</a>
                         </li>
                         <li>
-                            <a href="video_gallery.php" class="">Recruitments</a>
-                        </li>
-                        <li>
-                            <a href="video_gallery.php" class="">Feedback</a>
+                            <a href="feedback.php" class="">Feedback</a>
                         </li>
                     </ul>
                 </div>
