@@ -60,6 +60,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <form id="add_slider">
+                                                    <div class="alert alert-danger display-error" style="display:none;">
+                                                    </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group form-inline">
@@ -188,6 +190,7 @@
                                                                 data-original-title="Edit Achivement">
                                                                 <i class="fa fa-trash delete_slide"
                                                                     data-slider_id="<?php echo $value['slider_id'];?>"
+                                                                    style="color:red"
                                                                 ></i>
                                                             </a>
                                                         </td>
@@ -226,6 +229,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <form id="edit_slider">
+                                                                    <div class="alert alert-danger display-error" style="display:none;"></div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group form-inline">

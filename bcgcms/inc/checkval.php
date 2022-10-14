@@ -5,7 +5,6 @@ include('inc/Validation.php');
 function checkString($data){
 	$data = clean($data);
 	if (!preg_match("/^[A-Za-z0-9_-]*$/",$data)) {
-		var_dump('invalid');die;
         return 2;
 	}else {
 	    return;
@@ -25,8 +24,8 @@ function checktypeImage($data){
 		"jpg",
 		"jpeg"
 	);
-	if (! in_array($FileType, $allowed_image_extension)) {
-		echo 6;
+	if (! in_array($data, $allowed_image_extension)) {
+		return 2;
 	}else {
 		return;
 	}
@@ -74,7 +73,8 @@ function validate_url($data){
 function check_numeric($data){
     $data = clean($data);
     if (!is_numeric($data)) {
-        return 2;
+		$code = 2;
+        return $code."D";
     }else {
 		return $data;
 	}

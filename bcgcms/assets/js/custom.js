@@ -121,10 +121,29 @@ $(document).ready(function () {
           url: "updateBasicDetails.php",
           data: fdata,
           contentType: false,
-          dataType: "json",
           processData: false,
-          success: function (data) {
-            alert_message(data);
+          success: function (response) {
+            result = JSON.parse(response);
+            if (result.code == 200) {
+              swal({
+                title: "Added!",
+                text: result.msg,
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else if (result.code == 206) {
+              swal({
+                title: "Updated!",
+                text: result.msg,
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            } else {
+              $(".display-error").html("<ul>" + result.msg + "</ul>");
+              $(".display-error").css("display", "block");
+            }
           },
         });
       } else {
@@ -2393,7 +2412,27 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              alert_message(response);
+              result = JSON.parse(response);
+              if (result.code == 200) {
+                swal({
+                  title: "Added!",
+                  text: result.msg,
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else if (result.code == 206) {
+                swal({
+                  title: "Updated!",
+                  text: result.msg,
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                $(".display-error").html("<ul>" + result.msg + "</ul>");
+                $(".display-error").css("display", "block");
+              }
             },
           });
         } else {
@@ -2427,7 +2466,19 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-              alert_message(response);
+              result = JSON.parse(response);
+              if (result.code == 206) {
+                swal({
+                  title: "Updated!",
+                  text: result.msg,
+                  icon: "success",
+                }).then(function () {
+                  location.reload();
+                });
+              } else {
+                $(".display-error").html("<ul>" + result.msg + "</ul>");
+                $(".display-error").css("display", "block");
+              }
             },
           });
         } else {
@@ -2447,21 +2498,28 @@ $(document).ready(function () {
       dangerMode: true,
     }).then(function (isConfirm) {
       if (isConfirm) {
-        console.log(slider_id);
         var action_mes = "delete";
-
         $.ajax({
           method: "POST",
           url: "sliderAjax.php",
-          dataType: "JSON",
+          // contentType: false,
+          // processData: false,
           data: {
             slider_id: slider_id,
             action_mes: action_mes,
           },
-          // contentType: false,
-          // processData: false,
           success: function (response) {
-            alert_message(response);
+            console.log(response);
+            result = JSON.parse(response);
+            if (result.code == 205) {
+              swal({
+                title: "Deleted!",
+                text: result.msg,
+                icon: "success",
+              }).then(function () {
+                location.reload();
+              });
+            }
           },
         });
       } else {

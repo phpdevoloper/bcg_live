@@ -31,10 +31,13 @@ if(isset($_SESSION['user'])){
                     </div>
                     <div class="card-body">
                         <form id="update_Basic">
+                            <div class="alert alert-danger display-error" style="display:none;"></div>
                             <div class="row">
                                 <?php $sql = "select * from director_desk"; 
                                 $res = pg_query($db,$sql);
                                 $result = pg_fetch_assoc($res);
+                                // var_dump($result['position_held']);die;
+                                // $res = html_entity_decode($result);
                                     ?>
                                 <div class="col-lg-3 text-center">
                                     <div class="avatar-upload">
@@ -90,7 +93,7 @@ if(isset($_SESSION['user'])){
 </div>
 <?php include('inc/footer.php');?>
 <script>
-  var content_desc = <?php echo json_encode($result['position_held'] ?? '');?>;
+  var content_desc = <?php echo json_encode(html_entity_decode($result['position_held'],) ?? '');?>;
   tinymce.init({
     selector: "textarea#position_held",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",

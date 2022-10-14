@@ -210,6 +210,7 @@
         </div>
     </div>
 </div>
-<?php include('inc/footer.php'); }else{
+<?php include('inc/footer.php'); 
+}else{
     header("Location:index.php");
 }?>
