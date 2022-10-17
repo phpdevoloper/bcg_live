@@ -253,9 +253,6 @@
     </div>
 </div>
 <?php include('inc/footer.php');
-    }else{
-        header("Location");
-    }
 ?>
 <script type="application/javascript">
     $(function(){
@@ -278,3 +275,7 @@
         $('#date_to').attr('min', maxDate);
 });
 </script>
+
+<?php }else {
+  header("Location:index.php");
+} ?>

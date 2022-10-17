@@ -74,9 +74,7 @@ if($_SESSION !==''){
 		</div>
 	</div>
 	<?php include('inc/footer.php');
-  }else{
-	header("Location: index.php"); 
-  }
+  
 
 ?>
 <script type="application/javascript">
@@ -186,3 +184,6 @@ if($_SESSION !==''){
 			fillColor: "rgba(255, 165, 52, .14)",
 		});
 	</script> -->
+<?php }else{
+	header("Location: index.php"); 
+  } ?>

@@ -316,10 +316,7 @@
         </div>
     </div>
 </div>
-<?php include('inc/footer.php');
-}else{
-  header("Location:index.php");
-}?>
+<?php include('inc/footer.php');?>
 <script type="application/javascript">
     $(document).ready(function(){
         slider_upload.onchange = evt => {
@@ -367,3 +364,6 @@
     //   captionText.innerHTML = this.alt;
     // }
 </script>
+<?php }else{
+  header("Location:index.php");
+} ?>

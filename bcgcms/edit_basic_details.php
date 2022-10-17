@@ -93,7 +93,7 @@ if(isset($_SESSION['user'])){
 </div>
 <?php include('inc/footer.php');?>
 <script>
-  var content_desc = <?php echo json_encode(html_entity_decode($result['position_held'],) ?? '');?>;
+  var content_desc = <?php echo json_encode(html_entity_decode($result['position_held'],ENT_QUOTES, 'UTF-8'));?>;
   tinymce.init({
     selector: "textarea#position_held",
     plugins: ["advlist autolink textcolor colorpicker lists link image  charmap print anchor",

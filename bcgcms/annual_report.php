@@ -261,9 +261,7 @@ if(isset($_SESSION['user'])){
         </div>
     </div>
 </div>
-<?php include('inc/footer.php'); }else{
-    header("Location:index.php");
-    }?>
+<?php include('inc/footer.php'); ?>
 <script type="application/javascript">
     $(document).ready(function(){
         $("#add_annual_report").validate({
@@ -413,3 +411,6 @@ if(isset($_SESSION['user'])){
     });
 
 </script>
+<?php }else{
+    header("Location:index.php");
+    } ?>

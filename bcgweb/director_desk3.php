@@ -22,7 +22,6 @@ include('inc/dbconnection.php');
                             $res = pg_query($db,$sql);
                             $result = pg_fetch_all($res);
                             foreach($result as $value){
-                            //    var_dump($value['position_held']);die;
                     ?>
                     <div class="section">
                         <h3 class="text-center txt" style="color: #299adc;">DIRECTOR OF BCG</h3>
@@ -57,7 +56,7 @@ include('inc/dbconnection.php');
                                 </div>
                                 <div class="testimonial-item">
                                     <p>
-                                    <?php echo $value['position_held'];?>
+                                    <?php echo html_entity_decode($value['position_held']);?>
                                     </p>
                                 </div>
                             </div>

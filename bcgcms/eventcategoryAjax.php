@@ -1,7 +1,6 @@
 <?php 
 include('inc/dbconnection.php');
 if (!isset($_POST['category_id'])) {
-    // var_dump("insert");die;
     $cate_title     = $_POST['category_title'];
     $from_date      = $_POST['from_date'];
     $to_date        = $_POST['to_date'];
@@ -14,7 +13,6 @@ if (!isset($_POST['category_id'])) {
 }
 else{
     if($_POST['category_id'] !== '')
-    // var_dump("up");die;
     $cate_title     = $_POST['category_title'];
     $from_date      = $_POST['from_date'];
     $to_date        = $_POST['to_date'];

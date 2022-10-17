@@ -80,4 +80,6 @@
     }
 });
 </script>
-<?php } ?>
+<?php }else{
+    header("Location:index.php");
+} 

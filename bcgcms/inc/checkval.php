@@ -90,4 +90,13 @@ function check_empty($data){
 
 }
 
+function checkAlphanum($data){
+	$data = clean($data);
+	if (preg_match("/^[A-Za-z0-9_-]*$/",$data)) {
+        return;
+	}else {
+	    return 2;
+	}
+}
+
 ?>

@@ -21,7 +21,6 @@ if (isset($_POST['action_mes']) && $_POST['contact_id'] != '') {
         if ($con_title == 2) {
             $errorMSG .= "<li><i class='fa fa-exclamation-circle'></i>Only letters,single and white spaces allowed</li>";
         }
-        var_dump($errorMSG);die;
         if ($email == 2) {
             $errorMSG .= "<li><i class='fa fa-exclamation-circle'></i>Invalid email format</li>";
         }
@@ -41,7 +40,6 @@ if (isset($_POST['action_mes']) && $_POST['contact_id'] != '') {
         }
     }
     else{
-        var_dump($_POST);die;
             $email = checkEmail($_POST['user_email']);
             $mobile = $_POST['user_phone'];
             $url = validate_url($_POST['map_emb']);

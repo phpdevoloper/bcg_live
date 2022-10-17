@@ -10,7 +10,6 @@
 			$ret = pg_query($db, $sql); 
 			$data = pg_fetch_assoc($ret);
 			$rec_tile = $Validation->clean($_POST['rec_title']);
-			var_dump($rec_tile);die;
 	
 			$query = "UPDATE recruitment SET rect_title='".$Validation->clean($_POST['rec_title'])."',advt_no ='".$Validation->clean($_POST['advt_no'])."',
 			date_of_announce ='".$Validation->clean($_POST['date_of_announe'])."',last_date_to_apply ='".$Validation->clean($_POST['last_date_apply'])."',
