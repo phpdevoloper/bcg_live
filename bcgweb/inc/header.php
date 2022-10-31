@@ -7,7 +7,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="CareMed demo project" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <?php 
+
+    ini_set('session.cookie_httponly', 1);
+  
+    ini_set('session.use_only_cookies', 1);
+      
+    ini_set('session.cookie_secure', 1);
+    
+
+
+     
+    header('X-Content-Type-Options: nosniff');
+
+    header("X-XSS-Protection: 1");
+
+    header('Strict-Transport-Security: max-age=7776000');
+
+    header("X-Frame-Options: SAMEORIGIN");
+
+    header("Content-Security-Policy: default-src 'self'");
+    
+    header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
+    
+    header("Referrer-Policy: no-referrer");
+
+
+    ?>
+    <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
       href="assets/fonts/fontawesome/css/all.min.css"
       rel="stylesheet"

@@ -1,5 +1,10 @@
 <?php 
-session_start();
+session_start([
+    'use_only_cookies' => 1,
+    'cookie_lifetime' => 0,
+    'cookie_secure' => 1,
+    'cookie_httponly' => 1
+]);
 include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
@@ -8,7 +13,7 @@ include('inc/dbconnection.php');
         margin-top: 22px;
     }
     #captcha_code{
-        width: 100%;
+        width: 63%;
     }
     /* .btnRefresh{
         margin-top:10px;
@@ -23,8 +28,8 @@ include('inc/dbconnection.php');
     border: none;
     border-radius: 100px;
     cursor: pointer;
-    margin-top: 23px;
-    margin-left: -182px;
+    margin-top: 10px;
+    margin-left: 20px;
     transition: background 0.2s ease-out;
 }
 </style>

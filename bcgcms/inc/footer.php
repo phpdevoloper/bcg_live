@@ -247,8 +247,8 @@
     <script src="assets/js/core/jquery.3.2.1.min.js"></script>
     <!-- <script src="assets/js/jquery.min.js"></script> -->
     <!-- <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script> -->
-    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <!-- <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> -->
+    <script src="vendor/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
     <script src="assets/js/core/bootstrap.min.js"></script>
     <script src="assets/js/core/popper.min.js"></script>
     <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
@@ -268,7 +268,7 @@
     <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
 
     <!-- Datatables -->
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    <script type="text/javascript" src="vendor/DataTables/datatables.min.js"></script>
 
     <!-- Bootstrap Notify -->
     <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>

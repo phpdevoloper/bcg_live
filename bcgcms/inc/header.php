@@ -9,8 +9,40 @@ include('inc/dbconnection.php');?>
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
-    <!-- <link rel="icon" href="assets/img/icon.ico" type="image/x-icon" /> -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <?php 
 
+    ini_set('session.cookie_httponly', 1);
+  
+    ini_set('session.use_only_cookies', 1);
+      
+    ini_set('session.cookie_secure', 1);
+     
+    header('X-Content-Type-Options: nosniff');
+
+    header("X-XSS-Protection: 1");
+
+    header('Strict-Transport-Security: max-age=7776000');
+
+    header("X-Frame-Options: SAMEORIGIN");
+
+    header("Content-Security-Policy: default-src 'self'");
+    
+    header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
+    
+    header("Referrer-Policy: no-referrer");
+
+    ?>
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -39,8 +71,7 @@ include('inc/dbconnection.php');?>
     <link rel="stylesheet" href="assets/css/atlantis.min.css" />
 
     <!-- CSS Files -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.min.css"/>
 
 
     <!-- CSS Just for demo purpose, don't include it in your project -->

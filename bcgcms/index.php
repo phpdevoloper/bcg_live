@@ -131,7 +131,6 @@ button {
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  margin-top: 15px;
   transition: background 0.2s ease-out;
 }
 
@@ -194,7 +193,7 @@ header{
     color: #f9faff;
 }
 .ref_btn{
-  margin-top: 22px;
+  margin-top: 8px;
 }
 
 
@@ -279,7 +278,7 @@ header{
             </div>
             <div class="col">
               <div class="ref_btn">
-                <i class="icon-refresh btnRefresh" style="margin-top:10px"></i>
+                <i class="icon-refresh btnRefresh"></i>
               </div>
             </div>
           </div>
