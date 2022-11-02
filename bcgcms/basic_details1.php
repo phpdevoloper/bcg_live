@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="held">
                                     <h5>Position held</h5>
-                                    <p><?php echo $result['position_held'];?></p>
+                                    <p><?php echo html_entity_decode($result['position_held']) ?? '';?></p>
                                 </div>
                             </div>
                         </div>

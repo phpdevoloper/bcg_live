@@ -3,6 +3,7 @@
     if(isset($_SESSION['user'])){
 	 include('inc/dbconnection.php');
 	include('inc/header.php');
+    include('inc/checkval.php');
 	 $base_url = "http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/'; 
 ?>
 <div class="main-panel">
@@ -16,7 +17,19 @@
                                 <div class="page-header">
                                     <ul class="breadcrumbs">
                                         <li class="nav-item">
-                                            <a href="whats_new.php"><?php echo $_GET['category_title']; ?></a>
+                                            <a href="whats_new.php">
+                                                <?php 
+                                                    $cate_id = check_numeric($_SESSION['cate_id']);
+                                                    $sql = "SELECT * FROM video_category WHERE cate_id='$cate_id' ORDER BY cate_id ASC";
+                                                    $exe = pg_query($db,$sql);
+                                                    $re = pg_fetch_assoc($exe);
+                                                    echo ($re['category_title']??'');
+                                                    if ($cate_id == 2) { ?>
+                                                        <!-- <ul>
+                                                            <li><i class="fa fa-exclamation-circle"></i>Invalid Category ID</li>
+                                                        </ul> -->
+                                                    <?php } ?>    
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -50,7 +63,7 @@
                                                                 <select class="form-control input-full" name="even_cat" id="even_cat">
                                                                     <option value="">Select the Category</option>
                                                                     <?php 
-                                                                        $sql = "SELECT * FROM video_category WHERE gall_cate_id = '3' ORDER BY cate_id";
+                                                                        $sql = "SELECT * FROM video_category WHERE cate_id ='$cate_id' ORDER BY cate_id";
                                                                         $exe = pg_query($db,$sql);
                                                                         $result = pg_fetch_all($exe);
                                                                         foreach($result as $value){ ?>
@@ -96,11 +109,11 @@
                             <div>
                                 <div class="row photo_gallery">
                                     <?php 
-                                    $sql    = "select * from video_gallery where category ='".$_GET['cate_id']."'";
-                                    // echo $sql;exit;
-                                    $exe    = pg_query($db,$sql);
-                                    $result = pg_fetch_all($exe);
-                                    foreach($result as $value){ ?>
+                                        $sql = "select * from video_gallery where category='$cate_id' order by photo_id";
+                                        $exe = pg_query($db,$sql);
+                                        $result = pg_fetch_all($exe);
+                                        foreach($result as $value){
+                                    ?>
                                     <div class="col-4">
                                         <a href="#">
                                             <div class="box">

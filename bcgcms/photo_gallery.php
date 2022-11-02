@@ -91,7 +91,7 @@
                                     foreach($result as $values){ 
                                        ?>
                                     <div class="col-4">
-                                        <a href="photo_gallery_view.php?cate_id=<?php echo $values['cate_id'];?>&category_title=<?php echo $values['category_title'];?>">
+                                        <a class="get_cate" data-cate_id="<?php echo $values['cate_id'];?>">
                                             <div class="box">
                                                 <div class="boxInner">
                                                     <?php
@@ -124,3 +124,20 @@
 <?php include('inc/footer.php'); }else{
     header("Location:index.php");
 }?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".get_cate").on('click',function(e){
+            e.preventDefault();
+            var cate_id = $(this).attr("data-cate_id");
+            // console.log(cate_id);
+            $.ajax({
+                type: "POST",
+                url: "galleryAjax.php",
+                data : {  cate_id :  cate_id},
+                success: function(response){
+                    window.location.href = "photo_gallery_view.php"
+                }
+            });
+        });
+    });
+</script>

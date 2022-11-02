@@ -1351,7 +1351,7 @@ $(document).ready(function () {
     },
     submitHandler: function (form, e) {
       e.preventDefault();
-      var data = new FormData(this);
+      var data = new FormData($("#add_video_category")[0]);
       swal({
         title: "Are you sure?",
         text: "You wants to Add New category!",

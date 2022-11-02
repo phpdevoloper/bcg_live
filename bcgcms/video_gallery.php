@@ -53,7 +53,7 @@
                                                                             $exe = pg_query($db,$sql);
                                                                             $result = pg_fetch_all($exe);
                                                                             foreach($result as $value){ ?>
-                                                                        <option value="<?php echo $value['cate_id'];?>"><?php echo $value['category_title'];?></option>
+                                                                                <option value="<?php echo $value['cate_id'];?>"><?php echo $value['category_title'];?></option>
                                                                         <?php } ?>
                                                                     </select>
                                                                 </div>
@@ -86,17 +86,28 @@
                             </div>
                             <div>
                                 <div class="row photo_gallery">
-                                    <?php 
-                                    $sql = "select * from video_category where gall_cate_id= '3' order by cate_id";
+                                <?php 
+                                    $sql = "select * from video_category 
+                                    group by cate_id order by cate_id";
                                     $exe = pg_query($db,$sql);
                                     $result = pg_fetch_all($exe);
-                                    foreach($result as $value){ ?>
+                                    // var_dump($result);die;
+                                    foreach($result as $value){
+                                ?>
                                     <div class="col-4">
-                                        <a href="video_gallery_view.php?cate_id=<?php echo $value['cate_id'];?>&category_title=<?php echo $value['category_title'];?>">
+                                        <a class="get_cate" data-cate_id="<?php echo $value['cate_id'];?>">
                                             <div class="box">
                                                 <div class="boxInner">
+                                                <?php 
+                                                        $sql = "select * from video_gallery where category = '".$value['cate_id']."' order by photo_id";
+                                                        $exe = pg_query($db,$sql);
+                                                        $result = pg_fetch_all($exe);
+                                                        foreach($result as $value1){
+                                                        if ($value1['category'] != '') {
+                                                    ?>
                                                     <img src="images/promotional.webp"/>
                                                     <div class="titleBox"><?php echo $value['category_title'];?></div>
+                                                    <?php  } } ?>
                                                 </div>
                                             </div>
                                             <div class="text-center">
@@ -117,3 +128,20 @@
 <?php include('inc/footer.php');}else {
     header("Location:index.php");
 }?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".get_cate").on('click',function(e){
+            e.preventDefault();
+            var cate_id = $(this).attr("data-cate_id");
+            // console.log(cate_id);
+            $.ajax({
+                type: "POST",
+                url: "galleryAjax.php",
+                data : {  cate_id :  cate_id},
+                success: function(response){
+                    window.location.href = "video_gallery_view.php"
+                }
+            });
+        });
+    });
+</script>

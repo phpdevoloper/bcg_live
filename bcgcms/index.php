@@ -17,6 +17,40 @@ $data=[
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <?php 
+
+    ini_set('session.cookie_httponly', 1);
+  
+    ini_set('session.use_only_cookies', 1);
+      
+    ini_set('session.cookie_secure', 1);
+     
+    header('X-Content-Type-Options: nosniff');
+
+    header("X-XSS-Protection: 1");
+
+    header('Strict-Transport-Security: max-age=7776000');
+
+    header("X-Frame-Options: SAMEORIGIN");
+
+    header("Content-Security-Policy: default-src 'self'");
+    
+    header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
+
+    header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
+    
+    header("Referrer-Policy: no-referrer");
+
+    ?>
   <title>Login</title>
   <script src="assets/js/plugin/webfont/webfont.min.js"></script>
     <script>

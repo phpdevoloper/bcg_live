@@ -19,7 +19,8 @@ include('inc/checkval.php');
         </ul>
     </section>
     <div class="section">
-        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;"><?php 
+        <h3 class="text-center txt" style="color: #299adc;background: #eef0f2;">
+        <?php 
         $cate_id = check_numeric($_SESSION['cate_id']); 
         $sql = "SELECT * FROM photo_category WHERE cate_id='$cate_id' ORDER BY cate_id ASC";
         $exe = pg_query($db,$sql);
@@ -27,7 +28,7 @@ include('inc/checkval.php');
         echo ($re['category_title']);
         if ($cate_id == 2) { ?>
              <ul>
-                 <li><i class="fa fa-exclamation-circle"></i>Invalid numeric</li>
+                 <li><i class="fa fa-exclamation-circle"></i>Invalid Category ID</li>
              </ul>
         <?php } ?>
         </h3>
