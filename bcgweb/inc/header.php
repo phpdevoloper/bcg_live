@@ -9,25 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <?php 
+    session_start();
 
-    ini_set('session.cookie_httponly', 1);
+    // ini_set('session.cookie_httponly', 1);
   
-    ini_set('session.use_only_cookies', 1);
+    // ini_set('session.use_only_cookies', 1);
       
-    ini_set('session.cookie_secure', 1);
-    
+    // ini_set('session.cookie_secure', 1);
+    header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
 
 
      
     header('X-Content-Type-Options: nosniff');
 
-    header("X-XSS-Protection: 1");
+    header("X-XSS-Protection: 1; mode=block");
 
     header('Strict-Transport-Security: max-age=7776000');
 
     header("X-Frame-Options: SAMEORIGIN");
+    
+    header("Cross-Origin-Embedder-Policy: require-corp");
 
-    header("Content-Security-Policy: default-src 'self'");
+    header("Cross-Origin-Opener-Policy: same-origin");
+	
+    header("Cross-Origin-Resource-Policy: same-origin");
+
+
+    header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
     
     header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
 
@@ -41,9 +49,15 @@
 
     header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
     
-    header("Referrer-Policy: no-referrer");
+   header("Referrer-Policy: strict-origin-when-cross-origin");
 
+// $allowed_host = array('rtionline.tn.gov.in');
 
+// if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
+// {
+//     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+//     exit;
+// }
     ?>
     <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
@@ -95,7 +109,7 @@
                   <ul class="d-flex flex-row justify-content-start">
                     <li class="line"></li>
                     <li class="">
-                      <a href="#" style="color: #ffffff; padding-right: 10px"
+                      <a href="#" style="padding-right: 10px"
                         >Government of india</a
                       >
                     </li>
@@ -105,7 +119,7 @@
                   >
                     <ul class="d-flex flex-row justify-content-start ml-auto">
                       <li class="">
-                        <a href="screenreader.php" style="color: #ffffff; padding-right: 10px"
+                        <a href="screenreader.php" style="padding-right: 10px"
                           >Screen Reader Access</a
                         >
                       </li>
@@ -122,7 +136,7 @@
                       <a href="#"><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
                         <ul class="accessiblelinks">
                           <li id="btn-increase">A+</li>
-                          <li id="btn-orig" onclick="original_function();">A</li>
+                          <li id="btn-orig">A</li>
                           <li id="btn-decrease">A-</li>
                           <li class="dark">A</li>
                           <li class="light">A</li>

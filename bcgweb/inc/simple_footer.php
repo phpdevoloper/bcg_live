@@ -62,7 +62,8 @@
 <script src="plugins/slick-carousel/slick/slick.min.js"></script>
 <script type="text/javascript" src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
-<!-- <script src="js/fontsize.min.js"></script> -->
+<script src="js/fontsize.min.js"></script>
+<script src="js/darkmode.js"></script>
 <script src="js/custom.js"></script>
 <script>
 $(".item-slider").slick({

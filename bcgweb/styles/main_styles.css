@@ -30,7 +30,7 @@
 /* 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900"); */
 
-@import url("css/roboto");
+/* @import url("css/roboto"); */
 
 /*********************************
 2. Body and some general stuff
@@ -3116,4 +3116,7 @@ i.fa-arrow-down i {
   background: #a2dcfd;
   font-size: 16px;
   vertical-align: middle;
+}
+a{
+  color: white;
 }

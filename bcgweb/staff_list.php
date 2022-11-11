@@ -27,7 +27,7 @@ include('inc/dbconnection.php');
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-lg-12">
+            <div class="col-lg-12 pagetab">
                 <div class="section_title">
                 </div>
                 <?php $sql = "SELECT bs.*,bsd.deg_name,bsg.cate_name FROM  bcgvl_staff_details bs LEFT JOIN bcgvl_staff_designation bsd 

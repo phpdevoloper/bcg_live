@@ -39,6 +39,7 @@
     $black = imagecolorallocate($image, 0, 0, 0);
     $white = imagecolorallocate($image, 255, 255, 255);
     $textcolors = [$black, $white];
+
     
     $fonts = [dirname(__FILE__).'/fonts/Acme.ttf', dirname(__FILE__).'/fonts/Ubuntu.ttf', dirname(__FILE__).'/fonts/Merriweather.ttf', dirname(__FILE__).'/fonts/PlayfairDisplay.ttf'];
 

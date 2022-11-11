@@ -26,7 +26,7 @@ include('inc/dbconnection.php');
                                 foreach($result as $value){
                                 //    var_dump($value['position_held']);die;
                         ?>
-                <div class="col-lg-4" style="background: #f7f9fa;">                     
+                <div class="col-lg-4">                     
                     <div class="practice-area-wrap">
                         <div class="outer">
                             <img src="<?php echo $value['director_photo'];?>" class="img-flu" alt="" />

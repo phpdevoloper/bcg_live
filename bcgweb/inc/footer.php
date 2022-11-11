@@ -106,7 +106,7 @@
         <div class="col">
           <nav class="foo_nav">
             <ul>
-              <li><a href="">Website policies</a></li>
+              <li><a href="website_policy.php">Website policies</a></li>
               <li class="lines"></li>
               <li><a href="">Help</a></li>
               <li class="lines"></li>
@@ -168,7 +168,7 @@
   </div>
 </footer>
 </div>
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="plugins/jquery-3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="plugins/dataTables/datatables.min.js"></script>
 <script type="text/javascript" src="plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
@@ -179,6 +179,7 @@
 <script src="plugins/slick-carousel/slick/slick.min.js"></script>
 <script src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
 <script src="js/fontsize.min.js"></script>
+<script src="js/darkmode.js"></script>
 <script src="js/custom.js"></script>
 <script>
 $(".item-slider").slick({

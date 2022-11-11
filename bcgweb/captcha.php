@@ -1,4 +1,5 @@
 <?php 
+	    //phpinfo();exit;
     session_start();
   
     $permitted_chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
@@ -39,13 +40,13 @@
     $black = imagecolorallocate($image, 0, 0, 0);
     $white = imagecolorallocate($image, 255, 255, 255);
     $textcolors = [$black, $white];
-
     
     $fonts = [dirname(__FILE__).'/fonts/Acme.ttf', dirname(__FILE__).'/fonts/Ubuntu.ttf', dirname(__FILE__).'/fonts/Merriweather.ttf', dirname(__FILE__).'/fonts/PlayfairDisplay.ttf'];
-
+     
     
     $string_length = 6;
     $captcha_string = generate_string($permitted_chars, $string_length);
+
     
     $_SESSION['captcha'] = $captcha_string;
     
@@ -57,6 +58,7 @@
     }
     
     header('Content-type: image/png');
+   
     imagepng($image);
     imagedestroy($image);
 ?>
