@@ -51,13 +51,13 @@
     
    header("Referrer-Policy: strict-origin-when-cross-origin");
 
-// $allowed_host = array('rtionline.tn.gov.in');
+$allowed_host = array('rtionline.tn.gov.in');
 
-// if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
-// {
-//     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-//     exit;
-// }
+if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
+{
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    exit;
+}
     ?>
     <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
@@ -105,11 +105,11 @@
                 <div
                   class="top_bar_content d-flex flex-row align-items-center justify-content-start"
                 >
-                  <div class="top_bar_item"><a href="index.php">BCGVL</a></div>
+                  <div class="top_bar_item"><a href="index.php" style="font-size: 14px;">BCGVL</a></div>
                   <ul class="d-flex flex-row justify-content-start">
                     <li class="line"></li>
                     <li class="">
-                      <a href="#" style="padding-right: 10px"
+                      <a href="#" style="padding-right: 10px; font-size: 14px;"
                         >Government of india</a
                       >
                     </li>
@@ -135,11 +135,13 @@
                       <li class="social-media">
                       <a href="#"><i class="fa fa-wheelchair" aria-hidden="true"></i></a>
                         <ul class="accessiblelinks">
-                          <li id="btn-increase">A+</li>
-                          <li id="btn-orig">A</li>
-                          <li id="btn-decrease">A-</li>
-                          <li class="dark">A</li>
-                          <li class="light">A</li>
+                          <li class="fontSizeEvent" id="btn-increase"><a href="#" data-event-type="increase" data-label="Font Size Increase"
+                          aria-label="Font Size Increase - selected">A+</a></li>
+                          <li class="fontSizeEvent" id="btn-orig"><a href="#" data-event-type="normal" data-label="Normal Font" title="Normal Font">A</a></li>
+                          <li class="fontSizeEvent" id="btn-decrease"><a href="#" data-event-type="decrease" data-label="Font Size Decrease"
+                          aria-label="Font Size Decrease">A-</a></li>
+                          <li class="dark"><a href="#">A</a></li>
+                          <li class="light"><a href="#">A</a></li>
                         </ul>
                       </li>
                       <!-- <li class="line"></li> -->
