@@ -92,15 +92,9 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    //      $("#example").DataTable({
-    //     lengthMenu: [
-    //         [10, 25, 50, -1],
-    //         [10, 25, 50, 'All'],
-    //     ],
-    // });
 
-    // $(".dataTables_length").addClass("bs-select");
     var table = $('#example').DataTable({
+        responsive: true,
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],

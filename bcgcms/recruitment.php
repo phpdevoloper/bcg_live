@@ -396,14 +396,14 @@
                     title: "Added!",
                     icon: "success",
                 }).then(function () {
-                    location.reload();
+                    // location.reload();
                 });
                 } else {
                 swal({
                     title: "Something went wrong!",
                     icon: "error",
                 }).then(function () {
-                    location.reload();
+                    // location.reload();
                 });
                 }
             },

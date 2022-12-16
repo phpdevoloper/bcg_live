@@ -42,7 +42,7 @@ include('inc/checkval.php');
                     $result = pg_fetch_all($exe);
                     foreach($result as $value){
                 ?>
-                <div class="col-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="gallery-image btn-gallery">
                         <div class="img-box">
                             <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />

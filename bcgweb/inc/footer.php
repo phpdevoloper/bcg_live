@@ -170,6 +170,7 @@
 </div>
 <script src="plugins/jquery-3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="plugins/dataTables/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 <script type="text/javascript" src="plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
 <script src="plugins/bootstrap-4.6.2/js/bootstrap.min.js"></script>

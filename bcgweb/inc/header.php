@@ -18,8 +18,6 @@
     // ini_set('session.cookie_secure', 1);
     header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
 
-
-     
     header('X-Content-Type-Options: nosniff');
 
     header("X-XSS-Protection: 1; mode=block");
@@ -33,7 +31,6 @@
     header("Cross-Origin-Opener-Policy: same-origin");
 	
     header("Cross-Origin-Resource-Policy: same-origin");
-
 
     header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
     
@@ -49,15 +46,15 @@
 
     header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
     
-   header("Referrer-Policy: strict-origin-when-cross-origin");
+    header("Referrer-Policy: strict-origin-when-cross-origin");
 
-$allowed_host = array('rtionline.tn.gov.in');
+// $allowed_host = array('rtionline.tn.gov.in');
 
-if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
-{
-    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-    exit;
-}
+// if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
+// {
+//     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+//     exit;
+// }
     ?>
     <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
