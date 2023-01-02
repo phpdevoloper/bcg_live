@@ -39,9 +39,9 @@ include('inc/dbconnection.php');
                                         <h3 style="color: #012970;"><?php echo $value['director_name'];?></h3>
                                         <h5 style="color: #012970;font-size: 11px;"><?php echo $value['director_qualification'];?></h5>
                                     </div> 
-                                    <div class="text-center">
-                                        <a href="<?php echo $value['short_profile'];?>"  target="_blank" class="btn_theme"><i class="fas fa-file-pdf"></i>Short profile</a>
-                                        <a href="<?php echo $value['detail_profile'];?>" target="_blank" class="btn_theme"><i class="fas fa-file-pdf"></i>Detailed profile</a>
+                                    <div class="row text-center mt-4">
+                                        <a href="<?php echo $value['short_profile'];?>"  target="_blank" class="btn_theme ml-2"><i class="fas fa-file-pdf"></i>Short profile</a>
+                                        <a href="<?php echo $value['detail_profile'];?>" target="_blank" class="btn_theme ml-2"><i class="fas fa-file-pdf"></i>Detailed profile</a>
                                     </div>
                                 </div>
                             </div>

@@ -469,6 +469,7 @@ section {
 .menu_inner {
   width: 100%;
   height: 100%;
+  background: rgba(9, 9, 9, 0.9);
 }
 .menu_list {
   -webkit-transform: translateY(1.5rem);
@@ -732,7 +733,7 @@ section {
   position: relative;
   width: 100%;
   background: #ffffff;
-  padding-top: 176px;
+  padding-top: 150px;
   min-height: 85vh;
 }
 .about_text {
@@ -846,7 +847,7 @@ section {
 }
 .service {
   width: 100%;
-  height: 401px;
+  /* height: 401px;*/
   /* background: #f5f7fa; */
   padding-top: 25px;
   padding-left: 13px;
@@ -1242,7 +1243,7 @@ li.social-media {
   padding: 0 7px;
 }
 a img {
-  width: 100%;
+  /*width: 100%;*/
   height: 85px;
 }
 .bg-dark {
@@ -1277,7 +1278,7 @@ a img {
   border-bottom: 1px solid #3bc053;
 }
 .header.scrolled {
-  top: -185px;
+  top: -195px
 }
 .about_pic {
   float: right;
@@ -1299,8 +1300,8 @@ ul.tittle_bcg {
   padding-top: 17px;
 }
 .titbcg {
-  margin-top: 35px;
-  margin-left: -468px;
+  /*margin-top: 35px;*/
+  /*margin-left: -468px;*/
 }
 .two {
   margin-top: 69px;
@@ -1437,7 +1438,7 @@ li.lines {
   background-color: #3bc053;
 }
 .dropdown ul li {
-  margin-left: -8px;
+  /*margin-left: -8px;*/
   width: 218px;
   padding: 6px 12px;
   background: #369bd7;
@@ -1447,11 +1448,11 @@ li.lines {
   font-size: 29px;
   font-weight: 600;
   color: #283290;
-  margin-top: -27px;
-  padding-left: 25px;
+  /*margin-top: -27px;
+  padding-left: 25px;*/
 }
 a.navbar-brand.d-flex.align-items-center {
-  margin-left: -40px;
+  /*margin-left: -40px;*/
 }
 
 .accessiblelinks {
@@ -1693,6 +1694,9 @@ div#myTabContent {
   color: #696969;
   padding-left: 10px;
 }
+.rti_complaint a{
+	color: #696969;
+}
 .contact_form_container {
   width: 100%;
 }
@@ -1914,7 +1918,7 @@ h2.title_gallery {
 /*dghs logo */
 .dghs {
   height: 95px;
-  margin-left: 714px;
+  /*margin-left: 714px;*/
 }
 
 .ig-box div img {
@@ -3021,7 +3025,7 @@ section#about {
   content: "\f35d"; /* fa-chevron-down */
   font-family: "Font Awesome 5 Free";
   position: absolute;
-  right: 44px;
+  /*right: 44px;*/
   color: #3e93ff;
 }
 .ex > a:after {
@@ -3124,3 +3128,4 @@ i.fa-arrow-down i {
 a{
   color: white;
 }
+

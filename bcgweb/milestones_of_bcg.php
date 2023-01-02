@@ -20,7 +20,7 @@ include('inc/dbconnection.php');
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-lg-12 pagetab">
+            <div class="col-lg-12">
                 <div>
                 <?php $sql = "select * from about_us where content_id = 'MILE'"; 
                         $res = pg_query($db,$sql);

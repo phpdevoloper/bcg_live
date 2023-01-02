@@ -58,7 +58,7 @@ include('inc/dbconnection.php');
                         <form id="contact_form" class="contact_form">
                         <div class="alert alert-danger display-error" style="display:none;"></div>
                             <div class="row">
-                                <div class="col-md-6 input_col">
+                                <div class="col-md-6 input_col mb-3">
                                     <div class="input_container input_name">
                                     <input
                                         type="text"

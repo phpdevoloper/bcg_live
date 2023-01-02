@@ -18,6 +18,8 @@
     // ini_set('session.cookie_secure', 1);
     header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
 
+
+     
     header('X-Content-Type-Options: nosniff');
 
     header("X-XSS-Protection: 1; mode=block");
@@ -31,6 +33,7 @@
     header("Cross-Origin-Opener-Policy: same-origin");
 	
     header("Cross-Origin-Resource-Policy: same-origin");
+
 
     header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
     
@@ -46,15 +49,15 @@
 
     header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
     
-    header("Referrer-Policy: strict-origin-when-cross-origin");
+   header("Referrer-Policy: strict-origin-when-cross-origin");
 
-// $allowed_host = array('rtionline.tn.gov.in');
+$allowed_host = array('rtionline.tn.gov.in');
 
-// if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
-// {
-//     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-//     exit;
-// }
+if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
+{
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    exit;
+}
     ?>
     <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
@@ -102,15 +105,11 @@
                 <div
                   class="top_bar_content d-flex flex-row align-items-center justify-content-start"
                 >
-                  <div class="top_bar_item"><a href="index.php" style="font-size: 14px;">BCGVL</a></div>
-                  <ul class="d-flex flex-row justify-content-start">
-                    <li class="line"></li>
-                    <li class="">
-                      <a href="#" style="padding-right: 10px; font-size: 14px;"
-                        >Government of india</a
-                      >
-                    </li>
-                  </ul>
+                  <div class="top_bar_item d-flex flex-row justify-content-start">
+                    <a href="index.php" style="font-size: 14px;">BCGVL</a>
+                    <a href="#" style="padding-left: 20px; font-size: 14px;">|&nbsp;&nbsp;Government of india</a>
+                  </div>
+                  
                   <div
                     class="emergencies d-flex flex-row align-items-center justify-content-start ml-auto"
                   >
@@ -167,13 +166,31 @@
 
         <!-- Logo bar -->
         <div class="clogo">
+            <div class="col-12">
+              <div class="row" style="padding: 10px;">
+                <div class="col-md-6 col-12">
+                <a class="navbar-brand d-flex align-items-center" href="index.php" style="">
+                  <img src="images/logo/download.png" alt="" />
+                  <div style="margin-left: 10px;">
+                    <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
+                    <h5 class="titbcg">
+                      Directorate General of Health Services(DGHS),<br>
+                      Ministry of Health and Family Welfare, Govt. of India
+                    </h5>
+                  </div>
+                  <!-- <h5 class="titbcg two">
+                    </h5> -->
+                </a>
+              </div>
+              <div class="right-logo col-md-6 col-12" >
+                <img class="dghs" src="images/logo/logo.png" alt="" style="margin-right: 10px;float: right;"/>
+              </div>
+            </div>
+          </div>
           <div class="container">
-            <div
-              class="row d-flex align-items-start align-items-center px-3 px-md-0"
-            >
+            <!-- <div class="row d-flex align-items-start align-items-center px-3 px-md-0">
               <div class="col-md-6 d-flex mb-2 mb-md-0">
-                <a
-                  class="navbar-brand d-flex align-items-center"
+                <a class="navbar-brand d-flex align-items-center"
                   href="index.php"
                   ><img src="images/logo/download.png" alt="" />
                   <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
@@ -185,7 +202,7 @@
                 </a>
                 <img class="dghs" src="images/logo/logo.png" alt="" />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- Header Content -->
@@ -520,24 +537,173 @@
         </div>
 
         <!-- Menu Items -->
-        <div class="menu_inner menu_mm">
+        <div id="menu_mm" class="menu_inner menu_mm">
           <div class="menu menu_mm">
             <ul class="menu_list menu_mm">
-              <li class="menu_item menu_mm">
-                <a href="index.html">Gallery</a>
+              <li class="menu_item menu_mm dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us
+                </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                     <li>
+                        <a href="objectives_of_bcg.php" class="dropdown-item">Objectives of BCGVL</a>
+                      </li>
+                      <li>
+                        <a href="history_of_bcg.php" class="dropdown-item">History of BCGVL</a>
+                      </li>
+                      <li>
+                        <a href="about_bcg.php" class="dropdown-item">About BCG</a>
+                      </li>
+                      <li>
+                        <a href="activity_of_bcg.php" class="dropdown-item">Activites</a>
+                      </li>
+                      <li>
+                        <a href="revenue_of_bcg.php" class="dropdown-item">Revenue</a>
+                      </li>
+                      <li>
+                        <a href="achivement_of_bcg.php" class="dropdown-item">Achivements</a>
+                      </li>
+                      <li>
+                        <a href="milestones_of_bcg.php" class="dropdown-item">Milestones</a>
+                      </li>
+                      <li>
+                        <a href="future_plans.php" class="dropdown-item">Future Plans</a>
+                      </li>
+                  </ul>
+              </li>
+              
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Who's who</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                    <li>
+                      <a href="director_desk3.php" class="dropdown-item">Director of BCGVL</a>
+                    </li>
+                    <li>
+                      <a href="director_message.php" class="dropdown-item">Director's Message</a>
+                    </li>
+                    <li>
+                      <a href="organisation_chart.php" class="dropdown-item">Organisation Chart</a>
+                    </li>
+                    <li>
+                      <a href="staff_list.php" class="dropdown-item">Staff Details</a>
+                    </li>
+                    <li>
+                      <a href="former_directors.php" class="dropdown-item"
+                        >Former Directors of BCGVL</a
+                      >
+                    </li>
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Division</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                      <li>
+                        <a href="administration.php" class="dropdown-item">Administration</a>
+                      </li>
+                      <li>
+                        <a href="quality.php" class="dropdown-item">Quality Assurance</a>
+                      </li>
+                      <li>
+                        <a href="production.php" class="dropdown-item">Production</a>
+                      </li>
+                      <li>
+                        <a href="quality_control.php" class="dropdown-item">Quality Control</a>
+                      </li>
+                      <li>
+                        <a href="engineering.php" class="dropdown-item">Engineering</a>
+                      </li>
+                      <li>
+                        <a href="warehouse.php" class="dropdown-item">Warehouse</a>
+                      </li>
+                      <li>
+                        <a href="laboratory_house.php" class="dropdown-item">Laboratory Animal House</a>
+                      </li>
+                  
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                    <li>
+                      <a href="product.php" class="dropdown-item">Products</a>
+                    </li>
+                    <li>
+                      <a href="production_chart.php" class="dropdown-item">Production Process</a>
+                    </li>
+                    <li class="dropdown drop">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Supply of BCG Vaccine </a>
+                    </li>
+            </ul>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tenders</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                  <li>
+                    <a href="tenders.php" class="dropdown-item">Open Tenders</a>
+                  </li>
+                  <li>
+                    <a href="closed_tenders.php" class="dropdown-item">Closed Tenders</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a href="index.html">Recruitments</a>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RTI</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                  <li>
+                    <a href="rti.php" class="dropdown-item">RTI Proactive Disclosure</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                  <li>
+                    <a class ="dropdown-item" href="events_details.php"> Milestones / Major Events </a>
+                  </li>
+                  <li>
+                    <a class ="dropdown-item" href ="training_programmes.php"> Training Programmes </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                  <li>
+                    <a class ="dropdown-item" href="photo_gallery.php"> Photo Gallery</a>
+                  </li>
+                  <li>
+                    <a class ="dropdown-item" href ="video_gallery.php"> Video Gallery </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Publications/Documents</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                  <li>
+                    <a class ="dropdown-item" href="annual_report.php">Annual Reports</a>
+                  </li>
+                  <li>
+                    <a class ="dropdown-item" href ="recruitment_rules.php">Recruitment Rules </a>
+                  </li>
+                </ul>
               </li>
               <li class="menu_item menu_mm">
-                <a href="index.html">Documents</a>
+                <a href="employees_corner.php">Employees Corner</a>
               </li>
               <li class="menu_item menu_mm">
-                <a href="index.html">Tenders</a>
+                <a href="feedback.php">Feedback</a>
               </li>
-              <li class="menu_item menu_mm"><a href="index.html">RTI</a></li>
-              <li class="menu_item menu_mm">
-                <a href="index.html">Contact Us</a>
-              </li>
-              <li class="menu_item menu_mm">
-                <a href="index.html">Feedback</a>
+              <li class="menu_item menu_mm dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                    <li>
+                      <a href="contact.php" class="dropdown-item">BCGVL Contacts</a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="bcgvl_rti_contacts.php" class="dropdown-item">RTI Contacts</a>
+                    </li>
+                  </ul>
               </li>
             </ul>
           </div>

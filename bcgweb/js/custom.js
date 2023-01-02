@@ -31,18 +31,21 @@ $(document).ready(function () {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: 991,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
         },
       },
       {
-        breakpoint: 767,
+        breakpoint: 900,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
         },
       },
     ],

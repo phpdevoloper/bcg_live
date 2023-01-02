@@ -31,7 +31,7 @@ include('inc/dbconnection.php');
                 <section id="about">
                     <div class="container aos-init aos-animate" data-aos="fade-up">
                         <div class="testimonial-item" style="padding-top: 20px;">
-                            <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                            <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead style="background: #a2dcfd; font-size: 20px; vertical-align: middle;">
                                     <tr>
                                         <th>S.NO</th>
@@ -61,13 +61,7 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
-    $("#example").DataTable({
-        responsive: true,
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, 'All'],
-        ],
-    });
+    $("#example").DataTable();
     $(".dataTables_length").addClass("bs-select");
   });
 </script>

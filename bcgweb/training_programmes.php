@@ -13,16 +13,23 @@ include('inc/dbconnection.php');
     <div class="container">
     <div class="section">
         <h3 class="text-center txt" style="color: #299adc;">Training Programes</h3>
-    </div>     
-        <div class="container">
-            <ol>
-                <li>The new recruits will be subjected to induction training, before involving
-            the BCGVL activities in their departments.</li>
-                <li>There will be scheduled Routine, On Job Training (OGT) and
-            refreshment training programme for all the employees.</li>      
-                <li>Officials will also be deputed for external training to acquire knowledge
-            in current technology and developments in vaccine industry.</li>
-            </ol>
+    </div>
+        <div class="row">
+            <!-- About Content -->
+            <div class="col-lg-12">
+                <div style="margin-left: 100px;">
+                    <ol>
+                                            <li>The new recruits will be subjected to induction training, before involving
+                    the BCGVL activities in their departments.</li>
+                                            <li>There will be scheduled Routine, On Job Training (OGT) and
+                    refreshment training programme for all the employees.</li>      
+                                            <li>Officials will also be deputed for external training to acquire knowledge
+                    in current technology and developments in vaccine industry.</li>
+                    </ol>
+
+                </div>                    
+
+            </div>
         </div>
     </div>
 </div>

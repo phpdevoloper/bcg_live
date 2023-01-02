@@ -27,7 +27,7 @@ include('inc/dbconnection.php');
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-lg-12 pagetab">
+            <div class="col-lg-12">
                 <div class="section_title">
                 </div>
                 <?php $sql = "SELECT bs.*,bsd.deg_name,bsg.cate_name FROM  bcgvl_staff_details bs LEFT JOIN bcgvl_staff_designation bsd 
@@ -92,9 +92,15 @@ include('inc/dbconnection.php');
 <?php include('inc/simple_footer.php'); ?>
 <script>
     $(document).ready(function () {
+    //      $("#example").DataTable({
+    //     lengthMenu: [
+    //         [10, 25, 50, -1],
+    //         [10, 25, 50, 'All'],
+    //     ],
+    // });
 
+    // $(".dataTables_length").addClass("bs-select");
     var table = $('#example').DataTable({
-        responsive: true,
         lengthMenu: [
             [10, 25, 50, -1],
             [10, 25, 50, 'All'],

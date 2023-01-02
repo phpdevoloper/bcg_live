@@ -170,7 +170,7 @@
 </div>
 <script src="plugins/jquery-3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="plugins/dataTables/datatables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
 <script src="plugins/bootstrap-4.6.2/js/bootstrap.min.js"></script>
@@ -183,6 +183,23 @@
 <script src="js/darkmode.js"></script>
 <script src="js/custom.js"></script>
 <script>
+$(document).ready(function () {
+    $('.dropdown-menu1 a.dropdown-toggle1').on('click', function(e) {
+      if (!$(this).next().hasClass('show')) {
+        $(this).parents('.dropdown-menu1').first().find('.show').removeClass("show");
+      }
+      var $subMenu = $(this).next(".dropdown-menu1");
+      $subMenu.toggleClass('show');
+
+
+      $(this).parents('li.menu_item.dropdown1.show').on('hidden.bs.dropdown1', function(e) {
+        $('.dropdown-submenu1 .show').removeClass("show");
+      });
+
+
+      return false;
+    });
+
 $(".item-slider").slick({
   // autoplay: true,
   arrows: false,
@@ -241,6 +258,7 @@ $(document).on("click", ".filter-option li a", function () {
     });
     $(".item-slider").slick("slickUnfilter");
   }
+});
 });
 </script>
 </body>

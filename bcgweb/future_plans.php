@@ -18,16 +18,18 @@ include('inc/dbconnection.php');
         <div class="section">
             <h3 class="text-center txt" style="color: #299adc;">Future plans</h3>
         </div>
+        <div class="row">
             <!-- About Content -->
-            <div class="container">
-            <?php $sql = "select * from about_us where content_id = 'FUT'"; 
-                    $res = pg_query($db,$sql);
-                    $result = pg_fetch_all($res);
-                    foreach($result as $value){
-            ?>
-                <?php echo $value['content_description'];?>
-            <?php } ?>
+            <div class="col-lg-12">
+                <?php $sql = "select * from about_us where content_id = 'FUT'"; 
+                        $res = pg_query($db,$sql);
+                        $result = pg_fetch_all($res);
+                        foreach($result as $value){
+                ?>
+                    <?php echo $value['content_description'];?>
+                <?php } ?>
             </div>
+        </div>
     </div>
 </div>
 <?php include('inc/simple_footer.php'); ?>

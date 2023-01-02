@@ -20,7 +20,7 @@ include('inc/dbconnection.php');
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-lg-12 pagetab">
+            <div class="col-lg-12">
                 <?php $sql = "select * from about_us where content_id = 'REV'"; 
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
@@ -33,21 +33,3 @@ include('inc/dbconnection.php');
     </div>
 </div>
 <?php include('inc/simple_footer.php'); ?>
-<script>
-    $(document).ready(function () {
-
-    var table = $('.pagetab table').DataTable({
-        responsive: true,
-        lengthMenu: [
-            [10, 25, 50, -1],
-            [10, 25, 50, 'All'],
-        ],
-    });
-    $('#group_cate').on('change', function () {
-        console.log('sdf');
-        table.columns(3).search( this.value ).draw();
-    } );
-    // this.api().columns( 5 ).every( function () {});
-
-  });
-</script>

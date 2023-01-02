@@ -29,7 +29,7 @@ include('inc/dbconnection.php');
                 $result = pg_fetch_all($exe);
                 foreach($result as $value1){
             ?>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-4">
                     <div class="gallery-image">
                         <a class="get_cate" data-cate_id="<?php echo $value1['cate_id'];?>"> 
                             <div class="img-box" >
