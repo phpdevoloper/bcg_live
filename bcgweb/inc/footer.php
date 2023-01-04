@@ -5,6 +5,50 @@
       <div class="row">
         <!-- Footer - Links -->
         <div class="col-lg-4 footer_col">
+          <div class="footer_about">
+            <div class="footer_title">Contact Us</div>
+            <div class="footer_about_text">
+              <a href=""
+                ><p>
+                  <i class="fas fa-map-marked-alt"></i> , BCG Vaccine
+                  Laboratory,Guindy Industrial Estate, Guindy
+                  Institutional Area, Guindy, Chennai, Tamil Nadu 600032
+                </p>
+              </a>
+            </div>
+            <ul class="footer_about_list">
+              <li>
+                <div class="footer_about_icon">
+                  <img src="images/phone-call.svg" alt="" />
+                </div>
+                <span>044 - 22500476, 044 - 22501189</span>
+              </li>
+              <li>
+                <div class="footer_about_icon">
+                  <img src="images/envelope.svg" alt="" />
+                </div>
+                <span>bcgvl.tnchn@nic.in</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 footer_col">
+          <div class="footer_links footer_column">
+            <div class="footer_title">Quick Links</div>
+            <ul>
+              <li><a href="director_desk3.php">Who's Who</a></li>
+              <li><a href="#">Divisions</a></li>
+              <li><a href="product.php">Products</a></li>
+              <li><a href="events_details.php">Events</a></li>
+              <li><a href="recruitments.php">Recruitments</a></li>
+              <li><a href="tenders.php">Tenders</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer - News -->
+        <div class="col-lg-4 footer_col">
           <div class="footer_links footer_column">
             <div class="footer_title">Useful Links</div>
             <ul>
@@ -30,49 +74,6 @@
                 <a href="https://www.tbcindia.nic.in/"
                   >Central Tuberculosis Division, MoHFW</a
                 >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4 footer_col">
-          <div class="footer_links footer_column">
-            <div class="footer_title">Quick Links</div>
-            <ul>
-              <li><a href="director_desk3.php">Who's Who</a></li>
-              <li><a href="#">Divisions</a></li>
-              <li><a href="product.php">Products</a></li>
-              <li><a href="events_details.php">Events</a></li>
-              <li><a href="recruitments.php">Recruitments</a></li>
-              <li><a href="tenders.php">Tenders</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Footer - News -->
-        <div class="col-lg-4 footer_col">
-          <div class="footer_about">
-            <div class="footer_title">Contact Us</div>
-            <div class="footer_about_text">
-              <a href=""
-                ><p>
-                  <i class="fas fa-map-marked-alt"></i> , BCG Vaccine
-                  Laboratory,Guindy Industrial Estate, Guindy
-                  Institutional Area, Guindy, Chennai, Tamil Nadu 600032
-                </p>
-              </a>
-            </div>
-            <ul class="footer_about_list">
-              <li>
-                <div class="footer_about_icon">
-                  <img src="images/phone-call.svg" alt="" />
-                </div>
-                <span>044 - 22500476, 044 - 22501189</span>
-              </li>
-              <li>
-                <div class="footer_about_icon">
-                  <img src="images/envelope.svg" alt="" />
-                </div>
-                <span>bcgvl.tnchn@nic.in</span>
               </li>
             </ul>
           </div>
@@ -151,13 +152,7 @@
               <li>
                 <a href=""
                   >Last Updated :
-                  <script>
-                    let today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1;
-                    var yyyy = today.getFullYear();
-                    document.write(dd + "/" + mm + "/" + yyyy);
-                  </script></a
+                  <?php echo date("d-m-Y", time()); ?></a
                 >
               </li>
             </ul>

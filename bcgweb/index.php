@@ -77,7 +77,14 @@
                             $exe = pg_query($db,$sql);
                             $res = pg_fetch_all($exe);
                         ?>
-                        <?php echo $res[0]['content_description'];?>
+                        <?php 
+                        function first($response){
+                            $pos = strpos($response, '.');
+                            return substr($response, 0, $pos+1);
+                        }
+                        echo first($res[0]['content_description']);
+                        
+                        ?>
                     </div>
                 </div>
                 <div class="read_more">
@@ -86,7 +93,7 @@
             </div>
         </div>
         <!-- Service -->
-        <div class="col-lg-4 col-md-6 service_col">
+        <div class="col-lg-4 col-md-6 service_col dir">
                 <?php
                     $sql = "select * from director_desk";
                     $exe = pg_query($db,$sql);
@@ -144,16 +151,18 @@
         <h3 class="h_head">OUR PRODUCTS</h3>
         <div class="container">
             <div class="row services_row">
-                <div class="col-lg-4 col-md-4 service_col">
-                    <div id="owl-carousel" class="owl-carousel owl-theme">
-                        <div class="itm">
-                            <div class="image-box">
-                                <img src="images/BCG.png" alt="">
+                <div class="col-lg-3 col-md-3 service_col">
+                    <div class="card-flyer">
+                        <div class="card">
+                            <div class="row img-grid">
+                                <div class="col-lg-12">
+                                    <img src="images/BCG.png" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="itm">
-                            <div class="image-box">
-                                <img src="images/product1.png" alt="">
+                            <div class="row img-grid">
+                                <div class="col-lg-12">
+                                    <img src="images/product1.png" alt="">         
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -32,13 +32,7 @@
               <li>
                 <a href=""
                   >Last Updated :
-                  <script>
-                    let today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1;
-                    var yyyy = today.getFullYear();
-                    document.write(dd + "/" + mm + "/" + yyyy);
-                  </script></a
+                  <?php echo date("d-m-Y", time()); ?></a
                 >
               </li>
             </ul>
