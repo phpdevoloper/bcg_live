@@ -69,7 +69,7 @@
         <!-- Service -->
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service">
+                <div id="servhov" class="service ft">
                     <h5 class="title_card trans_200">ABOUT BCGVL</h5>
                     <div class="container">
                         <?php
@@ -100,7 +100,7 @@
                     $res = pg_fetch_all($exe);
                 ?>
             <div class="card">
-                <div id="servhov" class="service text-center trans_200">
+                <div id="servhov" class="service text-center trans_200 ft-b">
                     <h5 class="title_card trans_200">DIRECTOR</h5>
                     <div class="">
                         <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
@@ -117,7 +117,7 @@
         </div>
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service whats">
+                <div id="servhov" class="service whats ft-b">
                     <h5 class="title_card">WHAT'S NEW</h5>
                     <div class="container">
                         <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
@@ -171,10 +171,6 @@
                     <div class="card-flyer">
                         <div class="card">
                             <div class="text-box">
-                                <!-- <div class="image-box">
-                                    <img src="images/BCG.png" alt=""/>
-                                    <img src="images/product2.png" alt="" />
-                                </div> -->
                                 <div class="text-container">
                                     <h6 class="text-center">
                                         BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
@@ -204,7 +200,7 @@
         <!-- Service -->
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service">
+                <div id="servhov" class="service sertwo">
                     <h5 class="title_card trans_200">EVENTS</h5>
                     <div class="container">
                         <ul class="cont">
@@ -230,7 +226,7 @@
         </div>
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service">
+                <div id="servhov" class="service sertwo">
                     <h5 class="title_card trans_200">RECRUITMENTS</h5>
                     <div class="container">
                         <ul class="cont">
@@ -257,7 +253,7 @@
         <div class="col-lg-4 col-md-6 service_col">
             <a href="">
                 <div class="card">
-                    <div id="servhov" class="service">
+                    <div id="servhov" class="service sertwo">
                         <h5 class="title_card trans_200">TENDERS</h5>
                         <div class="container">
                             <ul class="cont">

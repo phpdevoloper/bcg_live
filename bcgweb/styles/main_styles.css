@@ -3125,7 +3125,8 @@ a{
 .service_col .card {
   border: 1px;
   background: #fff;
-  border-radius: 27px;   
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;   
 }
 .service_col .card:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.16), 0 4px 10px rgba(0,0,0,0.23);
@@ -3144,7 +3145,8 @@ a{
 .services .service{
   width: 100%;
   padding: 2em 1.5em;
-  border-radius: 5px;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;  
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: 0.5s;
@@ -3156,14 +3158,16 @@ a{
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(#0dcaf0, rgb(255, 23, 131));
+  background: #0dcaf0;
   position: absolute;
   left: 0%;
-  top: -99%;
+  top: -101%;
   z-index: -2;
   transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
-  border-radius: 5px;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;  
 }
+
 .services .service:hover:after {
   top: 0%;
 }
@@ -3178,6 +3182,32 @@ a{
 .services .service:hover a {
   color: #f0f0f0;
 }
-.services .service:hover .read_more {
-  color: #f0f0f0;
+
+
+ .service_col .sertwo{
+  width: 100%;
+  padding: 2em 1.5em;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;  
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 }
+
+.service_col .sertwo::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#0dcaf0, rgb(255, 23, 131));
+  position: absolute;
+  left: 0%;
+  top: -99%;
+  z-index: -2;
+  transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;  
+}
+
