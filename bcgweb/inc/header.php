@@ -173,8 +173,8 @@
                 <div class="col-md-6 col-12">
                   <a class="navbar-brand d-flex align-items-center" href="index.php" style="">
                     <img src="images/logo/download.png" alt="" />
-                    <div style="margin-left: 10px;">
-                      <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
+                    <div class="main_title" style="">
+                      <h2 class="bcg_title">BCG Vaccine Laboratory Chennai</h2>
                       <h5 class="titbcg">
                         Directorate General of Health Services(DGHS),<br>
                         Ministry of Health and Family Welfare, Govt. of India

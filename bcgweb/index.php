@@ -87,7 +87,7 @@
                         ?>
                     </div>
                 </div>
-                <div class="read_more">
+                <div class="card-footer1">
                     <a href="about_bcg.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -110,14 +110,14 @@
                         <h4><?php echo $res[0]['director_qualification'];?></h4>
                     </div>
                 </div>
-                <div class="read_more">
+                <div class="card-footer1">
                     <a href="director_desk3.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service whats ft-b">
+                <div id="servhov" class="service whats ft">
                     <h5 class="title_card">WHAT'S NEW</h5>
                     <div class="container">
                         <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
@@ -139,7 +139,7 @@
                         </marquee>
                     </div>
                 </div>
-                <div class="read_more">
+                <div class="card-footer1">
                     <a href="whats_new.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -150,26 +150,13 @@
     <div id="cards_landscape_wrap-2">
         <h3 class="h_head">OUR PRODUCTS</h3>
         <div class="container">
-            <div class="row services_row">
-                <div class="col-lg-3 col-md-3 service_col">
-                    <div class="card-flyer">
-                        <div class="card">
-                            <div class="row img-grid">
-                                <div class="col-lg-12">
-                                    <img src="images/BCG.png" alt="">
-                                </div>
-                            </div>
-                            <div class="row img-grid">
-                                <div class="col-lg-12">
-                                    <img src="images/product1.png" alt="">         
-                                </div>
-                            </div>
+            <div class="card-flyer">
+                <div class="card">
+                    <div class="row services_row">
+                        <div class="col-lg-3 col-md-3 service_col img-grid text-center">
+                            <img src="images/BCG.png" alt="">
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-8 service_col">
-                    <div class="card-flyer">
-                        <div class="card">
+                        <div class="col-lg-8 col-md-8 service_col">
                             <div class="text-box">
                                 <div class="text-container">
                                     <h6 class="text-center">
@@ -195,6 +182,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row services_row">
         <!-- Service -->
@@ -219,7 +207,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="read_more">
+                <div class="card-footer1">
                     <a href="events_details.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -245,7 +233,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="read_more">
+                <div class="card-footer1">
                     <a href="recruitments.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -272,7 +260,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="read_more">
+                    <div class="card-footer1">
                         <a href="tenders.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
@@ -339,10 +327,9 @@
             </ul>
         </div>
         <div class="slider-controls">
-        <span class="prevSlide"
-            ><i class="fas fa-arrow-left"></i></span
-        ><span class="nextSlide"
-            ><i class="fas fa-arrow-right"></i></span>
+            <span class="prevSlide"><i class="fas fa-arrow-left"></i></span>
+            <span class="nextSlide"><i class="fas fa-arrow-right"></i></span>
+            <a href="photo_gallery.php" class="view-all float-right">View All</a>
         </div>
     </div>
 </div>

@@ -10,9 +10,9 @@
             <div class="footer_about_text">
               <a href=""
                 ><p>
-                  <i class="fas fa-map-marked-alt"></i> , BCG Vaccine
-                  Laboratory,Guindy Industrial Estate, Guindy
-                  Institutional Area, Guindy, Chennai, Tamil Nadu 600032
+                  <i class="fas fa-map-marked-alt"></i>, BCG Vaccine
+                  Laboratory,<br> Guindy Institutional Area, Guindy,<br> 
+                  Chennai, Tamil Nadu 600032
                 </p>
               </a>
             </div>
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 footer_col">
+        <div class="col-lg-4 footer_col quick">
           <div class="footer_links footer_column">
             <div class="footer_title">Quick Links</div>
             <ul>

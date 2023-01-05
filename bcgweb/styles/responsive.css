@@ -316,6 +316,9 @@
   .cta_content h2 {
     font-size: 36px;
   }
+  .main_title{
+    margin-left: 10px;
+  }
  
     
 }
@@ -446,9 +449,9 @@
     top: 20px;
     right: 20px;
   }
-  .home {
+  /* .home {
     height: 63vh;
-  }
+  } */
   .home_content {
     top: calc(50% + 34px);
     -webkit-transform: translateY(-50%);
@@ -570,6 +573,20 @@
     color: white;
 }*/
 
+.view-all{
+  margin-right: 26px;
+}
+.quick{
+  padding-left: 20px !important;
+}
+.main_title{
+  margin-left: 10px !important;
+}
+.titbcg {
+  margin-top: -11px;
+  font-size: 11px;
+}
+
 }
  /* .header.scrolled {
     top: -185px;
@@ -612,11 +629,7 @@
 /* For Mobile Phones Portrait or Landscape View */
 @media screen and (max-device-width: 640px) {
     .bcg_title {
-      font-size: 21px;
-      font-weight: 600;
-      color: #283290;
-      /*margin-top: -27px;*/
-      /* padding-left: 25px; */
+      font-size: 18px !important;
   }
 }
 @media (max-width: 767px){
