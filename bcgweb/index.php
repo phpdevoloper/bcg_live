@@ -10,7 +10,7 @@
         data-ride="carousel"
         >
         <?php
-         $sql = 'SELECT * FROM sliders order by slider_id';
+         $sql = 'SELECT * FROM sliders order by created_at DESC';
          $exe = pg_query($db,$sql);
          $res = pg_fetch_all($exe);
          $counter = 0;?>
@@ -282,48 +282,29 @@
         </ul>
         <div class="slider-wrapper">
             <ul class="item-slider">
-                <li class="magnific-img" data-match="panda">
-                    <a class="image-popup-vertical-fit" href="images/gallery/1DSCN0532.jpg" style="color:none;">
-                    <img src="images/gallery/1DSCN0532.jpg" />
-                </a>
-                </li>
-                <li class="magnific-img" data-match="panda">
-                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160050.jpg">
-                    <img src="images/gallery/20210121_160050.jpg" />
-                    
-                </a>
-                </li>
-                <li class="magnific-img" data-match="panda">
-                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160106.jpg">
-                    <img src="images/gallery/20210121_160106.jpg" />
-                    
-                </a>
-                </li>
-                <li class="magnific-img" data-match="panda">
-                <a class="image-popup-vertical-fit" href="images/gallery/2DSCN0540.jpg">
-                    <img src="images/gallery/2DSCN0540.jpg" />
-                    
-                </a>
-                </li>
-                <li class="magnific-img" data-match="panda">
-                <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
-                    <img src="images/gallery/3DSCN0534.jpg" />
-                    
-                </a>
-                </li>
-                <li class="magnific-img" data-match="panda">
-                    <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
-                        <img src="images/gallery/3DSCN0534.jpg" />
-                        
-                    </a>
-                </li>
+                <?php 
+                   $sql = "SELECT * FROM photo_gallery ORDER BY created_at DESC";
+                   $res = pg_query($db,$sql);
+                   $gallery = pg_fetch_all($res);
+                   foreach($gallery as $value){ ?>
+                        <li class="magnific-img" data-match="panda">
+                            <a class="image-popup-vertical-fit" href="uploads/gallery/photo/<?php echo $value["photo_file"];?>" style="color:none;">
+                                <img src="uploads/gallery/photo/<?php echo $value["photo_file"];?>"/>
+                            </a>
+                        </li>
+                <?php } ?>
+                <?php 
+                   $sql = "SELECT * FROM video_gallery ORDER BY created_at DESC";
+                   $res = pg_query($db,$sql);
+                   $gallery = pg_fetch_all($res);
+                   foreach($gallery as $value){ ?>
                 <li class="magnific-img" data-match="cat">
-                    <a class="image-popup-vertical-fit" href="https://www.youtube.com/embed/brMdT4EiBQM">
-                        <iframe width="100%" height="157" src="https://www.youtube.com/embed/brMdT4EiBQM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    <a class="image-popup-vertical-fit" href="<?php echo $value["photo_file"];?>">
+                        <iframe width="100%" height="157" src="<?php echo $value["photo_file"];?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                         </iframe>
-                        
                     </a>
                 </li>
+                <?php } ?>
             </ul>
         </div>
         <div class="slider-controls">

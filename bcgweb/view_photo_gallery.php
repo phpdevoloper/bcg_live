@@ -43,17 +43,18 @@ include('inc/checkval.php');
                     foreach($result as $value){
                 ?>
                 <div class="col-4">
-                    <div class="gallery-image btn-gallery">
-                        <div class="img-box magnific-img">
-                            <a class="image-popup-vertical-fit" href="uploads/gallery/photo/<?php echo $value['photo_file']; ?>">
-                            <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
-                            </a>
-                            <div class="transparent-box">
-                                <div class="caption">
-                                    <p><?php echo $value['photo_caption'];?></p>
-                                </div>
-                            </div> 
-                        </div>
+                    <div class="gallery-image magnific-img">
+                        <a class="image-popup-vertical-fit" href="uploads/gallery/photo/<?php echo $value['photo_file']; ?>">
+                            <div class="img-box">
+                                <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
+                            
+                                <div class="transparent-box">
+                                    <div class="caption">
+                                        <p><?php echo $value['photo_caption'];?></p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <?php }?>
@@ -63,28 +64,27 @@ include('inc/checkval.php');
 </div>
 <?php include('inc/simple_footer.php'); ?>
 <script type="application/javascript">
-     $(document).ready(function(){
-        console.log('safa');
-    $('.image-popup-vertical-fit').magnificPopup({
-        type: 'image',
-      mainClass: 'mfp-with-zoom', 
-      gallery:{
-                enabled:true
-            },
-    
-      zoom: {
-        enabled: true, 
-    
-        duration: 300, // duration of the effect, in milliseconds
-        easing: 'ease-in-out', // CSS transition easing function
-    
-        opener: function(openerElement) {
-    
-          return openerElement.is('img') ? openerElement : openerElement.find('img');
-      }
-    }
-    
-    });
+    $(document).ready(function(){
+        $('.image-popup-vertical-fit').magnificPopup({
+            type: 'image',
+        mainClass: 'mfp-with-zoom', 
+        gallery:{
+                    enabled:true
+                },
+        
+        zoom: {
+            enabled: true, 
+        
+            duration: 300, // duration of the effect, in milliseconds
+            easing: 'ease-in-out', // CSS transition easing function
+        
+            opener: function(openerElement) {
+        
+            return openerElement.is('img') ? openerElement : openerElement.find('img');
+        }
+        }
+        
+        });
     
     });
 </script>

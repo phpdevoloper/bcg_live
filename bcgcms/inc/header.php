@@ -12,56 +12,56 @@ include('inc/dbconnection.php');?>
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <?php 
 
-    ini_set('session.cookie_httponly', 1);
+//     ini_set('session.cookie_httponly', 1);
   
-    ini_set('session.use_only_cookies', 1);
+//     ini_set('session.use_only_cookies', 1);
       
-    ini_set('session.cookie_secure', 1);
+//     ini_set('session.cookie_secure', 1);
      
-    header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
+//     header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
 
 
      
-    header('X-Content-Type-Options: nosniff');
+//     header('X-Content-Type-Options: nosniff');
 
-    header("X-XSS-Protection: 1; mode=block");
+//     header("X-XSS-Protection: 1; mode=block");
 
-    header('Strict-Transport-Security: max-age=7776000');
+//     header('Strict-Transport-Security: max-age=7776000');
 
-    header("X-Frame-Options: SAMEORIGIN");
+//     header("X-Frame-Options: SAMEORIGIN");
     
-    header("Cross-Origin-Embedder-Policy: require-corp");
+//     header("Cross-Origin-Embedder-Policy: require-corp");
 
-    header("Cross-Origin-Opener-Policy: same-origin");
+//     header("Cross-Origin-Opener-Policy: same-origin");
 	
-    header("Cross-Origin-Resource-Policy: same-origin");
+//     header("Cross-Origin-Resource-Policy: same-origin");
 
 
-    header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
+//     header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
     
-    header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
 
-    header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
 
-    header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
 
-    header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
 
-    header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
 
-    header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
+//     header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
     
-//    header("Referrer-Policy: no-referrer");
- header("Referrer-Policy: strict-origin-when-cross-origin");
-$allowed_host = ['rtionline.tn.gov.in'];
-if(!isset($_SERVER['HTTP_REFERER'])){
+// //    header("Referrer-Policy: no-referrer");
+//  header("Referrer-Policy: strict-origin-when-cross-origin");
+// $allowed_host = ['rtionline.tn.gov.in'];
+// if(!isset($_SERVER['HTTP_REFERER'])){
 
-if (!isset($_SERVER['SERVER_NAME']) || !in_array($_SERVER['SERVER_NAME'], $allowed_host)) 
-{
-   header('location:index.php');
-    exit;
-}
-}
+// if (!isset($_SERVER['SERVER_NAME']) || !in_array($_SERVER['SERVER_NAME'], $allowed_host)) 
+// {
+//    header('location:index.php');
+//     exit;
+// }
+// }
     ?>
     <!-- Fonts and icons -->
     <script src="assets/js/plugin/webfont/webfont.min.js"></script>
