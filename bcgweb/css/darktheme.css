@@ -1220,7 +1220,7 @@ p.cont {
   margin-top: 31px;
 }
 li.line {
-  border-left: 2px solid #1c1b1b;
+  border-left: 2px solid yellow;
   height: 24px;
   padding-right: 6px;
   margin-left: 7px;
@@ -1266,6 +1266,8 @@ a img {
   position: relative;
   z-index: 3;
   padding: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .header_container.bg-dark.nav_light.bg-green::after {
@@ -1380,7 +1382,7 @@ ul.tittle_bcg {
   color:yellow;
 }
 li.lines {
-  border-left: 2px solid #1c1b1b;
+  border-left: 2px solid yellow;
   height: 13px;
   margin-left: 7px;
 }
@@ -1445,7 +1447,7 @@ li.lines {
   margin-left: 26px;
 } */
 .dropdown ul li:hover {
-  background-color:black;
+  background-color:#585858;
 }
 .dropdown ul li {
   /*margin-left: -8px;*/
@@ -1913,7 +1915,7 @@ a.__cf_email__ {
   left: 214px;
   width: 21px;
   height: 3px;
-  background:black;
+  background:yellow;
   cursor: pointer;
   z-index: 10;
   -webkit-transform: rotate(45deg);
@@ -1930,7 +1932,7 @@ a.__cf_email__ {
   content: "";
   width: 3px;
   height: 21px;
-  background:black;
+  background:yellow;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
@@ -3314,4 +3316,15 @@ a{
 }
 .practice-area-wrap .row{
  margin-left: 0 !important;
+}
+
+.side-btn .navbar-toggler{
+  color: yellow !important;
+  border: 1px solid yellow !important;
+}
+
+.list-group-item{
+  background-color: #100f0f !important;
+  border: 1px solid yellow !important;
+  color: yellow !important;
 }
