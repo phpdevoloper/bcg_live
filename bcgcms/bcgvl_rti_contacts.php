@@ -48,7 +48,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">Contact Title</label>
+                                                            <label for="qualifi">Contact Title<span style="color:#ff0000">*</span></label>
                                                             <input type="text" class="form-control" name="con_title" id="con_title">
                                                         </div>
                                                     </div>
@@ -60,19 +60,19 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">Name</label>
+                                                            <label for="qualifi">Name<span style="color:#ff0000">*</span></label>
                                                             <input type="text" class="form-control" name="con_name" id="con_name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">phone</label>
+                                                            <label for="qualifi">phone<span style="color:#ff0000">*</span></label>
                                                             <input type="text" class="form-control" name="user_phone" id="user_phone">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">Designation</label>
+                                                            <label for="qualifi">Designation<span style="color:#ff0000">*</span></label>
                                                             <input type="text" class="form-control" name="designation" id="designation">
                                                         </div>
                                                     </div>
@@ -84,13 +84,13 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">Email</label>
+                                                            <label for="qualifi">Email<span style="color:#ff0000">*</span></label>
                                                             <input type="text" class="form-control" name="user_email" id="user_email">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="qualifi">Address</label>
+                                                            <label for="qualifi">Address<span style="color:#ff0000">*</span></label>
                                                             <textarea class="form-control" name="office_addres" id="office_addres" cols="30" rows="3"></textarea>
                                                         </div>
                                                     </div>
@@ -186,7 +186,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Contact Title</label>
+                                                                <label for="qualifi">Contact Title<span style="color:#ff0000">*</span></label>
                                                                 <input type="text" class="form-control" name="con_title" id="Con_title">
                                                                 <input type="hidden" class="form-control" name="con_id" id="Con_id">
                                                             </div>
@@ -199,19 +199,19 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Name</label>
+                                                                <label for="qualifi">Name<span style="color:#ff0000">*</span></label>
                                                                 <input type="text" class="form-control" name="con_name" id="Con_name">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">phone</label>
+                                                                <label for="qualifi">phone<span style="color:#ff0000">*</span></label>
                                                                 <input type="text" class="form-control" name="user_phone" id="User_phone">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Designation</label>
+                                                                <label for="qualifi">Designation<span style="color:#ff0000">*</span></label>
                                                                 <input type="text" class="form-control" name="designation" id="Designation">
                                                             </div>
                                                         </div>
@@ -223,13 +223,13 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Email</label>
+                                                                <label for="qualifi">Email<span style="color:#ff0000">*</span></label>
                                                                 <input type="text" class="form-control" name="user_email" id="User_email">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label for="qualifi">Address</label>
+                                                                <label for="qualifi">Address<span style="color:#ff0000">*</span></label>
                                                                 <textarea class="form-control" name="office_addres" id="Office_addres" cols="30" rows="3"></textarea>
                                                             </div>
                                                         </div>

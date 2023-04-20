@@ -11,17 +11,17 @@ if (isset($_POST['action_mes']) && $_POST['contact_id'] != '') {
 }else {
     if (isset($_POST['con_id']) && $_POST['con_id'] !='') {
     
-        $con_title      = checkString($_POST['con_title']);
+        $con_title      = $_POST['con_title'];
     
         $user_email     = checkEmail($_POST['user_email']);
-        $org_email      = checkEmail($_POST['org_email']);
+        $org_email      = $_POST['org_email'];
         $mobile         = validate_mobile($_POST['user_phone']);
         
         $errorMSG = "";
         if ($con_title == 2) {
             $errorMSG .= "<li><i class='fa fa-exclamation-circle'></i>Only letters,single and white spaces allowed</li>";
         }
-        if ($email == 2) {
+        if ($user_email == 2) {
             $errorMSG .= "<li><i class='fa fa-exclamation-circle'></i>Invalid email format</li>";
         }
         if ($org_email == 2) {

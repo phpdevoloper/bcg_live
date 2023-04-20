@@ -185,6 +185,7 @@
                 </div>
                 <div class="right-logo col-md-6 col-12" >
                   <img class="dghs" src="images/logo/logo.png" alt="" style="margin-right: 10px;float: right;"/>
+                  <img class="dghs" src="images/logo/DGHS logo.png" alt="" style="margin-right: 10px;float: right;"/>
                 </div>
               </div>
             </div>
@@ -289,15 +290,15 @@
                         <a href="production_chart.php" class="list_a">Production Process</a>
                       </li>
                       <li class="dropdown drop">
-                        <a href="#">Supply of BCG Vaccine <i class="fa fa-chevron-right"></i> </a>
-                          <ul class="dropdown-nav-1">
+                        <a href="supply_vaccine.php">Supply of BCG Vaccine</a>
+                          <!-- <ul class="dropdown-nav-1">
                             <li>
                               <a href="fy2021_22.php" class="list_a">FY 2021-2022</a>
                             </li>
                             <li>
                               <a href="fy2020_21.php" class="list_a">FY 2020-2021</a>
                             </li>
-                          </ul>
+                          </ul> -->
                       </li>
                     </ul>
                   </li>

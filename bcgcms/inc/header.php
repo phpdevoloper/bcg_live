@@ -673,6 +673,8 @@ include('inc/dbconnection.php');?>
 									echo (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php'? 'active':'');
               }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php') {
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php'? 'active':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php'? 'active':'');
               }
                 ?>">
                 <a data-toggle="collapse" href="#sidebarLayouts">
@@ -706,6 +708,8 @@ include('inc/dbconnection.php');?>
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'warehouse.php'? 'show':'');
               }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php') {
                 echo (basename($_SERVER['SCRIPT_FILENAME']) == 'laboratory_house.php'? 'show':'');
+              }elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php') {
+                echo (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php'? 'show':'');
               }
                 ?>" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
@@ -749,6 +753,17 @@ include('inc/dbconnection.php');?>
                       }?>">
                       <a href="viewQTC.php">
                         <span class="sub-item">Quality Control</span>
+                      </a>
+                    </li>
+                    <li class="<?php
+                      if (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'viewQTC.php'? 'active':'');
+                      } 
+                      elseif (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php') {
+                        echo (basename($_SERVER['SCRIPT_FILENAME']) == 'engineering.php'? 'active':'');
+                      }?>">
+                      <a href="engineering.php">
+                        <span class="sub-item">Engineering</span>
                       </a>
                     </li>
                     <li class="<?php

@@ -48,7 +48,9 @@ include('inc/dbconnection.php');
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 13px;">
-                                <?php foreach($result as $value){ 
+                                <?php 
+                                $i = 1;
+                                foreach($result as $value){ 
                                     ?>
                                     <tr>
                                         <td><?php echo $i;?></td>
@@ -58,7 +60,7 @@ include('inc/dbconnection.php');
                                         <td><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank">   
                                           <img src="images/pdf.png" class="ficon" alt="">View(<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a>
                                         </td>
-                                <?php }?>
+                                <?php $i++; }?>
                                     </tr>
                                 </tbody>
                             </table>

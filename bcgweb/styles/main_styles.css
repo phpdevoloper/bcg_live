@@ -1655,7 +1655,7 @@ div#myTabContent {
 #cards_landscape_wrap-2 .card-flyer .text-box h6 {
   margin-top: 0px;
   margin-bottom: 4px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   /* font-family: "Roboto Black", sans-serif; */
@@ -3313,4 +3313,8 @@ a{
 }
 .practice-area-wrap .row{
  margin-left: 0 !important;
+}
+
+table tbody tr td a {
+  color: #299adc;
 }

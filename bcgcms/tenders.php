@@ -133,7 +133,6 @@
                                                         <th>Date Of Announcement</th>
                                                         <th>Closed Date</th>
                                                         <th>Tender Notice</th>
-                                                        <th>Created Date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -151,7 +150,6 @@
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['date_of_closed']));?></td>
                                                         <td class="sorting_1"><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view
                                                          (<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a></td>
-                                                        <td class="sorting_1"><?php echo $t = date("d-m-Y h:i:s", strtotime($value['created_date']));?></td>
                                                         <td>
                                                             <div class="form-button-action">
                                                                 <button type="button" data-toggle="modal"
@@ -205,6 +203,7 @@
                                                                                 <label for="inlineinput" class="col-md-5 col-form-label">Advt.No</label>
                                                                                 <div class="col-md-7 p-0">
                                                                                     <input type="text" class="form-control input-full" name="advt_no" id="Advt_no">
+                                                                                    <input type="hidden" class="form-control input-full" name="tender_id" id="tender_id">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -289,9 +288,9 @@ $(document).ready(function () {
           advt_no: {
             required: true,
           },
-          data_announce: {
-            required: true,
-          },
+          // data_announce: {
+          //   required: true,
+          // },
           closed_date: {
             required: true,
           },
@@ -324,7 +323,7 @@ $(document).ready(function () {
                     title: "Temder Added!",
                     icon: "success",
                   }).then(function () {
-                    // location.reload();
+                     location.reload();
                   });
                 } else {
                   swal({
@@ -353,7 +352,7 @@ $(document).ready(function () {
     var date_of_closed = $(this).attr("data-date_of_closed");
     var tenders_notice = $(this).attr("data-tenders_notice");
     var tender_status = $(this).attr("data-tender_status");
-    $("#Whats_id").val(tender_id);
+    $("#tender_id").val(tender_id);
     $("#Tender_title").val(tender_title);
     $("#Advt_no").val(advertise_no);
     $("#Data_announce").val(date_of_announce);
@@ -363,5 +362,69 @@ $(document).ready(function () {
     $("#upload_document").text(tenders_notice);
     $("#Tender_status").val(tender_status);
     });
+
+
+    $("#edit_recruitment").validate({
+        rules: {
+            tender_title: {
+            required: true,
+          },
+          advt_no: {
+            required: true,
+          },
+          // data_announce: {
+          //   required: true,
+          // },
+          closed_date: {
+            required: true,
+          },
+          // tender_upload: {
+          //   required: true,
+          // },
+        },
+        messages: {},
+        submitHandler: function (form, e) {
+          e.preventDefault();
+          var data = new FormData($("#edit_recruitment")[0]);
+    
+          swal({
+          title: "Are you sure?",
+          text: "You want to Update Tenders!",
+          icon: "warning",
+          buttons: ["Cancel!", "Yes"],
+          dangerMode: true,
+        }).then(function (isConfirm) {
+          if (isConfirm) {
+            $.ajax({
+              method: "POST",
+              url: "addTendersAjax.php",
+              data: data,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                if (response == 1) {
+                  swal({
+                    title: "Temder Updated!",
+                    icon: "success",
+                  }).then(function () {
+                     location.reload();
+                  });
+                } else {
+                  swal({
+                    title: "Something went wrong!",
+                    icon: "error",
+                  }).then(function () {
+                    // location.reload();
+                  });
+                }
+              },
+            });
+          } else {
+            swal("Cancelled", "Done :)", "error");
+          }
+        });
+     }
+    });
+
 });
 </script>

@@ -159,17 +159,20 @@
                         <div class="col-lg-8 col-md-8 service_col">
                             <div class="text-box">
                                 <div class="text-container">
+                                    <?php $sql= "SELECT * FROM product ORDER BY product_id ASC ";
+                                    $res = pg_query($db,$sql);
+                                    $result = pg_fetch_all($res);
+                                    foreach($result as $value){ //var_dump($value);?>
                                     <h6 class="text-center">
-                                        BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
+                                        <?php echo $value['product_name']; ?>
                                     </h6>
                                     <p>
-                                        Freeze dried BCG Vaccine is a preparation of live
-                                        bacteria derived from the culture of attenuated strain
-                                        of Mycobacterium bovis BCG. It is used for the
-                                        prevention of childhood tuberculosis. The vaccine
-                                        complies with the requirements of Indian Pharmacopoeia
-                                        2010.
+                                    <?php 
+                                   $small = substr($value['product_desc'], 0, 300);
+                                   echo $small;
+                                  ?>
                                     </p>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="read_more">

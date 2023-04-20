@@ -204,8 +204,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT bs.*,bsd.deg_name,bsd.deg_code,bsg.cate_name,bsg.cate_code FROM  bcgvl_staff_details bs LEFT JOIN bcgvl_staff_designation bsd 
-                                                        ON bs.deg_code = bsd.deg_code JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY bs.staff_id ASC"; 
+                                                    <?php $sql = "SELECT DISTINCT bs.*,bsd.deg_name,bsg.cate_name
+FROM bcgvl_staff_details bs JOIN bcgvl_staff_designation bsd ON bs.deg_code = bsd.deg_code 
+left outer JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY bs.staff_id ASC"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {

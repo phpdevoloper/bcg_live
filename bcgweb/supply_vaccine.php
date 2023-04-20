@@ -1,6 +1,17 @@
 <?php include('inc/header.php'); 
 include('inc/dbconnection.php');
 ?>
+<style>
+   .chart--container {
+        min-height: 600px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .zc-ref {
+    display: none;
+    }
+</style>
 <!-- Home -->
 <!-- <div class="banner">
     <img src="images/about.jpg" alt="" />
@@ -15,23 +26,152 @@ include('inc/dbconnection.php');
         </ul>
     </section>
     <div class="container">
-        <div class="row">
-            <!-- About Content -->
-            <div class="col-lg-12">
-                <?php $sql = "select * from vaccine_supply"; 
+        <div class="text-center">
+            <label for="">Year : </label>
+            <select name="" id="year_of_supply">
+                <?php   $sql = "SELECT * FROM supply_of_bcg"; 
                         $res = pg_query($db,$sql);
-                        $result = pg_fetch_assoc($res);
+                        $result = pg_fetch_all($res);
+                        foreach ($result as $year) {
                 ?>
-                <div class="section">
-                    <h3 class="text-center txt" style="color: #299adc;">Supply of BCG Vaccine</h3>
-                </div>
-                <section id="about">
-                    <div class="text-center" style="margin-left: 140px;">
-                    <?php echo $result['vs_details'];?>
-                    </div>
-                </section>
+                    <option value="<?php echo $year['supply_id'];?>" data-supply_report="<?php echo $year['supply_report']; ?>"><?php echo $year['year_of_supply']; ?></option>
+                    <?php    } ?>
+            </select>
+        </div>
+        <div class="container aos-init aos-animate" data-aos="fade-up" style="margin-bottom : 30px">
+            <div id="myChart" class="chart--container">
             </div>
         </div>
     </div>
 </div>
 <?php include('inc/simple_footer.php'); ?>
+<script src="js/zingchart.min.js"></script>
+
+<script>
+    
+    $(document).ready(function () {
+        zingchart.MODULESDIR="js/modules/";
+        let chartConfig = {
+            shapes: [
+                // {
+                // type: 'zingchart.maps',
+                // options: {
+                //     bbox: [67.177, 36.494, 98.403, 6.965], // get bbox from zingchart.maps.getItemInfo('world-countries','ind');
+                //     ignore: ['IND'], // ignore India because we are rendering a more specific India map below
+                //     name: 'world.countries',
+                //     panning: false, // turn of zooming. Doesn't work with bounding box
+                //     style: {
+                //     tooltip: {
+                //         borderColor: '#000',
+                //         borderWidth: '2px',
+                //         fontSize: '18px'
+                //     },
+                //     controls: {
+                //         visible: false // turn of zooming. Doesn't work with bounding box
+                //     },
+                //     hoverState: {
+                //         alpha: .28
+                //     }
+                //     },
+                //     zooming: false // turn of zooming. Doesn't work with bounding box
+                // }
+                // },
+                {
+                type: 'zingchart.maps',
+                options: {
+                    name: 'ind',
+                    panning: false, // turn of zooming. Doesn't work with bounding box
+                    zooming: false,
+                    scrolling: false,
+                    style: {
+                    tooltip: {
+                        borderColor: '#000',
+                        borderWidth: '2px',
+                        fontSize: '18px'
+                    },
+                    borderColor: '#000',
+                    borderWidth: '2px',
+                    controls: {
+                        visible: false, // turn of zooming. Doesn't work with bounding box
+
+                    },
+                    hoverState: {
+                        alpha: .28
+                    },
+                    items: {
+                        KA: {
+                        tooltip: {
+                            text: 'Karnataka has 2,851 monthly users total',
+                            backgroundColor: '#ff5722'
+                        },
+                        backgroundColor: '#ff5722',
+                        label: {
+                            visible: true
+                        }
+                        },
+                        MH: {
+                        tooltip: {
+                            text: 'Maharashtra has 2,683 monthly users total',
+                            backgroundColor: '#ff9800'
+                        },
+                        backgroundColor: '#ff9800',
+                        label: {
+                            visible: true
+                        }
+                        },
+                        TL: {
+                        tooltip: {
+                            text: 'Telangana has 1,494 monthly users total',
+                            backgroundColor: '#00AE4D'
+                        },
+                        backgroundColor: '#00AE4D',
+                        label: {
+                            visible: true
+                        }
+                        },
+                        TN: {
+                        tooltip: {
+                            text: 'Tamil Nadu has 1,968 monthly users total',
+                            backgroundColor: '#00bcd4'
+                        },
+                        backgroundColor: '#00bcd4',
+                        label: {
+                            text:"Tamil Nadu",
+                            visible: true
+                        },
+                        
+                        }
+                    },
+                    label: { // text displaying. Like valueBox
+                        fontSize: '15px',
+                        visible: false
+                    }
+                    "plot":{
+                    "value-box":{
+                    "placement":"out",
+                    "offset-r":"-10",
+                    "font-family":"Georgia",
+                    "font-size":15,
+                    "font-weight":"normal"
+                    }
+                },
+                "plotarea":{
+                    "margin-right":"45%",
+                    "margin-top":"20%",
+                    "margin-bottom":"20%"
+                },
+                    }
+                }
+                }
+            ]
+            };
+
+            zingchart.loadModules('maps,maps-ind');
+            zingchart.render({
+            id: 'myChart',
+            data: chartConfig,
+            height: '100%',
+            width: '100%',
+            });
+    });
+</script>

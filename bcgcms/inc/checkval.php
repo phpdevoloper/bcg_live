@@ -4,7 +4,7 @@ include('inc/Validation.php');
 
 function checkString($data){
 	$data = clean($data);
-	if (!preg_match("/^[A-Za-z0-9_-]*$/",$data)) {
+	if (!preg_match("/^[A-Za-z0-9_-](?<=\()(.+)(?=\))[-@.\/#&+\w\s]*$/",$data)) {
         return 2;
 	}else {
 	    return;
