@@ -35,7 +35,7 @@
                                         <div class="modal-header no-bd">
                                             <h5 class="modal-title">
                                                 <span class="fw-mediumbold">
-                                                Add Year of Supply
+                                                Add Vaccine Supply
                                                 </span>
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -54,7 +54,7 @@
                                                                     <?php 
                                                                     $a = 2016;
                                                                     $b = 2017;
-                                                                    for ($i=0; $i <= 10 ; $i++) { 
+                                                                    for ($i=0; $i <= 10 ; $i++) {   
                                                                         $a = $a + 1;
                                                                         $b = $b + 1;
                                                                         ?>
@@ -68,9 +68,28 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group form-inline">
-                                                            <label for="inlineinput" class="col-md-5 col-form-label">Upload file<span style="color:#ff0000">*</span></label>
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">State Name<span style="color:#ff0000">*</span></label>
                                                             <div class="col-md-6 p-0">
-                                                                <input type="file" class="form-control input-full" name="supply_report" id="supply_report" accept="image/png, image/gif, image/jpeg">
+                                                                <select class="form-control input-full" name="state_name" id="state_name">
+                                                                    <option value="">Please select the state </option>
+                                                                    <?php 
+                                                                       $sql = "SELECT * FROM mst_state_list ORDER BY state_id";
+                                                                       $res = pg_query($db,$sql);
+                                                                       $state_list = pg_fetch_all($res);
+                                                                       foreach ($state_list as $state) { ?>
+                                                                           <option value="<?php echo $state['state_code'];?>"><?php echo $state['state_name'];?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Supply Details<span style="color:#ff0000">*</span></label>
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" class="form-control input-full" id="supply_details" name="supply_details">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -243,7 +262,7 @@
             year_of_report: {
             required: true,
           },
-          supply_report: {
+          state_name: {
             required: true,
           },
         },
@@ -251,8 +270,8 @@
             year_of_report: {
                 required: "Please choose the year of BCG Vaccine Supply",
             },
-            supply_report: {
-                required: "Please Upload the document",
+            state_name: {
+                required: "Please choose the state",
             },
         },
         submitHandler: function (form, e) {

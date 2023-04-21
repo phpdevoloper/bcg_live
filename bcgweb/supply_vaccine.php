@@ -53,35 +53,12 @@ include('inc/dbconnection.php');
         zingchart.MODULESDIR="js/modules/";
         let chartConfig = {
             shapes: [
-                // {
-                // type: 'zingchart.maps',
-                // options: {
-                //     bbox: [67.177, 36.494, 98.403, 6.965], // get bbox from zingchart.maps.getItemInfo('world-countries','ind');
-                //     ignore: ['IND'], // ignore India because we are rendering a more specific India map below
-                //     name: 'world.countries',
-                //     panning: false, // turn of zooming. Doesn't work with bounding box
-                //     style: {
-                //     tooltip: {
-                //         borderColor: '#000',
-                //         borderWidth: '2px',
-                //         fontSize: '18px'
-                //     },
-                //     controls: {
-                //         visible: false // turn of zooming. Doesn't work with bounding box
-                //     },
-                //     hoverState: {
-                //         alpha: .28
-                //     }
-                //     },
-                //     zooming: false // turn of zooming. Doesn't work with bounding box
-                // }
-                // },
                 {
                 type: 'zingchart.maps',
                 options: {
                     name: 'ind',
                     panning: false, // turn of zooming. Doesn't work with bounding box
-                    zooming: false,
+                    zooming: true,
                     scrolling: false,
                     style: {
                     tooltip: {
@@ -136,30 +113,15 @@ include('inc/dbconnection.php');
                         },
                         backgroundColor: '#00bcd4',
                         label: {
-                            text:"Tamil Nadu",
+                            text:'Tamil Nadu <br> 5',
                             visible: true
                         },
-                        
                         }
                     },
                     label: { // text displaying. Like valueBox
                         fontSize: '15px',
                         visible: false
                     }
-                    "plot":{
-                    "value-box":{
-                    "placement":"out",
-                    "offset-r":"-10",
-                    "font-family":"Georgia",
-                    "font-size":15,
-                    "font-weight":"normal"
-                    }
-                },
-                "plotarea":{
-                    "margin-right":"45%",
-                    "margin-top":"20%",
-                    "margin-bottom":"20%"
-                },
                     }
                 }
                 }
