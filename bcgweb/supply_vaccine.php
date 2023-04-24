@@ -44,12 +44,20 @@ include('inc/dbconnection.php');
         </div>
     </div>
 </div>
-<?php include('inc/simple_footer.php'); ?>
+<?php include('inc/simple_footer.php'); 
+
+$sql = "SELECT * FROM mst_supply_bcgvl"; 
+        $res = pg_query($db, $sql);
+        $supply = pg_fetch_all($res);
+        var_dump($supply);
+      
+?>
 <script src="js/zingchart.min.js"></script>
 
 <script>
     
-    $(document).ready(function () {
+    $(document).ready(function () { 
+       
         zingchart.MODULESDIR="js/modules/";
         let chartConfig = {
             shapes: [
@@ -76,6 +84,7 @@ include('inc/dbconnection.php');
                         alpha: .28
                     },
                     items: {
+
                         KA: {
                         tooltip: {
                             text: 'Karnataka has 2,851 monthly users total',
@@ -124,7 +133,41 @@ include('inc/dbconnection.php');
                     }
                     }
                 }
-                }
+                },
+                {
+                    type: 'circle',
+                    id: '2022',
+                    backgroundColor: '#163D6B',
+                    borderColor: '#a5a5a5',
+                    borderWidth: '1px',
+                    cursor: 'pointer',
+                    label: {
+                        text: '2021-2022',
+                        fontColor: '#666666',
+                        fontFamily: 'arial',
+                        offsetX: '50px'
+                    },
+                    size: '10px',
+                    x: '5%',
+                    y: '27%'
+                },
+                {
+                    type: 'circle',
+                    id: '2021',
+                    backgroundColor: '#4E6C90',
+                    borderColor: '#a5a5a5',
+                    borderWidth: '1px',
+                    cursor: 'pointer',
+                    label: {
+                        text: '2020-2021',
+                        fontColor: '#666666',
+                        fontFamily: 'arial',
+                        offsetX: '50px'
+                    },
+                    size: '10px',
+                    x: '5%',
+                    y: '37%'
+                },
             ]
             };
 
@@ -135,5 +178,73 @@ include('inc/dbconnection.php');
             height: '100%',
             width: '100%',
             });
+
+            // Keep track of last shape clicked
+            let lastClick = null;
+
+            // Population data for updating the chart
+            let population = {
+                2022: {
+                    bgColor: '#3bc053',
+                    states: ['TN']
+                },
+                2022: {
+                    bgColor: '#4E6C90',
+                    states: ['AP']
+                },
+            };
+
+
+            let createItems = (year) => {
+            let data = population[year];
+            let items = {};
+            data.states.forEach((state) => {
+                let stateItem = {
+                tooltip: {
+                    borderRadius: '0px'
+                },
+                backgroundColor: data.bgColor,
+                borderColor: '#a5a5a5',
+                borderWidth: '1px',
+                hoverState: {
+                    visible: false
+                },
+                label: {
+                    visible: false
+                }
+                }
+                items[state] = stateItem;
+            });
+            return items;
+            }
+
+            // Deep copy a Javascript object
+            let copy = (obj) => {
+            return JSON.parse(JSON.stringify(obj));
+            }
+
+            // Bind the shapeclick
+            zingchart.shape_click = (p) => {
+            let year = p.shapeid;
+            if (Object.keys(population).indexOf(year) < 0) {
+                return;
+            }
+            if (lastClick == year) {
+                lastClick = null;
+                zingchart.exec('myChart', 'setdata', {
+                data: chartConfig
+                });
+            }
+            else {
+                lastClick = year;
+                let newData = copy(chartConfig);
+                newData.shapes[0].options.style.items = createItems(year);
+                zingchart.exec('myChart', 'setdata', {
+                data: newData
+                });
+            }
+            }
+       
+
     });
 </script>

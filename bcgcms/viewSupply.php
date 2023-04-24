@@ -94,6 +94,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group form-inline">
+                                                            <label for="inlineinput" class="col-md-5 col-form-label">Supply Name<span style="color:#ff0000">*</span></label>
+                                                            <div class="col-md-6 p-0">
+                                                                <input type="text" class="form-control input-full" id="supply_name" name="supply_name">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="modal-footer" style="justify-content: center !important;">
                                                     <button type="submit" id="addRowButton"
                                                         class="btn btn-primary">Submit</button>
@@ -116,12 +126,14 @@
                                                     <tr role="row">
                                                         <th>S.No</th>
                                                         <th>Year of Supply</th>
-                                                        <th>Report of Supply</th>
+                                                        <th>State Name</th>
+                                                        <th>Supply Details</th>
+                                                        <th>Supply Name</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM supply_of_bcg"; 
+                                                    <?php $sql = "SELECT * FROM mst_supply_bcgvl"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           $i=1;
@@ -131,16 +143,20 @@
 
                                                     <tr role="row" class="odd">
                                                         <td class="sorting_1"><?php echo $i;?></td>
-                                                        <td class="sorting_1"><?php echo $value['year_of_supply'];?></td>
-                                                        <td class="sorting_1"><?php echo $value['supply_report'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['supply_year'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['state_name'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['supply_details'];?></td>
+                                                        <td class="sorting_1"><?php echo $value['supply_name'];?></td>
                                                         <td>
                                                             <div class="form-button-action"><button type="button" data-toggle="modal"
                                                                     data-target="#editRowModal" title=""
                                                                     class="btn btn-link btn-primary btn-lg"
                                                                     data-original-title="Edit Achivement"
                                                                     data-rec_id="<?php echo $value['supply_id'];?>"
-                                                                    data-rect_title="<?php echo $value['year_of_supply'];?>"
-                                                                    data-advt_no="<?php echo $value['supply_report'];?>">
+                                                                    data-rect_title="<?php echo $value['supply_year'];?>"
+                                                                    data-rect_title="<?php echo $value['state_name'];?>"
+                                                                    data-advt_no="<?php echo $value['supply_details'];?>"
+                                                                    data-advt_no="<?php echo $value['supply_name'];?>">
                                                                     <i class="fa fa-edit get_what"></i>
                                                                 </button>
                                                             </div>
@@ -265,6 +281,12 @@
           state_name: {
             required: true,
           },
+          supply_details: {
+            required: true,
+          },
+          supply_name: {
+            required: true,
+          },
         },
         messages: {
             year_of_report: {
@@ -273,37 +295,45 @@
             state_name: {
                 required: "Please choose the state",
             },
+            supply_details: {
+                required: "Please enter the supply details",
+            },
+            supply_name: {
+                required: "Please enter the supply name",
+            },
         },
         submitHandler: function (form, e) {
             e.preventDefault();
             var data = new FormData($("#add_supply")[0]);
             swal({
             title: "Are you sure?",
-            text: "You wants to Add recruitment!",
+            text: "You wants to Add Supply!",
             icon: "warning",
             buttons: ["Cancel!", "Yes"],
             dangerMode: true,
             }).then(function (isConfirm) {
             if (isConfirm) {
                 $.ajax({
-                method: "POST",
-                url: "addSupplyAjax.php",
-                data: data,
-                contentType: false,
-                processData: false,
+                    method: "POST",
+                    url: "addSupplyAjax.php",
+                    dataType : 'json',
+                    data: data,
+                    cache : false,
+                    contentType: false,
+                    processData: false,
                 success: function (response) {
-                    if (response == 1) {
-                    swal({
-                        title: "Added!",
-                        icon: "success",
-                    }).then(function () {
-                        location.reload();
-                    });
-                    } else {
-                    swal({
-                        title: "Something went wrong!",
-                        icon: "error",
-                    });
+                    if(response.code == 200){
+                        swal({
+                            title: "Spply Details Added!",
+                            icon: "success",
+                        }).then(function () {
+                            location.reload();
+                        });
+                    }else if(response.code == 403){
+                        swal({
+                            title: response.msg,
+                            icon: "error",
+                        });
                     }
                 },
                 });
@@ -330,8 +360,6 @@
         $("#Rec_title").val(rect_title);
         $("#Advt_no").val(advt_no);
         $("#Date_of_announe").val(date_of_announce);
-        // console.log(date_of_announce);
-        // console.log(date_of_closed);
         $("#Last_date_apply").val(last_date_to_apply);
         $("#upload_document").text(upload_advt);
         $("#Rec_status").val(rec_status);
