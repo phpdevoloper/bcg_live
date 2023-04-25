@@ -2,6 +2,16 @@
 include('inc/dbconnection.php');
 ?>
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #c-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+
    .chart--container {
         min-height: 600px;
         width: 100%;
@@ -39,8 +49,16 @@ include('inc/dbconnection.php');
             </select>
         </div>
         <div class="container aos-init aos-animate" data-aos="fade-up" style="margin-bottom : 30px">
-            <div id="myChart" class="chart--container">
-            </div>
+         <div class="row">
+             <div class="col-lg-7">
+                 <div id="myChart" class="chart--container"></div>
+             </div>
+             <div class="col-lg-5">
+                 <div class="card">
+                     <div id="c-container"></div>
+                 </div>
+             </div>
+         </div>
         </div>
     </div>
 </div>
@@ -53,6 +71,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
       
 ?>
 <script src="js/zingchart.min.js"></script>
+
 
 <script>
     
@@ -247,4 +266,122 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
        
 
     });
+</script>
+<script src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script>
+       var dom = document.getElementById('c-container');
+        var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+        });
+        var app = {};
+
+        var option;
+
+        option = {
+        xAxis: {
+            data: ['Animals', 'Fruits', 'Cars']
+        },
+        yAxis: {},
+        dataGroupId: '',
+        animationDurationUpdate: 500,
+        series: {
+            type: 'bar',
+            id: 'sales',
+            data: [
+            {
+                value: 5,
+                groupId: 'animals'
+            },
+            {
+                value: 2,
+                groupId: 'fruits'
+            },
+            {
+                value: 4,
+                groupId: 'cars'
+            }
+            ],
+            universalTransition: {
+            enabled: true,
+            divideShape: 'clone'
+            }
+        }
+        };
+        const drilldownData = [
+        {
+            dataGroupId: 'animals',
+            data: [
+            ['Cats', 4],
+            ['Dogs', 2],
+            ['Cows', 1],
+            ['Sheep', 2],
+            ['Pigs', 1]
+            ]
+        },
+        {
+            dataGroupId: 'fruits',
+            data: [
+            ['Apples', 4],
+            ['Oranges', 2]
+            ]
+        },
+        {
+            dataGroupId: 'cars',
+            data: [
+            ['Toyota', 4],
+            ['Opel', 2],
+            ['Volkswagen', 2]
+            ]
+        }
+        ];
+        myChart.on('click', function (event) {
+        if (event.data) {
+            var subData = drilldownData.find(function (data) {
+            return data.dataGroupId === event.data.groupId;
+            });
+            if (!subData) {
+            return;
+            }
+            myChart.setOption({
+            xAxis: {
+                data: subData.data.map(function (item) {
+                return item[0];
+                })
+            },
+            series: {
+                type: 'bar',
+                id: 'sales',
+                dataGroupId: subData.dataGroupId,
+                data: subData.data.map(function (item) {
+                return item[1];
+                }),
+                universalTransition: {
+                enabled: true,
+                divideShape: 'clone'
+                }
+            },
+            graphic: [
+                {
+                type: 'text',
+                left: 50,
+                top: 20,
+                style: {
+                    text: 'Back',
+                    fontSize: 18
+                },
+                onclick: function () {
+                    myChart.setOption(option);
+                }
+                }
+            ]
+            });
+        }
+        });
+
+        if (option && typeof option === 'object') {
+        myChart.setOption(option);
+        }
+
+        window.addEventListener('resize', myChart.resize);
 </script>
