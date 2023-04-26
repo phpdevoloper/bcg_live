@@ -24,7 +24,7 @@ include('inc/dbconnection.php');
         <div class="row">
             <!-- About Content -->
             <div class="col-lg-4">
-                <div class="text-center">
+                <div class="about_us">
                     <img src="images/about/house.jpg" alt="">
                 </div>
             </div>
