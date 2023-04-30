@@ -87,7 +87,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                 {
                     KA : {
                     tooltip: {
-                        text: 'Karnataka has 2,851 monthly users total',
+                        text: 'Karnataka 2.4 lakhs',
                         backgroundColor: '#ff5722'
                     },
                     backgroundColor: '#99fecd',
@@ -98,17 +98,18 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                     },
                     AP: {
                         tooltip: {
-                            text: 'Andhra Pradesh has 4.4 lkhs',
+                            text: 'Andhra Pradesh 4.4 lkhs',
                             backgroundColor: '#ff9800'
                         },
                         backgroundColor: '#ffcd66',
                         label: {
+                            text:'Andhra Pradesh',
                             visible: true
                         }
                     },
                         TL: {
                         tooltip: {
-                            text: 'Telangana 3 laks',
+                            text: 'Telangana 3 lakhs',
                             backgroundColor: '#fdf1dc'
                         },
                         backgroundColor: '#fdf1dc',
@@ -119,7 +120,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                     },
                         TN: {
                         tooltip: {
-                            text: 'Tamil Nadu has 1,968 monthly users total',
+                            text: 'Tamil Nadu 5 lakhs',
                             backgroundColor: '#00bcd4'
                         },
                         backgroundColor: '#5a9dda',
@@ -130,7 +131,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                     },
                         GJ: {
                         tooltip: {
-                            text: 'Gujarat 4.8 lkhs',
+                            text: 'Gujarat 4.8 lakhs',
                             backgroundColor: '#00b2f1',
                             color:"#fff"
                         },
@@ -142,13 +143,13 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                     },
                         MP: {
                         tooltip: {
-                            text: 'Madhya Pradesh 12.8 lkhs',
+                            text: 'Madhya Pradesh 12.8 lakhs',
                             backgroundColor: '#93d24e',
                             color:"#fff"
                         },
                         backgroundColor: '#93d24e',
                         label: {
-                            text:'Gujarat',
+                            text:'Madhya Pradesh',
                             visible: true
                         },
                     },
@@ -184,7 +185,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                         },
                         backgroundColor: '#8697b2',
                         label: {
-                            text:'UP',
+                            text:'Uttar Pradesh',
                             visible: true
                         },
                     }
@@ -223,7 +224,19 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
                         visible: false
                     }
                     }
-                }
+                },
+                // scaleX: {
+                //     alpha: 1,
+                //     label: {
+                //     text: 'Bottom 5 products by sales',
+                //     fontSize: '14px',
+                //     },
+                //     offsetEnd: '55%',
+                //     offsetX: '50%',
+                //     tick: {
+                //     alpha: 0,
+                //     },
+                // },
                 },
             ]
             };
@@ -347,7 +360,7 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
         series: {
             type: 'bar',
             id: 'sales',
-            data: [],
+            data: jobDatasets[2021],
             universalTransition: {
             enabled: true,
             divideShape: 'clone'
@@ -356,11 +369,11 @@ $sql = "SELECT * FROM mst_supply_bcgvl";
         };
         
         
-        // console.log(option);
-        document.getElementById('year_of_supply').addEventListener('change', function() {
-            option.series.data = jobDatasets[this.value];
-            myChart.setOption(option);
-        });
+        // // console.log(option);
+        // document.getElementById('year_of_supply').addEventListener('change', function() {
+        //     option.series.data = jobDatasets[this.value];
+        //     myChart.setOption(option);
+        // });
 
 
         if (option && typeof option === 'object') {

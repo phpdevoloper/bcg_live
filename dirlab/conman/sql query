@@ -1,0 +1,1 @@
+INSERT INTO bcgvl_staff_details(staff_name,deg_code,cate_code)VALUES('Testing 28' ,'MTS','GRPC','INS')

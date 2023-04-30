@@ -1,0 +1,308 @@
+img.js--image-preview {
+  width: 109px;
+  margin-top: 10px;
+  height: 123px;
+}
+
+thead {
+  color: #fff;
+  font-weight: 700;
+  background: #425c85;
+}
+.row th {
+  font-size: 14px;
+  text-align: center;
+}
+.odd td {
+  color: #000000;
+}
+
+label#director_name {
+  font-size: 30px !important;
+}
+a#editBasicInline {
+  color: #fff;
+}
+a#editPro {
+  color: #fff;
+}
+
+img.profile {
+  width: 150px;
+  height: 150px;
+  border: 6px solid;
+}
+
+.profile tr > td {
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+/* .profile tr > th {
+  color: black;
+  font-size: 17px;
+} */
+
+.held {
+  padding-left: 25px;
+}
+.held h5 {
+  color: black;
+  font-weight: 700;
+}
+.held div {
+  padding-left: 10px;
+}
+.held img {
+  width: 100px;
+  height: 110px;
+  border: 6px solid;
+}
+
+.ficon {
+  width: 30px;
+  height: 25px;
+}
+#myImg {
+  width: 100px;
+  height: 62px;
+}
+
+.custom_text {
+  font-size: 14px;
+  border-color: #ebedf2;
+  padding: 0.6rem 1rem;
+  width: 100%;
+  line-height: 1.5;
+  border: 1px solid #c2c7c7;
+  border-radius: 0.25rem;
+}
+.custom_text:focus {
+  border-color: #3e93ff;
+}
+
+.avatar-upload {
+  position: relative;
+  max-width: 205px;
+  /* margin: 50px auto; */
+}
+
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 16px;
+  z-index: 1;
+  top: 36px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit input + label:after {
+  content: "\f303";
+  font-family: "Font Awesome 5 Solid";
+  color: #757575;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #f8f8f8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-header .edit_btn a {
+  float: right;
+}
+
+.org_img {
+  padding-left: 50px;
+}
+
+.content {
+  padding: 10px 10px 10px 10px;
+}
+
+.pro:after {
+  content: " *";
+  color: red;
+}
+
+.custom_lable {
+  color: green !important;
+  font-weight: 700;
+}
+
+.product_section {
+  padding-top: 32px;
+}
+
+/* Photo gallery */
+.photo_gallery {
+  padding-top: 20px;
+}
+
+.box {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 250px;
+  padding-bottom: 20%;
+  border: 1px solid #ebedf2;
+}
+.boxInner {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  overflow: hidden;
+}
+.boxInner img {
+  width: 100%;
+  height: 250px;
+}
+.boxInner .titleBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: -50px;
+  background: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 4px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.boxInner:hover .titleBox,
+.boxInner.touchFocus .titleBox {
+  margin-bottom: 0;
+}
+a.btn.btn-primary.btn-round.ml-auto {
+  color: white;
+}
+#add-row {
+  padding-top: 20px;
+}
+
+/* Accordian */
+.mb-0 > a {
+  display: block;
+  position: relative;
+}
+.mb-0 > a:before {
+  content: "\f067"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Solid";
+  position: absolute;
+  right: 0;
+  color: rgb(4, 165, 4);
+}
+.mb-0 > a[aria-expanded="true"]:before {
+  content: "\f068"; /* fa-chevron-up */
+}
+
+.exe > a {
+  display: block;
+  position: relative;
+}
+
+.exe > a:after {
+  content: "\f35d"; /* fa-chevron-down */
+  font-family: "Font Awesome 5 Solid";
+  position: absolute;
+  right: 0;
+  color: #3e93ff;
+}
+
+.boxInner .btn {
+  /* position: absolute; */
+  bottom: 0;
+  right: 0;
+  margin-bottom: -67px;
+  background: #f6dbc3 !important;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.boxInner:hover .btn,
+.boxInner.touchFocus .btn {
+  margin-bottom: 0;
+}
+
+.dash {
+  list-style: none;
+  padding-top: 20px;
+  padding-left: 0;
+}
+.dash li {
+  padding-bottom: 5px;
+}
+
+.dash li::before {
+  content: "\f0a1";
+  font-family: "Font Awesome 5 Solid";
+  padding-right: 10px;
+  color: #0d5abd;
+}
+
+.btd {
+  right: 176px;
+  position: absolute;
+}
+
+/* .fa-btn {
+} */
+img#previw {
+  width: 100%;
+}
+
+#upload_document {
+  color: green !important;
+}
+.alert i.fa.fa-exclamation-circle {
+  color: red;
+  padding-right: 5px;
+}
+.alert ul {
+  list-style-type: none;
+}

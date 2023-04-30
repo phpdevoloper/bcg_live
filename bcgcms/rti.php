@@ -116,16 +116,17 @@
                                     <div class="card" style="border-color: green;">
                                         <div class="card-header" id="heading-<?php echo $i;?>">
                                         <h5 class="mb-0">
-                                            <a class="exe" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
-                                            <?php echo $value['rti_name'];?>
-                                            <i class="fa fa-edit getMSTRTI" 
+                                            <a class="exe" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>"
+                                            class="getMSTRTI" 
                                             data-toggle="modal"
                                             data-target="#addMSTRTI"
                                             data-original-title="Edit RTI" 
                                             data-mst_rti_id="<?php echo $value['rti_id'];?>"
                                             data-mst_rti_name="<?php echo $value['rti_name'];?>"
                                             data-mst_rti_status="<?php echo $value['rti_status'];?>"
-                                            ></i>
+                                            >
+                                            <?php echo $value['rti_name'];?>
+                                            <strong style="color:#1269db">edit</strong>
                                             </a>
                                         </h5>
                                         </div>

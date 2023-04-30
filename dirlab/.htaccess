@@ -1,0 +1,2 @@
+PassEnv HOSTNAME
+Header set X-Which-Host-Am-I "%{HOSTNAME}e"

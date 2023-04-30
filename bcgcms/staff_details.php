@@ -205,15 +205,16 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php $sql = "SELECT DISTINCT bs.*,bsd.deg_name,bsg.cate_name
-FROM bcgvl_staff_details bs JOIN bcgvl_staff_designation bsd ON bs.deg_code = bsd.deg_code 
-left outer JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY bs.staff_id ASC"; 
-                                                          $res = pg_query($db, $sql);
-                                                          $result = pg_fetch_all($res);
-                                                          foreach ($result as $value) {
+                                        FROM bcgvl_staff_details bs JOIN bcgvl_staff_designation bsd ON bs.deg_code = bsd.deg_code 
+                                        left outer JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY bsg.cate_name ASC"; 
+                                                    $res = pg_query($db, $sql);
+                                                    $result = pg_fetch_all($res);
+                                                    $i = 1;
+                                                    foreach ($result as $value) {
                                                     ?>
 
                                                     <tr role="row" class="odd">
-                                                        <td class="sorting_1"><?php echo $value['staff_id'];?></td>
+                                                        <td class="sorting_1"><?php echo $i;?></td>
                                                         <td class="sorting_1"><?php echo $value['staff_name'];?></td>
                                                         <td class="sorting_1"><?php echo $value['deg_name'];?></td>
                                                         <td class="sorting_1"><?php echo $value['cate_name'];?></td>
@@ -234,7 +235,7 @@ left outer JOIN bcgvl_staff_groups bsg ON bs.cate_code = bsg.cate_code ORDER BY 
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <?php } ?>
+                                                    <?php $i++; } ?>
                                                 </tbody>
                                                 <div class="modal fade" id="editStaffModal" tabindex="-1" role="dialog" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
