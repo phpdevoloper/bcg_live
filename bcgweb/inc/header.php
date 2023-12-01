@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>BCG vaccine Laboratory</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="CareMed demo project" />
@@ -16,48 +16,48 @@
     // ini_set('session.use_only_cookies', 1);
       
     // ini_set('session.cookie_secure', 1);
-//     header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
+    header ("Set-Cookie: bcgvladmin ; expires=Tue, 17-May-12 14:39:58 GMT;path=/; domain=rtionline.tn.gov.in");
 
 
      
-//     header('X-Content-Type-Options: nosniff');
+    header('X-Content-Type-Options: nosniff');
 
-//     header("X-XSS-Protection: 1; mode=block");
+    header("X-XSS-Protection: 1; mode=block");
 
-//     header('Strict-Transport-Security: max-age=7776000');
+    header('Strict-Transport-Security: max-age=7776000');
 
-//     header("X-Frame-Options: SAMEORIGIN");
+    header("X-Frame-Options: SAMEORIGIN");
     
-//     header("Cross-Origin-Embedder-Policy: require-corp");
+    header("Cross-Origin-Embedder-Policy: require-corp");
 
-//     header("Cross-Origin-Opener-Policy: same-origin");
+    header("Cross-Origin-Opener-Policy: same-origin");
 	
-//     header("Cross-Origin-Resource-Policy: same-origin");
+    header("Cross-Origin-Resource-Policy: same-origin");
 
 
-//     header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
+    header("Content-Security-Policy: default-src 'self';object-src 'none';frame-ancestors 'none';upgrade-insecure-requests;block-all-mixed-content");
     
-//     header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: frame-src https://rtionline.tn.gov.in/");
 
-//     header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: manifest-src https://rtionline.tn.gov.in/");
 
-//     header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: connect-src https://rtionline.tn.gov.in/");
 
-//     header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: font-src https://rtionline.tn.gov.in/");
 
-//     header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: img-src https://rtionline.tn.gov.in/");
 
-//     header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
+    header("Content-Security-Policy: media-src https://rtionline.tn.gov.in/");
     
-//    header("Referrer-Policy: strict-origin-when-cross-origin");
+   header("Referrer-Policy: strict-origin-when-cross-origin");
 
-// $allowed_host = array('rtionline.tn.gov.in');
+$allowed_host = array('rtionline.tn.gov.in');
 
-// if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
-// {
-//     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-//     exit;
-// }
+if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host)) 
+{
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    exit;
+}
     ?>
     <link rel="stylesheet" href="plugins/bootstrap-4.6.2/css/bootstrap.min.css">
     <link
@@ -75,7 +75,6 @@
       type="text/css"
       href="plugins/OwlCarousel2-2.2.1/animate.css"
     />  -->
-    <link rel="stylesheet" type="text/css" href="css/swal.css" />
     <link rel="stylesheet" type="text/css" href="styles/main_styles.css" />
     <link rel="stylesheet" type="text/css" href="styles/responsive.css" />
     <link
@@ -154,7 +153,6 @@
                       <li class="social-media">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                       </li>
-                      <li class="line"></li>
                       <li class="social-media">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                       </li>
@@ -168,27 +166,43 @@
 
         <!-- Logo bar -->
         <div class="clogo">
-          <div class="container">
             <div class="col-12">
               <div class="row" style="padding: 10px;">
                 <div class="col-md-6 col-12">
-                  <a class="navbar-brand d-flex align-items-center" href="index.php" style="">
-                    <img src="images/logo/download.png" alt="" />
-                    <div class="main_title" style="">
-                      <h2 class="bcg_title">BCG Vaccine Laboratory Chennai</h2>
-                      <h5 class="titbcg">
-                        Directorate General of Health Services(DGHS),<br>
-                        Ministry of Health and Family Welfare, Govt. of India
-                      </h5>
-                    </div>
-                  </a>
-                </div>
-                <div class="right-logo col-md-6 col-12" >
-                  <img class="dghs" src="images/logo/logo.png" alt="" style="margin-right: 10px;float: right;"/>
-                  <img class="dghs" src="images/logo/DGHS logo.png" alt="" style="margin-right: 10px;float: right;"/>
-                </div>
+                <a class="navbar-brand d-flex align-items-center" href="index.php" style="">
+                  <img src="images/logo/download.png" alt="" />
+                  <div style="margin-left: 10px;">
+                    <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
+                    <h5 class="titbcg">
+                      Directorate General of Health Services(DGHS),<br>
+                      Ministry of Health and Family Welfare, Govt. of India
+                    </h5>
+                  </div>
+                  <!-- <h5 class="titbcg two">
+                    </h5> -->
+                </a>
+              </div>
+              <div class="right-logo col-md-6 col-12" >
+                <img class="dghs" src="images/logo/logo.png" alt="" style="margin-right: 10px;float: right;"/>
               </div>
             </div>
+          </div>
+          <div class="container">
+            <!-- <div class="row d-flex align-items-start align-items-center px-3 px-md-0">
+              <div class="col-md-6 d-flex mb-2 mb-md-0">
+                <a class="navbar-brand d-flex align-items-center"
+                  href="index.php"
+                  ><img src="images/logo/download.png" alt="" />
+                  <h2 class="bcg_title">BCG Vaccine Laboratory, Chennai</h2>
+                  <h5 class="titbcg">
+                    Directorate General of Health Services(DGHS),
+                  </h5>
+                  <h5 class="titbcg two">
+                    Ministry of Health and Family Welfare, Govt. of India</h5>
+                </a>
+                <img class="dghs" src="images/logo/logo.png" alt="" />
+              </div>
+            </div> -->
           </div>
         </div>
         <!-- Header Content -->
@@ -290,15 +304,15 @@
                         <a href="production_chart.php" class="list_a">Production Process</a>
                       </li>
                       <li class="dropdown drop">
-                        <a href="supply_vaccine.php">Supply of BCG Vaccine</a>
-                          <!-- <ul class="dropdown-nav-1">
+                        <a href="#">Supply of BCG Vaccine <i class="fa fa-chevron-right"></i> </a>
+                          <ul class="dropdown-nav-1">
                             <li>
                               <a href="fy2021_22.php" class="list_a">FY 2021-2022</a>
                             </li>
                             <li>
                               <a href="fy2020_21.php" class="list_a">FY 2020-2021</a>
                             </li>
-                          </ul> -->
+                          </ul>
                       </li>
                     </ul>
                   </li>

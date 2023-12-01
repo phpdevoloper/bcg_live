@@ -43,7 +43,27 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody> 
-                                                    <?php $sql = "SELECT * FROM tenders"; 
+                                                    <?php 
+                                                        function formatSizeUnits($bytes)
+                                                        {
+                                                            if ($bytes >= 1073741824) {
+                                                                $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+                                                            } elseif ($bytes >= 1048576) {
+                                                                $bytes = number_format($bytes / 1048576, 2) . ' MB';
+                                                            } elseif ($bytes >= 1024) {
+                                                                $bytes = number_format($bytes / 1024, 2) . ' KB';
+                                                            } elseif ($bytes > 1) {
+                                                                $bytes = $bytes . ' bytes';
+                                                            } elseif ($bytes == 1) {
+                                                                $bytes = $bytes . ' byte';
+                                                            } else {
+                                                                $bytes = '0 bytes';
+                                                            }
+
+                                                            return $bytes;
+                                                        }
+
+                                                          $sql = "SELECT * FROM tenders"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           $i=1;
@@ -55,7 +75,7 @@
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['date_of_announce']));?></td>
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y", strtotime($value['date_of_closed']));?></td>
                                                         <td class="sorting_1"><a href="uploads/tenders/<?php echo $value['tenders_notice'];?>" target="_blank"><img class="ficon" src="assets/img/pdf.png" alt="">view
-                                                         (<?php echo $file_size = round($value['file_size'] / 1024, 2).'KB';?>)</a></td>
+                                                         (<?php echo $file_size = formatSizeUnits($value['file_size']);?>)</a></td>
                                                         <td class="sorting_1"><?php echo $t = date("d-m-Y h:i:s", strtotime($value['created_date']));?></td>
                                                         <td>
                                                             <div class="form-button-action">

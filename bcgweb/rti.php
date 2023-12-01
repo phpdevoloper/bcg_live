@@ -68,13 +68,13 @@ include('inc/dbconnection.php');
                                             <?php }else{?>
                                                 <h5 class="mb-0">
                                                     <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
-                                                    <?php echo $value['sub_rti_name']; ?>
+                                                    <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>
                                             <?php } ?>
                                     <?php } ?>
                                     </div>
-                                    <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $i;?>-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
+                                    <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
                                         <div class="card-body">
                                             <div id="accordion-<?php echo $i;?>-<?php echo $b;?>">
                                                 <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."' order by subs_rti_id asc"; 

@@ -304,22 +304,4 @@ $(document).ready(function () {
     nav: true,
     items: 1,
   });
-
-  $(document).on("click", ".link", function (e) {
-    e.preventDefault();
-    var getURL_en = this.href;
-    Swal.fire({
-      title: 'BCGVL',
-      text: "You are being redirected to an external website. Please note that BCG Vaccine Laboratory cannot be held responsible for external websites content & privacy policies.",
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Ok'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.open(getURL_en);
-      }
-    })
-  });
-
 });

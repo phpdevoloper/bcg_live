@@ -20,13 +20,13 @@ include('inc/dbconnection.php');
             <li class=""><a href="director_desk.php">Products</a></li>
         </ul>
     </section>
-    <div class="container-fuid">
+    <div class="container">
         <div class="section">
             <h3 class="text-center txt" style="color: #299adc;">PRODUCT DETAILS</h3>
         </div>
         <div class="row">
             <!-- About Content -->
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="section_title">
                 </div>
                 <section id="about">
@@ -44,7 +44,7 @@ include('inc/dbconnection.php');
                     </div>
                 </section>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="testimonial-item">
                     <div>
                         <div class="pro_title">

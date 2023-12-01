@@ -26,7 +26,7 @@ include('inc/dbconnection.php');
                         $res = pg_query($db,$sql);
                         $result = pg_fetch_all($res);
                         foreach($result as $value){?>
-                        <?php echo html_entity_decode($value['div_content'])??'Under Construction';?>
+                        <?php echo html_entity_decode($value['div_content']); ?>
                         <?php } ?>
                 </div>
             </section>

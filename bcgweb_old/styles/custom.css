@@ -1,0 +1,39 @@
+.rti_complaint {
+  padding-top: 46px;
+}
+
+.rec_thead {
+  background: #a2dcfd;
+  vertical-align: middle;
+}
+
+.dark {
+  background-color: black;
+  color: azure;
+}
+
+.dropdown-nav-1 {
+  display: none;
+  opacity: 1;
+  top: 63px;
+  transition: transform 0.3s cubic-bezier(0.88, -0.72, 0, 1), opacity 0.3s ease-in-out;
+  transform: translateY(-4rem);
+  list-style: none;
+  margin: 0px 216px;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  background: white;
+}
+.dropdown-nav-1 li{
+  padding: 0;
+}
+.drop:hover .dropdown-nav-1{
+  display: block;
+}
+.dropdown-nav-1 ul li:not(:first-child){
+  margin-left: 0px !important;
+}
+i.fa.fa-chevron-right {
+  padding-left: 14px;
+}

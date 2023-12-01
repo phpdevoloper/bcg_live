@@ -5,35 +5,36 @@
       <div class="row">
         <!-- Footer - Links -->
         <div class="col-lg-4 footer_col">
-          <div class="footer_about">
-            <div class="footer_title">Contact Us</div>
-            <div class="footer_about_text">
-              <a href=""
-                ><p>
-                  <i class="fas fa-map-marked-alt"></i>, BCG Vaccine
-                  Laboratory,<br> Guindy Institutional Area, Guindy,<br> 
-                  Chennai, Tamil Nadu 600032
-                </p>
-              </a>
-            </div>
-            <ul class="footer_about_list">
+          <div class="footer_links footer_column">
+            <div class="footer_title">Useful Links</div>
+            <ul>
               <li>
-                <div class="footer_about_icon">
-                  <img src="images/phone-call.svg" alt="" />
-                </div>
-                <span>044 - 22500476, 044 - 22501189</span>
+                <a href="https://www.mohfw.gov.in/"
+                  >Ministry of Health and Family Welfare (MoHFW)</a
+                >
               </li>
               <li>
-                <div class="footer_about_icon">
-                  <img src="images/envelope.svg" alt="" />
-                </div>
-                <span>bcgvl.tnchn@nic.in</span>
+                <a href="https://dghs.gov.in/"
+                  >Directorate General of Health Services (DGHS)</a
+                >
+              </li>
+              <li>
+                <a href="http://nhm.gov.in/">National Health Mission</a>
+              </li>
+              <li>
+                <a href="https://www.nhp.gov.in/"
+                  >National Health Portal</a
+                >
+              </li>
+              <li>
+                <a href="https://www.tbcindia.nic.in/"
+                  >Central Tuberculosis Division, MoHFW</a
+                >
               </li>
             </ul>
           </div>
         </div>
-
-        <div class="col-lg-4 footer_col quick">
+        <div class="col-lg-4 footer_col">
           <div class="footer_links footer_column">
             <div class="footer_title">Quick Links</div>
             <ul>
@@ -49,31 +50,29 @@
 
         <!-- Footer - News -->
         <div class="col-lg-4 footer_col">
-          <div class="footer_links footer_column">
-            <div class="footer_title">Useful Links</div>
-            <ul>
+          <div class="footer_about">
+            <div class="footer_title">Contact Us</div>
+            <div class="footer_about_text">
+              <a href=""
+                ><p>
+                  <i class="fas fa-map-marked-alt"></i> , BCG Vaccine
+                  Laboratory,Guindy Industrial Estate, Guindy
+                  Institutional Area, Guindy, Chennai, Tamil Nadu 600032
+                </p>
+              </a>
+            </div>
+            <ul class="footer_about_list">
               <li>
-                <a href="https://www.mohfw.gov.in/" class="link"
-                  >Ministry of Health and Family Welfare (MoHFW)</a
-                >
+                <div class="footer_about_icon">
+                  <img src="images/phone-call.svg" alt="" />
+                </div>
+                <span>044 - 22500476, 044 - 22501189</span>
               </li>
               <li>
-                <a href="https://dghs.gov.in/" class="link"
-                  >Directorate General of Health Services (DGHS)</a
-                >
-              </li>
-              <li>
-                <a href="http://nhm.gov.in/" class="link">National Health Mission</a>
-              </li>
-              <li>
-                <a href="https://www.nhp.gov.in/" class="link"
-                  >National Health Portal</a
-                >
-              </li>
-              <li>
-                <a href="https://www.tbcindia.nic.in/" class="link"
-                  >Central Tuberculosis Division, MoHFW</a
-                >
+                <div class="footer_about_icon">
+                  <img src="images/envelope.svg" alt="" />
+                </div>
+                <span>bcgvl.tnchn@nic.in</span>
               </li>
             </ul>
           </div>
@@ -152,7 +151,13 @@
               <li>
                 <a href=""
                   >Last Updated :
-                  <?php echo date("d-m-Y", time()); ?></a
+                  <script>
+                    let today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth() + 1;
+                    var yyyy = today.getFullYear();
+                    document.write(dd + "/" + mm + "/" + yyyy);
+                  </script></a
                 >
               </li>
             </ul>
@@ -163,9 +168,9 @@
   </div>
 </footer>
 </div>
+<?php echo "dfd"; ?>
 <script src="plugins/jquery-3.6.0/dist/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="plugins/dataTables/datatables.min.js"></script>
-<script type="text/javascript" charset="utf8" src="js/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
 <script type="text/javascript" src="plugins/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
@@ -255,27 +260,6 @@ $(document).on("click", ".filter-option li a", function () {
     $(".item-slider").slick("slickUnfilter");
   }
 });
-
-  $('.image-popup-vertical-fit').magnificPopup({
-        type: 'image',
-      mainClass: 'mfp-with-zoom', 
-      gallery:{
-                enabled:true
-            },
-    
-      zoom: {
-        enabled: true, 
-    
-        duration: 300, // duration of the effect, in milliseconds
-        easing: 'ease-in-out', // CSS transition easing function
-    
-        opener: function(openerElement) {
-    
-          return openerElement.is('img') ? openerElement : openerElement.find('img');
-      }
-    }
-    
-  });
 });
 </script>
 </body>

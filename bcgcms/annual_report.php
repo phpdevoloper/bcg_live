@@ -127,7 +127,7 @@ if(isset($_SESSION['user'])){
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $sql = "SELECT * FROM documents_bcg where doc_cate = 'ANNUAL' order by doc_id"; 
+                                                    <?php $sql = "SELECT * FROM documents_bcg where doc_cate = 'ANNUAL' and report_status = 'L' order by doc_id"; 
                                                           $res = pg_query($db, $sql);
                                                           $result = pg_fetch_all($res);
                                                           foreach ($result as $value) {
@@ -292,23 +292,8 @@ if(isset($_SESSION['user'])){
                     contentType: false,
                     processData: false,
                     success: function (response) {
-                    var res = $.parseJSON(response);
-                    if (
-                        typeof res.extension != "undefined" &&
-                        res.extension !== null
-                    ) {
-                        swal({
-                        title: "Warning!",
-                        text: res.extension,
-                        icon: "warning",
-                        });
-                    } else if (typeof res.size != "undefined" && res.size !== null) {
-                        swal({
-                        title: "Warning!",
-                        text: res.size,
-                        icon: "warning",
-                        });
-                    } else if (response == 1) {
+                    // var res = $.parseJSON(response);
+                     if (response == 1) {
                         swal({
                         title: "Added!",
                         text: "New Report added and uploaded successfully!",

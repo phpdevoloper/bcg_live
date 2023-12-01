@@ -10,7 +10,7 @@
         data-ride="carousel"
         >
         <?php
-         $sql = 'SELECT * FROM sliders order by created_at DESC';
+         $sql = 'SELECT * FROM sliders order by slider_id';
          $exe = pg_query($db,$sql);
          $res = pg_fetch_all($exe);
          $counter = 0;?>
@@ -69,7 +69,7 @@
         <!-- Service -->
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service ft">
+                <div id="servhov" class="service">
                     <h5 class="title_card trans_200">ABOUT BCGVL</h5>
                     <div class="container">
                         <?php
@@ -77,30 +77,23 @@
                             $exe = pg_query($db,$sql);
                             $res = pg_fetch_all($exe);
                         ?>
-                        <?php 
-                        function first($response){
-                            $pos = strpos($response, '.');
-                            return substr($response, 0, $pos+1);
-                        }
-                        echo first($res[0]['content_description']);
-                        
-                        ?>
+                        <?php echo $res[0]['content_description'];?>
                     </div>
                 </div>
-                <div class="card-footer1">
+                <div class="read_more">
                     <a href="about_bcg.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </div>
         <!-- Service -->
-        <div class="col-lg-4 col-md-6 service_col dir">
+        <div class="col-lg-4 col-md-6 service_col">
                 <?php
                     $sql = "select * from director_desk";
                     $exe = pg_query($db,$sql);
                     $res = pg_fetch_all($exe);
                 ?>
             <div class="card">
-                <div id="servhov" class="service text-center trans_200 ft-b">
+                <div id="servhov" class="service text-center trans_200">
                     <h5 class="title_card trans_200">DIRECTOR</h5>
                     <div class="">
                         <img class="svg director text-center" src="<?php echo $res[0]['director_photo'];?>" alt=""/>
@@ -110,14 +103,14 @@
                         <h4><?php echo $res[0]['director_qualification'];?></h4>
                     </div>
                 </div>
-                <div class="card-footer1">
+                <div class="read_more">
                     <a href="director_desk3.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service whats ft">
+                <div id="servhov" class="service whats">
                     <h5 class="title_card">WHAT'S NEW</h5>
                     <div class="container">
                         <marquee class="what_new" onmouseover="this.stop()" onmouseout="this.start()" width="100%" direction="up">
@@ -139,7 +132,7 @@
                         </marquee>
                     </div>
                 </div>
-                <div class="card-footer1">
+                <div class="read_more">
                     <a href="whats_new.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -150,29 +143,41 @@
     <div id="cards_landscape_wrap-2">
         <h3 class="h_head">OUR PRODUCTS</h3>
         <div class="container">
-            <div class="card-flyer">
-                <div class="card">
-                    <div class="row services_row">
-                        <div class="col-lg-3 col-md-3 service_col img-grid text-center">
-                            <img src="images/BCG.png" alt="">
+            <div class="row services_row">
+                <div class="col-lg-4 col-md-4 service_col">
+                    <div id="owl-carousel" class="owl-carousel owl-theme">
+                        <div class="itm">
+                            <div class="image-box">
+                                <img src="images/BCG.png" alt="">
+                            </div>
                         </div>
-                        <div class="col-lg-8 col-md-8 service_col">
+                        <div class="itm">
+                            <div class="image-box">
+                                <img src="images/product1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 service_col">
+                    <div class="card-flyer">
+                        <div class="card">
                             <div class="text-box">
+                                <!-- <div class="image-box">
+                                    <img src="images/BCG.png" alt=""/>
+                                    <img src="images/product2.png" alt="" />
+                                </div> -->
                                 <div class="text-container">
-                                    <?php $sql= "SELECT * FROM product ORDER BY product_id ASC ";
-                                    $res = pg_query($db,$sql);
-                                    $result = pg_fetch_all($res);
-                                    foreach($result as $value){ //var_dump($value);?>
                                     <h6 class="text-center">
-                                        <?php echo $value['product_name']; ?>
+                                        BCG Vaccine I.P. (10 dose/vial) & Diluent (Sodium chloride I.P.)
                                     </h6>
                                     <p>
-                                    <?php 
-                                   $small = substr($value['product_desc'], 0, 300);
-                                   echo $small;
-                                  ?>
+                                        Freeze dried BCG Vaccine is a preparation of live
+                                        bacteria derived from the culture of attenuated strain
+                                        of Mycobacterium bovis BCG. It is used for the
+                                        prevention of childhood tuberculosis. The vaccine
+                                        complies with the requirements of Indian Pharmacopoeia
+                                        2010.
                                     </p>
-                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="read_more">
@@ -185,13 +190,12 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row services_row">
         <!-- Service -->
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service sertwo">
+                <div id="servhov" class="service">
                     <h5 class="title_card trans_200">EVENTS</h5>
                     <div class="container">
                         <ul class="cont">
@@ -210,14 +214,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer1">
+                <div class="read_more">
                     <a href="events_details.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 service_col">
             <div class="card">
-                <div id="servhov" class="service sertwo">
+                <div id="servhov" class="service">
                     <h5 class="title_card trans_200">RECRUITMENTS</h5>
                     <div class="container">
                         <ul class="cont">
@@ -236,7 +240,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer1">
+                <div class="read_more">
                     <a href="recruitments.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
@@ -244,7 +248,7 @@
         <div class="col-lg-4 col-md-6 service_col">
             <a href="">
                 <div class="card">
-                    <div id="servhov" class="service sertwo">
+                    <div id="servhov" class="service">
                         <h5 class="title_card trans_200">TENDERS</h5>
                         <div class="container">
                             <ul class="cont">
@@ -263,7 +267,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card-footer1">
+                    <div class="read_more">
                         <a href="tenders.php" class="more_class">More<i class="fa fa-long-arrow-alt-right"></i></a>
                     </div>
                 </div>
@@ -285,36 +289,81 @@
         </ul>
         <div class="slider-wrapper">
             <ul class="item-slider">
-                <?php 
-                   $sql = "SELECT * FROM photo_gallery ORDER BY created_at DESC";
-                   $res = pg_query($db,$sql);
-                   $gallery = pg_fetch_all($res);
-                   foreach($gallery as $value){ ?>
-                        <li class="magnific-img" data-match="panda">
-                            <a class="image-popup-vertical-fit" href="uploads/gallery/photo/<?php echo $value["photo_file"];?>" style="color:none;">
-                                <img src="uploads/gallery/photo/<?php echo $value["photo_file"];?>"/>
-                            </a>
-                        </li>
-                <?php } ?>
-                <?php 
-                   $sql = "SELECT * FROM video_gallery ORDER BY created_at DESC";
-                   $res = pg_query($db,$sql);
-                   $gallery = pg_fetch_all($res);
-                   foreach($gallery as $value){ ?>
-                <li class="magnific-img" data-match="cat">
-                    <a class="image-popup-vertical-fit" href="<?php echo $value["photo_file"];?>">
-                        <iframe width="100%" height="157" src="<?php echo $value["photo_file"];?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                        </iframe>
+                <li class="magnific-img" data-match="panda">
+                    <a class="image-popup-vertical-fit" href="images/gallery/1DSCN0532.jpg" style="color:none;">
+                    <img src="images/gallery/1DSCN0532.jpg" />
+                </a>
+                </li>
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160050.jpg">
+                    <img src="images/gallery/20210121_160050.jpg" />
+                    
+                </a>
+                </li>
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/20210121_160106.jpg">
+                    <img src="images/gallery/20210121_160106.jpg" />
+                    
+                </a>
+                </li>
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/2DSCN0540.jpg">
+                    <img src="images/gallery/2DSCN0540.jpg" />
+                    
+                </a>
+                </li>
+                <li class="magnific-img" data-match="panda">
+                <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
+                    <img src="images/gallery/3DSCN0534.jpg" />
+                    
+                </a>
+                </li>
+                <li class="magnific-img" data-match="panda">
+                    <a class="image-popup-vertical-fit" href="images/gallery/3DSCN0534.jpg">
+                        <img src="images/gallery/3DSCN0534.jpg" />
+                        
                     </a>
                 </li>
-                <?php } ?>
+                <li class="magnific-img" data-match="cat">
+                    <a class="image-popup-vertical-fit" href="https://www.youtube.com/embed/brMdT4EiBQM">
+                        <iframe width="100%" height="157" src="https://www.youtube.com/embed/brMdT4EiBQM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                        
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="slider-controls">
-            <span class="prevSlide"><i class="fas fa-arrow-left"></i></span>
-            <span class="nextSlide"><i class="fas fa-arrow-right"></i></span>
-            <a href="photo_gallery.php" class="view-all float-right">View All</a>
+        <span class="prevSlide"
+            ><i class="fas fa-arrow-left"></i></span
+        ><span class="nextSlide"
+            ><i class="fas fa-arrow-right"></i></span>
         </div>
     </div>
 </div>
 <?php include('inc/footer.php'); ?>
+<script>
+    $(document).ready(function(){
+    $('.image-popup-vertical-fit').magnificPopup({
+        type: 'image',
+      mainClass: 'mfp-with-zoom', 
+      gallery:{
+                enabled:true
+            },
+    
+      zoom: {
+        enabled: true, 
+    
+        duration: 300, // duration of the effect, in milliseconds
+        easing: 'ease-in-out', // CSS transition easing function
+    
+        opener: function(openerElement) {
+    
+          return openerElement.is('img') ? openerElement : openerElement.find('img');
+      }
+    }
+    
+    });
+    
+    });
+</script>

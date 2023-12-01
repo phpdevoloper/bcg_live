@@ -23,10 +23,11 @@ include('inc/dbconnection.php');
             <?php $sql = "select * from director_desk"; 
                                 $res = pg_query($db,$sql);
                                 $result = pg_fetch_all($res);
+   var_dump($result);die;
                                 foreach($result as $value){
-                                //    var_dump($value['position_held']);die;
+                                
                         ?>
-                <div class="col-lg-4" style="background: #f7f9fa;">                     
+                <div class="col-lg-4 mb-3" style="background: #f7f9fa;">                     
                     <div class="practice-area-wrap">
                         <div class="outer">
                             <img src="<?php echo $value['director_photo'];?>" class="img-flu" alt="" />

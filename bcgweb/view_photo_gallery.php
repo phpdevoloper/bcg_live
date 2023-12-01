@@ -42,19 +42,16 @@ include('inc/checkval.php');
                     $result = pg_fetch_all($exe);
                     foreach($result as $value){
                 ?>
-                <div class="col-4">
-                    <div class="gallery-image magnific-img">
-                        <a class="image-popup-vertical-fit" href="uploads/gallery/photo/<?php echo $value['photo_file']; ?>">
-                            <div class="img-box">
-                                <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
-                            
-                                <div class="transparent-box">
-                                    <div class="caption">
-                                        <p><?php echo $value['photo_caption'];?></p>
-                                    </div>
-                                </div> 
-                            </div>
-                        </a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-image btn-gallery">
+                        <div class="img-box">
+                            <img src="uploads/gallery/photo/<?php echo $value['photo_file']; ?>" alt="" />
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p><?php echo $value['photo_caption'];?></p>
+                                </div>
+                            </div> 
+                        </div>
                     </div>
                 </div>
                 <?php }?>
@@ -64,27 +61,21 @@ include('inc/checkval.php');
 </div>
 <?php include('inc/simple_footer.php'); ?>
 <script type="application/javascript">
-    $(document).ready(function(){
-        $('.image-popup-vertical-fit').magnificPopup({
-            type: 'image',
-        mainClass: 'mfp-with-zoom', 
-        gallery:{
-                    enabled:true
-                },
+    $(document).ready(function() {
+    
+    $('.btn-gallery').on('click', function(event) {
+        event.preventDefault();
         
-        zoom: {
-            enabled: true, 
-        
-            duration: 300, // duration of the effect, in milliseconds
-            easing: 'ease-in-out', // CSS transition easing function
-        
-            opener: function(openerElement) {
-        
-            return openerElement.is('img') ? openerElement : openerElement.find('img');
-        }
-        }
-        
-        });
+        var gallery = $(this).attr('href');
+    
+        $(gallery).magnificPopup({
+      delegate: 'a',
+            type:'image',
+            gallery: {
+                enabled: true
+            }
+        }).magnificPopup('open');
+    });
     
     });
 </script>

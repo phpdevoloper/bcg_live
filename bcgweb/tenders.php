@@ -75,6 +75,7 @@ include('inc/dbconnection.php');
 <script>
     $(document).ready(function () {
         $("#example").DataTable({
+            responsive: true,
             lengthMenu: [
                 [10, 25, 50, -1],
                 [10, 25, 50, "All"],

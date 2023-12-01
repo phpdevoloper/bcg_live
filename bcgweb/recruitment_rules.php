@@ -37,7 +37,7 @@ include('inc/dbconnection.php');
                     </div>
                     <div id="collapse-<?php echo $i;?>" class="collapse show" data-parent="#accordion" aria-labelledby="heading-<?php echo $i;?>">
                         <div class="card-body">
-                            <div id="accordion-1">
+                            <div id="accordion-<?php echo $i;?>">
                                 <?php $sql = "SELECT * FROM mst_sub_rti WHERE mst_rti_id = '".$value['rti_id']."'"; 
                                     $exe = pg_query($db,$sql);
                                     $row = pg_fetch_all($exe);
@@ -59,7 +59,7 @@ include('inc/dbconnection.php');
                                             </h5>
                                     <?php } ?>
                                     </div>
-                                    <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-1" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
+                                    <div id="collapse-<?php echo $i;?>-<?php echo $b;?>" class="collapse" data-parent="#accordion-<?php echo $b;?>" aria-labelledby="heading-<?php echo $i;?>-<?php echo $b;?>">
                                         <div class="card-body">
                                             <div id="accordion-<?php echo $i;?>-<?php echo $b;?>">
                                                 <?php $sql = "SELECT * FROM mst_subs_rti WHERE mst_sub_id = '".$value['sub_rti_id']."' order by subs_rti_id asc"; 
