@@ -9,9 +9,9 @@ include('inc/dbconnection.php');
 <div class="about">
     <section>
         <ul class="breadcrumb wizard">
-            <li class="completed"><a href=""><i class="fa fa-home"></i></a></li>
-            <li class="completed"><a href="javascript:void(0);">RTI</a></li>
-            <li class=""><a href="contact.php">RTI Proactive Disclosure</a></li>
+            <li class="completed"><a rel='noopener noreferrer' href=""><i class="fa fa-home"></i></a></li>
+            <li class="completed"><a rel='noopener noreferrer' href="javascript:void(0);">RTI</a></li>
+            <li class=""><a rel='noopener noreferrer' href="contact.php">RTI Proactive Disclosure</a></li>
         </ul>
     </section>
     <div class="section">
@@ -30,7 +30,7 @@ include('inc/dbconnection.php');
                 <div class="card" style="border-color: green; margin-bottom: 30px;">
                     <div class="card-header" id="heading-<?php echo $i;?>">
                     <h5 class="mb-0">
-                        <a role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
+                        <a role="button" data-toggle="collapse" rel='noopener noreferrer' href="#collapse-<?php echo $i;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>">
                         <?php echo $value['rti_name'];?>
                         </a>
                     </h5>
@@ -47,7 +47,7 @@ include('inc/dbconnection.php');
                                     <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>">
                                         <?php if ($value['mst_rti_id'] == '3') { ?>
                                             <h5 class="exe">
-                                                <a href="<?php echo $value['rti_upload'];?>">
+                                                <a rel='noopener noreferrer' href="<?php echo $value['rti_upload'];?>">
                                                 <?php echo $value['sub_rti_name'];?>
                                                 </a>
                                             </h5>
@@ -55,19 +55,19 @@ include('inc/dbconnection.php');
                                             if($value['file_type'] == 'pdf'){
                                             ?>
                                                 <h5 class="ex">
-                                                    <a href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank">
+                                                    <a rel='noopener noreferrer' href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank">
                                                     <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>
                                             <?php  }else if($value['file_type'] == 'Url'){?>
                                                 <h5 class="exe">
-                                                    <a href="<?php echo $value['rti_upload'];?>" target="_blank">
+                                                    <a rel='noopener noreferrer' href="<?php echo $value['rti_upload'];?>" target="_blank">
                                                     <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>
                                             <?php }else{?>
                                                 <h5 class="mb-0">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
+                                                    <a class="collapsed" role="button" data-toggle="collapse" rel='noopener noreferrer' href="#collapse-<?php echo $i;?>-<?php echo $b;?>" aria-expanded="false" aria-controls="collapse-<?php echo $i;?>-<?php echo $b;?>">
                                                     <?php echo $value['sub_rti_name'];?>
                                                     </a>
                                                 </h5>
@@ -86,11 +86,11 @@ include('inc/dbconnection.php');
                                                 <div class="card-header" id="heading-<?php echo $i;?>-<?php echo $b;?>-<?php echo $c;?>">
                                                     <?php if($value['file_type'] == 'pdf'){ ?>
                                                         <h5 class="ex">
-                                                           <a href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                           <a rel='noopener noreferrer' href="uploads/RTI/<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
                                                         </h5>
                                                            <?php }else{ ?>
                                                         <h5 class="exe">
-                                                            <a href="<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
+                                                            <a rel='noopener noreferrer' href="<?php echo $value['rti_upload'];?>" target="_blank"><?php echo $value['subs_rti_name'];?></a>
                                                         </h5>
                                                        <?php } ?>
                                                 </div>
